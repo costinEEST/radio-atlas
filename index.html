@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="text-scale" content="scale">
+  <meta name="theme-color" content="#f4f1e8">
+  <meta name="description" content="Radio Atlas: catalog independent de posturi radio, frecvențe FM și opțiuni de ascultare online.">
+  <title>Radio Atlas — frecvențe locale și radio online</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog-title">Sari la catalog</a>
+  <header class="site-header"><a class="brand" href="./" aria-label="Radio Atlas — pagina principală"><span class="brand-mark" aria-hidden="true">◉</span>radio atlas<span aria-hidden="true">.</span></a><p>Un catalog. O lume de frecvențe.</p></header>
+  <main>
+    <section class="hero" aria-labelledby="page-title"><div><p class="eyebrow">Pe internet. Pe unde. Pe drum.</p><h1 id="page-title">Găsește-ți următoarea <em>frecvență.</em></h1><p class="intro">Explorează radiouri, află ce difuzează și alege cum le asculți — în browser sau la aparat.</p></div><div class="dial-art" aria-hidden="true"><span>FM / AM / WEB</span></div></section>
+    <form class="controls" role="search" aria-label="Caută și filtrează posturile" id="filters">
+      <label class="search-field" for="search"><span>Caută în catalog</span><input id="search" name="search" type="search" placeholder="Post, localitate, frecvență sau conținut…" autocomplete="off"></label>
+      <div class="selects">
+        <label for="country">Țară<select id="country" name="country" autocomplete="off"><option value="">Toate țările</option></select></label>
+        <label for="city">Localitate<select id="city" name="city" autocomplete="off"><option value="">Toate localitățile</option></select></label>
+        <label for="category">Conținut<select id="category" name="category" autocomplete="off"><option value="">Orice conținut</option></select></label>
+        <button class="text-button" type="reset">Resetează</button>
+      </div>
+    </form>
+    <section id="catalog" class="catalog" aria-labelledby="catalog-title">
+      <header class="catalog-header"><div><p class="eyebrow">Catalog</p><h2 id="catalog-title" tabindex="-1">Posturi verificate</h2></div><div class="view-filters" role="group" aria-label="Tipul posturilor afișate"><button type="button" data-view="all" aria-pressed="true">Toate</button><button type="button" data-view="favorites" aria-pressed="false">Favorite</button><button type="button" data-view="online" aria-pressed="false">Online</button><button type="button" data-view="fm" aria-pressed="false">FM</button><button type="button" data-view="am" aria-pressed="false">AM</button></div><p id="result-count" class="result-count" aria-live="polite">1 post</p></header>
+      <ul id="stations" aria-busy="true"></ul>
+      <div class="empty-state" id="empty-state" hidden><h3>Niciun post găsit</h3><p>Schimbă termenul de căutare sau filtrele selectate.</p><button type="button" id="show-all">Arată toate posturile</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><strong>radio-atlas</strong><span>Catalog independent · Favorite salvate local</span></footer>
+  <output class="toast" id="toast" aria-live="polite" hidden></output>
+  <template id="station-template">
+    <li class="station-item"><article class="station">
+      <header class="station-header"><div class="station-logo" data-field="mark" aria-hidden="true"></div><hgroup><h3 data-field="name"></h3><p data-field="location"></p></hgroup><button class="favorite" type="button" aria-pressed="false"><span aria-hidden="true">☆</span></button></header>
+      <div class="station-content"><ul class="tags" data-field="tags" aria-label="Caracteristici"></ul><p data-field="description"></p><div class="frequency"><p><strong><span data-field="frequency"></span> <span data-field="band"></span></strong><small data-field="frequency-location"></small></p><button type="button" data-action="copy-frequency">Copiază frecvența</button></div><p class="recommendation">Recomandat de <a data-field="recommended-by" target="_blank" rel="noopener noreferrer"></a></p></div>
+      <footer class="station-actions"><a class="primary-action" data-field="stream" target="_blank" rel="noopener noreferrer">Deschide fluxul direct</a><a data-field="listen-page" target="_blank" rel="noopener noreferrer">Ascultă pe MyRadioOnline</a></footer>
+      <details><summary>Despre post, contact și surse</summary><div class="details-content"><section><h4>Ce difuzează</h4><p data-field="programming"></p></section><section><h4>Flux audio direct</h4><p><code data-field="stream-url"></code></p><p data-field="stream-note"></p><button type="button" data-action="copy-stream">Copiază URL-ul fluxului</button></section><section><h4>Istoric și contact</h4><p data-field="history"></p><address data-field="contact"></address></section><section><h4>Surse</h4><ul class="sources" data-field="sources"></ul><p class="verified" data-field="verified"></p><p><a data-field="official" target="_blank" rel="noopener noreferrer">Site oficial</a></p></section></div></details>
+    </article></li>
+  </template>
+</body>
+</html>

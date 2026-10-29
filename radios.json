@@ -1,0 +1,126 @@
+{
+  "categories": {
+    "generalist": "Generalist",
+    "stiri": "Știri și informații",
+    "muzica": "Muzică",
+    "clasica": "Muzică clasică",
+    "jazz": "Jazz"
+  },
+  "stations": [
+    {
+      "id": "metronom-fm",
+      "name": "Metronom FM",
+      "mark": "m.",
+      "country": { "code": "ro", "name": "România" },
+      "city": { "slug": "ramnicu-valcea", "name": "Râmnicu Vâlcea" },
+      "county": "Vâlcea",
+      "language": "română",
+      "modes": ["online", "fm"],
+      "categories": ["generalist", "stiri", "muzica"],
+      "tags": ["Online", "FM", "Generalist", "În română"],
+      "description": "Muzică variată, știri și informații pentru comunitatea locală. Post local înființat în 1992.",
+      "frequency": {
+        "value": "89.0",
+        "display": "89,0",
+        "band": "MHz FM"
+      },
+      "recommendation": {
+        "name": "Teodor Baconschi",
+        "url": "https://www.facebook.com/teodor.baconschi.3/posts/pfbid0qx1oNCZMyZXq9N55pcVbwF1uLtTppyUbxSgQrx3YX2inAkvMJTrJas9TxG9vy6Gvl"
+      },
+      "listening": {
+        "stream": "http://metronom-fm.ro:8000/stream.ogg",
+        "page": "https://myradioonline.ro/metronom-fm",
+        "official": "https://www.metronom-fm.ro/",
+        "stream_note": "Fluxul este servit prin HTTP. O pagină publicată prin HTTPS nu îl poate reda încorporat în mod sigur; folosește linkul direct sau serviciul extern."
+      },
+      "programming": "Format generalist, cu muzică, știri și informații locale. Catalogul nu are încă o grilă actualizată sau date „acum în emisie”.",
+      "history": {
+        "first_broadcast": "25 iulie 1992",
+        "operator": "Radio Metronom SRL"
+      },
+      "contact": {
+        "address": "Str. Carol I nr. 1, et. III, Râmnicu Vâlcea, Vâlcea",
+        "phones": [
+          { "display": "0250 736 788", "value": "+40250736788" },
+          { "display": "0723 540 501", "value": "+40723540501" }
+        ],
+        "email": "metronom.co@gmail.com"
+      },
+      "verified": "29 octombrie 2026",
+      "sources": [
+        {
+          "label": "Metronom FM — contact și istoric",
+          "url": "https://metronom-fm.ro/index-6.html"
+        },
+        {
+          "label": "CNA — licență, frecvență și format",
+          "url": "https://media.cna.ro/Licente_audiovizuale_pentru_difuzarea_serviciilor_de_programe_Radio_SITE_0e8a7a7a87.pdf"
+        },
+        {
+          "label": "RadioOnline — profil și slogan",
+          "url": "https://radioonline.ro/metronom-fm"
+        }
+      ]
+    },
+    {
+      "id": "radio-romania-muzical",
+      "name": "Radio România Muzical",
+      "mark": "RRM",
+      "country": { "code": "ro", "name": "România" },
+      "city": { "slug": "bucuresti", "name": "București" },
+      "county": "municipiul București",
+      "language": "română",
+      "modes": ["online", "fm"],
+      "categories": ["muzica", "clasica", "jazz"],
+      "tags": ["Online", "FM", "Muzică clasică", "Jazz", "În română"],
+      "description": "Postul public dedicat muzicii clasice și jazzului. Emite pe 104,8 FM în București, 97,6 FM regional și 95,4 FM în Iași.",
+      "frequency": {
+        "value": "104.8",
+        "display": "104,8",
+        "band": "MHz FM"
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/romania-muzical",
+        "page": "https://myradioonline.ro/radio-romania-muzical",
+        "official": "https://www.romania-muzical.ro/",
+        "stream_note": "Flux HTTPS direct. Serverul a răspuns cu succes la verificarea din browser; pornirea redării depinde de suportul audio și de disponibilitatea serverului."
+      },
+      "programming": "Muzică clasică, operă, muzică simfonică și de cameră, jazz, informații muzicale și transmisiuni directe de pe scene naționale și internaționale.",
+      "history": {
+        "first_broadcast": "24 martie 1997",
+        "operator": "Societatea Română de Radiodifuziune"
+      },
+      "contact": {
+        "address": "Str. General Berthelot nr. 60–64, București, 010165",
+        "phones": [
+          { "display": "021 303 15 16", "value": "+40213031516" }
+        ],
+        "email": "muzical@radioromania.ro"
+      },
+      "verified": "29 octombrie 2026",
+      "sources": [
+        {
+          "label": "Radio România Muzical — frecvențe și ascultare",
+          "url": "https://www.romania-muzical.ro/info/frecvente/1921"
+        },
+        {
+          "label": "Radio România Muzical — profil editorial",
+          "url": "https://www.romania-muzical.ro/info/despre-noi/1871"
+        },
+        {
+          "label": "Radio România — contact oficial",
+          "url": "https://www.srr.ro/contact/contact-id4856.html"
+        },
+        {
+          "label": "Radio România — opțiuni oficiale de streaming",
+          "url": "https://web.srr.ro/stream/playlist.htm?id=3&type=0"
+        },
+        {
+          "label": "MyRadioOnline — pagină de ascultare și program",
+          "url": "https://myradioonline.ro/radio-romania-muzical"
+        }
+      ]
+    }
+  ]
+}
