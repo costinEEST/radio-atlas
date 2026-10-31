@@ -154,6 +154,20 @@
     color: var(--muted);
     font-size: 1.05rem;
   }
+  .hero-tip {
+    max-inline-size: 38rem;
+    margin-block-start: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-inline-start: 0.3rem solid var(--accent);
+    border-radius: 0 0.6rem 0.6rem 0;
+    background: var(--surface);
+    font-size: 1.2rem;
+    line-height: 1.45;
+  }
+  .hero-tip a {
+    font-weight: 750;
+    white-space: nowrap;
+  }
   .dial-art {
     display: grid;
     place-items: center;
@@ -504,7 +518,7 @@
   }
   @media (pointer: coarse) {
     .recommendation a,
-    .footer-link a,
+    .hero-tip a,
     .station-actions a,
     .details-content a {
       display: inline-flex;
