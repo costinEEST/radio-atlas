@@ -504,6 +504,7 @@
   }
   @media (pointer: coarse) {
     .recommendation a,
+    .footer-link a,
     .station-actions a,
     .details-content a {
       display: inline-flex;
