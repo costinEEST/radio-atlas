@@ -121,6 +121,65 @@
           "url": "https://myradioonline.ro/radio-romania-muzical"
         }
       ]
+    },
+    {
+      "id": "kolozsvari-radio",
+      "name": "Kolozsvári Rádió",
+      "mark": "KR",
+      "country": { "code": "ro", "name": "România" },
+      "city": { "slug": "cluj-napoca", "name": "Cluj-Napoca" },
+      "county": "Cluj",
+      "language": "maghiară",
+      "modes": ["online", "fm", "am"],
+      "categories": ["generalist", "stiri", "muzica"],
+      "tags": ["Online", "FM", "AM", "Generalist", "În maghiară"],
+      "description": "Serviciul în limba maghiară al Radio Cluj, cu știri, cultură, muzică și informații pentru comunitate. Emite în Cluj-Napoca pe 98,8 FM și online.",
+      "frequency": {
+        "value": "98.8",
+        "display": "98,8",
+        "band": "MHz FM"
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/kolozsvari-radio",
+        "page": "https://www.kolozsvariradio.ro/elo-kolozsvari-radio/",
+        "official": "https://www.kolozsvariradio.ro/",
+        "stream_note": "Flux HTTPS direct publicat în playerul oficial. Redarea a pornit la verificarea din browser; disponibilitatea poate varia."
+      },
+      "programming": "Știri locale, naționale și internaționale, emisiuni culturale, interviuri și muzică, în principal în maghiară. Pe 98,8 FM, duminica între 07:00 și 07:20 este difuzată o emisiune în ucraineană. Pagina oficială de frecvențe indică și transmisii pe 909, 1593 și 1404 AM, în intervale orare limitate.",
+      "history": {
+        "first_broadcast": "15 martie 1954",
+        "operator": "Societatea Română de Radiodifuziune — Radio Cluj"
+      },
+      "contact": {
+        "address": "Str. Donath nr. 160, Cluj-Napoca, Cluj, 400293",
+        "phones": [
+          { "display": "0264 502 580", "value": "+40264502580" }
+        ],
+        "email": "radio@kolozsvariradio.ro"
+      },
+      "verified": "5 noiembrie 2026",
+      "sources": [
+        {
+          "label": "Kolozsvári Rádió — site oficial și programe",
+          "url": "https://www.kolozsvariradio.ro/"
+        },
+        {
+          "label": "Kolozsvári Rádió — ascultare live și flux oficial",
+          "url": "https://www.kolozsvariradio.ro/elo-kolozsvari-radio/"
+        },
+        {
+          "label": "Kolozsvári Rádió — frecvențe și limbi de emisie",
+          "url": "https://www.kolozsvariradio.ro/frekvenciak/"
+        },
+        {
+          "label": "Kolozsvári Rádió — contact",
+          "url": "https://www.kolozsvariradio.ro/kapcsolat/"
+        },
+        {
+          "label": "Kolozsvári Rádió — prima emisie, 15 martie 1954",
+          "url": "https://www.kolozsvariradio.ro/2026/03/15/72-eves-a-kolozsvari-radio/"
+        }
+      ]
     }
   ]
 }

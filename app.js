@@ -89,7 +89,7 @@ function createStation(station) {
   if (station.recommendation) setLink(recommendation, station.recommendation.url, station.recommendation.name);
   else recommendation.closest(".recommendation").remove();
   setLink(field(article, "stream"), station.listening.stream, "Deschide fluxul direct");
-  setLink(field(article, "listen-page"), station.listening.page, "Ascultă pe MyRadioOnline");
+  setLink(field(article, "listen-page"), station.listening.page, "Ascultă online");
   setLink(field(article, "official"), station.listening.official, "Site oficial");
   appendContact(field(article, "contact"), station);
 
