@@ -17,6 +17,8 @@
   button,
   input,
   select {
+    min-inline-size: 0;
+    max-inline-size: 100%;
     font: inherit;
   }
 }
@@ -166,7 +168,7 @@
   }
   .hero-tip a {
     font-weight: 750;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
   }
   .dial-art {
     display: grid;
@@ -197,6 +199,11 @@
     border: 1px solid var(--line);
     border-radius: 1rem;
     background: color-mix(in srgb, var(--surface) 75%, transparent);
+  }
+  .controls > *,
+  .selects > *,
+  .hero > * {
+    min-inline-size: 0;
   }
   .search-field {
     display: grid;
@@ -430,6 +437,10 @@
     color: var(--ink);
     font-size: 1rem;
   }
+  .details-content a {
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+  }
   .details-content p + p,
   .details-content p + button {
     margin-block-start: 0.6rem;
@@ -481,7 +492,7 @@
       display: none;
     }
     .hero {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .selects {
       grid-template-columns: repeat(2, 1fr);
@@ -494,15 +505,21 @@
       justify-content: start;
     }
     .details-content {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .site-footer {
       flex-direction: column;
     }
   }
   @media (max-width: 31rem) {
+    .station-header {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+    .station-logo {
+      display: none;
+    }
     .selects {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .frequency {
       align-items: stretch;

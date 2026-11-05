@@ -23,13 +23,17 @@ function saveFavorites() {
 }
 
 function setLink(link, href, text) {
+  if (!href || !/^https?:\/\//i.test(href)) {
+    link.remove();
+    return;
+  }
   link.href = href;
   link.textContent = text;
   link.ariaLabel = `${text} — se deschide într-o filă nouă`;
 }
 
 function appendContact(address, station) {
-  address.append(station.contact.address, document.createElement("br"));
+  if (station.contact.address) address.append(station.contact.address, document.createElement("br"));
   station.contact.phones.forEach((phone, index) => {
     if (index) address.append(" · ");
     const link = document.createElement("a");
@@ -37,6 +41,10 @@ function appendContact(address, station) {
     link.textContent = phone.display;
     address.append(link);
   });
+  if (!station.contact.email) {
+    if (!address.hasChildNodes()) address.textContent = "Date de contact neconfirmate.";
+    return;
+  }
   const email = document.createElement("a");
   email.href = `mailto:${station.contact.email}`;
   email.textContent = station.contact.email;
@@ -58,7 +66,7 @@ function createStation(station) {
     city: station.city.slug,
     categories: station.categories.join(" "),
     modes: station.modes.join(" "),
-    search: normalize([station.name, station.city.name, station.country.name, station.county, station.description, station.frequency.value, station.frequency.display, station.tags, station.recommendation?.name ?? ""].join(" ")),
+    search: normalize([station.name, station.native_name ?? "", station.language, station.city.name, station.country.name, station.county, station.description, station.frequency.value, station.frequency.display, station.tags, station.recommendation?.name ?? ""].join(" ")),
   });
   article.id = station.id;
 
@@ -69,14 +77,21 @@ function createStation(station) {
     description: station.description,
     frequency: station.frequency.display,
     band: station.frequency.band,
-    "frequency-location": `${station.city.name} · ${station.county}`,
+    "frequency-location": [station.city.name, station.county].filter(Boolean).join(" · "),
     programming: station.programming,
     "stream-url": station.listening.stream,
     "stream-note": station.listening.stream_note,
-    history: `Prima emisie: ${station.history.first_broadcast}. Operator: ${station.history.operator}.`,
+    history: [station.history.first_broadcast ? `Prima emisie: ${station.history.first_broadcast}.` : "", station.history.operator ? `Operator: ${station.history.operator}.` : ""].filter(Boolean).join(" ") || "Istoric neconfirmat.",
     verified: `Date reverificate la ${station.verified}.`,
   };
   for (const [name, value] of Object.entries(values)) field(article, name).textContent = value;
+  if (station.native_name) {
+    const nativeName = document.createElement("bdi");
+    nativeName.lang = station.native_language;
+    nativeName.dir = "auto";
+    nativeName.textContent = station.native_name;
+    field(article, "name").append(document.createElement("br"), nativeName);
+  }
   if ([...station.mark].length > 2) field(article, "mark").dataset.compact = "";
 
   for (const tag of station.tags) {
@@ -107,6 +122,7 @@ function createStation(station) {
   favorite.dataset.stationId = station.id;
   updateFavorite(favorite, station.name);
   article.querySelector('[data-action="copy-frequency"]').dataset.copy = station.frequency.value;
+  article.querySelector('[data-action="copy-frequency"]').hidden = !station.frequency.value;
   article.querySelector('[data-action="copy-stream"]').dataset.copy = station.listening.stream;
   return fragment;
 }
@@ -122,7 +138,7 @@ function populateSelect(select, entries) {
 
 function populateFilters(catalog) {
   populateSelect(filters.elements.country, new Map(catalog.stations.map((station) => [station.country.code, station.country.name])));
-  populateSelect(filters.elements.city, new Map(catalog.stations.map((station) => [station.city.slug, station.city.name])));
+  populateSelect(filters.elements.city, new Map(catalog.stations.map((station) => [station.city.slug, `${station.city.name} · ${station.country.name}`])));
   populateSelect(filters.elements.category, Object.entries(catalog.categories));
 }
 
@@ -163,7 +179,7 @@ async function copyText(text) {
 }
 
 filters.addEventListener("input", render);
-filters.addEventListener("reset", () => queueMicrotask(render));
+filters.addEventListener("reset", () => requestAnimationFrame(render));
 document.querySelector("#show-all").addEventListener("click", resetAll);
 for (const button of viewButtons) button.addEventListener("click", () => {
   activeView = button.dataset.view;
