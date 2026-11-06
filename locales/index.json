@@ -1,0 +1,33 @@
+{
+  "default_locale": "en",
+  "locales": {
+    "en": {
+      "name": "English",
+      "dir": "ltr",
+      "og_locale": "en_GB",
+      "messages": "locales/en.json",
+      "enabled": true
+    },
+    "ro": {
+      "name": "Română",
+      "dir": "ltr",
+      "og_locale": "ro_RO",
+      "messages": "locales/ro.json",
+      "enabled": true
+    },
+    "hu": {
+      "name": "Magyar",
+      "dir": "ltr",
+      "og_locale": "hu_HU",
+      "messages": "locales/hu.json",
+      "enabled": false
+    },
+    "ar": {
+      "name": "العربية",
+      "dir": "rtl",
+      "og_locale": "ar_AR",
+      "messages": "locales/ar.json",
+      "enabled": false
+    }
+  }
+}

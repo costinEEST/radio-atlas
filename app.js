@@ -1,217 +1,337 @@
-const filters = document.querySelector("#filters");
-const stationsRoot = document.querySelector("#stations");
-const template = document.querySelector("#station-template");
-const emptyState = document.querySelector("#empty-state");
-const resultCount = document.querySelector("#result-count");
-const toast = document.querySelector("#toast");
-const viewButtons = [...document.querySelectorAll("[data-view]")];
-const favorites = readFavorites();
-let activeView = "all";
-let toastTimer;
-
-const normalize = (value) => String(value).normalize("NFD").replaceAll(/\p{Diacritic}/gu, "").toLocaleLowerCase("ro");
-const field = (root, name) => root.querySelector(`[data-field="${name}"]`);
-
-function readFavorites() {
-  try { return new Set(JSON.parse(localStorage.getItem("radio-atlas:favorites") ?? "[]")); }
-  catch { return new Set(); }
-}
-
-function saveFavorites() {
-  try { localStorage.setItem("radio-atlas:favorites", JSON.stringify([...favorites])); }
-  catch { notify("Preferința nu a putut fi salvată pe acest dispozitiv."); }
-}
-
-function setLink(link, href, text) {
-  if (!href || !/^https?:\/\//i.test(href)) {
-    link.remove();
-    return;
-  }
-  link.href = href;
-  link.textContent = text;
-  link.ariaLabel = `${text} — se deschide într-o filă nouă`;
-}
-
-function appendContact(address, station) {
-  if (station.contact.address) address.append(station.contact.address, document.createElement("br"));
-  station.contact.phones.forEach((phone, index) => {
-    if (index) address.append(" · ");
-    const link = document.createElement("a");
-    link.href = `tel:${phone.value}`;
-    link.textContent = phone.display;
-    address.append(link);
-  });
-  if (!station.contact.email) {
-    if (!address.hasChildNodes()) address.textContent = "Date de contact neconfirmate.";
-    return;
-  }
-  const email = document.createElement("a");
-  email.href = `mailto:${station.contact.email}`;
-  email.textContent = station.contact.email;
-  address.append(document.createElement("br"), email);
-}
-
-function updateFavorite(button, name) {
-  const selected = favorites.has(button.dataset.stationId);
-  button.querySelector("span").textContent = selected ? "★" : "☆";
-  button.ariaPressed = String(selected);
-  button.ariaLabel = selected ? `Elimină ${name} din favorite` : `Adaugă ${name} la favorite`;
-}
-
-function createStation(station) {
-  const fragment = template.content.cloneNode(true);
-  const article = fragment.querySelector(".station");
-  Object.assign(article.dataset, {
-    country: station.country.code,
-    city: station.city.slug,
-    categories: station.categories.join(" "),
-    modes: station.modes.join(" "),
-    search: normalize([station.name, station.native_name ?? "", station.language, station.city.name, station.country.name, station.county, station.description, station.frequency.value, station.frequency.display, station.tags, station.recommendation?.name ?? ""].join(" ")),
-  });
-  article.id = station.id;
-
-  const values = {
-    mark: station.mark,
-    name: station.name,
-    location: `${station.city.name} · ${station.country.name}`,
-    description: station.description,
-    frequency: station.frequency.display,
-    band: station.frequency.band,
-    "frequency-location": [station.city.name, station.county].filter(Boolean).join(" · "),
-    programming: station.programming,
-    "stream-url": station.listening.stream,
-    "stream-note": station.listening.stream_note,
-    history: [station.history.first_broadcast ? `Prima emisie: ${station.history.first_broadcast}.` : "", station.history.operator ? `Operator: ${station.history.operator}.` : ""].filter(Boolean).join(" ") || "Istoric neconfirmat.",
-    verified: `Date reverificate la ${station.verified}.`,
-  };
-  for (const [name, value] of Object.entries(values)) field(article, name).textContent = value;
-  if (station.native_name) {
-    const nativeName = document.createElement("bdi");
-    nativeName.lang = station.native_language;
-    nativeName.dir = "auto";
-    nativeName.textContent = station.native_name;
-    field(article, "name").append(document.createElement("br"), nativeName);
-  }
-  if ([...station.mark].length > 2) field(article, "mark").dataset.compact = "";
-
-  for (const tag of station.tags) {
-    const item = document.createElement("li");
-    item.textContent = tag;
-    field(article, "tags").append(item);
-  }
-
-  const recommendation = field(article, "recommended-by");
-  if (station.recommendation) setLink(recommendation, station.recommendation.url, station.recommendation.name);
-  else recommendation.closest(".recommendation").remove();
-  setLink(field(article, "stream"), station.listening.stream, "Deschide fluxul direct");
-  setLink(field(article, "listen-page"), station.listening.page, "Ascultă online");
-  setLink(field(article, "official"), station.listening.official, "Site oficial");
-  appendContact(field(article, "contact"), station);
-
-  for (const source of station.sources) {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    setLink(link, source.url, source.label);
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    item.append(link);
-    field(article, "sources").append(item);
-  }
-
-  const favorite = article.querySelector(".favorite");
-  favorite.dataset.stationId = station.id;
-  updateFavorite(favorite, station.name);
-  article.querySelector('[data-action="copy-frequency"]').dataset.copy = station.frequency.value;
-  article.querySelector('[data-action="copy-frequency"]').hidden = !station.frequency.value;
-  article.querySelector('[data-action="copy-stream"]').dataset.copy = station.listening.stream;
-  return fragment;
-}
-
-function populateSelect(select, entries) {
-  for (const [value, label] of entries) {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = label;
-    select.append(option);
-  }
-}
-
-function populateFilters(catalog) {
-  populateSelect(filters.elements.country, new Map(catalog.stations.map((station) => [station.country.code, station.country.name])));
-  populateSelect(filters.elements.city, new Map(catalog.stations.map((station) => [station.city.slug, `${station.city.name} · ${station.country.name}`])));
-  populateSelect(filters.elements.category, Object.entries(catalog.categories));
-}
-
-function render() {
-  const data = new FormData(filters);
-  const words = normalize(data.get("search").trim()).split(/\s+/).filter(Boolean);
-  let count = 0;
-  for (const article of stationsRoot.querySelectorAll(".station")) {
-    const matchesSearch = words.every((word) => article.dataset.search.includes(word));
-    const matchesFields = ["country", "city"].every((name) => !data.get(name) || article.dataset[name] === data.get(name));
-    const matchesCategory = !data.get("category") || article.dataset.categories.split(" ").includes(data.get("category"));
-    const matchesView = activeView === "all" || (activeView === "favorites" ? favorites.has(article.id) : article.dataset.modes.split(" ").includes(activeView));
-    const visible = matchesSearch && matchesFields && matchesCategory && matchesView;
-    article.closest(".station-item").hidden = !visible;
-    if (visible) count += 1;
-  }
-  emptyState.hidden = count !== 0;
-  resultCount.textContent = count === 1 ? "1 post" : `${count} posturi`;
-}
-
-function resetAll() {
-  filters.reset();
-  activeView = "all";
-  for (const button of viewButtons) button.ariaPressed = String(button.dataset.view === activeView);
-  render();
-}
-
-function notify(message) {
-  clearTimeout(toastTimer);
-  toast.value = message;
-  toast.hidden = false;
-  toastTimer = setTimeout(() => { toast.hidden = true; }, 2600);
-}
-
-async function copyText(text) {
-  try { await navigator.clipboard.writeText(text); notify(`Copiat: ${text}`); }
-  catch { window.prompt("Copiază textul:", text); }
-}
-
-filters.addEventListener("input", render);
-filters.addEventListener("reset", () => requestAnimationFrame(render));
-document.querySelector("#show-all").addEventListener("click", resetAll);
-for (const button of viewButtons) button.addEventListener("click", () => {
-  activeView = button.dataset.view;
-  for (const item of viewButtons) item.ariaPressed = String(item === button);
-  render();
-});
-
-stationsRoot.addEventListener("click", (event) => {
-  const favorite = event.target.closest(".favorite");
-  if (favorite) {
-    const id = favorite.dataset.stationId;
-    favorites.has(id) ? favorites.delete(id) : favorites.add(id);
-    saveFavorites();
-    updateFavorite(favorite, field(favorite.closest(".station"), "name").textContent);
-    render();
-    return;
-  }
-  const copy = event.target.closest("[data-copy]");
-  if (copy) copyText(copy.dataset.copy);
-});
+let translateError;
+let catalogLoaded = false;
 
 try {
+  const { initI18n, currentLocale, localize, contentLanguage, messagesLanguage, t, formatDate, translateDOM } = await import("./i18n.js");
+  translateError = translateDOM;
+
+  const filters = document.querySelector("#filters");
+  const stationsRoot = document.querySelector("#stations");
+  const template = document.querySelector("#station-template");
+  const emptyState = document.querySelector("#empty-state");
+  const resultCount = document.querySelector("#result-count");
+  const toast = document.querySelector("#toast");
+  const viewButtons = [...document.querySelectorAll("[data-view]")];
+  const favorites = readFavorites();
+  let activeView = "all";
+  let toastTimer;
+
+  const normalize = (value) => String(value).normalize("NFD").replaceAll(/\p{Diacritic}/gu, "").toLocaleLowerCase(currentLocale());
+  const field = (root, name) => root.querySelector(`[data-field="${name}"]`);
+
+  function readFavorites() {
+    try {
+      const stored = JSON.parse(localStorage.getItem("radio-atlas:favorites") ?? "[]");
+      if (!Array.isArray(stored) || stored.some((id) => typeof id !== "string")) {
+        throw new TypeError("Favorites must be an array of station IDs.");
+      }
+      return new Set(stored);
+    }
+    catch (error) { console.warn("Favorites could not be read; using an empty set.", error); return new Set(); }
+  }
+
+  function saveFavorites() {
+    try { localStorage.setItem("radio-atlas:favorites", JSON.stringify([...favorites])); }
+    catch { notify(t("favorites.error")); }
+  }
+
+  function setLink(link, href, text) {
+    if (!href || !/^https?:\/\//i.test(href)) {
+      link.remove();
+      return;
+    }
+    link.href = href;
+    link.textContent = text;
+    link.ariaLabel = t("link.newTab", { text });
+  }
+
+  function appendContact(address, station, rawContact) {
+    if (station.contact.address) {
+      const text = document.createElement("bdi");
+      text.textContent = station.contact.address;
+      const language = contentLanguage(rawContact.address);
+      if (language) text.lang = language;
+      address.append(text, document.createElement("br"));
+    }
+    station.contact.phones.forEach((phone, index) => {
+      if (index) address.append(" · ");
+      const link = document.createElement("a");
+      link.href = `tel:${phone.value}`;
+      link.textContent = phone.display;
+      link.dir = "ltr";
+      address.append(link);
+    });
+    if (!station.contact.email) {
+      if (!address.hasChildNodes()) address.textContent = t("contact.unknown");
+      return;
+    }
+    const email = document.createElement("a");
+    email.href = `mailto:${station.contact.email}`;
+    email.textContent = station.contact.email;
+    email.dir = "ltr";
+    address.append(document.createElement("br"), email);
+  }
+
+  function updateFavorite(button, name) {
+    const selected = favorites.has(button.dataset.stationId);
+    button.querySelector("span").textContent = selected ? "★" : "☆";
+    button.ariaPressed = String(selected);
+    const key = selected ? "favorite.remove" : "favorite.add";
+    button.ariaLabel = t(key, { name });
+    button.lang = messagesLanguage(key);
+  }
+
+  function createStation(rawStation) {
+    const station = localize(rawStation);
+    const fragment = template.content.cloneNode(true);
+    translateDOM(fragment);
+    const article = fragment.querySelector(".station");
+    Object.assign(article.dataset, {
+      country: station.country.code,
+      city: station.city.slug,
+      categories: station.categories.join(" "),
+      modes: station.modes.join(" "),
+      search: normalize([station.name, station.native_name ?? "", station.language, station.city.name, station.country.name, station.county, station.description, station.frequency.value, station.frequency.display, station.tags, station.recommendation?.name ?? ""].join(" ")),
+    });
+    article.id = station.id;
+
+    const values = {
+      mark: station.mark,
+      name: station.name,
+      description: station.description,
+      frequency: station.frequency.display,
+      band: station.frequency.band,
+      programming: station.programming,
+      "stream-url": station.listening.stream,
+      "stream-note": station.listening.stream_note,
+      verified: t("verified", { date: formatDate(station.verified) }),
+    };
+    for (const [name, value] of Object.entries(values)) field(article, name).textContent = value;
+    field(article, "verified").lang = messagesLanguage("verified");
+    const translatedFields = {
+      name: rawStation.name,
+      description: rawStation.description, programming: rawStation.programming,
+      frequency: rawStation.frequency.display, "stream-note": rawStation.listening.stream_note,
+    };
+    for (const [name, value] of Object.entries(translatedFields)) {
+      const node = field(article, name);
+      node.lang = contentLanguage(value) ?? currentLocale();
+      node.dir = "auto";
+    }
+    for (const name of ["name", "location", "frequency-location", "history"]) field(article, name).dir = "auto";
+    // Keep untranslated proper names, addresses and individual fallback strings isolated.
+    for (const [name, values] of [["location", [rawStation.city.name, rawStation.country.name]],
+      ["frequency-location", [rawStation.city.name, rawStation.county]]]) {
+      const node = field(article, name);
+      node.replaceChildren();
+      for (const value of values.filter(Boolean)) {
+        if (node.hasChildNodes()) node.append(" · ");
+        const span = document.createElement("bdi");
+        span.textContent = localize(value);
+        const language = contentLanguage(value);
+        if (language) span.lang = language;
+        node.append(span);
+      }
+    }
+    const history = field(article, "history");
+    history.replaceChildren();
+    for (const [value, key, parameter] of [[rawStation.history.first_broadcast, "history.first", "date"],
+      [rawStation.history.operator, "history.operator", "operator"]]) {
+      if (!value) continue;
+      const span = document.createElement("span");
+      span.lang = messagesLanguage(key);
+      const content = document.createElement("bdi");
+      content.textContent = localize(value);
+      const language = contentLanguage(value);
+      if (language) content.lang = language;
+      const token = `{${parameter}}`;
+      const [before, after] = t(key).split(token);
+      span.append(before, content, after ?? "");
+      history.append(span, " ");
+    }
+    if (!history.hasChildNodes()) {
+      history.textContent = t("history.unknown");
+      history.lang = messagesLanguage("history.unknown");
+    }
+    if (station.native_name) {
+      const nativeName = document.createElement("bdi");
+      nativeName.lang = station.native_language;
+      nativeName.dir = "auto";
+      nativeName.textContent = station.native_name;
+      field(article, "name").append(document.createElement("br"), nativeName);
+    }
+    if ([...station.mark].length > 2) field(article, "mark").dataset.compact = "";
+
+    for (const tag of rawStation.tags) {
+      const item = document.createElement("li");
+      item.textContent = localize(tag);
+      item.lang = contentLanguage(tag) ?? currentLocale();
+      item.dir = "auto";
+      field(article, "tags").append(item);
+    }
+
+    const recommendation = field(article, "recommended-by");
+    if (station.recommendation) setLink(recommendation, station.recommendation.url, station.recommendation.name);
+    else recommendation.closest(".recommendation").remove();
+    for (const [name, url, key] of [["stream", station.listening.stream, "stream.open"],
+      ["listen-page", station.listening.page, "listen"], ["official", station.listening.official, "official"]]) {
+      const link = field(article, name);
+      setLink(link, url, t(key));
+      link.lang = messagesLanguage(key);
+    }
+    appendContact(field(article, "contact"), station, rawStation.contact);
+
+    for (const source of rawStation.sources) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      setLink(link, source.url, localize(source.label));
+      link.lang = contentLanguage(source.label) ?? currentLocale();
+      link.dir = "auto";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      item.append(link);
+      field(article, "sources").append(item);
+    }
+
+    const favorite = article.querySelector(".favorite");
+    favorite.dataset.stationId = station.id;
+    updateFavorite(favorite, station.name);
+    article.querySelector('[data-action="copy-frequency"]').dataset.copy = station.frequency.value;
+    article.querySelector('[data-action="copy-frequency"]').hidden = !station.frequency.value;
+    article.querySelector('[data-action="copy-stream"]').dataset.copy = station.listening.stream;
+    return fragment;
+  }
+
+  function populateSelect(select, entries) {
+    for (const [value, label, language] of entries) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = localize(label);
+      option.lang = language ?? contentLanguage(label) ?? currentLocale();
+      option.dir = "auto";
+      select.append(option);
+    }
+  }
+
+  function populateFilters(catalog) {
+    populateSelect(filters.elements.country, new Map(catalog.stations.map((station) => [station.country.code, station.country.name])));
+    const cities = new Map(catalog.stations.map((station) => [station.city.slug, station]));
+    populateSelect(filters.elements.city, [...cities].map(([slug, station]) => [slug,
+      `${localize(station.city.name)} · ${localize(station.country.name)}`, contentLanguage(station.city.name),
+    ]));
+    populateSelect(filters.elements.category, Object.entries(catalog.categories));
+  }
+
+  function render() {
+    if (!catalogLoaded) return;
+    const data = new FormData(filters);
+    const words = normalize(data.get("search").trim()).split(/\s+/).filter(Boolean);
+    let count = 0;
+    for (const article of stationsRoot.querySelectorAll(".station")) {
+      const matchesSearch = words.every((word) => article.dataset.search.includes(word));
+      const matchesFields = ["country", "city"].every((name) => !data.get(name) || article.dataset[name] === data.get(name));
+      const matchesCategory = !data.get("category") || article.dataset.categories.split(" ").includes(data.get("category"));
+      const matchesView = activeView === "all" || (activeView === "favorites" ? favorites.has(article.id) : article.dataset.modes.split(" ").includes(activeView));
+      const visible = matchesSearch && matchesFields && matchesCategory && matchesView;
+      article.closest(".station-item").hidden = !visible;
+      if (visible) count += 1;
+    }
+    emptyState.hidden = count !== 0;
+    resultCount.textContent = t("results", { count });
+    resultCount.lang = messagesLanguage("results");
+  }
+
+  function resetAll() {
+    filters.reset();
+    activeView = "all";
+    for (const button of viewButtons) button.ariaPressed = String(button.dataset.view === activeView);
+    render();
+  }
+
+  function notify(message) {
+    try {
+      clearTimeout(toastTimer);
+      toast.value = message;
+      toast.hidden = false;
+      toastTimer = setTimeout(handleAction(() => { toast.hidden = true; }), 2600);
+    } catch (error) { console.error("Notification could not be displayed.", error); }
+  }
+
+  // Each callback runs after startup's catch has finished, so it owns its errors.
+  function handleAction(action) {
+    return async (...args) => {
+      try { return await action(...args); }
+      catch (error) {
+        console.error("Station action failed.", error);
+        notify(t("action.error"));
+      }
+    };
+  }
+
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); notify(t("copy.success", { text })); }
+    catch (error) {
+      console.warn("Clipboard unavailable; offering manual copy.", error);
+      try { window.prompt(t("copy.prompt"), text); }
+      catch (fallbackError) {
+        console.error("Manual copy unavailable.", fallbackError);
+        notify(t("copy.error"));
+      }
+    }
+  }
+
+  filters.addEventListener("input", handleAction(render));
+  filters.addEventListener("reset", handleAction(() => requestAnimationFrame(handleAction(render))));
+  document.querySelector("#show-all").addEventListener("click", handleAction(resetAll));
+  for (const button of viewButtons) button.addEventListener("click", handleAction(() => {
+    activeView = button.dataset.view;
+    for (const item of viewButtons) item.ariaPressed = String(item === button);
+    render();
+  }));
+
+  stationsRoot.addEventListener("click", handleAction(async (event) => {
+    const favorite = event.target.closest(".favorite");
+    if (favorite) {
+      const id = favorite.dataset.stationId;
+      favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+      saveFavorites();
+      updateFavorite(favorite, field(favorite.closest(".station"), "name").textContent);
+      render();
+      return;
+    }
+    const copy = event.target.closest("[data-copy]");
+    if (copy) await copyText(copy.dataset.copy);
+  }));
+
+  await initI18n();
   const response = await fetch("radios.json");
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const catalog = await response.json();
   stationsRoot.replaceChildren(...catalog.stations.map(createStation));
   populateFilters(catalog);
   stationsRoot.ariaBusy = "false";
+  catalogLoaded = true;
   render();
 } catch (error) {
-  console.error("Catalogul nu a putut fi încărcat.", error);
-  stationsRoot.ariaBusy = "false";
-  stationsRoot.textContent = "Catalogul nu a putut fi încărcat. Reîncearcă mai târziu.";
-  resultCount.textContent = "Catalog indisponibil";
+  catalogLoaded = false;
+  console.error("Catalog startup failed.", error);
+  try {
+    const root = document.querySelector("#stations");
+    const count = document.querySelector("#result-count");
+    const template = document.querySelector("#catalog-error");
+    let content = template.content.cloneNode(true);
+    try { translateError?.(content); }
+    catch (translationError) {
+      console.error("Error translation failed; keeping static English text.", translationError);
+      content = template.content.cloneNode(true);
+    }
+    const message = content.querySelector('[data-field="error-count"]');
+    count.textContent = message.textContent;
+    count.lang = message.lang || "en";
+    message.remove();
+    root.ariaBusy = "false";
+    root.replaceChildren(content);
+  } catch (displayError) {
+    console.error("Catalog error could not be displayed; retaining existing HTML.", displayError);
+  }
 }

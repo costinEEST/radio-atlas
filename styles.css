@@ -88,6 +88,7 @@
   }
   .site-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
@@ -108,6 +109,16 @@
     letter-spacing: -0.04em;
     text-decoration: none;
     overflow-wrap: anywhere;
+  }
+  .language-picker {
+    display: grid;
+    gap: 0.35rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    font-size: 0.8rem;
+  }
+  [dir="rtl"] .eyebrow {
+    letter-spacing: normal;
   }
   .brand > :last-child {
     color: #667f2f;
@@ -161,7 +172,8 @@
     margin-block-start: 1.5rem;
     padding: 1rem 1.25rem;
     border-inline-start: 0.3rem solid var(--accent);
-    border-radius: 0 0.6rem 0.6rem 0;
+    border-start-end-radius: 0.6rem;
+    border-end-end-radius: 0.6rem;
     background: var(--surface);
     font-size: 1.2rem;
     line-height: 1.45;
@@ -472,9 +484,12 @@
   .toast {
     position: fixed;
     inset-block-end: 1.25rem;
-    inset-inline-start: 50%;
+    inset-inline: 1rem;
+    inline-size: fit-content;
+    max-inline-size: calc(100% - 2rem);
+    margin-inline: auto;
+    overflow-wrap: anywhere;
     z-index: 5;
-    translate: -50%;
     padding: 0.75rem 1.1rem;
     border-radius: 0.6rem;
     background: var(--ink);

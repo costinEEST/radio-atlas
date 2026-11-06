@@ -1,65 +1,223 @@
 {
+  "schema_version": 2,
+  "default_locale": "en",
   "categories": {
-    "generalist": "Generalist",
-    "stiri": "Știri și informații",
-    "muzica": "Muzică",
-    "clasica": "Muzică clasică",
-    "jazz": "Jazz",
-    "quran": "Coran și programe islamice",
-    "cultura": "Cultură"
+    "generalist": {
+      "ro": "Generalist",
+      "en": "Generalist"
+    },
+    "news": {
+      "ro": "Știri și informații",
+      "en": "News and information"
+    },
+    "music": {
+      "ro": "Muzică",
+      "en": "Music"
+    },
+    "classical": {
+      "ro": "Muzică clasică",
+      "en": "Classical music"
+    },
+    "jazz": {
+      "ro": "Jazz",
+      "en": "Jazz"
+    },
+    "quran": {
+      "ro": "Coran și programe islamice",
+      "en": "Quran and Islamic programs"
+    },
+    "culture": {
+      "ro": "Cultură",
+      "en": "Culture"
+    }
   },
   "stations": [
     {
-      "id": "radio-romania-cultural",
+      "id": "romania-cultural",
       "name": "Radio România Cultural",
       "mark": "RC",
-      "country": { "code": "ro", "name": "România" },
-      "city": { "slug": "bucuresti", "name": "București" },
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "ro": "București",
+          "en": "Bucharest"
+        }
+      },
       "county": "",
-      "language": "română",
-      "modes": ["online", "fm"],
-      "categories": ["cultura", "muzica"],
-      "tags": ["Online", "FM", "Cultură", "În română"],
-      "description": "Emisiuni de cultură, literatură, știință, teatru radiofonic și muzică.",
-      "frequency": { "value": "101.3", "display": "101,3", "band": "MHz FM" },
+      "language": {
+        "ro": "română",
+        "en": "Romanian"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "culture",
+        "music"
+      ],
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM",
+          "en": "FM"
+        },
+        {
+          "ro": "Cultură",
+          "en": "Culture"
+        },
+        {
+          "ro": "În română",
+          "en": "In Romanian"
+        }
+      ],
+      "description": {
+        "ro": "Cultură, literatură, știință, teatru radiofonic și muzică.",
+        "en": "Culture, literature, science, radio drama and music."
+      },
+      "frequency": {
+        "value": "101.3",
+        "display": {
+          "ro": "101,3",
+          "en": "101.3"
+        },
+        "band": "MHz FM"
+      },
       "listening": {
         "stream": "https://stream4.srr.ro:8443/romania-cultural",
         "page": "https://www.radioromaniacultural.ro/live/",
         "official": "https://www.radioromaniacultural.ro/",
-        "stream_note": "Flux HTTPS publicat în playerul oficial. Redarea a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 6 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "HTTPS oficial. Redare și progres audio confirmate cu Chrome MCP la 6 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Official HTTPS stream. Playback and progress confirmed with Chrome MCP on 6 November 2026; availability varies."
+        }
       },
-      "programming": "Literatură, arte, știință, interviuri, teatru radiofonic și concerte. Grila actualizată este disponibilă pe site-ul oficial. Frecvența afișată este pentru București; frecvențele diferă în țară.",
-      "history": { "first_broadcast": null, "operator": "Societatea Română de Radiodifuziune" },
+      "programming": {
+        "ro": "Literatură, arte, știință, interviuri, teatru radiofonic și concerte. Grila actualizată este disponibilă pe site-ul oficial. Frecvența afișată este pentru București; frecvențele diferă în țară.",
+        "en": "Literature, arts, science, interviews, radio drama and concerts. The current schedule is available on the official website. The displayed frequency is for Bucharest; frequencies vary across the country."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": {
+          "ro": "Societatea Română de Radiodifuziune",
+          "en": "Romanian Radio Broadcasting Corporation"
+        }
+      },
       "contact": {
-        "address": "Strada General Berthelot 60–64, București, România",
+        "address": {
+          "ro": "Strada General Berthelot 60–64, București, România",
+          "en": "60–64 General Berthelot Street, Bucharest, Romania"
+        },
         "phones": [
-          { "display": "021 303 15 15", "value": "+40213031515" },
-          { "display": "021 303 17 77", "value": "+40213031777" }
+          {
+            "display": "021 303 15 15",
+            "value": "+40213031515"
+          },
+          {
+            "display": "021 303 17 77",
+            "value": "+40213031777"
+          }
         ],
         "email": "cultural@rornet.ro"
       },
-      "verified": "6 noiembrie 2026",
+      "verified": "2026-11-06",
       "sources": [
-        { "label": "Radio România Cultural — ascultă live și grilă", "url": "https://www.radioromaniacultural.ro/live/" },
-        { "label": "Radio România Cultural — contact", "url": "https://www.radioromaniacultural.ro/contact.html" },
-        { "label": "CNA — frecvențele serviciilor de programe Radio ale SRR", "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf" }
+        {
+          "label": {
+            "ro": "Radio România Cultural — ascultă live și grilă",
+            "en": "Radio România Cultural — live listening and schedule"
+          },
+          "url": "https://www.radioromaniacultural.ro/live/"
+        },
+        {
+          "label": {
+            "ro": "Radio România Cultural — contact",
+            "en": "Radio România Cultural — contact"
+          },
+          "url": "https://www.radioromaniacultural.ro/contact.html"
+        },
+        {
+          "label": {
+            "ro": "CNA — frecvențele serviciilor de programe Radio ale SRR",
+            "en": "CNA — frequencies of SRR radio services"
+          },
+          "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        }
       ]
     },
     {
-      "id": "metronom-fm",
+      "id": "metronom",
       "name": "Metronom FM",
       "mark": "m.",
-      "country": { "code": "ro", "name": "România" },
-      "city": { "slug": "ramnicu-valcea", "name": "Râmnicu Vâlcea" },
-      "county": "Vâlcea",
-      "language": "română",
-      "modes": ["online", "fm"],
-      "categories": ["generalist", "stiri", "muzica"],
-      "tags": ["Online", "FM", "Generalist", "În română"],
-      "description": "Muzică variată, știri și informații pentru comunitatea locală. Post local înființat în 1992.",
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "ramnicu-valcea",
+        "name": {
+          "ro": "Râmnicu Vâlcea",
+          "en": "Râmnicu Vâlcea"
+        }
+      },
+      "county": {
+        "ro": "Vâlcea",
+        "en": "Vâlcea"
+      },
+      "language": {
+        "ro": "română",
+        "en": "Romanian"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "generalist",
+        "news",
+        "music"
+      ],
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM",
+          "en": "FM"
+        },
+        {
+          "ro": "Generalist",
+          "en": "Generalist"
+        },
+        {
+          "ro": "În română",
+          "en": "In Romanian"
+        }
+      ],
+      "description": {
+        "ro": "Muzică variată, știri și informații pentru comunitatea locală. Post local înființat în 1992.",
+        "en": "Varied music, news and information for the local community. A local station established in 1992."
+      },
       "frequency": {
         "value": "89.0",
-        "display": "89,0",
+        "display": {
+          "ro": "89,0",
+          "en": "89.0"
+        },
         "band": "MHz FM"
       },
       "recommendation": {
@@ -70,169 +228,379 @@
         "stream": "http://metronom-fm.ro:8000/stream.ogg",
         "page": "https://myradioonline.ro/metronom-fm",
         "official": "https://www.metronom-fm.ro/",
-        "stream_note": "Fluxul este servit prin HTTP. O pagină publicată prin HTTPS nu îl poate reda încorporat în mod sigur; folosește linkul direct sau serviciul extern."
+        "stream_note": {
+          "ro": "HTTP: nu se încorporează în HTTPS. Folosește linkul direct sau pagina externă.",
+          "en": "HTTP: cannot be embedded in HTTPS. Use the direct link or external page."
+        }
       },
-      "programming": "Format generalist, cu muzică, știri și informații locale. Catalogul nu are încă o grilă actualizată sau date „acum în emisie”.",
+      "programming": {
+        "ro": "Format generalist, cu muzică, știri și informații locale. Catalogul nu are încă o grilă actualizată sau date „acum în emisie”.",
+        "en": "A generalist format with music, news and local information. The catalog does not yet have an updated schedule or now-playing information."
+      },
       "history": {
-        "first_broadcast": "25 iulie 1992",
-        "operator": "Radio Metronom SRL"
+        "first_broadcast": {
+          "ro": "25 iulie 1992",
+          "en": "25 July 1992"
+        },
+        "operator": {
+          "ro": "Radio Metronom SRL",
+          "en": "Radio Metronom SRL"
+        }
       },
       "contact": {
-        "address": "Str. Carol I nr. 1, et. III, Râmnicu Vâlcea, Vâlcea",
+        "address": {
+          "ro": "Str. Carol I nr. 1, et. III, Râmnicu Vâlcea, Vâlcea",
+          "en": "1 Carol I Street, 3rd floor, Râmnicu Vâlcea, Vâlcea"
+        },
         "phones": [
-          { "display": "0250 736 788", "value": "+40250736788" },
-          { "display": "0723 540 501", "value": "+40723540501" }
+          {
+            "display": "0250 736 788",
+            "value": "+40250736788"
+          },
+          {
+            "display": "0723 540 501",
+            "value": "+40723540501"
+          }
         ],
         "email": "metronom.co@gmail.com"
       },
-      "verified": "29 octombrie 2026",
+      "verified": "2026-10-29",
       "sources": [
         {
-          "label": "Metronom FM — contact și istoric",
+          "label": {
+            "ro": "Metronom FM — contact și istoric",
+            "en": "Metronom FM — contact and history"
+          },
           "url": "https://metronom-fm.ro/index-6.html"
         },
         {
-          "label": "CNA — licență, frecvență și format",
+          "label": {
+            "ro": "CNA — licență, frecvență și format",
+            "en": "CNA — license, frequency and format"
+          },
           "url": "https://media.cna.ro/Licente_audiovizuale_pentru_difuzarea_serviciilor_de_programe_Radio_SITE_0e8a7a7a87.pdf"
         },
         {
-          "label": "RadioOnline — profil și slogan",
+          "label": {
+            "ro": "RadioOnline — profil și slogan",
+            "en": "RadioOnline — profile and slogan"
+          },
           "url": "https://radioonline.ro/metronom-fm"
         }
       ]
     },
     {
-      "id": "radio-romania-muzical",
+      "id": "romania-muzical",
       "name": "Radio România Muzical",
       "mark": "RRM",
-      "country": { "code": "ro", "name": "România" },
-      "city": { "slug": "bucuresti", "name": "București" },
-      "county": "municipiul București",
-      "language": "română",
-      "modes": ["online", "fm"],
-      "categories": ["muzica", "clasica", "jazz"],
-      "tags": ["Online", "FM", "Muzică clasică", "Jazz", "În română"],
-      "description": "Postul public dedicat muzicii clasice și jazzului. Emite pe 104,8 FM în București, 97,6 FM regional și 95,4 FM în Iași.",
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "ro": "București",
+          "en": "Bucharest"
+        }
+      },
+      "county": {
+        "ro": "municipiul București",
+        "en": "Bucharest municipality"
+      },
+      "language": {
+        "ro": "română",
+        "en": "Romanian"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "music",
+        "classical",
+        "jazz"
+      ],
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM",
+          "en": "FM"
+        },
+        {
+          "ro": "Muzică clasică",
+          "en": "Classical music"
+        },
+        {
+          "ro": "Jazz",
+          "en": "Jazz"
+        },
+        {
+          "ro": "În română",
+          "en": "In Romanian"
+        }
+      ],
+      "description": {
+        "ro": "Postul public dedicat muzicii clasice și jazzului. Emite pe 104,8 FM în București, 97,6 FM regional și 95,4 FM în Iași.",
+        "en": "The public station dedicated to classical music and jazz. Broadcasts on 104.8 FM in Bucharest, 97.6 FM regionally and 95.4 FM in Iași."
+      },
       "frequency": {
         "value": "104.8",
-        "display": "104,8",
+        "display": {
+          "ro": "104,8",
+          "en": "104.8"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://stream4.srr.ro:8443/romania-muzical",
         "page": "https://myradioonline.ro/radio-romania-muzical",
         "official": "https://www.romania-muzical.ro/",
-        "stream_note": "Flux HTTPS direct. Serverul a răspuns cu succes la verificarea din browser; pornirea redării depinde de suportul audio și de disponibilitatea serverului."
+        "stream_note": {
+          "ro": "HTTPS: server accesibil la verificarea în browser. Redarea depinde de suportul audio și de server.",
+          "en": "HTTPS: server reachable in the browser check. Playback depends on audio support and server availability."
+        }
       },
-      "programming": "Muzică clasică, operă, muzică simfonică și de cameră, jazz, informații muzicale și transmisiuni directe de pe scene naționale și internaționale.",
+      "programming": {
+        "ro": "Muzică clasică, operă, muzică simfonică și de cameră, jazz, informații muzicale și transmisiuni directe de pe scene naționale și internaționale.",
+        "en": "Classical music, opera, symphonic and chamber music, jazz, music news and live broadcasts from national and international venues."
+      },
       "history": {
-        "first_broadcast": "24 martie 1997",
-        "operator": "Societatea Română de Radiodifuziune"
+        "first_broadcast": {
+          "ro": "24 martie 1997",
+          "en": "24 March 1997"
+        },
+        "operator": {
+          "ro": "Societatea Română de Radiodifuziune",
+          "en": "Romanian Radio Broadcasting Corporation"
+        }
       },
       "contact": {
-        "address": "Str. General Berthelot nr. 60–64, București, 010165",
+        "address": {
+          "ro": "Str. General Berthelot nr. 60–64, București, 010165",
+          "en": "60–64 General Berthelot Street, Bucharest, 010165"
+        },
         "phones": [
-          { "display": "021 303 15 16", "value": "+40213031516" }
+          {
+            "display": "021 303 15 16",
+            "value": "+40213031516"
+          }
         ],
         "email": "muzical@radioromania.ro"
       },
-      "verified": "29 octombrie 2026",
+      "verified": "2026-10-29",
       "sources": [
         {
-          "label": "Radio România Muzical — frecvențe și ascultare",
+          "label": {
+            "ro": "Radio România Muzical — frecvențe și ascultare",
+            "en": "Radio România Muzical — frequencies and listening"
+          },
           "url": "https://www.romania-muzical.ro/info/frecvente/1921"
         },
         {
-          "label": "Radio România Muzical — profil editorial",
+          "label": {
+            "ro": "Radio România Muzical — profil editorial",
+            "en": "Radio România Muzical — editorial profile"
+          },
           "url": "https://www.romania-muzical.ro/info/despre-noi/1871"
         },
         {
-          "label": "Radio România — contact oficial",
+          "label": {
+            "ro": "Radio România — contact oficial",
+            "en": "Radio România — official contact"
+          },
           "url": "https://www.srr.ro/contact/contact-id4856.html"
         },
         {
-          "label": "Radio România — opțiuni oficiale de streaming",
+          "label": {
+            "ro": "Radio România — fluxuri oficiale",
+            "en": "Radio România — official streams"
+          },
           "url": "https://web.srr.ro/stream/playlist.htm?id=3&type=0"
         },
         {
-          "label": "MyRadioOnline — pagină de ascultare și program",
+          "label": {
+            "ro": "MyRadioOnline — ascultare și program",
+            "en": "MyRadioOnline — listening and schedule"
+          },
           "url": "https://myradioonline.ro/radio-romania-muzical"
         }
       ]
     },
     {
-      "id": "kolozsvari-radio",
+      "id": "kolozsvari",
       "name": "Kolozsvári Rádió",
       "mark": "KR",
-      "country": { "code": "ro", "name": "România" },
-      "city": { "slug": "cluj-napoca", "name": "Cluj-Napoca" },
-      "county": "Cluj",
-      "language": "maghiară",
-      "modes": ["online", "fm", "am"],
-      "categories": ["generalist", "stiri", "muzica"],
-      "tags": ["Online", "FM", "AM", "Generalist", "În maghiară"],
-      "description": "Serviciul în limba maghiară al Radio Cluj, cu știri, cultură, muzică și informații pentru comunitate. Emite în Cluj-Napoca pe 98,8 FM și online.",
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "cluj-napoca",
+        "name": {
+          "ro": "Cluj-Napoca",
+          "en": "Cluj-Napoca"
+        }
+      },
+      "county": {
+        "ro": "Cluj",
+        "en": "Cluj"
+      },
+      "language": {
+        "ro": "maghiară",
+        "en": "Hungarian"
+      },
+      "modes": [
+        "online",
+        "fm",
+        "am"
+      ],
+      "categories": [
+        "generalist",
+        "news",
+        "music"
+      ],
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM",
+          "en": "FM"
+        },
+        {
+          "ro": "AM",
+          "en": "AM"
+        },
+        {
+          "ro": "Generalist",
+          "en": "Generalist"
+        },
+        {
+          "ro": "În maghiară",
+          "en": "In Hungarian"
+        }
+      ],
+      "description": {
+        "ro": "Serviciul în limba maghiară al Radio Cluj, cu știri, cultură, muzică și informații pentru comunitate. Emite în Cluj-Napoca pe 98,8 FM și online.",
+        "en": "Radio Cluj's Hungarian-language service, with news, culture, music and community information. Broadcasts in Cluj-Napoca on 98.8 FM and online."
+      },
       "frequency": {
         "value": "98.8",
-        "display": "98,8",
+        "display": {
+          "ro": "98,8",
+          "en": "98.8"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://stream4.srr.ro:8443/kolozsvari-radio",
         "page": "https://www.kolozsvariradio.ro/elo-kolozsvari-radio/",
         "official": "https://www.kolozsvariradio.ro/",
-        "stream_note": "Flux HTTPS direct publicat în playerul oficial. Redarea a pornit la verificarea din browser; disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "HTTPS oficial. Redare pornită la verificarea în browser; disponibilitate variabilă.",
+          "en": "Official HTTPS stream. Playback started in the browser check; availability varies."
+        }
       },
-      "programming": "Știri locale, naționale și internaționale, emisiuni culturale, interviuri și muzică, în principal în maghiară. Pe 98,8 FM, duminica între 07:00 și 07:20 este difuzată o emisiune în ucraineană. Pagina oficială de frecvențe indică și transmisii pe 909, 1593 și 1404 AM, în intervale orare limitate.",
+      "programming": {
+        "ro": "Știri locale, naționale și internaționale, emisiuni culturale, interviuri și muzică, în principal în maghiară. Pe 98,8 FM, duminica între 07:00 și 07:20 este difuzată o emisiune în ucraineană. Pagina oficială de frecvențe indică și transmisii pe 909, 1593 și 1404 AM, în intervale orare limitate.",
+        "en": "Local, national and international news, cultural programs, interviews and music, mainly in Hungarian. A Ukrainian-language program airs on 98.8 FM on Sundays from 07:00 to 07:20. The official frequency page also lists broadcasts on 909, 1593 and 1404 AM during limited time slots."
+      },
       "history": {
-        "first_broadcast": "15 martie 1954",
-        "operator": "Societatea Română de Radiodifuziune — Radio Cluj"
+        "first_broadcast": {
+          "ro": "15 martie 1954",
+          "en": "15 March 1954"
+        },
+        "operator": {
+          "ro": "Societatea Română de Radiodifuziune — Radio Cluj",
+          "en": "Romanian Radio Broadcasting Corporation — Radio Cluj"
+        }
       },
       "contact": {
-        "address": "Str. Donath nr. 160, Cluj-Napoca, Cluj, 400293",
+        "address": {
+          "ro": "Str. Donath nr. 160, Cluj-Napoca, Cluj, 400293",
+          "en": "160 Donath Street, Cluj-Napoca, Cluj, 400293"
+        },
         "phones": [
-          { "display": "0264 502 580", "value": "+40264502580" }
+          {
+            "display": "0264 502 580",
+            "value": "+40264502580"
+          }
         ],
         "email": "radio@kolozsvariradio.ro"
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Kolozsvári Rádió — site oficial și programe",
+          "label": {
+            "ro": "Kolozsvári Rádió — site oficial și programe",
+            "en": "Kolozsvári Rádió — official website and programs"
+          },
           "url": "https://www.kolozsvariradio.ro/"
         },
         {
-          "label": "Kolozsvári Rádió — ascultare live și flux oficial",
+          "label": {
+            "ro": "Kolozsvári Rádió — ascultare live și flux oficial",
+            "en": "Kolozsvári Rádió — live listening and official stream"
+          },
           "url": "https://www.kolozsvariradio.ro/elo-kolozsvari-radio/"
         },
         {
-          "label": "Kolozsvári Rádió — frecvențe și limbi de emisie",
+          "label": {
+            "ro": "Kolozsvári Rádió — frecvențe și limbi de emisie",
+            "en": "Kolozsvári Rádió — frequencies and broadcast languages"
+          },
           "url": "https://www.kolozsvariradio.ro/frekvenciak/"
         },
         {
-          "label": "Kolozsvári Rádió — contact",
+          "label": {
+            "ro": "Kolozsvári Rádió — contact",
+            "en": "Kolozsvári Rádió — contact"
+          },
           "url": "https://www.kolozsvariradio.ro/kapcsolat/"
         },
         {
-          "label": "Kolozsvári Rádió — prima emisie, 15 martie 1954",
+          "label": {
+            "ro": "Kolozsvári Rádió — prima emisie, 15 martie 1954",
+            "en": "Kolozsvári Rádió — first broadcast, 15 March 1954"
+          },
           "url": "https://www.kolozsvariradio.ro/2026/03/15/72-eves-a-kolozsvari-radio/"
         }
       ]
     },
     {
-      "id": "saudi-quran-radio",
+      "id": "saudi-quran",
       "name": "Saudi Quran Radio",
       "mark": "SQ",
       "country": {
         "code": "sa",
-        "name": "Arabia Saudită"
+        "name": {
+          "ro": "Arabia Saudită",
+          "en": "Saudi Arabia"
+        }
       },
       "city": {
         "slug": "nespecificat-sa",
-        "name": "Localitate nepublicată"
+        "name": {
+          "ro": "Localitate nepublicată",
+          "en": "Location not published"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -240,24 +608,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8",
         "page": "https://radioplus.sba.sa/ar/live/4",
         "official": "https://radioplus.sba.sa/ar/live/4",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Format HLS; compatibilitatea depinde de player. Pagina oficială nu a afișat conținut la verificarea în browser; fluxul direct a putut fi redat."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. Format HLS; compatibilitatea depinde de player. Pagina oficială goală la verificarea în browser; flux direct redabil.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HLS format; compatibility depends on the player. Official page blank in the browser check; direct stream playable."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -267,40 +659,61 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/807f5b26-6035-4803-812e-3199fc97b7e9"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://radioplus.sba.sa/ar/live/4"
         },
         {
-          "label": "Public IPTV — identificarea radioului SBA și fluxul HLS",
+          "label": {
+            "ro": "Public IPTV — identificarea radioului SBA și fluxul HLS",
+            "en": "Public IPTV — SBA station identification and HLS stream"
+          },
           "url": "https://publiciptv.com/channels/holyquranradiosa"
         }
       ]
     },
     {
-      "id": "holy-quran-radio-cairo",
+      "id": "holy-quran-cairo",
       "name": "Holy Quran Radio Cairo",
       "mark": "CQ",
       "country": {
         "code": "eg",
-        "name": "Egipt"
+        "name": {
+          "ro": "Egipt",
+          "en": "Egypt"
+        }
       },
       "city": {
         "slug": "cairo",
-        "name": "Cairo"
+        "name": {
+          "ro": "Cairo",
+          "en": "Cairo"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online",
         "fm"
@@ -309,24 +722,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": "98.2",
-        "display": "98,2",
+        "display": {
+          "ro": "98,2",
+          "en": "98.2"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://stream.radiojar.com/8s5u5tpdtwzuv",
         "page": "https://surahquran.com/Radio-Quran-Cairo.html",
         "official": null,
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Flux HTTP sau redirecționare către HTTP: folosește pagina externă; nu se încorporează într-o pagină HTTPS."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. HTTP sau redirecționare HTTP: folosește pagina externă; nu se încorporează în HTTPS.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HTTP or HTTP redirect: use the external page; do not embed in HTTPS."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -336,18 +773,27 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/f62577e7-24e6-416d-a262-033545e41b44"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://surahquran.com/Radio-Quran-Cairo.html"
         }
       ],
@@ -355,19 +801,28 @@
       "native_language": "ar"
     },
     {
-      "id": "sharjah-quran-radio",
+      "id": "sharjah-quran",
       "name": "Sharjah Quran Radio",
       "mark": "SHQ",
       "country": {
         "code": "ae",
-        "name": "Emiratele Arabe Unite"
+        "name": {
+          "ro": "Emiratele Arabe Unite",
+          "en": "United Arab Emirates"
+        }
       },
       "city": {
         "slug": "sharjah",
-        "name": "Sharjah"
+        "name": {
+          "ro": "Sharjah",
+          "en": "Sharjah"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -375,24 +830,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://l3.itworkscdn.net/smcquranlive/quranradiolive/icecast.audio",
         "page": "https://www.sba.net.ae/radio/channel/12",
         "official": "https://www.sba.net.ae/radio/channel/12",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Pagina oficială nu a afișat conținut la verificarea în browser; fluxul direct a putut fi redat."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. Pagina oficială goală la verificarea în browser; flux direct redabil.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. Official page blank in the browser check; direct stream playable."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -402,36 +881,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/7cca8bd6-a173-4fca-9a74-ca1e15a631e5"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://www.sba.net.ae/radio/channel/12"
         }
       ]
     },
     {
-      "id": "bahrain-quran-radio",
+      "id": "bahrain-quran",
       "name": "Bahrain Quran Radio 106.1",
       "mark": "BQ",
       "country": {
         "code": "bh",
-        "name": "Bahrain"
+        "name": {
+          "ro": "Bahrain",
+          "en": "Bahrain"
+        }
       },
       "city": {
         "slug": "manama",
-        "name": "Manama"
+        "name": {
+          "ro": "Manama",
+          "en": "Manama"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online",
         "fm"
@@ -440,24 +937,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": "106.1",
-        "display": "106,1",
+        "display": {
+          "ro": "106,1",
+          "en": "106.1"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://5c7b683162943.streamlock.net/live/ngrp:radio-106-1_all/playlist.m3u8",
         "page": "https://surahquran.com/Radio-Quran-Bahrain.html",
         "official": "https://www.mia.gov.bh/media-center/quran-kareem-106-1/?lang=en",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Format HLS; compatibilitatea depinde de player. Pagina ministerului solicită verificare umană; este oferită o pagină alternativă de ascultare."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. Format HLS; compatibilitatea depinde de player. Pagina ministerului cere verificare umană; este oferită o alternativă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HLS format; compatibility depends on the player. Ministry page requires human verification; an alternative listening page is provided."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -467,40 +988,61 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/952840ba-f2d8-42ca-9e5f-7e169b880c8c"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://www.mia.gov.bh/media-center/quran-kareem-106-1/?lang=en"
         },
         {
-          "label": "Pagină de ascultare alternativă",
+          "label": {
+            "ro": "Pagină de ascultare alternativă",
+            "en": "Alternative listening page"
+          },
           "url": "https://surahquran.com/Radio-Quran-Bahrain.html"
         }
       ]
     },
     {
-      "id": "jordan-quran-radio",
+      "id": "jordan-quran",
       "name": "Jordan Quran Radio",
       "mark": "JQ",
       "country": {
         "code": "jo",
-        "name": "Iordania"
+        "name": {
+          "ro": "Iordania",
+          "en": "Jordan"
+        }
       },
       "city": {
         "slug": "amman",
-        "name": "Amman"
+        "name": {
+          "ro": "Amman",
+          "en": "Amman"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -508,24 +1050,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://jrtv-live.ercdn.net/jrradio/quranradio.m3u8",
         "page": "https://surahquran.com/Radio-Quran-Jordan.html",
         "official": null,
-        "stream_note": "Fluxul HLS a răspuns la verificarea HTTP, dar nu a început redarea în browser la două încercări. Disponibilitatea poate varia; încearcă pagina externă."
+        "stream_note": {
+          "ro": "Fluxul HLS a răspuns la verificarea HTTP, dar nu a început redarea în browser la două încercări. Disponibilitatea poate varia; încearcă pagina externă.",
+          "en": "The HLS stream responded to the HTTP check, but browser playback did not start in two attempts. Availability may vary; try the external page."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -535,36 +1101,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/06e1ce15-a839-4bd6-9d77-6c4c32eb75cc"
         },
         {
-          "label": "Pagină de ascultare alternativă",
+          "label": {
+            "ro": "Pagină de ascultare alternativă",
+            "en": "Alternative listening page"
+          },
           "url": "https://surahquran.com/Radio-Quran-Jordan.html"
         }
       ]
     },
     {
-      "id": "algerian-quran-radio",
+      "id": "algerian-quran",
       "name": "Algerian Quran Radio",
       "mark": "AQ",
       "country": {
         "code": "dz",
-        "name": "Algeria"
+        "name": {
+          "ro": "Algeria",
+          "en": "Algeria"
+        }
       },
       "city": {
         "slug": "algiers",
-        "name": "Alger"
+        "name": {
+          "ro": "Alger",
+          "en": "Algiers"
+        }
       },
       "county": "",
-      "language": "arabă, franceză",
+      "language": {
+        "ro": "arabă, franceză",
+        "en": "Arabic, French"
+      },
       "modes": [
         "online"
       ],
@@ -572,24 +1156,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă, franceză"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă, franceză",
+          "en": "Languages: Arabic, French"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://webradio1.tda.dz:8001/Coran_64K.mp3",
         "page": "https://my.radioalgerie.dz/fr/coran",
         "official": "https://my.radioalgerie.dz/fr/coran",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -599,18 +1207,27 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/f07420b2-244c-45fd-aa5a-321f4dbf8df6"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://my.radioalgerie.dz/fr/coran"
         }
       ],
@@ -623,14 +1240,23 @@
       "mark": "SQ",
       "country": {
         "code": "pk",
-        "name": "Pakistan"
+        "name": {
+          "ro": "Pakistan",
+          "en": "Pakistan"
+        }
       },
       "city": {
         "slug": "islamabad",
-        "name": "Islamabad"
+        "name": {
+          "ro": "Islamabad",
+          "en": "Islamabad"
+        }
       },
       "county": "",
-      "language": "arabă (recitări); alte limbi neconfirmate",
+      "language": {
+        "ro": "arabă (recitări); alte limbi neconfirmate",
+        "en": "Arabic (recitations); other languages unconfirmed"
+      },
       "modes": [
         "online",
         "fm"
@@ -639,24 +1265,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă (recitări); alte limbi neconfirmate"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă (recitări); alte limbi neconfirmate",
+          "en": "Languages: Arabic (recitations); other languages unconfirmed"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": "93.4",
-        "display": "93,4",
+        "display": {
+          "ro": "93,4",
+          "en": "93.4"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://whmsonic.radio.gov.pk:7002/stream?type=http&nocache=12",
         "page": "https://www.radio.gov.pk/live-streaming",
         "official": "https://www.radio.gov.pk/live-streaming",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -666,36 +1316,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/9ed2cc95-7b6f-42f3-805e-3e208425edef"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://www.radio.gov.pk/live-streaming"
         }
       ]
     },
     {
-      "id": "oman-quran-radio",
+      "id": "oman-quran",
       "name": "Oman Quran Radio",
       "mark": "OQ",
       "country": {
         "code": "om",
-        "name": "Oman"
+        "name": {
+          "ro": "Oman",
+          "en": "Oman"
+        }
       },
       "city": {
         "slug": "muscat",
-        "name": "Muscat"
+        "name": {
+          "ro": "Muscat",
+          "en": "Muscat"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -703,24 +1371,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Național (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Național (Sadaa)",
+          "en": "National (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista națională.",
+      "description": {
+        "ro": "Coran · Lista națională Sadaa.",
+        "en": "Quran · Sadaa national list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://partwota.cdn.mgmlcdn.com/quranrdoorg/quranrdo.stream_aac/chunklist.m3u8",
         "page": "https://ayn.om/",
         "official": "https://ayn.om/",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Format HLS; compatibilitatea depinde de player."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. Format HLS; compatibilitatea depinde de player.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HLS format; compatibility depends on the player."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -730,36 +1422,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/2cc238bc-2466-4e27-a5ad-af7e02991220"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://ayn.om/"
         }
       ]
     },
     {
-      "id": "quran-radio-beirut",
+      "id": "quran-beirut",
       "name": "Quran Radio 93.3",
       "mark": "BQ",
       "country": {
         "code": "lb",
-        "name": "Liban"
+        "name": {
+          "ro": "Liban",
+          "en": "Lebanon"
+        }
       },
       "city": {
         "slug": "beirut",
-        "name": "Beirut"
+        "name": {
+          "ro": "Beirut",
+          "en": "Beirut"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -767,24 +1477,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Listat de Sadaa ca „Quran Radio 93.3”, în Beirut. Frecvență neconfirmată: site-ul asociat de Radio Browser indică 93.9, 94.1 și 94.3 FM. Identitatea acestei asocieri necesită clarificare.",
+      "description": {
+        "ro": "Listat de Sadaa ca „Quran Radio 93.3”, în Beirut. Frecvență neconfirmată: site-ul asociat de Radio Browser indică 93.9, 94.1 și 94.3 FM. Identitatea acestei asocieri necesită clarificare.",
+        "en": "Listed by Sadaa as “Quran Radio 93.3” in Beirut. Frequency unconfirmed: the website linked by Radio Browser lists 93.9, 94.1 and 94.3 FM. This association needs clarification."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://audio.osina.cloud:7987/stream",
         "page": "https://www.quranstream.me/",
         "official": null,
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -794,18 +1528,27 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/e82181dd-b7dd-4ba1-8c1b-2c7c8c715602"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://www.quranstream.me/"
         }
       ]
@@ -816,14 +1559,23 @@
       "mark": "IQ",
       "country": {
         "code": "lb",
-        "name": "Liban"
+        "name": {
+          "ro": "Liban",
+          "en": "Lebanon"
+        }
       },
       "city": {
         "slug": "tripoli-lb",
-        "name": "Tripoli"
+        "name": {
+          "ro": "Tripoli",
+          "en": "Tripoli"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -831,24 +1583,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://streaming.radio.co/s596b42805/listen",
         "page": "https://irtiqaaway.com/",
         "official": "https://irtiqaaway.com/",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -858,36 +1634,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/daa09c4e-3e34-45db-87bb-c3b8571f17a1"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://irtiqaaway.com/"
         }
       ]
     },
     {
-      "id": "nablus-quran-radio",
+      "id": "nablus-quran",
       "name": "Nablus Quran Radio",
       "mark": "NQ",
       "country": {
         "code": "ps",
-        "name": "Palestina"
+        "name": {
+          "ro": "Palestina",
+          "en": "Palestine"
+        }
       },
       "city": {
         "slug": "nablus",
-        "name": "Nablus"
+        "name": {
+          "ro": "Nablus",
+          "en": "Nablus"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online",
         "fm"
@@ -896,49 +1690,91 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": "96.9",
-        "display": "96,9",
+        "display": {
+          "ro": "96,9",
+          "en": "96.9"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "http://www.quran-radio.org:8002/",
         "page": "https://quran-radio.com/",
         "official": "https://quran-radio.com/",
-        "stream_note": "Flux HTTP: serverul a răspuns cu audio/mpeg, dar browserul a respins sursa (NotSupportedError). Folosește pagina oficială de ascultare; nu se încorporează într-o pagină HTTPS."
+        "stream_note": {
+          "ro": "Flux HTTP: serverul a răspuns cu audio/mpeg, dar browserul a respins sursa (NotSupportedError). Folosește pagina oficială de ascultare; nu se încorporează într-o pagină HTTPS.",
+          "en": "HTTP stream: the server returned audio/mpeg, but the browser rejected the source (NotSupportedError). Use the official listening page; do not embed it in an HTTPS page."
+        }
       },
-      "programming": "Recitări, interpretarea Coranului, emisiuni religioase și programe interactive. Pagina oficială publică o grilă care include și conținut vorbit.",
+      "programming": {
+        "ro": "Recitări, interpretarea Coranului, emisiuni religioase și programe interactive. Pagina oficială publică o grilă care include și conținut vorbit.",
+        "en": "Recitations, Quran interpretation, religious broadcasts and interactive programs. The official website publishes a schedule that also includes spoken content."
+      },
       "history": {
-        "first_broadcast": "1998",
-        "operator": "Al-Safa pentru difuzarea Coranului și științelor sale"
+        "first_broadcast": {
+          "ro": "1998",
+          "en": "1998"
+        },
+        "operator": {
+          "ro": "Al-Safa pentru difuzarea Coranului și științelor sale",
+          "en": "Al-Safa for broadcasting the Quran and its sciences"
+        }
       },
       "contact": {
         "address": null,
         "phones": [],
         "email": "info@quran-radio.com"
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/961ffb71-0601-11e8-ae97-52543be04c81"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://quran-radio.com/"
         },
         {
-          "label": "Nablus — prezentare oficială",
+          "label": {
+            "ro": "Nablus — prezentare oficială",
+            "en": "Nablus — official overview"
+          },
           "url": "https://quran-radio.com/page/About"
         }
       ],
@@ -951,14 +1787,23 @@
       "mark": "MB",
       "country": {
         "code": "ly",
-        "name": "Libia"
+        "name": {
+          "ro": "Libia",
+          "en": "Libya"
+        }
       },
       "city": {
         "slug": "benghazi",
-        "name": "Benghazi"
+        "name": {
+          "ro": "Benghazi",
+          "en": "Benghazi"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online",
         "fm"
@@ -967,24 +1812,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": "94.9",
-        "display": "94,9",
+        "display": {
+          "ro": "94,9",
+          "en": "94.9"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://live.munir.ly/proxy/almunir/stream",
         "page": "https://munir.ly/en",
         "official": "https://munir.ly/en",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -994,18 +1863,27 @@
         "phones": [],
         "email": "contact@munir.ly"
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/2b1ad85e-2a5b-4c83-9a98-62e84d188cd8"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://munir.ly/en"
         }
       ]
@@ -1016,14 +1894,23 @@
       "mark": "MT",
       "country": {
         "code": "ly",
-        "name": "Libia"
+        "name": {
+          "ro": "Libia",
+          "en": "Libya"
+        }
       },
       "city": {
         "slug": "tripoli-ly",
-        "name": "Tripoli"
+        "name": {
+          "ro": "Tripoli",
+          "en": "Tripoli"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online",
         "fm"
@@ -1032,24 +1919,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": "94.5",
-        "display": "94,5",
+        "display": {
+          "ro": "94,5",
+          "en": "94.5"
+        },
         "band": "MHz FM"
       },
       "listening": {
         "stream": "https://live.munir.ly/proxy/almunirtip/stream",
         "page": "https://munir.ly/en",
         "official": "https://munir.ly/en",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -1059,18 +1970,27 @@
         "phones": [],
         "email": "contact@munir.ly"
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/2c82c815-59af-4eb3-80b6-43e4ad80bea2"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://munir.ly/en"
         }
       ]
@@ -1081,14 +2001,23 @@
       "mark": "PQ",
       "country": {
         "code": "in",
-        "name": "India"
+        "name": {
+          "ro": "India",
+          "en": "India"
+        }
       },
       "city": {
         "slug": "kerala",
-        "name": "Kerala (regiune)"
+        "name": {
+          "ro": "Kerala (regiune)",
+          "en": "Kerala (region)"
+        }
       },
       "county": "",
-      "language": "arabă, malayalam",
+      "language": {
+        "ro": "arabă, malayalam",
+        "en": "Arabic, Malayalam"
+      },
       "modes": [
         "online"
       ],
@@ -1096,24 +2025,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă, malayalam"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă, malayalam",
+          "en": "Languages: Arabic, Malayalam"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "http://stream.peaceradio.com:8000/quran/high",
         "page": "https://www.peaceradio.com/",
         "official": "https://www.peaceradio.com/",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia. Flux HTTP sau redirecționare către HTTP: folosește pagina externă; nu se încorporează într-o pagină HTTPS."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. HTTP sau redirecționare HTTP: folosește pagina externă; nu se încorporează în HTTPS.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HTTP or HTTP redirect: use the external page; do not embed in HTTPS."
+        }
       },
-      "programming": "Canalul Quran al PeaceRadio, cu recitări în arabă și programe despre Coran în malayalam; nu este canalul generalist.",
+      "programming": {
+        "ro": "Canalul Quran al PeaceRadio, cu recitări în arabă și programe despre Coran în malayalam; nu este canalul generalist.",
+        "en": "PeaceRadio's Quran channel, with Arabic recitations and programs about the Quran in Malayalam; this is not the generalist channel."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -1123,36 +2076,54 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/30a04105-5ebc-46bc-9585-dddd211b8a22"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://www.peaceradio.com/"
         }
       ]
     },
     {
-      "id": "radio-sayang-quran",
+      "id": "sayang-quran",
       "name": "Radio Sayang Quran",
       "mark": "RQ",
       "country": {
         "code": "id",
-        "name": "Indonezia"
+        "name": {
+          "ro": "Indonezia",
+          "en": "Indonesia"
+        }
       },
       "city": {
         "slug": "nespecificat-id",
-        "name": "Localitate nepublicată"
+        "name": {
+          "ro": "Localitate nepublicată",
+          "en": "Location not published"
+        }
       },
       "county": "",
-      "language": "nespecificată în sursa de catalog",
+      "language": {
+        "ro": "nespecificată în sursa de catalog",
+        "en": "not specified in the catalog source"
+      },
       "modes": [
         "online"
       ],
@@ -1160,24 +2131,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: nespecificată în sursa de catalog"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: nespecificată în sursa de catalog",
+          "en": "Languages: not specified in the catalog source"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://radio.sayangquran.com/listen/radiosq/radio.mp3",
         "page": "https://radio.sayangquran.com/public/radiosq",
         "official": "https://radio.sayangquran.com/public/radiosq",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -1187,18 +2182,27 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/9b9f9ccf-c33a-4dd4-89ac-14b864819e87"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://radio.sayangquran.com/public/radiosq"
         }
       ]
@@ -1209,14 +2213,23 @@
       "mark": "HQ",
       "country": {
         "code": "za",
-        "name": "Africa de Sud"
+        "name": {
+          "ro": "Africa de Sud",
+          "en": "South Africa"
+        }
       },
       "city": {
         "slug": "kwazulu-natal",
-        "name": "KwaZulu-Natal (provincie)"
+        "name": {
+          "ro": "KwaZulu-Natal (provincie)",
+          "en": "KwaZulu-Natal (province)"
+        }
       },
       "county": "",
-      "language": "arabă",
+      "language": {
+        "ro": "arabă",
+        "en": "Arabic"
+      },
       "modes": [
         "online"
       ],
@@ -1224,24 +2237,48 @@
         "quran"
       ],
       "tags": [
-        "Online",
-        "Coran",
-        "Comunitar (Sadaa)",
-        "Limbi: arabă"
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "Coran",
+          "en": "Quran"
+        },
+        {
+          "ro": "Comunitar (Sadaa)",
+          "en": "Community (Sadaa)"
+        },
+        {
+          "ro": "Limbi: arabă",
+          "en": "Languages: Arabic"
+        }
       ],
-      "description": "Post dedicat Coranului, inclus de Sadaa în lista comunitară.",
+      "description": {
+        "ro": "Coran · Lista comunitară Sadaa.",
+        "en": "Quran · Sadaa community list."
+      },
       "frequency": {
         "value": null,
-        "display": "Frecvență neconfirmată",
+        "display": {
+          "ro": "Frecvență neconfirmată",
+          "en": "Frequency unconfirmed"
+        },
         "band": ""
       },
       "listening": {
         "stream": "https://stream.zeno.fm/pyc8kax6f2zuv",
         "page": "https://zeno.fm/radio/al-husnaa-quran",
         "official": "https://zeno.fm/radio/al-husnaa-quran",
-        "stream_note": "Redarea audio a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 5 noiembrie 2026. Disponibilitatea poate varia."
+        "stream_note": {
+          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
+        }
       },
-      "programming": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+      "programming": {
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
+        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+      },
       "history": {
         "first_broadcast": null,
         "operator": null
@@ -1251,18 +2288,27 @@
         "phones": [],
         "email": null
       },
-      "verified": "5 noiembrie 2026",
+      "verified": "2026-11-05",
       "sources": [
         {
-          "label": "Sadaa — lista națională și comunitară, localizare",
+          "label": {
+            "ro": "Sadaa — liste și localizare",
+            "en": "Sadaa — lists and location"
+          },
           "url": "https://sadaa.app/"
         },
         {
-          "label": "Radio Browser — înregistrare și flux (director comunitar)",
+          "label": {
+            "ro": "Radio Browser — înregistrare și flux comunitar",
+            "en": "Radio Browser — community listing and stream"
+          },
           "url": "https://de1.api.radio-browser.info/json/stations/byuuid/b7c46425-7fd3-4176-8e57-e3916ace3fd2"
         },
         {
-          "label": "Pagina asociată postului",
+          "label": {
+            "ro": "Site asociat",
+            "en": "Associated website"
+          },
           "url": "https://zeno.fm/radio/al-husnaa-quran"
         }
       ]
