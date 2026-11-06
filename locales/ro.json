@@ -9,7 +9,7 @@
   "category.all": "Orice conținut",
   "reset": "Resetează",
   "catalog.eyebrow": "Catalog",
-  "catalog.title": "Posturi verificate",
+  "catalog.title": "Posturi",
   "view.all": "Toate",
   "view.favorites": "Favorite",
   "view.online": "Online",
@@ -40,7 +40,7 @@
   "search.placeholder": "Post, localitate, frecvență sau conținut…",
   "hero.title": "Găsește-ți următoarea {frequency}",
   "hero.frequency": "frecvență.",
-  "hero.tip": "Vrei să asculți și dincolo de granițe? Rotește globul pe {garden} și prinde radio live din orice colț al lumii.",
+  "hero.tip": "Explorează posturi din întreaga lume pe globul interactiv de la {garden}.",
   "recommendation": "Recomandat de {person}",
   "loading": "Se încarcă…",
   "meta.description": "Radio Atlas: catalog independent de posturi radio, frecvențe FM și opțiuni de ascultare online.",
@@ -70,5 +70,10 @@
   "action.error": "Acțiunea a eșuat. Încearcă din nou.",
   "copy.error": "Copiere indisponibilă. Selectează textul pentru copiere manuală.",
   "language.error": "Limba nu a putut fi schimbată. Încearcă din nou.",
-  "copy.frequencyLocation": "Copiază frecvența pentru {city}"
+  "copy.frequencyLocation": "Copiază frecvența pentru {city}",
+  "related.title": "Alte moduri de a explora radioul",
+  "frequency.options": "Opțiuni pentru frecvență",
+  "frequency.other": "Alte frecvențe și copiere",
+  "footer.source": "Vezi codul",
+  "footer.sourceLabel": "Vezi codul — se deschide într-o filă nouă"
 }

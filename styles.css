@@ -167,19 +167,18 @@
     color: var(--muted);
     font-size: 1.05rem;
   }
-  .hero-tip {
-    max-inline-size: 38rem;
-    margin-block-start: 1.5rem;
-    padding: 1rem 1.25rem;
-    border-inline-start: 0.3rem solid var(--accent);
-    border-start-end-radius: 0.6rem;
-    border-end-end-radius: 0.6rem;
-    background: var(--surface);
-    font-size: 1.2rem;
-    line-height: 1.45;
+  .related-resources {
+    margin-block-start: 2.5rem;
+    padding-block-start: 1.5rem;
+    border-block-start: 1px solid var(--line);
+    color: var(--muted);
   }
-  .hero-tip a {
-    font-weight: 750;
+  .related-resources h2 {
+    margin-block-end: 0.5rem;
+    color: var(--ink);
+    font-size: 1rem;
+  }
+  .related-resources a {
     overflow-wrap: anywhere;
   }
   .dial-art {
@@ -302,6 +301,7 @@
   }
   .station {
     container-type: inline-size;
+    overflow-wrap: anywhere;
     overflow: clip;
     border: 1px solid var(--line);
     border-radius: 1rem;
@@ -374,8 +374,17 @@
     font-size: 0.72rem;
   }
   .frequencies {
-    padding: 0;
+    padding: 0 clamp(1.25rem, 4cqi, 2rem) 1rem;
     list-style: none;
+  }
+  .frequency-options summary {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .frequency-options .frequency {
+    flex-wrap: wrap;
+    margin-block: 0.75rem;
   }
   .frequency {
     display: flex;
@@ -468,6 +477,9 @@
     margin-block-start: 0.7rem;
     font-size: 0.8rem;
   }
+  .source-note {
+    margin-block-start: 0.7rem;
+  }
   .empty-state {
     padding: 3rem 1rem;
     border: 1px dashed var(--line);
@@ -484,6 +496,13 @@
     gap: 1rem;
     padding-block: 1.5rem;
     border-block-start: 1px solid var(--line);
+  }
+  .site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    overflow-wrap: anywhere;
+    font-weight: 700;
   }
   .toast {
     position: fixed;
@@ -554,7 +573,7 @@
   }
   @media (pointer: coarse) {
     .recommendation a,
-    .hero-tip a,
+    .related-resources a,
     .station-actions a,
     .details-content a {
       display: inline-flex;

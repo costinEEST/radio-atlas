@@ -9,7 +9,7 @@
   "category.all": "Any content",
   "reset": "Reset",
   "catalog.eyebrow": "Catalog",
-  "catalog.title": "Verified stations",
+  "catalog.title": "Stations",
   "view.all": "All",
   "view.favorites": "Favorites",
   "view.online": "Online",
@@ -40,7 +40,7 @@
   "search.placeholder": "Station, location, frequency or content…",
   "hero.title": "Find your next {frequency}",
   "hero.frequency": "frequency.",
-  "hero.tip": "Want to listen beyond your borders? Spin the globe on {garden} and tune in to live radio from around the world.",
+  "hero.tip": "Explore stations around the world on the interactive globe at {garden}.",
   "recommendation": "Recommended by {person}",
   "loading": "Loading…",
   "meta.description": "Radio Atlas: an independent catalog of radio stations, FM frequencies and online listening options.",
@@ -69,5 +69,10 @@
   "action.error": "This action failed. Please try again.",
   "copy.error": "Copy unavailable. Select the text to copy it manually.",
   "language.error": "The language could not be changed. Please try again.",
-  "copy.frequencyLocation": "Copy frequency for {city}"
+  "copy.frequencyLocation": "Copy frequency for {city}",
+  "related.title": "More ways to explore radio",
+  "frequency.options": "Frequency options",
+  "frequency.other": "Other frequencies and copy",
+  "footer.source": "View source",
+  "footer.sourceLabel": "View source — opens in a new tab"
 }

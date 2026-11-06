@@ -55,23 +55,9 @@
         "ro": "română",
         "en": "Romanian"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "culture",
-        "music"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["culture", "music"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM",
-          "en": "FM"
-        },
         {
           "ro": "Cultură",
           "en": "Culture"
@@ -181,24 +167,9 @@
         "ro": "română",
         "en": "Romanian"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "generalist",
-        "news",
-        "music"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["generalist", "news", "music"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM",
-          "en": "FM"
-        },
         {
           "ro": "Generalist",
           "en": "Generalist"
@@ -315,24 +286,9 @@
         "ro": "română",
         "en": "Romanian"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "music",
-        "classical",
-        "jazz"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["music", "classical", "jazz"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM",
-          "en": "FM"
-        },
         {
           "ro": "Muzică clasică",
           "en": "Classical music"
@@ -459,29 +415,9 @@
         "ro": "maghiară",
         "en": "Hungarian"
       },
-      "modes": [
-        "online",
-        "fm",
-        "am"
-      ],
-      "categories": [
-        "generalist",
-        "news",
-        "music"
-      ],
+      "modes": ["online", "fm", "am"],
+      "categories": ["generalist", "news", "music"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM",
-          "en": "FM"
-        },
-        {
-          "ro": "AM",
-          "en": "AM"
-        },
         {
           "ro": "Generalist",
           "en": "Generalist"
@@ -597,17 +533,8 @@
         "ro": "Mureș",
         "en": "Mureș"
       },
-      "modes": [
-        "online",
-        "fm",
-        "am"
-      ],
-      "categories": [
-        "generalist",
-        "news",
-        "music",
-        "culture"
-      ],
+      "modes": ["online", "fm", "am"],
+      "categories": ["generalist", "news", "music", "culture"],
       "history": {
         "first_broadcast": {
           "ro": "2 martie 1958",
@@ -627,14 +554,6 @@
         "en": "Romanian"
       },
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM / AM",
-          "en": "FM / AM"
-        },
         {
           "ro": "Regional",
           "en": "Regional"
@@ -743,17 +662,8 @@
         "ro": "Mureș",
         "en": "Mureș"
       },
-      "modes": [
-        "online",
-        "fm",
-        "am"
-      ],
-      "categories": [
-        "generalist",
-        "news",
-        "music",
-        "culture"
-      ],
+      "modes": ["online", "fm", "am"],
+      "categories": ["generalist", "news", "music", "culture"],
       "history": {
         "first_broadcast": {
           "ro": "2 martie 1958",
@@ -773,14 +683,6 @@
         "en": "Hungarian; German and Romani programs"
       },
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM / AM",
-          "en": "FM / AM"
-        },
         {
           "ro": "Regional",
           "en": "Regional"
@@ -900,25 +802,9 @@
         "ro": "română",
         "en": "Romanian"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "generalist",
-        "news",
-        "music",
-        "culture"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["generalist", "news", "music", "culture"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
-        {
-          "ro": "FM",
-          "en": "FM"
-        },
         {
           "ro": "În română",
           "en": "In Romanian"
@@ -1164,24 +1050,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1189,8 +1063,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -1210,8 +1084,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1252,7 +1126,11 @@
           },
           "url": "https://publiciptv.com/channels/holyquranradiosa"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "holy-quran-cairo",
@@ -1277,25 +1155,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1303,8 +1168,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": "98.2",
@@ -1324,8 +1189,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1361,7 +1226,11 @@
         }
       ],
       "native_name": "إذاعة القرآن الكريم من القاهرة",
-      "native_language": "ar"
+      "native_language": "ar",
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "sharjah-quran",
@@ -1386,24 +1255,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1411,8 +1268,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -1432,8 +1289,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1467,7 +1324,11 @@
           },
           "url": "https://www.sba.net.ae/radio/channel/12"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "bahrain-quran",
@@ -1492,25 +1353,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1518,8 +1366,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": "106.1",
@@ -1539,8 +1387,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1581,7 +1429,11 @@
           },
           "url": "https://surahquran.com/Radio-Quran-Bahrain.html"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "jordan-quran",
@@ -1606,24 +1458,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1631,8 +1471,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -1652,8 +1492,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1687,7 +1527,11 @@
           },
           "url": "https://surahquran.com/Radio-Quran-Jordan.html"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "algerian-quran",
@@ -1712,24 +1556,12 @@
         "ro": "arabă, franceză",
         "en": "Arabic, French"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă, franceză",
@@ -1737,8 +1569,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -1758,8 +1590,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1795,7 +1627,11 @@
         }
       ],
       "native_name": "القرآن الكريم",
-      "native_language": "ar"
+      "native_language": "ar",
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "sout-ul-quran",
@@ -1820,25 +1656,12 @@
         "ro": "arabă (recitări); alte limbi neconfirmate",
         "en": "Arabic (recitations); other languages unconfirmed"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă (recitări); alte limbi neconfirmate",
@@ -1846,8 +1669,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": "93.4",
@@ -1867,8 +1690,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -1902,7 +1725,11 @@
           },
           "url": "https://www.radio.gov.pk/live-streaming"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "oman-quran",
@@ -1927,24 +1754,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Național (Sadaa)",
-          "en": "National (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -1952,8 +1767,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista națională Sadaa.",
-        "en": "Quran · Sadaa national list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -1973,8 +1788,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2008,7 +1823,11 @@
           },
           "url": "https://ayn.om/"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: national.",
+        "ro": "Clasificare Sadaa: național."
+      }
     },
     {
       "id": "quran-beirut",
@@ -2033,24 +1852,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2058,8 +1865,8 @@
         }
       ],
       "description": {
-        "ro": "Listat de Sadaa ca „Quran Radio 93.3”, în Beirut. Frecvență neconfirmată: site-ul asociat de Radio Browser indică 93.9, 94.1 și 94.3 FM. Identitatea acestei asocieri necesită clarificare.",
-        "en": "Listed by Sadaa as “Quran Radio 93.3” in Beirut. Frequency unconfirmed: the website linked by Radio Browser lists 93.9, 94.1 and 94.3 FM. This association needs clarification."
+        "en": "Quran recitations; the linked website and FM frequency need clarification.",
+        "ro": "Recitări ale Coranului; asocierea cu site-ul și frecvența FM necesită clarificare."
       },
       "frequency": {
         "value": null,
@@ -2079,8 +1886,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2114,7 +1921,11 @@
           },
           "url": "https://www.quranstream.me/"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community. Listed by Sadaa as “Quran Radio 93.3” in Beirut. Frequency unconfirmed: the website linked by Radio Browser lists 93.9, 94.1 and 94.3 FM. This association needs clarification.",
+        "ro": "Clasificare Sadaa: comunitar. Listat de Sadaa ca „Quran Radio 93.3”, în Beirut. Frecvență neconfirmată: site-ul asociat de Radio Browser indică 93.9, 94.1 și 94.3 FM. Identitatea acestei asocieri necesită clarificare."
+      }
     },
     {
       "id": "irtiqaa-way-quran",
@@ -2139,24 +1950,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2164,8 +1963,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -2185,8 +1984,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2220,7 +2019,11 @@
           },
           "url": "https://irtiqaaway.com/"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "nablus-quran",
@@ -2245,25 +2048,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2271,8 +2061,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări, interpretarea Coranului, emisiuni religioase și programe interactive.",
+        "en": "Recitations, Quran interpretation, religious broadcasts and interactive programs."
       },
       "frequency": {
         "value": "96.9",
@@ -2342,7 +2132,11 @@
         }
       ],
       "native_name": "إذاعة القرآن الكريم من نابلس",
-      "native_language": "ar"
+      "native_language": "ar",
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "almunir-benghazi",
@@ -2367,25 +2161,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2393,8 +2174,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": "94.9",
@@ -2414,8 +2195,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2449,7 +2230,11 @@
           },
           "url": "https://munir.ly/en"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "almunir-tripoli",
@@ -2474,25 +2259,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2500,8 +2272,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": "94.5",
@@ -2521,8 +2293,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2556,7 +2328,11 @@
           },
           "url": "https://munir.ly/en"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "peaceradio-quran",
@@ -2581,24 +2357,12 @@
         "ro": "arabă, malayalam",
         "en": "Arabic, Malayalam"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă, malayalam",
@@ -2606,8 +2370,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului în arabă și programe despre Coran în malayalam.",
+        "en": "Arabic Quran recitations and programs about the Quran in Malayalam."
       },
       "frequency": {
         "value": null,
@@ -2662,7 +2426,11 @@
           },
           "url": "https://www.peaceradio.com/"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "sayang-quran",
@@ -2687,24 +2455,12 @@
         "ro": "nespecificată în sursa de catalog",
         "en": "not specified in the catalog source"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: nespecificată în sursa de catalog",
@@ -2712,8 +2468,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -2733,8 +2489,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2768,7 +2524,11 @@
           },
           "url": "https://radio.sayangquran.com/public/radiosq"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     },
     {
       "id": "al-husnaa-quran",
@@ -2793,24 +2553,12 @@
         "ro": "arabă",
         "en": "Arabic"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "quran"
-      ],
+      "modes": ["online"],
+      "categories": ["quran"],
       "tags": [
-        {
-          "ro": "Online",
-          "en": "Online"
-        },
         {
           "ro": "Coran",
           "en": "Quran"
-        },
-        {
-          "ro": "Comunitar (Sadaa)",
-          "en": "Community (Sadaa)"
         },
         {
           "ro": "Limbi: arabă",
@@ -2818,8 +2566,8 @@
         }
       ],
       "description": {
-        "ro": "Coran · Lista comunitară Sadaa.",
-        "en": "Quran · Sadaa community list."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "frequency": {
         "value": null,
@@ -2839,8 +2587,8 @@
         }
       },
       "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia. Clasificarea național/comunitar este cea folosită de Sadaa.",
-        "en": "Quran recitations; the schedule and exact content may vary. The national/community classification follows Sadaa's categories."
+        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
+        "en": "Quran recitations; the schedule and exact content may vary."
       },
       "history": {
         "first_broadcast": null,
@@ -2874,7 +2622,11 @@
           },
           "url": "https://zeno.fm/radio/al-husnaa-quran"
         }
-      ]
+      ],
+      "source_note": {
+        "en": "Sadaa classification: community.",
+        "ro": "Clasificare Sadaa: comunitar."
+      }
     }
   ]
 }
