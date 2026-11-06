@@ -13,6 +13,7 @@ try {
     translateDOM,
   } = await import("./i18n.js");
   translateError = translateDOM;
+  const { createPlayer } = await import("./player.js");
 
   const filters = document.querySelector("#filters");
   const stationsRoot = document.querySelector("#stations");
@@ -22,8 +23,18 @@ try {
   const toast = document.querySelector("#toast");
   const viewButtons = [...document.querySelectorAll("[data-view]")];
   const stationFrequencies = new WeakMap();
+  const stationsById = new Map();
+  const favoritesFilter = document.querySelector("#favorites-only");
+  const playerPanel = document.querySelector("#player");
+  const miniPlayer = document.querySelector("#mini-player");
+  const audio = document.querySelector("#radio-audio");
+  const player = createPlayer(audio, updatePlayer);
+  let selectedStation;
+  let playbackState = "idle";
+  let compactFrame;
   const favorites = readFavorites();
   let activeView = "all";
+  let favoritesOnly = false;
   let toastTimer;
 
   const normalize = (value) =>
@@ -70,6 +81,97 @@ try {
     link.href = href;
     link.textContent = text;
     link.ariaLabel = t("link.newTab", { text });
+  }
+
+  function updatePlayer({ station, state }) {
+    const focused = document.activeElement;
+    selectedStation = station;
+    playbackState = state;
+    playerPanel.hidden = false;
+    document.querySelector("#player-station").textContent = station?.name ?? "";
+    const status = document.querySelector("#player-status");
+    const message = t(`player.${state}`, { name: station?.name ?? "" });
+    if (status.textContent !== message) status.textContent = message;
+    status.lang = messagesLanguage(`player.${state}`);
+    audio.hidden = ["error", "stopped"].includes(state);
+    const retry = document.querySelector("#player-retry");
+    retry.hidden = !["error", "stopped"].includes(state);
+    const retryKey = state === "error" ? "player.retry" : "player.play";
+    retry.textContent = t(retryKey);
+    retry.ariaLabel = `${t(retryKey)} · ${station?.name ?? ""}`;
+    retry.lang = messagesLanguage(retryKey);
+    if (retry.hidden && focused === retry) document.querySelector("#player-stop").focus();
+    else if (audio.hidden && focused === audio && !retry.hidden) retry.focus();
+    const fallback = document.querySelector("#player-fallback");
+    const href = station?.listening.page;
+    fallback.hidden = !/^https?:\/\//i.test(href ?? "");
+    if (!fallback.hidden) {
+      fallback.href = href;
+      fallback.ariaLabel = t("link.newTab", {
+        text: `${t("listen")} · ${station.name}`,
+      });
+    }
+    for (const button of stationsRoot.querySelectorAll('[data-action="play"]')) {
+      const active = button.dataset.stationId === station?.id;
+      const key = active && state === "playing"
+        ? "player.pause"
+        : active && state === "loading" ? "player.cancel" : "player.play";
+      button.textContent = t(key);
+      button.ariaLabel = `${t(key)} · ${stationsById.get(button.dataset.stationId).name}`;
+      button.lang = messagesLanguage(key);
+    }
+    document.querySelector("#mini-station").textContent = station?.name ?? "";
+    const compactKey = state === "playing" ? "player.pause"
+      : state === "loading" ? "player.cancel"
+      : "player.play";
+    const compactToggle = document.querySelector("#mini-toggle");
+    compactToggle.textContent = t(compactKey);
+    compactToggle.ariaLabel = `${t(compactKey)} · ${station?.name ?? ""}`;
+    compactToggle.lang = messagesLanguage(compactKey);
+    document.querySelector("#mini-stop").ariaLabel = `${t("player.stop")} · ${station?.name ?? ""}`;
+    scheduleCompactPlayer();
+  }
+
+  function expandPlayer() {
+    document.querySelector("#player-title").focus({ preventScroll: true });
+    playerPanel.scrollIntoView({ block: "center", behavior: "instant" });
+  }
+
+  function syncCompactPlayer() {
+    const viewportHeight = Math.min(innerHeight, window.visualViewport?.height ?? innerHeight);
+    const panel = playerPanel.getBoundingClientRect();
+    const bar = miniPlayer.getBoundingClientRect();
+    const active = selectedStation && !["idle", "stopped"].includes(playbackState);
+    const offscreen = panel.bottom <= 0 || panel.top >= viewportHeight;
+    const fits = bar.height <= viewportHeight * 0.12 && miniPlayer.scrollWidth <= miniPlayer.clientWidth;
+    const show = Boolean(active && offscreen && fits);
+    // Never leave focus inside a hidden bar after Stop or a viewport change.
+    if (!show && miniPlayer.contains(document.activeElement)) {
+      const visibleAction = [...stationsRoot.querySelectorAll('[data-action="play"]')].find((button) => {
+        const rect = button.getBoundingClientRect();
+        return button.getClientRects().length && rect.top >= 0 && rect.bottom <= viewportHeight;
+      });
+      if (visibleAction) visibleAction.focus({ preventScroll: true });
+      else expandPlayer();
+    }
+    miniPlayer.toggleAttribute("data-visible", show);
+    miniPlayer.inert = !show;
+    document.documentElement.classList.toggle("has-mini-player", show);
+    const focused = document.activeElement;
+    if (show && focused !== document.body && !miniPlayer.contains(focused)) {
+      const rect = focused.getBoundingClientRect();
+      if (rect.bottom > bar.top && rect.top < viewportHeight && rect.bottom > 0) {
+        focused.scrollIntoView({ block: "nearest", behavior: "instant" });
+      }
+    }
+  }
+
+  function scheduleCompactPlayer() {
+    if (compactFrame) return;
+    compactFrame = requestAnimationFrame(handleAction(() => {
+      compactFrame = 0;
+      syncCompactPlayer();
+    }));
   }
 
   function appendContact(address, station, rawContact) {
@@ -175,6 +277,7 @@ try {
 
   function createStation(rawStation) {
     const station = localize(rawStation);
+    stationsById.set(station.id, station);
     const frequencies = frequenciesFor(station);
     const fragment = template.content.cloneNode(true);
     translateDOM(fragment);
@@ -307,6 +410,20 @@ try {
       setLink(link, url, t(key));
       link.lang = messagesLanguage(key);
     }
+    const play = article.querySelector('[data-action="play"]');
+    play.dataset.stationId = station.id;
+    play.ariaLabel = `${t("player.play")} · ${station.name}`;
+    const support = player.support(station.listening.stream);
+    if (support !== "native") {
+      play.hidden = true;
+      const listeningPage = field(article, "listen-page");
+      if (listeningPage) listeningPage.classList.add("primary-action");
+      const note = field(article, "playback-note");
+      const key = support === "hls" ? "player.hls" : "player.external";
+      note.textContent = t(key);
+      note.lang = messagesLanguage(key);
+      note.hidden = false;
+    }
     appendContact(field(article, "contact"), station, rawStation.contact);
 
     for (const source of rawStation.sources) {
@@ -393,11 +510,10 @@ try {
         article.dataset.categories.split(" ").includes(data.get("category"));
       const matchesView =
         activeView === "all" ||
-        (activeView === "favorites"
-          ? favorites.has(article.id)
-          : article.dataset.modes.split(" ").includes(activeView));
+        article.dataset.modes.split(" ").includes(activeView);
       const visible =
-        matchesSearch && matchesFields && matchesCategory && matchesView;
+        matchesSearch && matchesFields && matchesCategory && matchesView &&
+        (!favoritesOnly || favorites.has(article.id));
       article.closest(".station-item").hidden = !visible;
       if (visible) {
         const frequencies = stationFrequencies.get(article);
@@ -416,10 +532,16 @@ try {
 
   function resetAll() {
     filters.reset();
+    resetViews();
+    render();
+  }
+
+  function resetViews() {
     activeView = "all";
+    favoritesOnly = false;
+    favoritesFilter.ariaPressed = "false";
     for (const button of viewButtons)
       button.ariaPressed = String(button.dataset.view === activeView);
-    render();
   }
 
   function notify(message) {
@@ -468,8 +590,43 @@ try {
   filters.addEventListener("input", handleAction(render));
   filters.addEventListener(
     "reset",
-    handleAction(() => requestAnimationFrame(handleAction(render))),
+    handleAction(() => {
+      resetViews();
+      requestAnimationFrame(handleAction(render));
+    }),
   );
+  favoritesFilter.addEventListener("click", handleAction(() => {
+    favoritesOnly = !favoritesOnly;
+    favoritesFilter.ariaPressed = String(favoritesOnly);
+    render();
+  }));
+  document.querySelector("#player-stop").addEventListener(
+    "click", handleAction(() => player.stop()),
+  );
+  document.querySelector("#player-retry").addEventListener(
+    "click", handleAction(async () => {
+      if (selectedStation) await player.toggle(selectedStation);
+    }),
+  );
+  document.querySelector("#mini-toggle").addEventListener("click", handleAction(async () => {
+    if (selectedStation) await player.toggle(selectedStation);
+  }));
+  document.querySelector("#mini-stop").addEventListener("click", handleAction(() => player.stop()));
+  document.querySelector("#mini-expand").addEventListener("click", handleAction((event) => {
+    event.preventDefault();
+    expandPlayer();
+    scheduleCompactPlayer();
+  }));
+  for (const event of ["scroll", "resize"]) {
+    window.addEventListener(event, handleAction(scheduleCompactPlayer), { passive: true });
+  }
+  window.visualViewport?.addEventListener("resize", handleAction(scheduleCompactPlayer), { passive: true });
+  document.addEventListener("focusin", handleAction(scheduleCompactPlayer));
+  // Observe text-size and content changes too, without measuring on every scroll tick.
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(handleAction(scheduleCompactPlayer));
+    for (const node of [miniPlayer, playerPanel, document.documentElement]) observer.observe(node);
+  }
   document
     .querySelector("#show-all")
     .addEventListener("click", handleAction(resetAll));
@@ -487,6 +644,11 @@ try {
   stationsRoot.addEventListener(
     "click",
     handleAction(async (event) => {
+      const play = event.target.closest('[data-action="play"]');
+      if (play) {
+        await player.toggle(stationsById.get(play.dataset.stationId));
+        return;
+      }
       const favorite = event.target.closest(".favorite");
       if (favorite) {
         const id = favorite.dataset.stationId;
@@ -497,6 +659,7 @@ try {
           field(favorite.closest(".station"), "name").textContent,
         );
         render();
+        if (favoritesOnly && !favorites.has(id)) favoritesFilter.focus();
         return;
       }
       const copy = event.target.closest("[data-copy]");
@@ -505,6 +668,7 @@ try {
   );
 
   await initI18n();
+  document.querySelector("#mini-expand").ariaLabel = t("player.expandLabel");
   const response = await fetch("radios.json");
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const catalog = await response.json();

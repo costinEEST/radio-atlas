@@ -780,6 +780,670 @@
       ]
     },
     {
+      "id": "europa",
+      "name": "Europa FM",
+      "mark": "EF",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Romanian",
+        "ro": "română"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "news",
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "News and music",
+          "ro": "Știri și muzică"
+        },
+        {
+          "en": "In Romanian",
+          "ro": "În română"
+        }
+      ],
+      "description": {
+        "en": "Music, news and listener debates in Romanian.",
+        "ro": "Muzică, știri și dezbateri cu ascultătorii, în română."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti",
+            "name": {
+              "en": "Bucharest",
+              "ro": "București"
+            }
+          },
+          "value": "106.7",
+          "display": {
+            "en": "106.7",
+            "ro": "106,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cluj-napoca",
+            "name": {
+              "en": "Cluj-Napoca",
+              "ro": "Cluj-Napoca"
+            }
+          },
+          "value": "106.6",
+          "display": {
+            "en": "106.6",
+            "ro": "106,6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "106.5",
+          "display": {
+            "en": "106.5",
+            "ro": "106,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "timisoara",
+            "name": {
+              "en": "Timișoara",
+              "ro": "Timișoara"
+            }
+          },
+          "value": "104.4",
+          "display": {
+            "en": "104.4",
+            "ro": "104,4"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://astreaming.edi.ro:8443/EuropaFM_aac",
+        "page": "https://www.europafm.ro/live/",
+        "official": "https://www.europafm.ro/",
+        "stream_note": {
+          "en": "Official HTTPS stream. Chrome reported an audio decode error during the 7 November 2026 check. Use the official listening page if playback fails.",
+          "ro": "Flux HTTPS oficial. Chrome a raportat o eroare de decodare audio la verificarea din 7 noiembrie 2026. Folosește pagina oficială de ascultare dacă redarea nu funcționează."
+        }
+      },
+      "programming": {
+        "en": "Music, news bulletins, Deșteptarea and România în Direct. Selected FM locations are listed here; see the official frequency source for full coverage.",
+        "ro": "Muzică, jurnale de știri, Deșteptarea și România în Direct. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": null
+      },
+      "contact": {
+        "address": {
+          "en": "Șoseaua Pipera 46D–46E–48, Oregon Park, Building B, Sector 2, Bucharest",
+          "ro": "Șoseaua Pipera 46D–46E–48, Oregon Park, Clădirea B, Sector 2, București"
+        },
+        "phones": [
+          {
+            "value": "+40372069500",
+            "display": "+40 372 069 500"
+          }
+        ],
+        "email": "office@europafm.ro"
+      },
+      "verified": "2026-11-07",
+      "sources": [
+        {
+          "url": "https://www.europafm.ro/",
+          "label": {
+            "en": "Europa FM — programming",
+            "ro": "Europa FM — programe"
+          }
+        },
+        {
+          "url": "https://www.europafm.ro/live/",
+          "label": {
+            "en": "Europa FM — official player and stream",
+            "ro": "Europa FM — player și flux oficial"
+          }
+        },
+        {
+          "url": "https://www.europafm.ro/club-vip/faq/cum-asculti-europa-fm/",
+          "label": {
+            "en": "Europa FM — frequencies",
+            "ro": "Europa FM — frecvențe"
+          }
+        },
+        {
+          "url": "https://www.europafm.ro/contact/",
+          "label": {
+            "en": "Europa FM — contact",
+            "ro": "Europa FM — contact"
+          }
+        }
+      ]
+    },
+    {
+      "id": "guerrilla",
+      "name": "Radio Guerrilla",
+      "mark": "RG",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Romanian",
+        "ro": "română"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "Music and conversation",
+          "ro": "Muzică și conversație"
+        },
+        {
+          "en": "In Romanian",
+          "ro": "În română"
+        }
+      ],
+      "description": {
+        "en": "Music, interviews and conversations, with live sessions and cultural programs.",
+        "ro": "Muzică, interviuri și conversații, cu sesiuni live și emisiuni culturale."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti",
+            "name": {
+              "en": "Bucharest",
+              "ro": "București"
+            }
+          },
+          "value": "94.8",
+          "display": {
+            "en": "94.8",
+            "ro": "94,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "94.3",
+          "display": {
+            "en": "94.3",
+            "ro": "94,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "105.5",
+          "display": {
+            "en": "105.5",
+            "ro": "105,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "timisoara",
+            "name": {
+              "en": "Timișoara",
+              "ro": "Timișoara"
+            }
+          },
+          "value": "100",
+          "display": {
+            "en": "100",
+            "ro": "100"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://live.guerrillaradio.ro:8443/guerrilla.aac#AACP",
+        "page": "https://www.guerrillaradio.ro/player/",
+        "official": "https://www.guerrillaradio.ro/",
+        "stream_note": {
+          "en": "Official HTTPS stream. Playback and advancing audio confirmed in Chrome on 7 November 2026; availability varies.",
+          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate în Chrome la 7 noiembrie 2026; disponibilitate variabilă."
+        }
+      },
+      "programming": {
+        "en": "Guerrilla de Dimineață, Electrocord, interviews and live music sessions. Selected FM locations are listed here; see the official frequency source for full coverage.",
+        "ro": "Guerrilla de Dimineață, Electrocord, interviuri și sesiuni de muzică live. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": null
+      },
+      "contact": {
+        "address": {
+          "en": "Str. G-ral Dimitrie Salmen 20, Apt. 7, Sector 2, Bucharest, 021371",
+          "ro": "Str. G-ral Dimitrie Salmen 20, Ap. 7, Sector 2, București, 021371"
+        },
+        "phones": [
+          {
+            "value": "+40758948948",
+            "display": "+40 758 948 948"
+          }
+        ],
+        "email": "statmajor@guerrillaradio.ro"
+      },
+      "verified": "2026-11-07",
+      "sources": [
+        {
+          "url": "https://www.guerrillaradio.ro/",
+          "label": {
+            "en": "Radio Guerrilla — programming",
+            "ro": "Radio Guerrilla — programe"
+          }
+        },
+        {
+          "url": "https://www.guerrillaradio.ro/player/",
+          "label": {
+            "en": "Radio Guerrilla — official player and stream",
+            "ro": "Radio Guerrilla — player și flux oficial"
+          }
+        },
+        {
+          "url": "https://www.guerrillaradio.ro/reteaua-radio-guerrilla/",
+          "label": {
+            "en": "Radio Guerrilla — frequencies",
+            "ro": "Radio Guerrilla — frecvențe"
+          }
+        },
+        {
+          "url": "https://www.guerrillaradio.ro/contact/",
+          "label": {
+            "en": "Radio Guerrilla — contact",
+            "ro": "Radio Guerrilla — contact"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "Rock FM",
+      "mark": "RF",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Romanian",
+        "ro": "română"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "Rock",
+          "ro": "Rock"
+        },
+        {
+          "en": "In Romanian",
+          "ro": "În română"
+        }
+      ],
+      "description": {
+        "en": "Rock music, interviews and entertainment in Romanian.",
+        "ro": "Muzică rock, interviuri și divertisment în română."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti",
+            "name": {
+              "en": "Bucharest",
+              "ro": "București"
+            }
+          },
+          "value": "100.6",
+          "display": {
+            "en": "100.6",
+            "ro": "100,6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cluj-napoca",
+            "name": {
+              "en": "Cluj-Napoca",
+              "ro": "Cluj-Napoca"
+            }
+          },
+          "value": "92.2",
+          "display": {
+            "en": "92.2",
+            "ro": "92,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "89.5",
+          "display": {
+            "en": "89.5",
+            "ro": "89,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "constanta",
+            "name": {
+              "en": "Constanța",
+              "ro": "Constanța"
+            }
+          },
+          "value": "103.9",
+          "display": {
+            "en": "103.9",
+            "ro": "103,9"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://live.rockfm.ro/rockfm.aacp",
+        "page": "https://www.rockfm.ro/",
+        "official": "https://www.rockfm.ro/",
+        "stream_note": {
+          "en": "Official HTTPS stream. Playback and advancing audio confirmed in Chrome on 7 November 2026; availability varies.",
+          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate în Chrome la 7 noiembrie 2026; disponibilitate variabilă."
+        }
+      },
+      "programming": {
+        "en": "Morning Glory, Rockaholic, Rock This Way and Rock Driver. Selected FM locations are listed here; see the official frequency source for full coverage.",
+        "ro": "Morning Glory, Rockaholic, Rock This Way și Rock Driver. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": "SC Canet Radio SRL"
+      },
+      "contact": {
+        "address": {
+          "en": "Splaiul Unirii 165, TN Offices 1, Floor 10, Sector 3, Bucharest",
+          "ro": "Splaiul Unirii 165, TN Offices 1, etaj 10, Sector 3, București"
+        },
+        "phones": [],
+        "email": "office@rockfm.ro"
+      },
+      "verified": "2026-11-07",
+      "sources": [
+        {
+          "url": "https://www.rockfm.ro/",
+          "label": {
+            "en": "Rock FM — official player",
+            "ro": "Rock FM — player oficial"
+          }
+        },
+        {
+          "url": "https://api.rockfm.ro/api/v2/bootstrap-config",
+          "label": {
+            "en": "Rock FM — official frequencies and stream data",
+            "ro": "Rock FM — date oficiale despre frecvențe și flux"
+          }
+        },
+        {
+          "url": "https://s-cache.s3.cloudworks.ro/rockfm/streams/playlist/2022/05/12/rockfm.pls",
+          "label": {
+            "en": "Rock FM — official playlist",
+            "ro": "Rock FM — playlist oficial"
+          }
+        },
+        {
+          "url": "https://www.rockfm.ro/grila",
+          "label": {
+            "en": "Rock FM — schedule",
+            "ro": "Rock FM — grilă"
+          }
+        },
+        {
+          "url": "https://www.rockfm.ro/pagini/5/date-furnizor-de-servicii-de-programe",
+          "label": {
+            "en": "Rock FM — operator and contact",
+            "ro": "Rock FM — operator și contact"
+          }
+        }
+      ]
+    },
+    {
+      "id": "romania-actualitati",
+      "name": "Radio România Actualități",
+      "mark": "RRA",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Romanian",
+        "ro": "română"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "news",
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "News and music",
+          "ro": "Știri și muzică"
+        },
+        {
+          "en": "In Romanian",
+          "ro": "În română"
+        }
+      ],
+      "description": {
+        "en": "Public-service news, interviews, sport and music from Romania.",
+        "ro": "Știri, interviuri, sport și muzică de la radioul public din România."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti",
+            "name": {
+              "en": "Bucharest",
+              "ro": "București"
+            }
+          },
+          "value": "105.3",
+          "display": {
+            "en": "105.3",
+            "ro": "105,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cluj-napoca",
+            "name": {
+              "en": "Cluj-Napoca",
+              "ro": "Cluj-Napoca"
+            }
+          },
+          "value": "88.8",
+          "display": {
+            "en": "88.8",
+            "ro": "88,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "101.1",
+          "display": {
+            "en": "101.1",
+            "ro": "101,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "timisoara",
+            "name": {
+              "en": "Timișoara",
+              "ro": "Timișoara"
+            }
+          },
+          "value": "106.4",
+          "display": {
+            "en": "106.4",
+            "ro": "106,4"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/romania-actualitati",
+        "page": "https://www.romania-actualitati.ro/live/",
+        "official": "https://www.romania-actualitati.ro/",
+        "stream_note": {
+          "en": "Official HTTPS stream. Playback and advancing audio confirmed in Chrome on 7 November 2026; availability varies.",
+          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate în Chrome la 7 noiembrie 2026; disponibilitate variabilă."
+        }
+      },
+      "programming": {
+        "en": "News bulletins, current affairs, sport and music. The official website publishes the current schedule. Selected FM locations are listed here; see the official frequency source for full coverage.",
+        "ro": "Jurnale de știri, actualitate, sport și muzică. Grila curentă este publicată pe site-ul oficial. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": {
+          "en": "Romanian Radio Broadcasting Corporation",
+          "ro": "Societatea Română de Radiodifuziune"
+        }
+      },
+      "contact": {
+        "address": null,
+        "phones": [],
+        "email": null
+      },
+      "verified": "2026-11-07",
+      "sources": [
+        {
+          "url": "https://www.romania-actualitati.ro/",
+          "label": {
+            "en": "Radio România Actualități — official website",
+            "ro": "Radio România Actualități — site oficial"
+          }
+        },
+        {
+          "url": "https://www.romania-actualitati.ro/live/",
+          "label": {
+            "en": "Radio România Actualități — player, stream and programming",
+            "ro": "Radio România Actualități — player, flux și programe"
+          }
+        },
+        {
+          "url": "https://www.romania-actualitati.ro/alte-pagini/frecvente-id23.html",
+          "label": {
+            "en": "Radio România Actualități — FM frequencies",
+            "ro": "Radio România Actualități — frecvențe FM"
+          }
+        }
+      ]
+    },
+    {
       "id": "chisinau",
       "name": "Radio Chișinău",
       "mark": "RC",

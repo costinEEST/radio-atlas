@@ -211,6 +211,140 @@
     border-radius: 1rem;
     background: color-mix(in srgb, var(--surface) 75%, transparent);
   }
+  .listening-guide {
+    margin-block-end: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    background: var(--surface);
+  }
+  .guide-content {
+    max-inline-size: 65ch;
+    padding: 0 1.25rem 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  .guide-content dt {
+    margin-block-start: 1rem;
+    font-weight: 700;
+  }
+  .guide-content dd {
+    margin-inline: 0;
+    color: var(--muted);
+  }
+  .guide-content a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+  }
+  .radio-player {
+    display: grid;
+    gap: 0.75rem;
+    margin-block-end: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--surface);
+    overflow-wrap: anywhere;
+  }
+  .radio-player audio {
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+  .mini-player {
+    position: fixed;
+    z-index: 4;
+    inset-inline: 0;
+    inset-block-end: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem max(0.5rem, env(safe-area-inset-right)) max(0.5rem, env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-left));
+    border-block-start: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 -0.25rem 1rem #0001;
+    font-size: 0.8rem;
+  }
+  .mini-player:not([data-visible]) {
+    visibility: hidden;
+  }
+  .mini-station {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .mini-player button,
+  .mini-player a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: inherit;
+    white-space: nowrap;
+  }
+  #mini-toggle {
+    background: var(--accent);
+    font-weight: 700;
+  }
+  :root.has-mini-player {
+    scroll-padding-block-end: 7rem;
+  }
+  :root.has-mini-player body {
+    padding-block-end: 6rem;
+  }
+  :root.has-mini-player .toast {
+    inset-block-end: 7rem;
+  }
+  .back-to-filters {
+    margin-block-start: 1.25rem;
+  }
+  .back-to-filters a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+  }
+  .player-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .player-actions button,
+  .favorites-filter,
+  button.primary-action {
+    min-block-size: 2.75rem;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    padding: 0.65rem 1rem;
+    color: var(--ink);
+    background: var(--surface);
+  }
+  button.primary-action {
+    background: var(--accent);
+  }
+  .player-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+  }
+  .favorites-filter {
+    justify-self: start;
+  }
+  .favorites-filter[aria-pressed="true"] {
+    color: white;
+    background: var(--ink);
+  }
+  .playback-note {
+    flex-basis: 100%;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
   .controls > *,
   .selects > *,
   .hero > * {
@@ -588,6 +722,7 @@
   }
   @media (forced-colors: active) {
     .view-filters button[aria-pressed="true"],
+    .favorites-filter[aria-pressed="true"],
     .primary-action {
       border: 2px solid ButtonText;
     }
