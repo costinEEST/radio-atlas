@@ -37,8 +37,51 @@ If recovery fails, report the exact blocker before using a fallback. A login, se
 
 - Never embed an HTTP audio stream on an HTTPS page. Present it as a direct link and copy action, explain mixed-content limits, and provide a working HTTPS listening page when known.
 - Keep all catalog input in `radios.json`. Add or edit stations there; `app.js` derives filter options and searchable card data during hydration.
+- Keep JSON values as short as possible while preserving meaning, identity, accuracy and necessary uncertainty. Remove redundant words and repeated context; use concise prose and source labels. Do not shorten official names, URLs, contact details or standard codes in ways that change their meaning or function.
+- Use short, readable, unique station IDs. Omit generic `radio-`, `-radio` and redundant band suffixes such as `-fm`; retain words that distinguish the station or belong to its brand. Use the current `radios.json` ID directly everywhere, including cards, favorites and fragment links. Do not add alias maps or compatibility migrations for renamed IDs unless explicitly requested.
+
+## Internationalization and naming
+
+- Always use English for JSON property/message/category keys and HTML markup identifiers, including IDs, classes, `name`, `data-*` attribute names and their structural values. Use standard BCP 47 language tags (`en`, `ro`, `hu`, `ar`) for translation-map keys. Canonical station names, place names, existing stable station IDs and external URLs are not translated identifiers.
+- English is the default and fallback language, including static HTML text, accessible labels and metadata. Romanian is a supported selectable language. Every translatable catalog field must contain both `en` and `ro` values; add other languages alongside them. Preserve the existing facts and uncertainty when translating.
+- Keep UI translations in `locales/<language>.json`, locale configuration in `locales/index.json`, and station translations in `radios.json`. All enabled UI dictionaries must cover the English message keys and interpolation slots. Keep IDs, links, filter values, telephone values and ISO verification dates independent of display language.
+- Persist language selection in the URL (`?lang=ro` for Romanian, `?lang=en` for English). With no selected language, or an unsupported/disabled locale, use English. The URL is the single source of truth; do not add sessionStorage or IndexedDB language state. Preserve the selected language on internal home links and reloads; browser Back/Forward must restore the URL-selected language.
+- Set document `lang` and `dir` for the selected locale, annotate fallback text with its actual language, and isolate mixed-direction content. Use locale-aware dates, numbers and plural rules. Register future languages without enabling incomplete translations.
+- Validate English/default and Romanian URLs, translation coverage, stable catalog identities, selector persistence, metadata, fallback and RTL behavior. Use the catalog schema and language publishing workflow below.
+
+## Catalog schema and language publishing
+
+- `radios.json` uses schema version 2. Translatable fields use language maps such as `"description": { "en": "…", "ro": "…" }`. Keep both entries; missing or empty catalog translations fall back to English. Country/city names, categories, tags, frequency display text, descriptions, programming, historical text, addresses and source labels use this format. Canonical station/person names may remain strings or use language maps.
+- `verified` is an ISO `YYYY-MM-DD` date, displayed through `Intl.DateTimeFormat` with UTC to avoid timezone shifts. Historical dates remain translated text because some have only year precision. Result counts use `Intl.PluralRules` and `Intl.NumberFormat`; Arabic requires `zero`, `one`, `two`, `few`, `many` and `other` forms.
+- Keep station IDs independent of display language; `radios.json` is their single source of truth.
+
+To publish a language:
+
+1. Copy `locales/en.json` to the locale’s configured message path. Translate all messages without changing their English keys or interpolation placeholders. Add catalog translations alongside `en` and `ro`.
+2. Preserve the `{garden}`, `{frequency}` and `{person}` slots in their respective messages. Translators may reorder them; they retain semantic links and emphasis. Translation strings are plain text, never HTML.
+3. Configure the locale in `locales/index.json` using its BCP 47 tag, native `name`, `dir` (`ltr` or `rtl`), `og_locale`, `messages` path and `enabled`. English and Romanian are enabled; Hungarian and Arabic remain disabled until complete. The native language picker appears when at least two languages are enabled.
+4. Test URL selection and fallback. Region tags such as `en-GB` fall back to their enabled base language. Unknown/disabled languages and unavailable message files fall back to English. New URLs without `lang` use English, independently of other tabs.
+5. Verify translated metadata, language annotations, interpolation slots, plural forms, missing translations, keyboard use, RTL, 320px reflow and 200% text size. Arabic uses document `dir="rtl"`; use logical CSS properties and bidi isolation, while URLs, telephone numbers and email remain LTR.
+
+Client-selected translations update page and social metadata at runtime. Static HTML and the canonical URL remain English defaults. Full multilingual search indexing would require separately rendered language URLs and `hreflang` links.
+
+## Local development and checks
+
+- Serve over HTTP, for example `python3 -m http.server 8765`; fetching `radios.json` from a `file:` URL is unreliable.
+- Run regression checks with `node --test tests/*.test.mjs`.
+- Keep the README focused on what Radio Atlas offers its users. Maintain implementation details, schema rules and technical workflows in this skill.
+
+## Commits
+
+When the user says `commit`, inspect all pending changes and create as many coherent commits as needed. Group changes by purpose and keep each commit reviewable; do not force unrelated work into one commit or split interdependent changes into broken intermediate states. Preserve changes outside the authorized task.
+
+Write a detailed message for every commit: a concise, descriptive subject followed by a body explaining the problem, the changes and their purpose, relevant compatibility or migration behavior, and validation performed. Include material limitations when applicable. Describe the final implementation rather than the conversation history, and report the resulting commit hashes and subjects to the user.
 
 ## Implementation
+
+- Enclose potentially failing work in `try`/`catch` at the boundary that owns recovery: startup, browser APIs, parsing/formatting, event handlers and deferred callbacks. A caller's catch may cover synchronous helpers; do not add repetitive catches around pure operations already covered by that caller. Await asynchronous work inside the catch boundary so rejections are handled.
+- Catches must recover, provide a localized error, or rethrow with context. Keep optional failures (metadata, fragment navigation, unavailable persistence) from replacing a working catalog with a fatal error. Guard fallback paths too; retain readable static HTML if translation or error rendering fails. Do not silently swallow unexpected errors or claim that try/catch prevents failures.
+- Exercise failure paths with denied storage/clipboard/navigation APIs, malformed JSON/messages/dates, and rejected asynchronous handlers, as applicable to the change.
 
 - Preserve native semantics: `article` for stations, headings in order, links for navigation, buttons for actions, and `details` for secondary information.
 - Maintain keyboard operation, visible focus, 44 CSS-pixel minimum control targets, descriptive new-tab text, and polite status announcements.
@@ -58,5 +101,3 @@ Use Chrome MCP to verify observable behavior, not only CSS declarations:
 - Exercise populated, empty, loading, and failure states where practical. Filtering must hide the entire station list item so assistive technologies and list semantics match the visible result count.
 - Check forced-colors/high-contrast rendering and reduced-motion behavior when the affected UI uses custom colors or motion. Do not convey state or meaning through color alone.
 - Finish with a mobile Lighthouse run and inspect the browser console and network panel. Treat automated audits as supporting evidence, not a substitute for keyboard, reflow, zoom, and accessibility-tree checks.
-
-Serve the repository over HTTP because `fetch()` cannot reliably load `radios.json` from a `file:` URL.
