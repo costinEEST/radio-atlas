@@ -83,7 +83,8 @@ try {
     link.ariaLabel = t("link.newTab", { text });
   }
 
-  function updatePlayer({ station, state }) {
+  function updatePlayer({ station: currentStation, state }) {
+    const station = stationsById.get(currentStation?.id) ?? currentStation;
     const focused = document.activeElement;
     selectedStation = station;
     playbackState = state;
@@ -667,7 +668,47 @@ try {
     }),
   );
 
-  await initI18n();
+  function refreshLocale() {
+    if (!catalogLoaded) return;
+    const values = new FormData(filters);
+    const disclosures = new Map([...stationsRoot.querySelectorAll(".station")].map((article) => [
+      article.id, [...article.querySelectorAll("details")].map((details) => details.open),
+    ]));
+    const focused = document.activeElement;
+    const focusedCard = focused.closest(".station");
+    const focusIndex = focusedCard
+      ? [...focusedCard.querySelectorAll("a,button,summary")].indexOf(focused) : -1;
+    // Only rebuild catalog nodes: the shared audio and player containers stay mounted.
+    const cards = catalog.stations.map(createStation);
+    stationsRoot.replaceChildren(...cards);
+    for (const name of ["country", "city", "category"]) {
+      const select = filters.elements[name];
+      select.replaceChildren(select.firstElementChild);
+    }
+    populateFilters(catalog);
+    for (const [name, value] of values) filters.elements[name].value = value;
+    for (const article of stationsRoot.querySelectorAll(".station")) {
+      article.querySelectorAll("details").forEach((details, index) => {
+        details.open = disclosures.get(article.id)?.[index] ?? false;
+      });
+    }
+    document.querySelector("#mini-expand").ariaLabel = t("player.expandLabel");
+    if (selectedStation) {
+      updatePlayer({ station: stationsById.get(selectedStation.id), state: playbackState });
+    }
+    render();
+    if (focusIndex >= 0) {
+      const card = document.getElementById(focusedCard.id);
+      const target = card.querySelectorAll("a,button,summary")[focusIndex];
+      if (target?.getClientRects().length) target.focus({ preventScroll: true });
+      else filters.elements.search.focus({ preventScroll: true });
+    }
+    clearTimeout(toastTimer);
+    toast.hidden = true;
+    scheduleCompactPlayer();
+  }
+
+  await initI18n({ onChange: refreshLocale });
   document.querySelector("#mini-expand").ariaLabel = t("player.expandLabel");
   const response = await fetch("radios.json");
   if (!response.ok) throw new Error(`HTTP ${response.status}`);

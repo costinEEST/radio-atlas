@@ -13,6 +13,7 @@ async function setup(
   overrides = {},
   missing = false,
   enableLocales = true,
+  onChange = () => {},
 ) {
   const manifest = await read("locales/index.json");
   if (enableLocales)
@@ -44,6 +45,18 @@ async function setup(
     assign(url) {
       destination = String(url);
     },
+  };
+  globalThis.history = {
+    state: null,
+    pushState(state, unused, url) {
+      destination = String(url);
+      location.href = String(url);
+    },
+    replaceState(state, unused, url) { location.href = String(url); },
+  };
+  const historyListeners = {};
+  globalThis.window = {
+    addEventListener(name, callback) { historyListeners[name] = callback; },
   };
   const listeners = {};
   const picker = {
@@ -81,8 +94,8 @@ async function setup(
   const module = await import(
     `data:text/javascript;base64,${Buffer.from(source).toString("base64")}#${instance++}`
   );
-  await module.initI18n();
-  return { ...module, picker, home, listeners, destination: () => destination };
+  await module.initI18n({ onChange });
+  return { ...module, picker, home, listeners, historyListeners, destination: () => destination };
 }
 
 test("Romanian plural categories, UTC dates, catalog language maps and stable identifiers", async () => {
@@ -212,7 +225,7 @@ test("English is the default, and Romanian selection is persisted in URLs and ho
   assert.equal(i18n.currentLocale(), "en");
   assert.equal(i18n.t("results", { count: 20 }), "20 stations");
   i18n.picker.value = "ro";
-  i18n.listeners.change();
+  await i18n.listeners.change();
   assert.equal(new URL(i18n.destination()).searchParams.get("lang"), "ro");
   i18n = await setup("ro");
   assert.equal(new URL(i18n.home.href).searchParams.get("lang"), "ro");
@@ -266,16 +279,16 @@ test("enabled UI translations cover the English keys and preserve interpolation 
   }
 });
 
-test("blocked language navigation restores selection and reports a localized error", async () => {
+test("blocked history updates restore selection and report a localized error", async () => {
   const i18n = await setup("ro");
   const error = console.error;
   console.error = () => {};
   try {
-    globalThis.location.assign = () => {
+    globalThis.history.pushState = () => {
       throw new Error("Navigation denied");
     };
     i18n.picker.value = "en";
-    assert.doesNotThrow(() => i18n.listeners.change());
+    await assert.doesNotReject(i18n.listeners.change());
     assert.equal(i18n.picker.value, "ro");
     assert.equal(i18n.picker.validationMessage, i18n.t("language.error"));
   } finally {
@@ -324,4 +337,84 @@ test("JSON parse failures propagate with resource context for the startup catch"
     assert.ok(error.cause instanceof SyntaxError);
     return true;
   });
+});
+
+test("language changes update the URL and interface without document navigation", async () => {
+  let updates = 0;
+  const i18n = await setup(undefined, {}, false, true, () => { updates += 1; });
+  location.href = 'https://example.test/?country=ro#guerrilla';
+  location.assign = () => { throw new Error('A language switch must not navigate'); };
+  i18n.picker.value = 'ro';
+  await i18n.listeners.change();
+  assert.equal(i18n.currentLocale(), 'ro');
+  assert.equal(document.documentElement.lang, 'ro');
+  assert.equal(new URL(location.href).searchParams.get('lang'), 'ro');
+  assert.equal(new URL(location.href).searchParams.get('country'), 'ro');
+  assert.equal(new URL(location.href).hash, '#guerrilla');
+  assert.equal(updates, 1);
+});
+
+test("Back and Forward restore the URL language through the same document", async () => {
+  const i18n = await setup('en');
+  i18n.picker.value = 'ro';
+  await i18n.listeners.change();
+  location.href = 'https://example.test/?lang=en';
+  await i18n.historyListeners.popstate();
+  assert.equal(i18n.currentLocale(), 'en');
+  assert.equal(i18n.picker.value, 'en');
+  assert.equal(new URL(i18n.home.href).searchParams.get('lang'), 'en');
+  location.href = 'https://example.test/?lang=ro';
+  await i18n.historyListeners.popstate();
+  assert.equal(i18n.currentLocale(), 'ro');
+  assert.equal(i18n.picker.value, 'ro');
+});
+
+test("a late dictionary response cannot overwrite the most recent language choice", async () => {
+  const i18n = await setup('en');
+  let resolve;
+  globalThis.fetch = () => new Promise(done => { resolve = done; });
+  i18n.picker.value = 'ro';
+  const pending = i18n.listeners.change();
+  i18n.picker.value = 'en';
+  await i18n.listeners.change();
+  resolve({ ok: true, json: async () => await read('locales/ro.json') });
+  await pending;
+  assert.equal(i18n.currentLocale(), 'en');
+  assert.equal(i18n.picker.value, 'en');
+  assert.equal(new URL(location.href).searchParams.get('lang'), 'en');
+});
+
+test("failed dictionary loads preserve the current URL and working language", async () => {
+  const i18n = await setup('en');
+  const before = location.href;
+  globalThis.fetch = async () => { throw new Error('Offline'); };
+  const log = console.error;
+  console.error = () => {};
+  try {
+    i18n.picker.value = 'ro';
+    await assert.doesNotReject(i18n.listeners.change());
+    assert.equal(i18n.currentLocale(), 'en');
+    assert.equal(location.href, before);
+    assert.equal(i18n.picker.value, 'en');
+    assert.equal(i18n.picker.validationMessage, i18n.t('language.error'));
+  } finally { console.error = log; }
+});
+
+test("a rendering failure rolls back language and URL without document navigation", async () => {
+  let updates = 0;
+  const i18n = await setup('en', {}, false, true, () => {
+    if (++updates === 1) throw new Error('Rendering failed');
+  });
+  const before = location.href;
+  const log = console.error;
+  console.error = () => {};
+  try {
+    i18n.picker.value = 'ro';
+    await i18n.listeners.change();
+    assert.equal(i18n.currentLocale(), 'en');
+    assert.equal(location.href, before);
+    assert.equal(document.documentElement.lang, 'en');
+    assert.equal(i18n.picker.value, 'en');
+    assert.equal(updates, 2);
+  } finally { console.error = log; }
 });

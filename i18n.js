@@ -3,6 +3,9 @@ let defaultLocale = "en";
 let manifest;
 let fallback = {};
 let messages = {};
+let onLocaleChange = () => {};
+let languageRequest = 0;
+const messageCache = new Map();
 
 async function readJSON(url) {
   try {
@@ -140,7 +143,8 @@ export function translateDOM(root = document) {
   }
 }
 
-export async function initI18n() {
+export async function initI18n({ onChange = () => {} } = {}) {
+  onLocaleChange = onChange;
   manifest = await readJSON("locales/index.json");
   defaultLocale = manifest.default_locale;
   const enabled = Object.entries(manifest.locales).filter(
@@ -162,6 +166,29 @@ export async function initI18n() {
     }
   }
   if (locale === defaultLocale) messages = fallback;
+  messageCache.set(defaultLocale, fallback);
+  messageCache.set(locale, messages);
+  applyLocale();
+  const select = document.querySelector("#locale");
+  for (const [code, config] of enabled) {
+    const option = document.createElement("option");
+    option.value = code;
+    option.textContent = config.name;
+    option.lang = code;
+    option.dir = config.dir;
+    select.append(option);
+  }
+  select.value = locale;
+  select.closest("label").hidden = enabled.length < 2;
+  select.addEventListener("change", async () => {
+    await changeLocale(select.value, true);
+  });
+  window.addEventListener("popstate", async () => {
+    await changeLocale(null, false);
+  });
+}
+
+function applyLocale() {
   document.documentElement.lang = locale;
   document.documentElement.dir = manifest.locales[locale].dir;
   translateDOM();
@@ -170,7 +197,8 @@ export async function initI18n() {
     const home = document.querySelector(".brand");
     if (home) {
       const url = new URL(home.getAttribute("href"), location.href);
-      if (locale !== defaultLocale) url.searchParams.set("lang", locale);
+      if (locale !== defaultLocale || new URL(location.href).searchParams.has("lang")) url.searchParams.set("lang", locale);
+      else url.searchParams.delete("lang");
       home.href = url;
     }
   } catch (error) {
@@ -200,32 +228,57 @@ export async function initI18n() {
   } catch (error) {
     console.warn("Localized metadata could not be updated.", error);
   }
+}
+
+async function changeLocale(requested, push) {
+  const request = ++languageRequest;
   const select = document.querySelector("#locale");
-  for (const [code, config] of enabled) {
-    const option = document.createElement("option");
-    option.value = code;
-    option.textContent = config.name;
-    option.lang = code;
-    option.dir = config.dir;
-    select.append(option);
-  }
-  select.value = locale;
-  select.closest("label").hidden = enabled.length < 2;
-  select.addEventListener("change", () => {
+  const previous = { locale, messages, url: location.href };
+  let pushed = false;
+  try {
+    select.setCustomValidity("");
+    requested ??= new URL(location.href).searchParams.get("lang") ?? defaultLocale;
+    const base = requested.toLowerCase().split("-")[0];
+    let next = [requested, base].find((code) => manifest.locales[code]?.enabled) ?? defaultLocale;
+    let dictionary;
     try {
-      select.setCustomValidity("");
-      const url = new URL(location.href);
-      url.searchParams.set("lang", select.value);
-      location.assign(url);
+      dictionary = messageCache.get(next) ?? await readMessages(manifest.locales[next].messages);
     } catch (error) {
-      console.error("Language navigation failed.", error);
-      try {
-        select.value = locale;
-        select.setCustomValidity(t("language.error"));
-        select.reportValidity();
-      } catch (displayError) {
-        console.error("Language error could not be displayed.", displayError);
+      if (push) throw error;
+      // A history URL with unavailable messages follows the startup fallback.
+      console.warn("History locale unavailable; using English.", error);
+      next = defaultLocale;
+      dictionary = fallback;
+    }
+    if (request !== languageRequest) return;
+    messageCache.set(next, dictionary);
+    if (push) {
+      const url = new URL(location.href);
+      url.searchParams.set("lang", next);
+      if (url.href !== location.href) {
+        history.pushState(history.state, "", url);
+        pushed = true;
       }
     }
-  });
+    locale = next;
+    messages = dictionary;
+    applyLocale();
+    select.value = locale;
+    onLocaleChange();
+  } catch (error) {
+    if (request !== languageRequest) return;
+    console.error("Language update failed.", error);
+    try {
+      locale = previous.locale;
+      messages = previous.messages;
+      if (pushed) history.replaceState(history.state, "", previous.url);
+      applyLocale();
+      onLocaleChange();
+      select.value = locale;
+      select.setCustomValidity(t("language.error"));
+      select.reportValidity();
+    } catch (recoveryError) {
+      console.error("Language recovery failed.", recoveryError);
+    }
+  }
 }
