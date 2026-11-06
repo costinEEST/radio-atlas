@@ -69,5 +69,6 @@
   "meta.about": "Posturi radio",
   "action.error": "Acțiunea a eșuat. Încearcă din nou.",
   "copy.error": "Copiere indisponibilă. Selectează textul pentru copiere manuală.",
-  "language.error": "Limba nu a putut fi schimbată. Încearcă din nou."
+  "language.error": "Limba nu a putut fi schimbată. Încearcă din nou.",
+  "copy.frequencyLocation": "Copiază frecvența pentru {city}"
 }

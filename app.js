@@ -81,17 +81,66 @@ try {
     button.lang = messagesLanguage(key);
   }
 
+  function frequenciesFor(station) {
+    return station.frequencies ?? [{ ...station.frequency, city: station.city, county: station.county }];
+  }
+
+  function setLocation(node, values) {
+    node.dir = "auto";
+    node.replaceChildren();
+    for (const value of values.filter(Boolean)) {
+      if (node.hasChildNodes()) node.append(" · ");
+      const span = document.createElement("bdi");
+      span.textContent = localize(value);
+      const language = contentLanguage(value);
+      if (language) span.lang = language;
+      node.append(span);
+    }
+  }
+
+  function appendFrequencies(article, rawStation) {
+    const template = article.querySelector(".frequency");
+    const rows = frequenciesFor(rawStation).map((rawFrequency) => {
+      const frequency = localize(rawFrequency);
+      const row = template.cloneNode(true);
+      field(row, "frequency").textContent = frequency.display;
+      field(row, "frequency").lang = contentLanguage(rawFrequency.display) ?? currentLocale();
+      field(row, "frequency").dir = "auto";
+      field(row, "band").textContent = frequency.band;
+      setLocation(field(row, "frequency-location"), [rawFrequency.city.name, rawFrequency.county]);
+      const copy = row.querySelector('[data-action="copy-frequency"]');
+      copy.dataset.copy = frequency.value;
+      copy.hidden = !frequency.value;
+      copy.ariaLabel = t("copy.frequencyLocation", { city: localize(rawFrequency.city.name) });
+      copy.lang = messagesLanguage("copy.frequencyLocation");
+      return row;
+    });
+    if (rows.length === 1) template.replaceWith(rows[0]);
+    else {
+      const list = document.createElement("ul");
+      list.className = "frequencies";
+      list.role = "list";
+      for (const row of rows) {
+        const item = document.createElement("li");
+        item.append(row);
+        list.append(item);
+      }
+      template.replaceWith(list);
+    }
+  }
+
   function createStation(rawStation) {
     const station = localize(rawStation);
+    const frequencies = frequenciesFor(station);
     const fragment = template.content.cloneNode(true);
     translateDOM(fragment);
     const article = fragment.querySelector(".station");
     Object.assign(article.dataset, {
       country: station.country.code,
-      city: station.city.slug,
+      city: [...new Set([station.city.slug, ...frequencies.map((frequency) => frequency.city.slug)])].join(" "),
       categories: station.categories.join(" "),
       modes: station.modes.join(" "),
-      search: normalize([station.name, station.native_name ?? "", station.language, station.city.name, station.country.name, station.county, station.description, station.frequency.value, station.frequency.display, station.tags, station.recommendation?.name ?? ""].join(" ")),
+      search: normalize([station.name, station.native_name ?? "", station.language, station.city.name, station.country.name, station.county, station.description, ...frequencies.flatMap((frequency) => [frequency.city.name, frequency.value, frequency.display]), station.tags, station.recommendation?.name ?? ""].join(" ")),
     });
     article.id = station.id;
 
@@ -99,8 +148,6 @@ try {
       mark: station.mark,
       name: station.name,
       description: station.description,
-      frequency: station.frequency.display,
-      band: station.frequency.band,
       programming: station.programming,
       "stream-url": station.listening.stream,
       "stream-note": station.listening.stream_note,
@@ -111,28 +158,16 @@ try {
     const translatedFields = {
       name: rawStation.name,
       description: rawStation.description, programming: rawStation.programming,
-      frequency: rawStation.frequency.display, "stream-note": rawStation.listening.stream_note,
+      "stream-note": rawStation.listening.stream_note,
     };
     for (const [name, value] of Object.entries(translatedFields)) {
       const node = field(article, name);
       node.lang = contentLanguage(value) ?? currentLocale();
       node.dir = "auto";
     }
-    for (const name of ["name", "location", "frequency-location", "history"]) field(article, name).dir = "auto";
-    // Keep untranslated proper names, addresses and individual fallback strings isolated.
-    for (const [name, values] of [["location", [rawStation.city.name, rawStation.country.name]],
-      ["frequency-location", [rawStation.city.name, rawStation.county]]]) {
-      const node = field(article, name);
-      node.replaceChildren();
-      for (const value of values.filter(Boolean)) {
-        if (node.hasChildNodes()) node.append(" · ");
-        const span = document.createElement("bdi");
-        span.textContent = localize(value);
-        const language = contentLanguage(value);
-        if (language) span.lang = language;
-        node.append(span);
-      }
-    }
+    for (const name of ["name", "history"]) field(article, name).dir = "auto";
+    setLocation(field(article, "location"), [rawStation.city.name, rawStation.country.name]);
+    appendFrequencies(article, rawStation);
     const history = field(article, "history");
     history.replaceChildren();
     for (const [value, key, parameter] of [[rawStation.history.first_broadcast, "history.first", "date"],
@@ -196,8 +231,6 @@ try {
     const favorite = article.querySelector(".favorite");
     favorite.dataset.stationId = station.id;
     updateFavorite(favorite, station.name);
-    article.querySelector('[data-action="copy-frequency"]').dataset.copy = station.frequency.value;
-    article.querySelector('[data-action="copy-frequency"]').hidden = !station.frequency.value;
     article.querySelector('[data-action="copy-stream"]').dataset.copy = station.listening.stream;
     return fragment;
   }
@@ -215,9 +248,11 @@ try {
 
   function populateFilters(catalog) {
     populateSelect(filters.elements.country, new Map(catalog.stations.map((station) => [station.country.code, station.country.name])));
-    const cities = new Map(catalog.stations.map((station) => [station.city.slug, station]));
-    populateSelect(filters.elements.city, [...cities].map(([slug, station]) => [slug,
-      `${localize(station.city.name)} · ${localize(station.country.name)}`, contentLanguage(station.city.name),
+    const cities = new Map(catalog.stations.flatMap((station) =>
+      [station.city, ...frequenciesFor(station).map((frequency) => frequency.city)]
+        .map((city) => [city.slug, { city, country: station.country }])));
+    populateSelect(filters.elements.city, [...cities].map(([slug, location]) => [slug,
+      `${localize(location.city.name)} · ${localize(location.country.name)}`, contentLanguage(location.city.name),
     ]));
     populateSelect(filters.elements.category, Object.entries(catalog.categories));
   }
@@ -229,7 +264,7 @@ try {
     let count = 0;
     for (const article of stationsRoot.querySelectorAll(".station")) {
       const matchesSearch = words.every((word) => article.dataset.search.includes(word));
-      const matchesFields = ["country", "city"].every((name) => !data.get(name) || article.dataset[name] === data.get(name));
+      const matchesFields = ["country", "city"].every((name) => !data.get(name) || article.dataset[name].split(" ").includes(data.get(name)));
       const matchesCategory = !data.get("category") || article.dataset.categories.split(" ").includes(data.get("category"));
       const matchesView = activeView === "all" || (activeView === "favorites" ? favorites.has(article.id) : article.dataset.modes.split(" ").includes(activeView));
       const visible = matchesSearch && matchesFields && matchesCategory && matchesView;

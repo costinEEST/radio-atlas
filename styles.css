@@ -373,6 +373,10 @@
     background: #edf1e7;
     font-size: 0.72rem;
   }
+  .frequencies {
+    padding: 0;
+    list-style: none;
+  }
   .frequency {
     display: flex;
     align-items: center;

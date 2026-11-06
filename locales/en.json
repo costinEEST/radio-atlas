@@ -68,5 +68,6 @@
   "meta.about": "Radio stations",
   "action.error": "This action failed. Please try again.",
   "copy.error": "Copy unavailable. Select the text to copy it manually.",
-  "language.error": "The language could not be changed. Please try again."
+  "language.error": "The language could not be changed. Please try again.",
+  "copy.frequencyLocation": "Copy frequency for {city}"
 }

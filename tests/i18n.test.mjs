@@ -50,6 +50,15 @@ test('Romanian plural categories, UTC dates, catalog language maps and stable id
     assert.equal(typeof station.city.name, 'string');
     assert.match(station.verified, /^\d{4}-\d{2}-\d{2}$/);
     assert.ok(station.categories.every(key => key in localized.categories));
+    const frequencies = station.frequencies ?? [{ ...station.frequency, city: station.city }];
+    assert.ok(Array.isArray(frequencies) && frequencies.length > 0, station.id);
+    assert.ok(!(station.frequencies && station.frequency), `Duplicated frequency data: ${station.id}`);
+    for (const frequency of frequencies) {
+      assert.equal(typeof frequency.city.slug, 'string');
+      assert.equal(typeof frequency.city.name, 'string');
+      assert.equal(typeof frequency.display, 'string');
+      assert.ok(frequency.value === null || /^\d+(\.\d+)?$/.test(frequency.value), station.id);
+    }
   }
 });
 

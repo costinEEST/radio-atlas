@@ -54,6 +54,7 @@ If recovery fails, report the exact blocker before using a fallback. A login, se
 - `radios.json` uses schema version 2. Translatable fields use language maps such as `"description": { "en": "…", "ro": "…" }`. Keep both entries; missing or empty catalog translations fall back to English. Country/city names, categories, tags, frequency display text, descriptions, programming, historical text, addresses and source labels use this format. Canonical station/person names may remain strings or use language maps.
 - `verified` is an ISO `YYYY-MM-DD` date, displayed through `Intl.DateTimeFormat` with UTC to avoid timezone shifts. Historical dates remain translated text because some have only year precision. Result counts use `Intl.PluralRules` and `Intl.NumberFormat`; Arabic requires `zero`, `one`, `two`, `few`, `many` and `other` forms.
 - Keep station IDs independent of display language; `radios.json` is their single source of truth.
+- A station with several city frequencies uses a nonempty `frequencies` array instead of the singular `frequency`. Each entry has `city` (`slug`, translated `name`), `value`, translated `display`, and `band`; `county` is optional. The station's top-level `city` identifies its home location. Keep one station entry, include every frequency location in search and city filters, and give each copy control a city-specific accessible name. Existing singular-frequency entries remain supported.
 
 To publish a language:
 
