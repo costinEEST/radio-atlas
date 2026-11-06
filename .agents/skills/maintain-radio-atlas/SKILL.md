@@ -40,6 +40,19 @@ If recovery fails, report the exact blocker before using a fallback. A login, se
 - Keep JSON values as short as possible while preserving meaning, identity, accuracy and necessary uncertainty. Remove redundant words and repeated context; use concise prose and source labels. Do not shorten official names, URLs, contact details or standard codes in ways that change their meaning or function.
 - Use short, readable, unique station IDs. Omit generic `radio-`, `-radio` and redundant band suffixes such as `-fm`; retain words that distinguish the station or belong to its brand. Use the current `radios.json` ID directly everywhere, including cards, favorites and fragment links. Do not add alias maps or compatibility migrations for renamed IDs unless explicitly requested.
 
+## Catalog presentation
+
+Preserve these defaults unless the user requests a different experience:
+
+- Label the catalog **Stations**, rather than claiming that every station or stream is verified. Keep individual verification dates and qualifications in station details; a factual verification date is not a live playback guarantee.
+- Keep station discovery and listening ahead of external recommendations. Place Radio Garden and similar resources below the catalog in the related-resources area, not in the hero.
+- Show one frequency on each card. Use the selected location's frequency when available; otherwise use the first catalog frequency. Resetting the location restores the first frequency. Keep all frequency locations searchable and selectable even when their rows are collapsed.
+- Put frequency-copy controls and the complete frequency list in the closed-by-default native `details.frequency-options` disclosure after listening actions. Hide this disclosure when no frequency is copyable. Keep location-specific accessible names on copy buttons and preserve keyboard focus when filtering updates the frequency preview.
+- Keep programming, stream notes, history, contacts, sources and verification dates in the separate closed-by-default station-details disclosure. Do not expand either disclosure automatically on initial load.
+- Use badges for useful content, language or regional distinctions. Do not repeat Online, FM, AM or FM / AM badges; `modes` and frequency bands retain that information. Include modes and frequency bands explicitly in searchable text so removing badges does not break search.
+- Describe what a listener will hear using supported catalog facts. Put imported directory classifications and provenance in Sources, not descriptions or badges. Preserve uncertainty that affects a listening choice visibly on the card; place the supporting explanation in Sources. Do not invent station-specific programming to make descriptions appear more varied.
+- Editorial rewrites and moving existing information between fields do not constitute factual reverification. Retain verification dates unless the underlying facts were actually checked again.
+
 ## Internationalization and naming
 
 - Always use English for JSON property/message/category keys and HTML markup identifiers, including IDs, classes, `name`, `data-*` attribute names and their structural values. Use standard BCP 47 language tags (`en`, `ro`, `hu`, `ar`) for translation-map keys. Canonical station names, place names, existing stable station IDs and external URLs are not translated identifiers.
@@ -54,6 +67,7 @@ If recovery fails, report the exact blocker before using a fallback. A login, se
 - `radios.json` uses schema version 2. Translatable fields use language maps such as `"description": { "en": "…", "ro": "…" }`. Keep both entries; missing or empty catalog translations fall back to English. Country/city names, categories, tags, frequency display text, descriptions, programming, historical text, addresses and source labels use this format. Canonical station/person names may remain strings or use language maps.
 - `verified` is an ISO `YYYY-MM-DD` date, displayed through `Intl.DateTimeFormat` with UTC to avoid timezone shifts. Historical dates remain translated text because some have only year precision. Result counts use `Intl.PluralRules` and `Intl.NumberFormat`; Arabic requires `zero`, `one`, `two`, `few`, `many` and `other` forms.
 - Keep station IDs independent of display language; `radios.json` is their single source of truth.
+- Optional `source_note` is an English/Romanian translation map for provenance, imported classifications and supporting uncertainty. Render it as plain text under Sources, with the correct language and direction; omit the note when absent. Keep supporting URLs in `sources`.
 - A station with several city frequencies uses a nonempty `frequencies` array instead of the singular `frequency`. Each entry has `city` (`slug`, translated `name`), `value`, translated `display`, and `band`; `county` is optional. The station's top-level `city` identifies its home location. Keep one station entry, include every frequency location in search and city filters, and give each copy control a city-specific accessible name. Existing singular-frequency entries remain supported.
 
 To publish a language:
@@ -70,6 +84,7 @@ Client-selected translations update page and social metadata at runtime. Static 
 
 - Serve over HTTP, for example `python3 -m http.server 8765`; fetching `radios.json` from a `file:` URL is unreliable.
 - Run regression checks with `node --test tests/*.test.mjs`.
+- After editing this skill, run the skill-creator validator with PyYAML supplied by uv: `uv run --no-project --with pyyaml python /Users/costi/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/maintain-radio-atlas`. This uses uv's cached environment without adding Python dependencies to the project. On another machine, resolve `quick_validate.py` from the installed `skill-creator` skill rather than assuming this absolute path exists.
 - Keep the README focused on what Radio Atlas offers its users. Maintain implementation details, schema rules and technical workflows in this skill.
 
 ## Commits
@@ -86,7 +101,7 @@ Write a detailed message for every commit: a concise, descriptive subject follow
 
 - Preserve native semantics: `article` for stations, headings in order, links for navigation, buttons for actions, and `details` for secondary information.
 - Maintain keyboard operation, visible focus, 44 CSS-pixel minimum control targets, descriptive new-tab text, and polite status announcements.
-- Keep presentation in `styles.css`, behavior in `app.js`, and the reusable card structure in the `station-template` element. Avoid inline styles, inline event handlers, and duplicated station facts outside JSON.
+- Keep presentation in `styles.css`, behavior in `app.js`, and reusable markup in `station-template` and `frequency-template`. Populate both the frequency preview and disclosure from the same catalog data. Avoid inline styles, inline event handlers, and duplicated station facts outside JSON.
 - Parse the catalog with the browser-native `Response.json()` method. Do not add a data-format parser or runtime CDN dependency.
 - Populate JSON content through `textContent` and validated attributes on cloned template nodes. Do not interpolate catalog values into `innerHTML`.
 
@@ -96,6 +111,7 @@ Use Chrome MCP to verify observable behavior, not only CSS declarations:
 
 - Test at a 320 CSS-pixel-wide touch viewport and at least one short landscape viewport. Confirm that the document and every visible card reflow without horizontal page scrolling, clipped content, overlapping text, or controls outside their containers.
 - Test browser text scaling or an equivalent 200% text-size condition. Content and functionality must remain available without two-dimensional scrolling; long station names, URLs, frequencies, and action labels must wrap safely.
+- Test expanded frequency and station-details disclosures in both English and Romanian, including long stream-error text. Check card overflow as well as page overflow: clipped card content can hide a reflow failure. Verify location selection and reset, frequency copying, and searches for Online/FM/AM after badge changes.
 - Inspect every visible interactive target. Prefer a 44 by 44 CSS-pixel touch area on coarse pointers and never allow a target below the WCAG 2.2 minimum of 24 by 24 CSS pixels unless the spacing exception clearly applies.
 - Navigate the complete interface using only the keyboard. Verify logical focus order, visible focus indicators, skip-link behavior, activation of buttons, links and `details`, and that focus is not lost after filtering or rerendering.
 - Check semantic structure and accessible names in the accessibility tree. The catalog must expose a meaningful list of station articles; controls, status messages, empty results, loading state, and errors must be announced appropriately without duplicate or misleading labels.
