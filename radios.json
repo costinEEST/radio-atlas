@@ -5,9 +5,46 @@
     "muzica": "Muzică",
     "clasica": "Muzică clasică",
     "jazz": "Jazz",
-    "quran": "Coran și programe islamice"
+    "quran": "Coran și programe islamice",
+    "cultura": "Cultură"
   },
   "stations": [
+    {
+      "id": "radio-romania-cultural",
+      "name": "Radio România Cultural",
+      "mark": "RC",
+      "country": { "code": "ro", "name": "România" },
+      "city": { "slug": "bucuresti", "name": "București" },
+      "county": "",
+      "language": "română",
+      "modes": ["online", "fm"],
+      "categories": ["cultura", "muzica"],
+      "tags": ["Online", "FM", "Cultură", "În română"],
+      "description": "Emisiuni de cultură, literatură, știință, teatru radiofonic și muzică.",
+      "frequency": { "value": "101.3", "display": "101,3", "band": "MHz FM" },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/romania-cultural",
+        "page": "https://www.radioromaniacultural.ro/live/",
+        "official": "https://www.radioromaniacultural.ro/",
+        "stream_note": "Flux HTTPS publicat în playerul oficial. Redarea a pornit, iar timpul de redare a avansat la verificarea cu Chrome MCP din 6 noiembrie 2026. Disponibilitatea poate varia."
+      },
+      "programming": "Literatură, arte, știință, interviuri, teatru radiofonic și concerte. Grila actualizată este disponibilă pe site-ul oficial. Frecvența afișată este pentru București; frecvențele diferă în țară.",
+      "history": { "first_broadcast": null, "operator": "Societatea Română de Radiodifuziune" },
+      "contact": {
+        "address": "Strada General Berthelot 60–64, București, România",
+        "phones": [
+          { "display": "021 303 15 15", "value": "+40213031515" },
+          { "display": "021 303 17 77", "value": "+40213031777" }
+        ],
+        "email": "cultural@rornet.ro"
+      },
+      "verified": "6 noiembrie 2026",
+      "sources": [
+        { "label": "Radio România Cultural — ascultă live și grilă", "url": "https://www.radioromaniacultural.ro/live/" },
+        { "label": "Radio România Cultural — contact", "url": "https://www.radioromaniacultural.ro/contact.html" },
+        { "label": "CNA — frecvențele serviciilor de programe Radio ale SRR", "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf" }
+      ]
+    },
     {
       "id": "metronom-fm",
       "name": "Metronom FM",
