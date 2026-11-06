@@ -579,6 +579,305 @@
       ]
     },
     {
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "targu-mures",
+        "name": {
+          "ro": "Târgu Mureș",
+          "en": "Târgu Mureș"
+        }
+      },
+      "county": {
+        "ro": "Mureș",
+        "en": "Mureș"
+      },
+      "modes": [
+        "online",
+        "fm",
+        "am"
+      ],
+      "categories": [
+        "generalist",
+        "news",
+        "music",
+        "culture"
+      ],
+      "history": {
+        "first_broadcast": {
+          "ro": "2 martie 1958",
+          "en": "2 March 1958"
+        },
+        "operator": {
+          "ro": "Societatea Română de Radiodifuziune",
+          "en": "Romanian Radio Broadcasting Corporation"
+        }
+      },
+      "verified": "2026-11-06",
+      "id": "mures",
+      "name": "Radio România Târgu Mureș",
+      "mark": "TM",
+      "language": {
+        "ro": "română",
+        "en": "Romanian"
+      },
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM / AM",
+          "en": "FM / AM"
+        },
+        {
+          "ro": "Regional",
+          "en": "Regional"
+        },
+        {
+          "ro": "În română",
+          "en": "In Romanian"
+        }
+      ],
+      "description": {
+        "ro": "Știri, cultură și muzică pentru Mureș, Harghita, Covasna și Brașov.",
+        "en": "News, culture and music for Mureș, Harghita, Covasna and Brașov."
+      },
+      "frequency": {
+        "value": "102.9",
+        "display": {
+          "ro": "102,9",
+          "en": "102.9"
+        },
+        "band": "MHz FM"
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/radio-tgmures-fm",
+        "page": "https://www.radiomures.ro/player/live-radio-mures.html",
+        "official": "https://www.radiomures.ro/",
+        "stream_note": {
+          "ro": "HTTPS oficial. Redare și progres audio confirmate la 6 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Official HTTPS stream. Playback and progress confirmed on 6 November 2026; availability varies."
+        }
+      },
+      "programming": {
+        "ro": "Actualitate, interviuri, cultură, muzică și divertisment. FM: 102,9 Târgu Mureș, 98,9 Harghita, 94,9 Borsec. AM: 1197 Brașov, 1593 Miercurea Ciuc.",
+        "en": "News, interviews, culture, music and entertainment. FM: 102.9 Târgu Mureș, 98.9 Harghita, 94.9 Borsec. AM: 1197 Brașov, 1593 Miercurea Ciuc."
+      },
+      "contact": {
+        "address": {
+          "ro": "Bd. 1 Decembrie 1918 nr. 109, Târgu Mureș, 540445",
+          "en": "109 1 Decembrie 1918 Boulevard, Târgu Mureș, 540445"
+        },
+        "phones": [
+          {
+            "display": "0265 269 103",
+            "value": "+40265269103"
+          },
+          {
+            "display": "0265 267 720",
+            "value": "+40265267720"
+          }
+        ],
+        "email": "secretariat@radiomures.ro"
+      },
+      "sources": [
+        {
+          "label": {
+            "ro": "Mureș — player",
+            "en": "Mureș — player"
+          },
+          "url": "https://www.radiomures.ro/player/live-radio-mures.html"
+        },
+        {
+          "label": {
+            "ro": "Mureș — frecvențe",
+            "en": "Mureș — frequencies"
+          },
+          "url": "https://www.radiomures.ro/frecvente"
+        },
+        {
+          "label": {
+            "ro": "Mureș — contact",
+            "en": "Mureș — contact"
+          },
+          "url": "https://www.radiomures.ro/contact"
+        },
+        {
+          "label": {
+            "ro": "Mureș — misiune",
+            "en": "Mureș — mission"
+          },
+          "url": "https://www.radiomures.ro/misiune"
+        },
+        {
+          "label": {
+            "ro": "Mureș — prima emisie",
+            "en": "Mureș — first broadcast"
+          },
+          "url": "https://www.radiomures.ro/stiri/radio-tirgu-mures-implineste-61-de-ani.html"
+        }
+      ]
+    },
+    {
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "targu-mures",
+        "name": {
+          "ro": "Târgu Mureș",
+          "en": "Târgu Mureș"
+        }
+      },
+      "county": {
+        "ro": "Mureș",
+        "en": "Mureș"
+      },
+      "modes": [
+        "online",
+        "fm",
+        "am"
+      ],
+      "categories": [
+        "generalist",
+        "news",
+        "music",
+        "culture"
+      ],
+      "history": {
+        "first_broadcast": {
+          "ro": "2 martie 1958",
+          "en": "2 March 1958"
+        },
+        "operator": {
+          "ro": "Societatea Română de Radiodifuziune",
+          "en": "Romanian Radio Broadcasting Corporation"
+        }
+      },
+      "verified": "2026-11-06",
+      "id": "marosvasarhelyi",
+      "name": "Marosvásárhelyi Rádió Románia",
+      "mark": "MV",
+      "language": {
+        "ro": "maghiară; programe în germană și romani",
+        "en": "Hungarian; German and Romani programs"
+      },
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM / AM",
+          "en": "FM / AM"
+        },
+        {
+          "ro": "Regional",
+          "en": "Regional"
+        },
+        {
+          "ro": "În principal în maghiară",
+          "en": "Mainly Hungarian"
+        }
+      ],
+      "description": {
+        "ro": "Serviciul public regional în principal în maghiară: știri, cultură și muzică.",
+        "en": "Regional public service, mainly in Hungarian: news, culture and music."
+      },
+      "frequency": {
+        "value": "96.0",
+        "display": {
+          "ro": "96,0",
+          "en": "96.0"
+        },
+        "band": "MHz FM"
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/radio-tgmures-mag",
+        "page": "https://www.radiomures.ro/player/live-marosvasarhelyiradio.html",
+        "official": "https://www.marosvasarhelyiradio.ro/",
+        "stream_note": {
+          "ro": "HTTPS oficial. Redare și progres audio confirmate la 6 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Official HTTPS stream. Playback and progress confirmed on 6 November 2026; availability varies."
+        }
+      },
+      "programming": {
+        "ro": "Știri, interviuri, cultură și muzică; emisiuni și în germană și romani. FM: 96 Târgu Mureș, 92,3 Depresiunea Giurgeului, 106,8 regional. AM: 1197, 1323, 1593.",
+        "en": "News, interviews, culture and music; German and Romani slots too. FM: 96 Târgu Mureș, 92.3 Giurgeu Basin, 106.8 regionally. AM: 1197, 1323, 1593."
+      },
+      "contact": {
+        "address": {
+          "ro": "Bd. 1 Decembrie 1918 nr. 109, Târgu Mureș, 540445",
+          "en": "109 1 Decembrie 1918 Boulevard, Târgu Mureș, 540445"
+        },
+        "phones": [
+          {
+            "display": "0265 222 022",
+            "value": "+40265222022"
+          },
+          {
+            "display": "0740 274 165",
+            "value": "+40740274165"
+          }
+        ],
+        "email": "szerkesztoseg@marosvasarhelyiradio.ro"
+      },
+      "sources": [
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — player",
+            "en": "Marosvásárhelyi — player"
+          },
+          "url": "https://www.radiomures.ro/player/live-marosvasarhelyiradio.html"
+        },
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — frecvențe",
+            "en": "Marosvásárhelyi — frequencies"
+          },
+          "url": "https://www.marosvasarhelyiradio.ro/frekvenciak/"
+        },
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — zone FM",
+            "en": "Marosvásárhelyi — FM coverage"
+          },
+          "url": "https://www.marosvasarhelyiradio.ro/hirek/muszaki-ellenorzesek-a-marosvasarhelyi-radio-frekvenciain/"
+        },
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — contact",
+            "en": "Marosvásárhelyi — contact"
+          },
+          "url": "https://www.marosvasarhelyiradio.ro/elerhetosegek/"
+        },
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — grilă",
+            "en": "Marosvásárhelyi — schedule"
+          },
+          "url": "https://www.marosvasarhelyiradio.ro/musorracs/"
+        },
+        {
+          "label": {
+            "ro": "Marosvásárhelyi — istoric și limbi",
+            "en": "Marosvásárhelyi — history and languages"
+          },
+          "url": "https://www.marosvasarhelyiradio.ro/hirek/hatvanhat-eves-a-marosvasarhelyi-radio2/"
+        }
+      ]
+    },
+    {
       "id": "saudi-quran",
       "name": "Saudi Quran Radio",
       "mark": "SQ",
