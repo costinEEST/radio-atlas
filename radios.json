@@ -878,6 +878,270 @@
       ]
     },
     {
+      "id": "chisinau",
+      "name": "Radio Chișinău",
+      "mark": "RC",
+      "country": {
+        "code": "md",
+        "name": {
+          "ro": "Republica Moldova",
+          "en": "Moldova"
+        }
+      },
+      "city": {
+        "slug": "chisinau",
+        "name": {
+          "ro": "Chișinău",
+          "en": "Chișinău"
+        }
+      },
+      "county": "",
+      "language": {
+        "ro": "română",
+        "en": "Romanian"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "generalist",
+        "news",
+        "music",
+        "culture"
+      ],
+      "tags": [
+        {
+          "ro": "Online",
+          "en": "Online"
+        },
+        {
+          "ro": "FM",
+          "en": "FM"
+        },
+        {
+          "ro": "În română",
+          "en": "In Romanian"
+        }
+      ],
+      "description": {
+        "ro": "Știri, interviuri, cultură și muzică din Republica Moldova.",
+        "en": "News, interviews, culture and music from Moldova."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "chisinau",
+            "name": {
+              "ro": "Chișinău",
+              "en": "Chișinău"
+            }
+          },
+          "value": "89.6",
+          "display": {
+            "ro": "89,6",
+            "en": "89.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "ungheni",
+            "name": {
+              "ro": "Ungheni",
+              "en": "Ungheni"
+            }
+          },
+          "value": "93.8",
+          "display": {
+            "ro": "93,8",
+            "en": "93.8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "tighina",
+            "name": {
+              "ro": "Tighina",
+              "en": "Tighina"
+            }
+          },
+          "value": "106.1",
+          "display": {
+            "ro": "106,1",
+            "en": "106.1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cahul",
+            "name": {
+              "ro": "Cahul",
+              "en": "Cahul"
+            }
+          },
+          "value": "93.3",
+          "display": {
+            "ro": "93,3",
+            "en": "93.3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "edinet",
+            "name": {
+              "ro": "Edineț",
+              "en": "Edineț"
+            }
+          },
+          "value": "96.4",
+          "display": {
+            "ro": "96,4",
+            "en": "96.4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "briceni",
+            "name": {
+              "ro": "Briceni",
+              "en": "Briceni"
+            }
+          },
+          "value": "99.0",
+          "display": {
+            "ro": "99,0",
+            "en": "99.0"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "drochia",
+            "name": {
+              "ro": "Drochia",
+              "en": "Drochia"
+            }
+          },
+          "value": "107.1",
+          "display": {
+            "ro": "107,1",
+            "en": "107.1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "balti",
+            "name": {
+              "ro": "Bălți",
+              "en": "Bălți"
+            }
+          },
+          "value": "98.8",
+          "display": {
+            "ro": "98,8",
+            "en": "98.8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "causeni",
+            "name": {
+              "ro": "Căușeni",
+              "en": "Căușeni"
+            }
+          },
+          "value": "92.5",
+          "display": {
+            "ro": "92,5",
+            "en": "92.5"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://radiochisinau.md/hls/RChisinau.m3u8",
+        "page": "https://radiochisinau.md/live",
+        "official": "https://radiochisinau.md/",
+        "stream_note": {
+          "ro": "HLS HTTPS oficial. Redare și progres audio confirmate la 6 noiembrie 2026; compatibilitatea depinde de player.",
+          "en": "Official HTTPS HLS. Playback and progress confirmed on 6 November 2026; compatibility depends on the player."
+        }
+      },
+      "programming": {
+        "ro": "Actualitate, dezbateri, interviuri, cultură și muzică. Frecvențe FM în nouă orașe.",
+        "en": "News, debates, interviews, culture and music. FM coverage in nine cities."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": {
+          "ro": "Pajura Albă SRL",
+          "en": "Pajura Albă SRL"
+        }
+      },
+      "contact": {
+        "address": {
+          "ro": "Str. București 42/A, Chișinău, Republica Moldova",
+          "en": "42/A București Street, Chișinău, Moldova"
+        },
+        "phones": [
+          {
+            "display": "022 27 87 11",
+            "value": "+37322278711"
+          },
+          {
+            "display": "060 490 899",
+            "value": "+37360490899"
+          }
+        ],
+        "email": "radiochisinau@gmail.com"
+      },
+      "verified": "2026-11-06",
+      "sources": [
+        {
+          "label": {
+            "ro": "Chișinău — frecvențe",
+            "en": "Chișinău — frequencies"
+          },
+          "url": "https://radiochisinau.md/fregvente.html"
+        },
+        {
+          "label": {
+            "ro": "Chișinău — player",
+            "en": "Chișinău — player"
+          },
+          "url": "https://radiochisinau.md/live"
+        },
+        {
+          "label": {
+            "ro": "Chișinău — programe",
+            "en": "Chișinău — programming"
+          },
+          "url": "https://radiochisinau.md/"
+        },
+        {
+          "label": {
+            "ro": "Chișinău — telefoane",
+            "en": "Chișinău — phones"
+          },
+          "url": "https://radiochisinau.md/contacte----157907.html"
+        },
+        {
+          "label": {
+            "ro": "Chișinău — redacție",
+            "en": "Chișinău — editorial office"
+          },
+          "url": "https://radiochisinau.md/adrese-de-contact----84267.html"
+        }
+      ]
+    },
+    {
       "id": "saudi-quran",
       "name": "Saudi Quran Radio",
       "mark": "SQ",
