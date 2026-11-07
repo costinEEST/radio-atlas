@@ -859,6 +859,12 @@ try {
   stationsRoot.ariaBusy = "false";
   catalogLoaded = true;
   restoreUrlFilters();
+  try {
+    const { initTooltips } = await import("./tooltips.js");
+    initTooltips();
+  } catch (error) {
+    console.warn("Tooltips unavailable; accessible button labels remain available.", error);
+  }
 } catch (error) {
   catalogLoaded = false;
   console.error("Catalog startup failed.", error);
