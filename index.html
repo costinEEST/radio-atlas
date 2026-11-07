@@ -206,6 +206,16 @@
         <footer class="station-actions"><button class="primary-action" type="button" data-action="play" data-i18n="player.play">Play</button><a data-field="listen-page" target="_blank" rel="noopener noreferrer" data-i18n="listen">Listening page</a><p class="playback-note" data-field="playback-note" hidden></p></footer>
         <details class="frequency-options">
           <summary data-field="frequency-summary" data-i18n="frequency.options">Frequency options</summary>
+          <div class="frequency-tools">
+            <p data-field="frequency-verification" hidden></p>
+            <p data-field="frequency-context" hidden></p>
+            <div data-field="frequency-search-tools" hidden>
+              <label data-field="frequency-search-label" data-i18n="frequency.search">Search frequencies</label>
+              <input type="search" data-action="filter-frequencies">
+              <p data-field="frequency-results" role="status"></p>
+              <p data-field="frequency-empty" data-i18n="frequency.empty" hidden>No matching frequencies.</p>
+            </div>
+          </div>
           <ul class="frequencies" role="list" data-field="frequencies"></ul>
         </details>
         <details class="station-details">
@@ -243,7 +253,7 @@
     <li>
       <div class="frequency">
         <p><strong><span data-field="frequency"></span> <span data-field="band"></span></strong><small
-            data-field="frequency-location"></small></p><button type="button" data-action="copy-frequency"
+            data-field="frequency-location"></small><small data-field="frequency-site" hidden></small><small data-field="frequency-note" hidden></small></p><button type="button" data-action="copy-frequency"
           data-i18n="copy.frequency">Copy frequency</button>
       </div>
     </li>

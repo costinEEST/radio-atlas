@@ -242,7 +242,17 @@ try {
     setLocation(field(row, "frequency-location"), [
       rawFrequency.city.name,
       rawFrequency.county,
+      rawFrequency.location_type ? t(`frequency.${rawFrequency.location_type}`) : null,
     ]);
+  }
+
+  function filterFrequencies(article) {
+    const query = normalize(article.querySelector('[data-action="filter-frequencies"]').value).replaceAll(",", ".");
+    const rows = [...field(article, "frequencies").children];
+    for (const row of rows) row.hidden = !row.dataset.search.includes(query);
+    const visible = rows.filter((row) => !row.hidden).length;
+    field(article, "frequency-results").textContent = t("frequency.results", { visible: new Intl.NumberFormat(currentLocale()).format(visible), total: new Intl.NumberFormat(currentLocale()).format(rows.length) });
+    field(article, "frequency-empty").hidden = visible !== 0;
   }
 
   function appendFrequencies(article, rawStation) {
@@ -258,6 +268,21 @@ try {
     summary.lang = messagesLanguage(
       frequencies.length > 1 ? "frequency.other" : "frequency.options",
     );
+    const verification = rawStation.frequency_verification;
+    if (verification) {
+      const date = (value) => new Intl.DateTimeFormat(currentLocale(), { dateStyle: "medium", timeZone: "UTC" }).format(new Date(value));
+      const context = field(article, "frequency-verification");
+      context.hidden = false;
+      context.textContent = t("frequency.checked", { updated: date(verification.source_updated), checked: date(verification.checked) });
+      const note = field(article, "frequency-context");
+      note.hidden = false;
+      note.textContent = localize(verification.note);
+    }
+    const search = article.querySelector('[data-action="filter-frequencies"]');
+    search.id = `${rawStation.id}-frequency-search`;
+    search.ariaLabel = `${t("frequency.search")} · ${localize(rawStation.name)}`;
+    field(article, "frequency-search-label").htmlFor = search.id;
+    field(article, "frequency-search-tools").hidden = frequencies.length <= 8;
     for (const rawFrequency of frequencies) {
       const fragment = document
         .querySelector("#frequency-template")
@@ -265,6 +290,13 @@ try {
       translateDOM(fragment);
       const row = fragment.querySelector(".frequency");
       setFrequency(row, rawFrequency);
+      const site = field(row, "frequency-site");
+      site.hidden = !rawFrequency.licensed_site;
+      if (!site.hidden) site.textContent = t("frequency.site", { site: localize(rawFrequency.licensed_site) });
+      const note = field(row, "frequency-note");
+      note.hidden = !rawFrequency.note;
+      if (!note.hidden) note.textContent = localize(rawFrequency.note);
+      fragment.querySelector("li").dataset.search = normalize([localize(rawFrequency.city.name), localize(rawFrequency.licensed_site ?? ""), rawFrequency.value, localize(rawFrequency.display), rawFrequency.band].join(" ")).replaceAll(",", ".");
       const copy = row.querySelector('[data-action="copy-frequency"]');
       copy.dataset.copy = rawFrequency.value ?? "";
       copy.hidden = !rawFrequency.value;
@@ -274,6 +306,7 @@ try {
       copy.lang = messagesLanguage("copy.frequencyLocation");
       field(article, "frequencies").append(fragment);
     }
+    filterFrequencies(article);
   }
 
   function createStation(rawStation) {
@@ -307,6 +340,7 @@ try {
             frequency.value,
             frequency.display,
             frequency.band,
+            frequency.licensed_site ?? "",
           ]),
           ...station.modes,
           station.tags,
@@ -472,7 +506,7 @@ try {
       catalog.stations.flatMap((station) =>
         [
           station.city,
-          ...frequenciesFor(station).map((frequency) => frequency.city),
+          ...frequenciesFor(station).map((frequency) => ({ ...frequency.city, location_type: frequency.location_type })),
         ].map((city) => [city.slug, { city, country: station.country }]),
       ),
     );
@@ -480,7 +514,7 @@ try {
       filters.elements.city,
       [...cities].map(([slug, location]) => [
         slug,
-        `${localize(location.city.name)} · ${localize(location.country.name)}`,
+        `${localize(location.city.name)}${location.city.location_type ? ` (${t(`frequency.${location.city.location_type}`)})` : ""} · ${localize(location.country.name)}`,
         contentLanguage(location.city.name),
       ]),
     );
@@ -678,16 +712,21 @@ try {
     }),
   );
 
+  stationsRoot.addEventListener("input", handleAction((event) => {
+    if (event.target.matches('[data-action="filter-frequencies"]')) filterFrequencies(event.target.closest(".station"));
+  }));
+
   function refreshLocale() {
     if (!catalogLoaded) return;
     const values = new FormData(filters);
+    const frequencyQueries = new Map([...stationsRoot.querySelectorAll(".station")].map((card) => [card.id, card.querySelector('[data-action="filter-frequencies"]').value]));
     const disclosures = new Map([...stationsRoot.querySelectorAll(".station")].map((article) => [
       article.id, [...article.querySelectorAll("details")].map((details) => details.open),
     ]));
     const focused = document.activeElement;
     const focusedCard = focused.closest(".station");
     const focusIndex = focusedCard
-      ? [...focusedCard.querySelectorAll("a,button,summary")].indexOf(focused) : -1;
+      ? [...focusedCard.querySelectorAll("a,button,summary,input")].indexOf(focused) : -1;
     // Only rebuild catalog nodes: the shared audio and player containers stay mounted.
     const cards = catalog.stations.map(createStation);
     stationsRoot.replaceChildren(...cards);
@@ -698,6 +737,8 @@ try {
     populateFilters(catalog);
     for (const [name, value] of values) filters.elements[name].value = value;
     for (const article of stationsRoot.querySelectorAll(".station")) {
+      article.querySelector('[data-action="filter-frequencies"]').value = frequencyQueries.get(article.id) ?? "";
+      filterFrequencies(article);
       article.querySelectorAll("details").forEach((details, index) => {
         details.open = disclosures.get(article.id)?.[index] ?? false;
       });
@@ -709,7 +750,7 @@ try {
     render();
     if (focusIndex >= 0) {
       const card = document.getElementById(focusedCard.id);
-      const target = card.querySelectorAll("a,button,summary")[focusIndex];
+      const target = card.querySelectorAll("a,button,summary,input")[focusIndex];
       if (target?.getClientRects().length) target.focus({ preventScroll: true });
       else filters.elements.search.focus({ preventScroll: true });
     }

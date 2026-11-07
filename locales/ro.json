@@ -118,5 +118,12 @@
   "related.romania": "{romania} — explorează posturi radio și podcasturi din România.",
   "related.moldova": "{moldova} — explorează posturi radio și podcasturi din Republica Moldova.",
   "related.romaniaLabel": "Radio-Online.com.ro — se deschide într-o filă nouă",
-  "related.moldovaLabel": "Moldova Radio — se deschide într-o filă nouă"
+  "related.moldovaLabel": "Moldova Radio — se deschide într-o filă nouă",
+  "frequency.search": "Caută frecvențe",
+  "frequency.results": "{visible} / {total} frecvențe",
+  "frequency.empty": "Nicio frecvență găsită.",
+  "frequency.site": "Amplasament autorizat: {site}",
+  "frequency.region": "Regiune",
+  "frequency.transmitter": "Amplasament de emisie",
+  "frequency.checked": "Frecvențe publicate oficial · actualizate la {updated} · verificate la {checked}"
 }

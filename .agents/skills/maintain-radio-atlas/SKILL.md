@@ -20,6 +20,10 @@ For every station addition or factual update, complete these stages in order:
 
 Do not add or change catalog facts when online evidence materially contradicts the proposed data. Report the conflict and ask for direction if authoritative sources do not resolve it.
 
+## Missing sources and PDFs
+
+When an official page or file is unavailable, search its exact URL in the Wayback Machine and inspect the newest usable timestamped capture. For archive selection, download, PDF extraction and evidence checks, read [Recover and inspect PDF sources](references/pdf-research.md). Use the tested uv/pypdf helper there; keep archive capture dates separate from document dates and current factual verification.
+
 ## Recover a blocked Chrome MCP
 
 Prefer Chrome MCP for browsing, page inspection, playback checks, UI validation, and Lighthouse whenever its tools support the task. A profile-in-use error is a recoverable blocker; attempt this procedure before switching to CLI browser automation.
@@ -135,3 +139,9 @@ Use Chrome MCP to verify observable behavior, not only CSS declarations:
 - Exercise populated, empty, loading, and failure states where practical. Filtering must hide the entire station list item so assistive technologies and list semantics match the visible result count.
 - Check forced-colors/high-contrast rendering and reduced-motion behavior when the affected UI uses custom colors or motion. Do not convey state or meaning through color alone.
 - Finish with a mobile Lighthouse run and inspect the browser console and network panel. Treat automated audits as supporting evidence, not a substitute for keyboard, reflow, zoom, and accessibility-tree checks.
+
+## Large terrestrial frequency lists
+
+- Preserve one station and the existing `frequencies` array. The legacy `city` field may identify an officially listed area or site; optional `location_type` (`region` or `transmitter`) qualifies those labels. Optional translated `licensed_site` records the regulator’s transmitter-site label, and translated `note` explains a material discrepancy. Do not infer reception coverage or turn license counties into city locations.
+- Use optional `frequency_verification` with ISO `checked`, ISO `source_updated`, supporting source URLs in `sources`, and a translated `note`. Keep frequency checks separate from station/stream `verified`. Reconcile broadcaster labels with regulator sites; record historical conflicts and unavailable sources without claiming live RF verification. Keep source links in the station’s Sources list.
+- Keep one frequency preview and the native closed disclosure. Show the dated verification context inside it. Lists longer than eight entries have a labeled local search with visible/total status and an empty state; match location, licensed site and frequency, tolerating accents and decimal commas. Hide the complete unmatched list item. Preserve its query and open state during language changes. Include licensed sites in global search and qualify region/site options in the location filter.
