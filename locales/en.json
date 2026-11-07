@@ -40,7 +40,7 @@
   "search.placeholder": "Station, location, frequency or content…",
   "hero.title": "Find your next {frequency}",
   "hero.frequency": "frequency.",
-  "hero.tip": "Explore stations around the world on the interactive globe at {garden}.",
+  "hero.tip": "{garden} — explore radio stations worldwide on an interactive globe.",
   "recommendation": "Recommended by {person}",
   "loading": "Loading…",
   "meta.description": "Radio Atlas: an independent catalog of radio stations, FM frequencies and online listening options.",
@@ -109,5 +109,7 @@
   "filters.back": "Back to filters",
   "player.compact": "Playback controls",
   "player.expand": "Expand",
-  "player.expandLabel": "Expand player"
+  "player.expandLabel": "Expand player",
+  "related.magyar": "{magyar} — explore radio stations and podcasts from Hungary.",
+  "related.magyarLabel": "Magyar Radio — opens in a new tab"
 }
