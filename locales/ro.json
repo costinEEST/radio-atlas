@@ -114,5 +114,9 @@
   "related.magyar": "{magyar} — explorează posturi radio și podcasturi din Ungaria.",
   "related.magyarLabel": "Magyar Radio — se deschide într-o filă nouă",
   "nav.label": "Pe această pagină",
-  "nav.resources": "Alte resurse radio"
+  "nav.resources": "Alte resurse radio",
+  "related.romania": "{romania} — explorează posturi radio și podcasturi din România.",
+  "related.moldova": "{moldova} — explorează posturi radio și podcasturi din Republica Moldova.",
+  "related.romaniaLabel": "Radio-Online.com.ro — se deschide într-o filă nouă",
+  "related.moldovaLabel": "Moldova Radio — se deschide într-o filă nouă"
 }
