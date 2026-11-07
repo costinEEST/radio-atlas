@@ -120,16 +120,19 @@
   [dir="rtl"] .eyebrow {
     letter-spacing: normal;
   }
-  .brand > :last-child {
+  .brand-name {
+    min-inline-size: 0;
+  }
+  .brand-dot {
     color: #667f2f;
   }
   .brand-mark {
-    display: grid;
-    place-items: center;
+    display: block;
+    flex: 0 0 auto;
     inline-size: 2rem;
+    block-size: 2rem;
     aspect-ratio: 1;
-    border: 2px solid;
-    border-radius: 50%;
+    object-fit: contain;
   }
   main {
     padding-block: clamp(2.5rem, 7vw, 5.5rem);
