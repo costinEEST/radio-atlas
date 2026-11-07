@@ -129,5 +129,13 @@
   "frequency.site": "Amplasament autorizat: {site}",
   "frequency.region": "Regiune",
   "frequency.transmitter": "Amplasament de emisie",
-  "frequency.checked": "Frecvențe publicate oficial · actualizate la {updated} · verificate la {checked}"
+  "frequency.checked": "Frecvențe publicate oficial · actualizate la {updated} · verificate la {checked}",
+  "related.browser": "{browser} — caută într-o bază de date comunitară globală după țară, limbă și etichete.",
+  "related.browserLabel": "Radio Browser — se deschide într-o filă nouă",
+  "related.fmstream": "{fmstream} — găsește posturi și linkuri directe către fluxuri, cu filtre după țară, stil și limbă.",
+  "related.fmstreamLabel": "FMStream — se deschide într-o filă nouă",
+  "related.freeform": "{freeform} — explorează posturi independente și cu programe libere, după oraș și țară.",
+  "related.freeformLabel": "Freeform Radio Directory — se deschide într-o filă nouă",
+  "related.locator": "{locator} — găsește posturi AM și FM, în special din SUA, după oraș, cod poștal sau format.",
+  "related.locatorLabel": "Radio-Locator — se deschide într-o filă nouă"
 }

@@ -128,5 +128,13 @@
   "frequency.site": "Licensed transmitter site: {site}",
   "frequency.region": "Region",
   "frequency.transmitter": "Transmitter site",
-  "frequency.checked": "Officially listed · updated {updated} · checked {checked}"
+  "frequency.checked": "Officially listed · updated {updated} · checked {checked}",
+  "related.browser": "{browser} — search a community-maintained worldwide database by country, language and tags.",
+  "related.browserLabel": "Radio Browser — opens in a new tab",
+  "related.fmstream": "{fmstream} — find stations and direct stream links, with country, style and language filters.",
+  "related.fmstreamLabel": "FMStream — opens in a new tab",
+  "related.freeform": "{freeform} — explore independent and freeform stations by city and country.",
+  "related.freeformLabel": "Freeform Radio Directory — opens in a new tab",
+  "related.locator": "{locator} — find AM and FM stations, especially in the United States, by city, ZIP code or format.",
+  "related.locatorLabel": "Radio-Locator — opens in a new tab"
 }
