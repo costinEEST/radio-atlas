@@ -78,8 +78,16 @@
       </div>
       <div class="dial-art" aria-hidden="true"><span>FM / AM / WEB</span></div>
     </section>
+    <nav class="page-nav" aria-labelledby="page-nav-title">
+      <p id="page-nav-title" data-i18n="nav.label">On this page</p>
+      <ul role="list">
+        <li><a href="#catalog-title" data-i18n="catalog.title">Stations</a></li>
+        <li><a href="#guide-title" data-i18n="guide.title">Listening guide</a></li>
+        <li><a href="#related-title" data-i18n="nav.resources">More radio resources</a></li>
+      </ul>
+    </nav>
     <details class="listening-guide" id="listening-guide">
-      <summary data-i18n="guide.title">Listening guide</summary>
+      <summary id="guide-title" data-i18n="guide.title">Listening guide</summary>
       <div class="guide-content">
         <p data-i18n="guide.start">Choose Play to listen here. If a stream cannot play in your browser, use Listening page. Live radio uses internet data; FM and AM use a radio receiver.</p>
         <dl>
@@ -139,10 +147,9 @@
         <p data-i18n="empty.description">Change your search term or selected filters.</p><button type="button"
           id="show-all" data-i18n="empty.reset">Show all stations</button>
       </div>
-      <p class="back-to-filters"><a href="#search" data-i18n="filters.back">Back to filters</a></p>
     </section>
     <aside class="related-resources" aria-labelledby="related-title">
-      <h2 id="related-title" data-i18n="related.title">More ways to explore radio</h2>
+      <h2 id="related-title" tabindex="-1" data-i18n="related.title">More ways to explore radio</h2>
       <p data-i18n="hero.tip"><a data-i18n-slot="garden"
           href="https://radio.garden/" target="_blank" rel="noopener noreferrer"
           aria-label="Radio Garden — opens in a new tab" data-i18n-aria-label="garden.label">Radio Garden</a> — explore radio stations worldwide on an interactive globe.</p>
@@ -150,6 +157,7 @@
           aria-label="Magyar Radio — opens in a new tab"
           data-i18n-aria-label="related.magyarLabel">Magyar Radio</a> — explore radio stations and podcasts from Hungary.</p>
     </aside>
+    <p class="back-to-filters"><a href="#search" data-i18n="filters.back">Back to filters</a></p>
   </main>
   <footer class="site-footer"><a href="https://github.com/costinEEST/radio-atlas" target="_blank"
       rel="noopener noreferrer" data-i18n="footer.source" aria-label="View source — opens in a new tab"

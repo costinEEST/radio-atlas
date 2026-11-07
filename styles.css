@@ -217,6 +217,37 @@
     border-radius: 0.65rem;
     background: var(--surface);
   }
+  .page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1.25rem;
+    margin-block-end: 1.5rem;
+  }
+  .page-nav p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .page-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 0;
+    list-style: none;
+  }
+  .page-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    overflow-wrap: anywhere;
+  }
+  #guide-title,
+  #catalog-title,
+  #related-title,
+  #search {
+    scroll-margin-block-start: 1rem;
+  }
   .guide-content {
     max-inline-size: 65ch;
     padding: 0 1.25rem 1.25rem;

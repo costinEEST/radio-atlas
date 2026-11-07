@@ -589,6 +589,16 @@ try {
   }
 
   filters.addEventListener("input", handleAction(render));
+  function revealGuide() {
+    if (["#guide-title", "#listening-guide"].includes(location.hash)) {
+      document.querySelector("#listening-guide").open = true;
+    }
+  }
+  document.querySelector('.page-nav a[href="#guide-title"]').addEventListener(
+    "click", handleAction(() => { document.querySelector("#listening-guide").open = true; }),
+  );
+  window.addEventListener("hashchange", handleAction(revealGuide));
+  revealGuide();
   filters.addEventListener(
     "reset",
     handleAction(() => {

@@ -111,5 +111,7 @@
   "player.expand": "Expand",
   "player.expandLabel": "Expand player",
   "related.magyar": "{magyar} — explore radio stations and podcasts from Hungary.",
-  "related.magyarLabel": "Magyar Radio — opens in a new tab"
+  "related.magyarLabel": "Magyar Radio — opens in a new tab",
+  "nav.label": "On this page",
+  "nav.resources": "More radio resources"
 }
