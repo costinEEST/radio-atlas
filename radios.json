@@ -4626,6 +4626,488 @@
         "en": "Sadaa classification: community.",
         "ro": "Clasificare Sadaa: comunitar."
       }
+    },
+    {
+      "id": "magyar-katolikus",
+      "name": "Magyar Katolikus Rádió",
+      "mark": "MKR",
+      "country": {
+        "code": "hu",
+        "name": {
+          "ro": "Ungaria",
+          "en": "Hungary"
+        }
+      },
+      "city": {
+        "slug": "budapest",
+        "name": {
+          "ro": "Budapesta",
+          "en": "Budapest"
+        }
+      },
+      "county": "",
+      "language": {
+        "ro": "maghiară",
+        "en": "Hungarian"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "generalist",
+        "culture"
+      ],
+      "tags": [
+        {
+          "ro": "Catolic",
+          "en": "Catholic"
+        },
+        {
+          "ro": "În maghiară",
+          "en": "In Hungarian"
+        }
+      ],
+      "description": {
+        "ro": "Radio catolic în limba maghiară: liturghii, reflecții, știri, cultură și emisiuni pentru familie.",
+        "en": "Hungarian Catholic radio with Mass, reflections, news, culture and family programs."
+      },
+      "frequencies": [
+        {
+          "city": {
+            "slug": "budapest",
+            "name": {
+              "ro": "Budapesta",
+              "en": "Budapest"
+            }
+          },
+          "value": "102.1",
+          "display": {
+            "ro": "102,1",
+            "en": "102.1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "berettyoujfalu",
+            "name": {
+              "ro": "Berettyóújfalu",
+              "en": "Berettyóújfalu"
+            }
+          },
+          "value": "90.3",
+          "display": {
+            "ro": "90,3",
+            "en": "90.3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "debrecen",
+            "name": {
+              "ro": "Debrecen",
+              "en": "Debrecen"
+            }
+          },
+          "value": "92.3",
+          "display": {
+            "ro": "92,3",
+            "en": "92.3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cece",
+            "name": {
+              "ro": "Cece",
+              "en": "Cece"
+            }
+          },
+          "value": "91.6",
+          "display": {
+            "ro": "91,6",
+            "en": "91.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "dunafoldvar",
+            "name": {
+              "ro": "Dunaföldvár",
+              "en": "Dunaföldvár"
+            }
+          },
+          "value": "104.1",
+          "display": {
+            "ro": "104,1",
+            "en": "104.1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "esztergom",
+            "name": {
+              "ro": "Esztergom",
+              "en": "Esztergom"
+            }
+          },
+          "value": "92.5",
+          "display": {
+            "ro": "92,5",
+            "en": "92.5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "gyor",
+            "name": {
+              "ro": "Győr",
+              "en": "Győr"
+            }
+          },
+          "value": "96.4",
+          "display": {
+            "ro": "96,4",
+            "en": "96.4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "kalocsa",
+            "name": {
+              "ro": "Kalocsa",
+              "en": "Kalocsa"
+            }
+          },
+          "value": "94.5",
+          "display": {
+            "ro": "94,5",
+            "en": "94.5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "kaposvar",
+            "name": {
+              "ro": "Kaposvár",
+              "en": "Kaposvár"
+            }
+          },
+          "value": "102.6",
+          "display": {
+            "ro": "102,6",
+            "en": "102.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "kecskemet",
+            "name": {
+              "ro": "Kecskemét",
+              "en": "Kecskemét"
+            }
+          },
+          "value": "95.3",
+          "display": {
+            "ro": "95,3",
+            "en": "95.3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "kiskoros",
+            "name": {
+              "ro": "Kiskőrös",
+              "en": "Kiskőrös"
+            }
+          },
+          "value": "91.7",
+          "display": {
+            "ro": "91,7",
+            "en": "91.7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "komlo",
+            "name": {
+              "ro": "Komló",
+              "en": "Komló"
+            }
+          },
+          "value": "91.4",
+          "display": {
+            "ro": "91,4",
+            "en": "91.4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "mosonmagyarovar",
+            "name": {
+              "ro": "Mosonmagyaróvár",
+              "en": "Mosonmagyaróvár"
+            }
+          },
+          "value": "99.7",
+          "display": {
+            "ro": "99,7",
+            "en": "99.7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "mor",
+            "name": {
+              "ro": "Mór",
+              "en": "Mór"
+            }
+          },
+          "value": "89.0",
+          "display": {
+            "ro": "89,0",
+            "en": "89.0"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "oroshaza",
+            "name": {
+              "ro": "Orosháza",
+              "en": "Orosháza"
+            }
+          },
+          "value": "88.6",
+          "display": {
+            "ro": "88,6",
+            "en": "88.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "papa",
+            "name": {
+              "ro": "Pápa",
+              "en": "Pápa"
+            }
+          },
+          "value": "92.7",
+          "display": {
+            "ro": "92,7",
+            "en": "92.7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "pecs",
+            "name": {
+              "ro": "Pécs",
+              "en": "Pécs"
+            }
+          },
+          "value": "101.2",
+          "display": {
+            "ro": "101,2",
+            "en": "101.2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "sopron",
+            "name": {
+              "ro": "Sopron",
+              "en": "Sopron"
+            }
+          },
+          "value": "104.6",
+          "display": {
+            "ro": "104,6",
+            "en": "104.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "szekszard",
+            "name": {
+              "ro": "Szekszárd",
+              "en": "Szekszárd"
+            }
+          },
+          "value": "102.5",
+          "display": {
+            "ro": "102,5",
+            "en": "102.5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "szekesfehervar",
+            "name": {
+              "ro": "Székesfehérvár",
+              "en": "Székesfehérvár"
+            }
+          },
+          "value": "96.1",
+          "display": {
+            "ro": "96,1",
+            "en": "96.1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "szombathely",
+            "name": {
+              "ro": "Szombathely",
+              "en": "Szombathely"
+            }
+          },
+          "value": "107.4",
+          "display": {
+            "ro": "107,4",
+            "en": "107.4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "tapolca",
+            "name": {
+              "ro": "Tapolca",
+              "en": "Tapolca"
+            }
+          },
+          "value": "101.8",
+          "display": {
+            "ro": "101,8",
+            "en": "101.8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "tihany",
+            "name": {
+              "ro": "Tihany",
+              "en": "Tihany"
+            }
+          },
+          "value": "97.6",
+          "display": {
+            "ro": "97,6",
+            "en": "97.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "vac",
+            "name": {
+              "ro": "Vác",
+              "en": "Vác"
+            }
+          },
+          "value": "87.9",
+          "display": {
+            "ro": "87,9",
+            "en": "87.9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "veszprem",
+            "name": {
+              "ro": "Veszprém",
+              "en": "Veszprém"
+            }
+          },
+          "value": "94.6",
+          "display": {
+            "ro": "94,6",
+            "en": "94.6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "zalaegerszeg",
+            "name": {
+              "ro": "Zalaegerszeg",
+              "en": "Zalaegerszeg"
+            }
+          },
+          "value": "92.9",
+          "display": {
+            "ro": "92,9",
+            "en": "92.9"
+          },
+          "band": "MHz FM"
+        }
+      ],
+      "listening": {
+        "stream": "https://katolikusradio.hu:8001/live_hi.mp3",
+        "page": "https://www.katolikusradio.hu/rolunk",
+        "official": "https://www.katolikusradio.hu/",
+        "stream_note": {
+          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate cu Chrome MCP la 7 noiembrie 2026; disponibilitate variabilă.",
+          "en": "Official HTTPS stream. Playback and audio progress confirmed with Chrome MCP on 7 November 2026; availability varies."
+        }
+      },
+      "programming": {
+        "ro": "Liturghii, meditații, lecturi spirituale, actualitate, familie, cultură și viață cotidiană.",
+        "en": "Mass, meditations, spiritual readings, current affairs, family, culture and everyday life."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": null
+      },
+      "contact": {
+        "address": {
+          "ro": "1062 Budapesta, Délibáb u. 15–17., Ungaria",
+          "en": "1062 Budapest, Délibáb u. 15–17., Hungary"
+        },
+        "phones": [
+          {
+            "display": "+36 1 255 3333",
+            "value": "+3612553333"
+          }
+        ],
+        "email": "ugyfelszolgalat@katolikusradio.hu"
+      },
+      "verified": "2026-11-07",
+      "sources": [
+        {
+          "label": {
+            "ro": "Magyar Katolikus Rádió — frecvențe, programe și contact",
+            "en": "Magyar Katolikus Rádió — frequencies, programming and contact"
+          },
+          "url": "https://www.katolikusradio.hu/rolunk#frequencies"
+        }
+      ],
+      "source_note": {
+        "ro": "Toate cele 26 de locații și frecvențe FM corespund listei radiodifuzorului, consultată la 7 noiembrie 2026. Pagina nu indică data actualizării listei; recepția nu este verificată.",
+        "en": "All 26 FM locations and frequencies match the broadcaster’s list checked on 7 November 2026. The page gives no frequency-list update date; reception is not verified."
+      }
     }
   ]
 }
