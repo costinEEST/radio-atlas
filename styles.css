@@ -32,6 +32,15 @@
     --line: #cdd6cb;
     --accent: #d7f067;
     --focus: #315f00;
+    /* Shared roles: steady reading/UI sizes, restrained fluid headings. */
+    --text-small: 0.9375rem;
+    --text-body: 1rem;
+    --text-lead: 1.125rem;
+    --text-title: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    --text-section: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);
+    --text-display: clamp(2rem, 1.6rem + 2vw, 3rem);
+    --leading-body: 1.6;
+    --leading-heading: 1.2;
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   }
   html {
@@ -41,7 +50,30 @@
     min-block-size: 100dvh;
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.55;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: var(--text-section);
+  }
+  h3 {
+    font-size: var(--text-title);
+  }
+  h4 {
+    font-size: var(--text-body);
+  }
+  p {
+    text-wrap: pretty;
+  }
+  small {
+    font-size: var(--text-small);
   }
   a {
     color: inherit;
@@ -98,7 +130,7 @@
   .site-header > p,
   .site-footer {
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   .brand {
     display: inline-flex;
@@ -115,7 +147,7 @@
     gap: 0.35rem;
     min-inline-size: 0;
     max-inline-size: 100%;
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   [dir="rtl"] .eyebrow {
     letter-spacing: normal;
@@ -146,9 +178,9 @@
   }
   .eyebrow {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: var(--text-small);
     font-weight: 750;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     overflow-wrap: anywhere;
   }
@@ -156,10 +188,10 @@
     max-inline-size: 13ch;
     margin-block: 0.8rem 1rem;
     font-family: Georgia, serif;
-    font-size: clamp(2.7rem, 7vw, 5rem);
+    font-size: var(--text-display);
     font-weight: 400;
-    letter-spacing: -0.055em;
-    line-height: 1.02;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
     overflow-wrap: anywhere;
   }
   h1 em {
@@ -168,7 +200,7 @@
   .intro {
     max-inline-size: 38rem;
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: var(--text-lead);
   }
   .related-resources {
     margin-block-start: 2.5rem;
@@ -179,7 +211,7 @@
   .related-resources h2 {
     margin-block-end: 0.5rem;
     color: var(--ink);
-    font-size: 1rem;
+    font-size: var(--text-section);
   }
   .related-resources a {
     overflow-wrap: anywhere;
@@ -229,7 +261,7 @@
   }
   .page-nav p {
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: var(--text-small);
     font-weight: 700;
   }
   .page-nav ul {
@@ -299,7 +331,7 @@
     background: var(--surface);
     color: var(--ink);
     box-shadow: 0 -0.25rem 1rem #0001;
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   .mini-player:not([data-visible]) {
     visibility: hidden;
@@ -379,7 +411,7 @@
   .playback-note {
     flex-basis: 100%;
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: var(--text-small);
   }
   .controls > *,
   .selects > *,
@@ -392,7 +424,7 @@
     font-weight: 700;
   }
   .search-field span {
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   input,
   select {
@@ -415,7 +447,7 @@
     background-repeat: no-repeat;
     background-position: right 1rem center;
     color: var(--ink);
-    font-size: 1rem;
+    font-size: var(--text-body);
     font-weight: 500;
     line-height: 1.4;
     cursor: pointer;
@@ -473,7 +505,7 @@
       padding: 0.7rem 0.8rem;
       border-radius: 0.5rem;
       color: var(--ink);
-      font-size: 1rem;
+      font-size: var(--text-body);
       font-weight: 500;
       white-space: normal;
       overflow-wrap: anywhere;
@@ -495,12 +527,13 @@
       padding: 0.65rem 0.25rem 0;
       border-block-start: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: var(--text-small);
       font-weight: 700;
       white-space: normal;
     }
   }
   .search-field input {
+    font-weight: 400;
     inline-size: 100%;
     min-block-size: 3.25rem;
   }
@@ -514,7 +547,7 @@
     display: grid;
     gap: 0.35rem;
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: var(--text-small);
     font-weight: 700;
   }
   .text-button {
@@ -535,9 +568,9 @@
     margin-block-end: 1rem;
   }
   .catalog-header h2 {
-    font:
-      400 2rem Georgia,
-      serif;
+    font-family: Georgia, serif;
+    font-size: var(--text-section);
+    font-weight: 400;
   }
   .view-filters {
     display: flex;
@@ -559,7 +592,7 @@
   .result-count {
     grid-column: 1/-1;
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   #stations {
     display: grid;
@@ -602,13 +635,13 @@
     letter-spacing: -0.06em;
   }
   .station-header h3 {
-    font-size: 1.55rem;
+    font-size: var(--text-title);
     letter-spacing: -0.03em;
     overflow-wrap: anywhere;
   }
   .station-header hgroup p {
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: var(--text-small);
   }
   .favorite {
     display: grid;
@@ -622,6 +655,11 @@
   }
   .station-content {
     padding: 0 clamp(1.25rem, 4cqi, 2rem) clamp(1.25rem, 4cqi, 2rem);
+  }
+  .guide-content p,
+  .guide-content dd,
+  .related-resources p {
+    max-inline-size: 70ch;
   }
   .station-content > p {
     max-inline-size: 65ch;
@@ -639,7 +677,7 @@
     padding: 0.2rem 0.55rem;
     border-radius: 0.3rem;
     background: #edf1e7;
-    font-size: 0.72rem;
+    font-size: var(--text-small);
   }
   .frequencies {
     padding: 0 clamp(1.25rem, 4cqi, 2rem) 1rem;
@@ -647,7 +685,7 @@
   }
   .frequency-options summary {
     color: var(--muted);
-    font-size: 0.85rem;
+    font-size: var(--text-small);
     font-weight: 500;
   }
   .frequency-options .frequency {
@@ -670,7 +708,7 @@
     overflow-wrap: anywhere;
   }
   .frequency strong {
-    font-size: 1.2rem;
+    font-size: var(--text-title);
   }
   .frequency strong span {
     font-weight: 400;
@@ -688,7 +726,7 @@
     padding-inline: 0.85rem;
   }
   .recommendation {
-    font-size: 0.85rem;
+    font-size: var(--text-small);
   }
   .station-actions {
     display: flex;
@@ -699,7 +737,7 @@
     border-block-start: 1px solid var(--line);
   }
   .station-actions a {
-    font-size: 0.85rem;
+    font-size: var(--text-small);
   }
   .primary-action {
     padding: 0.7rem 1rem;
@@ -723,12 +761,12 @@
     gap: 1.75rem;
     padding: 0.75rem clamp(1.25rem, 4cqi, 2rem) 2rem;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: var(--text-small);
   }
   .details-content h4 {
     margin-block-end: 0.45rem;
     color: var(--ink);
-    font-size: 1rem;
+    font-size: var(--text-body);
   }
   .details-content a {
     max-inline-size: 100%;
@@ -743,7 +781,7 @@
   }
   .verified {
     margin-block-start: 0.7rem;
-    font-size: 0.8rem;
+    font-size: var(--text-small);
   }
   .source-note {
     margin-block-start: 0.7rem;

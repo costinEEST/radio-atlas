@@ -136,6 +136,12 @@ Write a detailed message for every commit: a concise, descriptive subject follow
 - Parse the catalog with the browser-native `Response.json()` method. Do not add a data-format parser or runtime CDN dependency.
 - Populate JSON content through `textContent` and validated attributes on cloned template nodes. Do not interpolate catalog values into `innerHTML`.
 
+## Typography
+
+- Reuse the shared `--text-*` and `--leading-*` roles in `styles.css` for labels, reading text and headings. Keep small interface text at least `0.9375rem` and body/control text at least `1rem`; avoid introducing one-off sizes that weaken the hierarchy. Keep decorative logo/icon sizing separate from reading text.
+- Use restrained fluid `clamp()` sizes for headings, combining `rem` and viewport units with `rem` bounds. Keep reading and control text steady, use unitless line heights, and leave the browser's root font size unchanged. Use balanced wrapping for headings and readable line lengths for prose.
+- Fluid sizing is not proof of accessible scaling. Apply the enlarged-text and reflow checks below to English and Romanian, including expanded details and long station names. Reference: [Addressing Accessibility Concerns With Using Fluid Type — Maxwell Barvian, Smashing Magazine (7 November 2023)](https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/). For the technique itself, see [Modern Fluid Typography Using CSS Clamp — Adrian Bece (17 January 2022)](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/).
+
 ## Mobile, responsive, and accessibility acceptance
 
 Use Chrome MCP to verify observable behavior, not only CSS declarations:
