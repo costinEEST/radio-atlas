@@ -325,12 +325,14 @@ try {
         ]),
       ].join(" "),
       categories: station.categories.join(" "),
+      broadcast_language: broadcastLanguagesFor(station).join(" "),
       modes: station.modes.join(" "),
       search: normalize(
         [
           station.name,
           station.native_name ?? "",
           station.language,
+          ...broadcastLanguagesFor(station).map(broadcastLanguageLabel),
           station.city.name,
           station.country.name,
           station.county,
@@ -481,6 +483,18 @@ try {
     return fragment;
   }
 
+  function broadcastLanguagesFor(station) {
+    return station.broadcast_languages?.length ? station.broadcast_languages : ["und"];
+  }
+
+  function broadcastLanguageLabel(code) {
+    // Some browsers ship a smaller language-name dictionary than Node/ICU.
+    if (code === "rom") return t("broadcastLanguage.romani");
+    return code === "und"
+      ? t("broadcastLanguage.unspecified")
+      : new Intl.DisplayNames(currentLocale(), { type: "language" }).of(code);
+  }
+
   function sortedEntries(entries) {
     const collator = new Intl.Collator(currentLocale(), { sensitivity: "base", numeric: true });
     return [...entries].sort((a, b) => collator.compare(localize(a[1]), localize(b[1])));
@@ -508,6 +522,12 @@ try {
       ),
     );
     populateLocations(catalog);
+    populateSelect(
+      filters.elements.broadcast_language,
+      [...new Set(catalog.stations.flatMap(broadcastLanguagesFor))].map(
+        (code) => [code, broadcastLanguageLabel(code)],
+      ),
+    );
     populateSelect(
       filters.elements.category,
       Object.entries(catalog.categories),
@@ -559,7 +579,7 @@ try {
       const matchesSearch = words.every((word) =>
         article.dataset.search.includes(word),
       );
-      const matchesFields = ["country", "city"].every(
+      const matchesFields = ["country", "city", "broadcast_language"].every(
         (name) =>
           !data.get(name) ||
           article.dataset[name].split(" ").includes(data.get(name)),
@@ -646,7 +666,7 @@ try {
     }
   }
 
-  const filterNames = ["search", "country", "city", "category"];
+  const filterNames = ["search", "country", "city", "broadcast_language", "category"];
 
   function restoreUrlFilters() {
     if (!catalogLoaded) return;
@@ -795,7 +815,7 @@ try {
     // Only rebuild catalog nodes: the shared audio and player containers stay mounted.
     const cards = catalog.stations.map(createStation);
     stationsRoot.replaceChildren(...cards);
-    for (const name of ["country", "city", "category"]) {
+    for (const name of ["country", "city", "broadcast_language", "category"]) {
       const select = filters.elements[name];
       select.replaceChildren(select.firstElementChild);
     }

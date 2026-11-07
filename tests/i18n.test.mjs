@@ -418,3 +418,24 @@ test("a rendering failure rolls back language and URL without document navigatio
     assert.equal(updates, 2);
   } finally { console.error = log; }
 });
+
+test("broadcast languages use explicit codes and preserve multilingual and unknown entries", async () => {
+  const catalog = await read("radios.json");
+  const stations = new Map(catalog.stations.map(station => [station.id, station]));
+  for (const station of catalog.stations) {
+    assert.ok(Array.isArray(station.broadcast_languages), station.id);
+    assert.equal(new Set(station.broadcast_languages).size, station.broadcast_languages.length);
+    for (const code of station.broadcast_languages) {
+      assert.equal(Intl.getCanonicalLocales(code)[0], code);
+      for (const locale of ["en", "ro"]) {
+        const label = new Intl.DisplayNames(locale, { type: "language", fallback: "none" }).of(code);
+        assert.ok(label && label !== code, `${locale}: ${code}`);
+      }
+    }
+  }
+  assert.deepEqual(stations.get("marosvasarhelyi").broadcast_languages, ["hu", "de", "rom"]);
+  assert.deepEqual(stations.get("algerian-quran").broadcast_languages, ["ar", "fr"]);
+  assert.deepEqual(stations.get("peaceradio-quran").broadcast_languages, ["ar", "ml"]);
+  assert.deepEqual(stations.get("sayang-quran").broadcast_languages, []);
+  assert.deepEqual(stations.get("sout-ul-quran").broadcast_languages, ["ar"]);
+});

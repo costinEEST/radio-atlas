@@ -46,6 +46,7 @@
   "stations": [
     {
       "id": "romania-cultural",
+      "broadcast_languages": ["ro"],
       "name": "Radio România Cultural",
       "mark": "RC",
       "country": {
@@ -155,6 +156,7 @@
     },
     {
       "id": "metronom",
+      "broadcast_languages": ["ro"],
       "name": "Metronom FM",
       "mark": "m.",
       "country": {
@@ -274,6 +276,7 @@
     },
     {
       "id": "romania-muzical",
+      "broadcast_languages": ["ro"],
       "name": "Radio România Muzical",
       "mark": "RRM",
       "country": {
@@ -403,6 +406,7 @@
     },
     {
       "id": "kolozsvari",
+      "broadcast_languages": ["hu"],
       "name": "Kolozsvári Rádió",
       "mark": "KR",
       "country": {
@@ -559,6 +563,7 @@
       },
       "verified": "2026-11-06",
       "id": "mures",
+      "broadcast_languages": ["ro"],
       "name": "Radio România Târgu Mureș",
       "mark": "TM",
       "language": {
@@ -688,6 +693,7 @@
       },
       "verified": "2026-11-06",
       "id": "marosvasarhelyi",
+      "broadcast_languages": ["hu", "de", "rom"],
       "name": "Marosvásárhelyi Rádió Románia",
       "mark": "MV",
       "language": {
@@ -793,6 +799,7 @@
     },
     {
       "id": "europa",
+      "broadcast_languages": ["ro"],
       "name": "Europa FM",
       "mark": "EF",
       "country": {
@@ -962,6 +969,7 @@
     },
     {
       "id": "guerrilla",
+      "broadcast_languages": ["ro"],
       "name": "Radio Guerrilla",
       "mark": "RG",
       "country": {
@@ -1128,6 +1136,7 @@
     },
     {
       "id": "rock",
+      "broadcast_languages": ["ro"],
       "name": "Rock FM",
       "mark": "RF",
       "country": {
@@ -1296,6 +1305,7 @@
     },
     {
       "id": "romania-actualitati",
+      "broadcast_languages": ["ro"],
       "name": "Radio România Actualități",
       "mark": "RRA",
       "country": {
@@ -2788,6 +2798,7 @@
     },
     {
       "id": "chisinau",
+      "broadcast_languages": ["ro"],
       "name": "Radio Chișinău",
       "mark": "RC",
       "country": {
@@ -3036,6 +3047,7 @@
     },
     {
       "id": "saudi-quran",
+      "broadcast_languages": ["ar"],
       "name": "Saudi Quran Radio",
       "mark": "SQ",
       "country": {
@@ -3141,6 +3153,7 @@
     },
     {
       "id": "holy-quran-cairo",
+      "broadcast_languages": ["ar"],
       "name": "Holy Quran Radio Cairo",
       "mark": "CQ",
       "country": {
@@ -3241,6 +3254,7 @@
     },
     {
       "id": "sharjah-quran",
+      "broadcast_languages": ["ar"],
       "name": "Sharjah Quran Radio",
       "mark": "SHQ",
       "country": {
@@ -3339,6 +3353,7 @@
     },
     {
       "id": "bahrain-quran",
+      "broadcast_languages": ["ar"],
       "name": "Bahrain Quran Radio 106.1",
       "mark": "BQ",
       "country": {
@@ -3444,6 +3459,7 @@
     },
     {
       "id": "jordan-quran",
+      "broadcast_languages": ["ar"],
       "name": "Jordan Quran Radio",
       "mark": "JQ",
       "country": {
@@ -3542,6 +3558,7 @@
     },
     {
       "id": "algerian-quran",
+      "broadcast_languages": ["ar", "fr"],
       "name": "Algerian Quran Radio",
       "mark": "AQ",
       "country": {
@@ -3642,6 +3659,7 @@
     },
     {
       "id": "sout-ul-quran",
+      "broadcast_languages": ["ar"],
       "name": "Sout-ul-Quran 93.4",
       "mark": "SQ",
       "country": {
@@ -3740,6 +3758,7 @@
     },
     {
       "id": "oman-quran",
+      "broadcast_languages": ["ar"],
       "name": "Oman Quran Radio",
       "mark": "OQ",
       "country": {
@@ -3838,6 +3857,7 @@
     },
     {
       "id": "quran-beirut",
+      "broadcast_languages": ["ar"],
       "name": "Quran Radio 93.3",
       "mark": "BQ",
       "country": {
@@ -3936,6 +3956,7 @@
     },
     {
       "id": "irtiqaa-way-quran",
+      "broadcast_languages": ["ar"],
       "name": "Irtiqaa Way Quran",
       "mark": "IQ",
       "country": {
@@ -4034,6 +4055,7 @@
     },
     {
       "id": "nablus-quran",
+      "broadcast_languages": ["ar"],
       "name": "Nablus Quran Radio",
       "mark": "NQ",
       "country": {
@@ -4147,6 +4169,7 @@
     },
     {
       "id": "almunir-benghazi",
+      "broadcast_languages": ["ar"],
       "name": "Almunir Radio Benghazi",
       "mark": "MB",
       "country": {
@@ -4245,6 +4268,7 @@
     },
     {
       "id": "almunir-tripoli",
+      "broadcast_languages": ["ar"],
       "name": "Almunir Radio Tripoli",
       "mark": "MT",
       "country": {
@@ -4343,6 +4367,7 @@
     },
     {
       "id": "peaceradio-quran",
+      "broadcast_languages": ["ar", "ml"],
       "name": "PeaceRadio Quran",
       "mark": "PQ",
       "country": {
@@ -4441,6 +4466,7 @@
     },
     {
       "id": "sayang-quran",
+      "broadcast_languages": [],
       "name": "Radio Sayang Quran",
       "mark": "RQ",
       "country": {
@@ -4539,6 +4565,7 @@
     },
     {
       "id": "al-husnaa-quran",
+      "broadcast_languages": ["ar"],
       "name": "Al Husnaa Quran Radio",
       "mark": "HQ",
       "country": {
@@ -4637,6 +4664,7 @@
     },
     {
       "id": "magyar-katolikus",
+      "broadcast_languages": ["hu"],
       "name": "Magyar Katolikus Rádió",
       "mark": "MKR",
       "country": {
