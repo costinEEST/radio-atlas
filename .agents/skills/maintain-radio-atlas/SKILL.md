@@ -7,13 +7,23 @@ description: Research, add, and maintain Radio Atlas stations and its static van
 
 Keep the project deployable as a dependency-free static site. Use semantic HTML, modern CSS, and browser-native JavaScript; do not introduce a framework or build step unless the user explicitly requests one.
 
+## Modern Web Guidance scope
+
+Consult `modern-web-guidance` only when implementing or changing HTML structure, CSS layout/styles/animation, or client-side JavaScript behavior, including browser APIs, accessibility, performance, and frontend security. Do this before writing the affected frontend code. For mixed tasks, apply it only to the frontend implementation portion.
+
+Skip the skill and its CLI entirely for data-only `radios.json` edits (stations, frequencies, URLs, translations, sources and verification dates), factual research, documentation or skill edits, Git operations, tests, tooling, infrastructure, and non-browser scripts. Merely loading the catalog in a browser to validate a data change does not trigger a guidance lookup.
+
+When applicable, use the locally available skill or executable; otherwise invoke `npx -y modern-web-guidance@latest`. Search for one concrete web platform capability with a focused 2–5 word action-oriented query, such as `"responsive data table"` or `"validate form inputs"`. Retrieve and apply directly relevant guides; do not search for project/domain tasks such as `"maintain JSON catalog"` or retrieve unrelated guides to satisfy a checklist. Follow the installed skill's search/retrieval workflow.
+
+Scope reference: [official Modern Web Guidance skill](https://github.com/GoogleChrome/modern-web-guidance/blob/main/skills/modern-web-guidance/SKILL.md).
+
 ## Required workflow
 
 For every station addition or factual update, complete these stages in order:
 
 1. **Research online before editing.** Verify every user-provided fact that can reasonably be checked, including station identity, location, frequency, format, operator, contact details, official site, listening page, direct stream, recommendation URL, and relevant dates. Prefer the station's official site and Romania's CNA; use reputable radio directories only for details the primary sources do not publish. Open the supporting pages rather than relying only on search-result snippets.
 2. **Resolve evidence.** Keep the source URL for each material claim. Distinguish confirmed facts, third-party claims, and curator-provided information. If sources conflict, prefer the more authoritative and recent source, record the uncertainty in user-facing copy when relevant, and do not silently guess. If a required fact or URL cannot be verified, retain it only when the user explicitly supplied it and label it accordingly.
-3. **Consult Modern Web Guidance.** Before changing the catalog or interface, use the locally available `modern-web-guidance` skill or executable. If it is not available locally, invoke the package with `npx -y modern-web-guidance@latest`. Search for the capability affected by the task, retrieve any directly relevant guidance, and apply it when applicable. If no guide applies to a data-only change, record that outcome and continue without forcing unrelated patterns.
+3. **Apply Modern Web Guidance only to frontend code changes.** Follow the scope above if this task also changes HTML, CSS or client-side JavaScript; skip this stage for data-only catalog updates.
 4. **Preflight URLs with Chrome MCP.** Check the official site, listening page, recommendation link, and direct stream when browser access permits. Record redirects, mixed-content limitations, browser playback behavior, or failures. Do not treat a successful page load as proof that an audio stream is currently playing.
 5. **Update `radios.json`.** Write only the verified or explicitly qualified values. Preserve the existing schema, valid JSON syntax, stable station IDs, URL protocols, display/value distinctions, and ISO-compatible machine values where the schema uses them. Update the verification date and source list. Do not duplicate station facts in HTML or JavaScript.
 6. **Validate the rendered result with Chrome MCP.** Serve the repository over HTTP, confirm that `radios.json` loads successfully and hydrates the cards, then test search, filters, favorite and copy controls, outbound links, details disclosure, console errors, and failed network requests. Complete the mobile, responsive, and accessibility checks below, run Lighthouse accessibility/best-practices/SEO checks, and fix regressions before finishing.
