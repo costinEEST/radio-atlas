@@ -481,8 +481,13 @@ try {
     return fragment;
   }
 
+  function sortedEntries(entries) {
+    const collator = new Intl.Collator(currentLocale(), { sensitivity: "base", numeric: true });
+    return [...entries].sort((a, b) => collator.compare(localize(a[1]), localize(b[1])));
+  }
+
   function populateSelect(select, entries) {
-    for (const [value, label, language] of entries) {
+    for (const [value, label, language] of sortedEntries(entries)) {
       const option = document.createElement("option");
       option.value = value;
       option.textContent = localize(label);
@@ -502,26 +507,45 @@ try {
         ]),
       ),
     );
-    const cities = new Map(
-      catalog.stations.flatMap((station) =>
-        [
-          station.city,
-          ...frequenciesFor(station).map((frequency) => ({ ...frequency.city, location_type: frequency.location_type })),
-        ].map((city) => [city.slug, { city, country: station.country }]),
-      ),
-    );
-    populateSelect(
-      filters.elements.city,
-      [...cities].map(([slug, location]) => [
-        slug,
-        `${localize(location.city.name)}${location.city.location_type ? ` (${t(`frequency.${location.city.location_type}`)})` : ""} · ${localize(location.country.name)}`,
-        contentLanguage(location.city.name),
-      ]),
-    );
+    populateLocations(catalog);
     populateSelect(
       filters.elements.category,
       Object.entries(catalog.categories),
     );
+  }
+
+  let locationCountry = "";
+
+  function populateLocations(catalog) {
+    const select = filters.elements.city;
+    const previous = select.value;
+    locationCountry = filters.elements.country.value;
+    const groups = new Map();
+    for (const station of catalog.stations) {
+      const { country } = station;
+      if (locationCountry && country.code !== locationCountry) continue;
+      if (!groups.has(country.code)) groups.set(country.code, { country, cities: new Map() });
+      const cities = groups.get(country.code).cities;
+      for (const city of [station.city, ...frequenciesFor(station).map(
+        (frequency) => ({ ...frequency.city, location_type: frequency.location_type }),
+      )]) cities.set(city.slug, city);
+    }
+    select.replaceChildren(select.firstElementChild);
+    const countries = sortedEntries([...groups].map(([code, group]) => [code, group.country.name]));
+    for (const [code, name] of countries) {
+      const group = document.createElement("optgroup");
+      group.label = localize(name);
+      group.lang = contentLanguage(name) ?? currentLocale();
+      group.dir = "auto";
+      populateSelect(group, [...groups.get(code).cities].map(([slug, city]) => [
+        slug,
+        `${localize(city.name)}${city.location_type ? ` (${t(`frequency.${city.location_type}`)})` : ""}`,
+        contentLanguage(city.name),
+      ]));
+      select.append(group);
+    }
+    select.value = previous;
+    if (select.selectedIndex === -1) select.value = "";
   }
 
   function render() {
@@ -627,16 +651,21 @@ try {
   function restoreUrlFilters() {
     if (!catalogLoaded) return;
     const params = new URL(location.href).searchParams;
-    for (const name of filterNames) {
+    for (const name of filterNames.filter((name) => name !== "city")) {
       const control = filters.elements[name];
       control.value = params.get(name) ?? "";
       // Unknown select values must behave like the unfiltered option.
       if (control.selectedIndex === -1) control.value = "";
     }
+    populateLocations(catalog);
+    filters.elements.city.value = params.get("city") ?? "";
+    if (filters.elements.city.selectedIndex === -1) filters.elements.city.value = "";
     render();
   }
 
   function updateFilterUrl() {
+    // Rebuild only when the country changes, preserving a compatible location.
+    if (locationCountry !== filters.elements.country.value) populateLocations(catalog);
     // Filtering must remain usable when history updates are unavailable.
     render();
     try {
@@ -771,7 +800,12 @@ try {
       select.replaceChildren(select.firstElementChild);
     }
     populateFilters(catalog);
-    for (const [name, value] of values) filters.elements[name].value = value;
+    for (const [name, value] of values) {
+      if (name !== "city") filters.elements[name].value = value;
+    }
+    populateLocations(catalog);
+    filters.elements.city.value = values.get("city");
+    if (filters.elements.city.selectedIndex === -1) filters.elements.city.value = "";
     for (const article of stationsRoot.querySelectorAll(".station")) {
       article.querySelector('[data-action="filter-frequencies"]').value = frequencyQueries.get(article.id) ?? "";
       filterFrequencies(article);
