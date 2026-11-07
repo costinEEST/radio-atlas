@@ -622,7 +622,43 @@ try {
     }
   }
 
-  filters.addEventListener("input", handleAction(render));
+  const filterNames = ["search", "country", "city", "category"];
+
+  function restoreUrlFilters() {
+    if (!catalogLoaded) return;
+    const params = new URL(location.href).searchParams;
+    for (const name of filterNames) {
+      const control = filters.elements[name];
+      control.value = params.get(name) ?? "";
+      // Unknown select values must behave like the unfiltered option.
+      if (control.selectedIndex === -1) control.value = "";
+    }
+    render();
+  }
+
+  function updateFilterUrl() {
+    // Filtering must remain usable when history updates are unavailable.
+    render();
+    try {
+      const url = new URL(location.href);
+      for (const name of filterNames) {
+        const value = filters.elements[name].value;
+        if (value) url.searchParams.set(name, value);
+        else url.searchParams.delete(name);
+      }
+      if (url.href !== location.href) history.replaceState(history.state, "", url);
+    } catch (error) {
+      console.warn("Filter URL could not be updated.", error);
+      notify(t("action.error"));
+    }
+  }
+
+  filters.addEventListener("input", handleAction(updateFilterUrl));
+  filters.addEventListener("submit", handleAction((event) => {
+    event.preventDefault();
+    updateFilterUrl();
+  }));
+  window.addEventListener("popstate", handleAction(restoreUrlFilters));
   function revealGuide() {
     if (["#guide-title", "#listening-guide"].includes(location.hash)) {
       document.querySelector("#listening-guide").open = true;
@@ -637,7 +673,7 @@ try {
     "reset",
     handleAction(() => {
       resetViews();
-      requestAnimationFrame(handleAction(render));
+      requestAnimationFrame(handleAction(updateFilterUrl));
     }),
   );
   favoritesFilter.addEventListener("click", handleAction(() => {
@@ -768,7 +804,7 @@ try {
   populateFilters(catalog);
   stationsRoot.ariaBusy = "false";
   catalogLoaded = true;
-  render();
+  restoreUrlFilters();
 } catch (error) {
   catalogLoaded = false;
   console.error("Catalog startup failed.", error);
