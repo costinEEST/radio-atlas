@@ -79,6 +79,11 @@
     color: inherit;
     text-underline-offset: 0.2em;
   }
+  a[href^="https://"]::after,
+  a[href^="http://"]::after {
+    content: "\00a0↗";
+    content: "\00a0↗" / "";
+  }
   button,
   select {
     color: inherit;
