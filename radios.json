@@ -45,6 +45,143 @@
   },
   "stations": [
     {
+      "id": "t",
+      "broadcast_languages": [
+        "ro",
+        "tr"
+      ],
+      "name": "Radio T",
+      "mark": "T",
+      "country": {
+        "code": "ro",
+        "name": {
+          "ro": "România",
+          "en": "Romania"
+        }
+      },
+      "city": {
+        "slug": "constanta",
+        "name": {
+          "ro": "Constanța",
+          "en": "Constanța"
+        }
+      },
+      "county": {
+        "ro": "Constanța",
+        "en": "Constanța"
+      },
+      "language": {
+        "ro": "română și turcă",
+        "en": "Romanian and Turkish"
+      },
+      "modes": [
+        "online",
+        "fm"
+      ],
+      "categories": [
+        "culture",
+        "music",
+        "news"
+      ],
+      "tags": [
+        {
+          "ro": "Comunitatea turcă",
+          "en": "Turkish community"
+        },
+        {
+          "ro": "În română și turcă",
+          "en": "In Romanian and Turkish"
+        }
+      ],
+      "description": {
+        "ro": "Muzică turcească, știri și cultură pentru comunitatea turcă din Dobrogea, în română și turcă.",
+        "en": "Turkish music, news and culture for Dobrogea’s Turkish community, in Romanian and Turkish."
+      },
+      "frequency": {
+        "value": "104.4",
+        "display": {
+          "ro": "104,4",
+          "en": "104.4"
+        },
+        "band": "MHz FM"
+      },
+      "recommendation": {
+        "name": "Harun Osman",
+        "url": "https://www.facebook.com/selenekult/posts/pfbid02y9CjAvytM4SSvzNLAeFFc9pyCpWMkQNg5rmgp9kgXqk2AqXtPHWxPRxqya4dATcNl"
+      },
+      "listening": {
+        "stream": "https://a.tunzilla.com/http://82.77.249.68:8000/;stream.mp3",
+        "page": "https://radiot.ro/",
+        "official": "https://radiot.ro/",
+        "stream_note": {
+          "ro": "Flux HTTPS folosit de playerul oficial, prin Tunzilla. Redare și progres audio confirmate cu Chrome MCP la 11 noiembrie 2026; disponibilitate variabilă.",
+          "en": "HTTPS stream used by the official player, via Tunzilla. Playback and audio progress confirmed with Chrome MCP on 11 November 2026; availability varies."
+        }
+      },
+      "programming": {
+        "ro": "Emisiuni informative, culturale, muzicale, educaționale, de sănătate și spiritualitate în română și turcă. Grila este disponibilă pe site-ul oficial.",
+        "en": "News, culture, music, education, health and spirituality programs in Romanian and Turkish. The schedule is available on the official website."
+      },
+      "history": {
+        "first_broadcast": {
+          "ro": "2009",
+          "en": "2009"
+        },
+        "operator": "Uniunea Democrată Turcă din România"
+      },
+      "contact": {
+        "address": {
+          "ro": "Str. Bogdan Vodă nr. 75, Constanța, România",
+          "en": "75 Bogdan Vodă Street, Constanța, Romania"
+        },
+        "phones": [
+          {
+            "display": "0341 82 00 73",
+            "value": "+40341820073"
+          }
+        ],
+        "email": "radiotct@gmail.com"
+      },
+      "verified": "2026-11-11",
+      "sources": [
+        {
+          "label": {
+            "ro": "Radio T — ascultă live",
+            "en": "Radio T — live listening"
+          },
+          "url": "https://radiot.ro/"
+        },
+        {
+          "label": {
+            "ro": "Radio T — prezentare, frecvență și programe",
+            "en": "Radio T — overview, frequency and programming"
+          },
+          "url": "https://radiot.ro/despre.php"
+        },
+        {
+          "label": {
+            "ro": "Radio T — contact",
+            "en": "Radio T — contact"
+          },
+          "url": "https://radiot.ro/contact.php"
+        },
+        {
+          "label": {
+            "ro": "UDTR — istoria Radio T",
+            "en": "UDTR — Radio T history"
+          },
+          "url": "https://www.rdtb.ro/m.php?p=prdt_ro"
+        },
+        {
+          "label": {
+            "ro": "Harun Osman — noul site și debutul în 2009",
+            "en": "Harun Osman — new website and 2009 launch"
+          },
+          "url": "https://www.facebook.com/selenekult/posts/pfbid02y9CjAvytM4SSvzNLAeFFc9pyCpWMkQNg5rmgp9kgXqk2AqXtPHWxPRxqya4dATcNl"
+        }
+      ]
+    },
+    {
       "id": "romania-cultural",
       "broadcast_languages": ["ro"],
       "name": "Radio România Cultural",
