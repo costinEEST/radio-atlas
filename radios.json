@@ -1273,7 +1273,9 @@
     },
     {
       "id": "rock",
-      "broadcast_languages": ["ro"],
+      "broadcast_languages": [
+        "ro"
+      ],
       "name": "Rock FM",
       "mark": "RF",
       "country": {
@@ -1299,7 +1301,10 @@
         "online",
         "fm"
       ],
-      "categories": ["music", "rock"],
+      "categories": [
+        "music",
+        "rock"
+      ],
       "tags": [
         {
           "en": "Rock",
@@ -1374,6 +1379,156 @@
             "ro": "103,9"
           },
           "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "arad",
+            "name": {
+              "en": "Arad",
+              "ro": "Arad"
+            }
+          },
+          "value": "90.6",
+          "display": {
+            "en": "90.6",
+            "ro": "90,6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "bistrita",
+            "name": {
+              "en": "Bistrița",
+              "ro": "Bistrița"
+            }
+          },
+          "value": "88.2",
+          "display": {
+            "en": "88.2",
+            "ro": "88,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "braila",
+            "name": {
+              "en": "Brăila",
+              "ro": "Brăila"
+            }
+          },
+          "value": "104.8",
+          "display": {
+            "en": "104.8",
+            "ro": "104,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "galati",
+            "name": {
+              "en": "Galați",
+              "ro": "Galați"
+            }
+          },
+          "value": "104.8",
+          "display": {
+            "en": "104.8",
+            "ro": "104,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "miercurea-ciuc",
+            "name": {
+              "en": "Miercurea Ciuc",
+              "ro": "Miercurea Ciuc"
+            }
+          },
+          "value": "90.9",
+          "display": {
+            "en": "90.9",
+            "ro": "90,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "sibiu",
+            "name": {
+              "en": "Sibiu",
+              "ro": "Sibiu"
+            }
+          },
+          "value": "89.9",
+          "display": {
+            "en": "89.9",
+            "ro": "89,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "sighisoara",
+            "name": {
+              "en": "Sighișoara",
+              "ro": "Sighișoara"
+            }
+          },
+          "value": "105.4",
+          "display": {
+            "en": "105.4",
+            "ro": "105,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "suceava",
+            "name": {
+              "en": "Suceava",
+              "ro": "Suceava"
+            }
+          },
+          "value": "107.7",
+          "display": {
+            "en": "107.7",
+            "ro": "107,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "88.4",
+          "display": {
+            "en": "88.4",
+            "ro": "88,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "vaslui",
+            "name": {
+              "en": "Vaslui",
+              "ro": "Vaslui"
+            }
+          },
+          "value": "91.2",
+          "display": {
+            "en": "91.2",
+            "ro": "91,2"
+          },
+          "band": "MHz FM"
         }
       ],
       "listening": {
@@ -1381,13 +1536,13 @@
         "page": "https://www.rockfm.ro/",
         "official": "https://www.rockfm.ro/",
         "stream_note": {
-          "en": "Official HTTPS stream. Playback and advancing audio confirmed in Chrome on 7 November 2026; availability varies.",
-          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate în Chrome la 7 noiembrie 2026; disponibilitate variabilă."
+          "en": "Official HTTPS stream. Playback and audio progress confirmed with Chrome MCP on 12 November 2026; availability varies.",
+          "ro": "Flux HTTPS oficial. Redare și progres audio confirmate cu Chrome MCP la 12 noiembrie 2026; disponibilitate variabilă."
         }
       },
       "programming": {
-        "en": "Morning Glory, Rockaholic, Rock This Way and Rock Driver. Selected FM locations are listed here; see the official frequency source for full coverage.",
-        "ro": "Morning Glory, Rockaholic, Rock This Way și Rock Driver. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+        "en": "Morning Glory, Rockaholic, Rock This Way and Rock Driver. See the official schedule for times.",
+        "ro": "Morning Glory, Rockaholic, Rock This Way și Rock Driver. Orele sunt în grila oficială."
       },
       "history": {
         "first_broadcast": null,
@@ -1398,10 +1553,15 @@
           "en": "Splaiul Unirii 165, TN Offices 1, Floor 10, Sector 3, Bucharest",
           "ro": "Splaiul Unirii 165, TN Offices 1, etaj 10, Sector 3, București"
         },
-        "phones": [],
+        "phones": [
+          {
+            "display": "021 318 8000",
+            "value": "+40213188000"
+          }
+        ],
         "email": "office@rockfm.ro"
       },
-      "verified": "2026-11-07",
+      "verified": "2026-11-12",
       "sources": [
         {
           "url": "https://www.rockfm.ro/",
@@ -1437,8 +1597,19 @@
             "en": "Rock FM — operator and contact",
             "ro": "Rock FM — operator și contact"
           }
+        },
+        {
+          "url": "https://www.rockfm.ro/retea",
+          "label": {
+            "en": "Rock FM — FM network",
+            "ro": "Rock FM — rețeaua FM"
+          }
         }
-      ]
+      ],
+      "source_note": {
+        "en": "All 14 FM locations and frequencies match the broadcaster’s network page checked on 12 November 2026. No list update date is given; reception is not verified.",
+        "ro": "Toate cele 14 locații și frecvențe FM corespund paginii de rețea a radiodifuzorului, consultată la 12 noiembrie 2026. Lista nu indică data actualizării; recepția nu este verificată."
+      }
     },
     {
       "id": "romania-actualitati",
