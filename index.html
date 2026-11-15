@@ -242,32 +242,35 @@
         <div class="station-content">
           <ul class="tags" role="list" data-field="tags" aria-label="Features" data-i18n-aria-label="tags.label"></ul>
           <p data-field="description"></p>
-          <div class="frequency" data-field="primary-frequency">
-            <p><strong><span data-field="frequency"></span> <span data-field="band"></span></strong><small
-                data-field="frequency-location"></small></p>
-          </div>
           <p class="recommendation" data-i18n="recommendation">Recommended by <a data-i18n-slot="person"
               data-field="recommended-by" target="_blank" rel="noopener noreferrer"></a></p>
         </div>
         <footer class="station-actions"><button class="primary-action" type="button" data-action="play"
-            data-i18n="player.play">Play</button><a data-field="listen-page" target="_blank" rel="noopener noreferrer"
+            data-i18n="player.playOnline">Play online</button><a data-field="listen-page" target="_blank" rel="noopener noreferrer"
             data-i18n="listen">Listening page</a>
           <p class="playback-note" data-field="playback-note" hidden></p>
         </footer>
-        <details class="frequency-options">
-          <summary data-field="frequency-summary" data-i18n="frequency.options">Frequency options</summary>
-          <div class="frequency-tools">
-            <p data-field="frequency-verification" hidden></p>
-            <p data-field="frequency-context" hidden></p>
-            <div data-field="frequency-search-tools" hidden>
+        <section class="frequency-options">
+          <h4 data-i18n="frequency.radio">Listen on a radio</h4>
+          <p class="frequency-counts" data-field="frequency-counts"></p>
+          <p class="frequency-hint" data-i18n="frequency.hint">Tune an FM or AM/MW receiver. Reception depends on location
+            and broadcast schedule. Play online uses the internet stream.</p>
+          <div class="frequency frequency-preview" data-field="primary-frequency">
+            <p><strong><span data-field="frequency"></span> <span data-field="band"></span></strong><small
+                data-field="frequency-location"></small></p>
+          </div>
+          <details class="frequency-disclosure">
+            <summary data-field="frequency-summary" data-i18n="frequency.other">Show all frequencies</summary>
+            <div class="frequency-tools" data-field="frequency-search-tools" hidden>
               <label data-field="frequency-search-label" data-i18n="frequency.search">Search frequencies</label>
               <input type="search" data-action="filter-frequencies">
               <p data-field="frequency-results" role="status"></p>
               <p data-field="frequency-empty" data-i18n="frequency.empty" hidden>No matching frequencies.</p>
             </div>
-          </div>
-          <ul class="frequencies" role="list" data-field="frequencies"></ul>
-        </details>
+            <div class="frequency-groups" data-field="frequencies"></div>
+            <p class="frequency-hint" data-field="frequency-verification" hidden></p>
+          </details>
+        </section>
         <details class="station-details">
           <summary data-i18n="details">About the station, contact and sources</summary>
           <div class="details-content">
@@ -292,6 +295,7 @@
               <h4 data-i18n="sources">Sources</h4>
               <ul class="sources" data-field="sources"></ul>
               <p class="source-note" data-field="source-note" hidden></p>
+              <p class="source-note" data-field="frequency-context" hidden></p>
               <p class="verified" data-field="verified"></p>
               <p><a data-field="official" target="_blank" rel="noopener noreferrer" data-i18n="official">Official
                   website</a></p>

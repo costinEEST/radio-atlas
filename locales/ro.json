@@ -77,7 +77,7 @@
   "copy.frequencyLocation": "Copiază frecvența pentru {city}",
   "related.title": "Alte moduri de a explora radioul",
   "frequency.options": "Opțiuni pentru frecvență",
-  "frequency.other": "Alte frecvențe și copiere",
+  "frequency.other": "Arată toate frecvențele",
   "footer.source": "Vezi codul",
   "footer.sourceLabel": "Vezi codul — se deschide într-o filă nouă",
   "favorites.only": "Doar favorite",
@@ -137,5 +137,9 @@
   "related.freeform": "{freeform} — explorează posturi independente și cu programe libere, după oraș și țară.",
   "related.freeformLabel": "Freeform Radio Directory — se deschide într-o filă nouă",
   "related.locator": "{locator} — găsește posturi AM și FM, în special din SUA, după oraș, cod poștal sau format.",
-  "related.locatorLabel": "Radio-Locator — se deschide într-o filă nouă"
+  "related.locatorLabel": "Radio-Locator — se deschide într-o filă nouă",
+  "player.playOnline": "Redă online",
+  "frequency.radio": "Ascultă la radio",
+  "frequency.hint": "Folosește un aparat FM sau AM/MW. Recepția depinde de loc și de programul de emisie. Redarea pe site folosește fluxul online.",
+  "frequency.checkedOnly": "Frecvențe publicate oficial · verificate la {checked}"
 }

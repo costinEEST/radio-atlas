@@ -221,14 +221,928 @@
         "ro": "Cultură, literatură, știință, teatru radiofonic și muzică.",
         "en": "Culture, literature, science, radio drama and music."
       },
-      "frequency": {
-        "value": "101.3",
-        "display": {
-          "ro": "101,3",
-          "en": "101.3"
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti-herastrau",
+            "name": {
+              "en": "București - Herăstrău",
+              "ro": "București - Herăstrău"
+            }
+          },
+          "value": "101.3",
+          "display": {
+            "en": "101.3",
+            "ro": "101,3"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "București - Herăstrău",
+            "ro": "București - Herăstrău"
+          },
+          "location_type": "transmitter"
         },
-        "band": "MHz FM"
-      },
+        {
+          "city": {
+            "slug": "alexandria",
+            "name": {
+              "en": "Alexandria",
+              "ro": "Alexandria"
+            }
+          },
+          "value": "89.7",
+          "display": {
+            "en": "89.7",
+            "ro": "89,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Alexandria",
+            "ro": "Alexandria"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "arad-siria",
+            "name": {
+              "en": "Arad - Șiria",
+              "ro": "Arad - Șiria"
+            }
+          },
+          "value": "106.8",
+          "display": {
+            "en": "106.8",
+            "ro": "106,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Arad - Șiria",
+            "ro": "Arad - Șiria"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "bacau",
+            "name": {
+              "en": "Bacău",
+              "ro": "Bacău"
+            }
+          },
+          "value": "101.8",
+          "display": {
+            "en": "101.8",
+            "ro": "101,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bacău",
+            "ro": "Bacău"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "balota-drobeta-turnu-severin",
+            "name": {
+              "en": "Balota - Drobeta-Turnu Severin",
+              "ro": "Balota - Drobeta-Turnu Severin"
+            }
+          },
+          "value": "105.8",
+          "display": {
+            "en": "105.8",
+            "ro": "105,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Balota - Drobeta-Turnu Severin",
+            "ro": "Balota - Drobeta-Turnu Severin"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "baneasa-dobrogea-sud",
+            "name": {
+              "en": "Băneasa - Dobrogea Sud",
+              "ro": "Băneasa - Dobrogea Sud"
+            }
+          },
+          "value": "89.1",
+          "display": {
+            "en": "89.1",
+            "ro": "89,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Băneasa - Dobrogea Sud",
+            "ro": "Băneasa - Dobrogea Sud"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "barlad",
+            "name": {
+              "en": "Bârlad",
+              "ro": "Bârlad"
+            }
+          },
+          "value": "102.8",
+          "display": {
+            "en": "102.8",
+            "ro": "102,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bârlad",
+            "ro": "Bârlad"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "bechet-dabuleni",
+            "name": {
+              "en": "Bechet - Dăbuleni",
+              "ro": "Bechet - Dăbuleni"
+            }
+          },
+          "value": "91.2",
+          "display": {
+            "en": "91.2",
+            "ro": "91,2"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bechet - Dăbuleni",
+            "ro": "Bechet - Dăbuleni"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "bihor",
+            "name": {
+              "en": "Bihor",
+              "ro": "Bihor"
+            }
+          },
+          "value": "105.8",
+          "display": {
+            "en": "105.8",
+            "ro": "105,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bihor",
+            "ro": "Bihor"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "105.0",
+          "display": {
+            "en": "105.0",
+            "ro": "105,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Brașov",
+            "ro": "Brașov"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "bucegi-costila",
+            "name": {
+              "en": "Bucegi - Coștila",
+              "ro": "Bucegi - Coștila"
+            }
+          },
+          "value": "104.1",
+          "display": {
+            "en": "104.1",
+            "ro": "104,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bucegi - Coștila",
+            "ro": "Bucegi - Coștila"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "buzau-istrita",
+            "name": {
+              "en": "Buzău - Istrița",
+              "ro": "Buzău - Istrița"
+            }
+          },
+          "value": "103.7",
+          "display": {
+            "en": "103.7",
+            "ro": "103,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Buzău - Istrița",
+            "ro": "Buzău - Istrița"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "calafat-plenita",
+            "name": {
+              "en": "Calafat - Plenița",
+              "ro": "Calafat - Plenița"
+            }
+          },
+          "value": "101.1",
+          "display": {
+            "en": "101.1",
+            "ro": "101,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Calafat - Plenița",
+            "ro": "Calafat - Plenița"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "cerbu-novaci",
+            "name": {
+              "en": "Cerbu - Novaci",
+              "ro": "Cerbu - Novaci"
+            }
+          },
+          "value": "89.5",
+          "display": {
+            "en": "89.5",
+            "ro": "89,5"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Cerbu - Novaci",
+            "ro": "Cerbu - Novaci"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "cluj-feleac",
+            "name": {
+              "en": "Cluj - Feleac",
+              "ro": "Cluj - Feleac"
+            }
+          },
+          "value": "101.0",
+          "display": {
+            "en": "101.0",
+            "ro": "101,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Cluj - Feleac",
+            "ro": "Cluj - Feleac"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "comanesti",
+            "name": {
+              "en": "Comănești",
+              "ro": "Comănești"
+            }
+          },
+          "value": "101.4",
+          "display": {
+            "en": "101.4",
+            "ro": "101,4"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Comănești",
+            "ro": "Comănești"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "cozia",
+            "name": {
+              "en": "Cozia",
+              "ro": "Cozia"
+            }
+          },
+          "value": "102.5",
+          "display": {
+            "en": "102.5",
+            "ro": "102,5"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Cozia",
+            "ro": "Cozia"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "giurgiu",
+            "name": {
+              "en": "Giurgiu",
+              "ro": "Giurgiu"
+            }
+          },
+          "value": "102.6",
+          "display": {
+            "en": "102.6",
+            "ro": "102,6"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Giurgiu",
+            "ro": "Giurgiu"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "heniu",
+            "name": {
+              "en": "Heniu",
+              "ro": "Heniu"
+            }
+          },
+          "value": "101.3",
+          "display": {
+            "en": "101.3",
+            "ro": "101,3"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Heniu",
+            "ro": "Heniu"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "husi",
+            "name": {
+              "en": "Huși",
+              "ro": "Huși"
+            }
+          },
+          "value": "103.7",
+          "display": {
+            "en": "103.7",
+            "ro": "103,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Huși",
+            "ro": "Huși"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "103.1",
+          "display": {
+            "en": "103.1",
+            "ro": "103,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Iași",
+            "ro": "Iași"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "magura-boiu",
+            "name": {
+              "en": "Măgura Boiu",
+              "ro": "Măgura Boiu"
+            }
+          },
+          "value": "105.0",
+          "display": {
+            "en": "105.0",
+            "ro": "105,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Măgura Boiu",
+            "ro": "Măgura Boiu"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "magura-odobesti-focsani",
+            "name": {
+              "en": "Măgura Odobești - Focșani",
+              "ro": "Măgura Odobești - Focșani"
+            }
+          },
+          "value": "101.0",
+          "display": {
+            "en": "101.0",
+            "ro": "101,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Măgura Odobești - Focșani",
+            "ro": "Măgura Odobești - Focșani"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "mahmudia-delta",
+            "name": {
+              "en": "Mahmudia - Delta",
+              "ro": "Mahmudia - Delta"
+            }
+          },
+          "value": "102.0",
+          "display": {
+            "en": "102.0",
+            "ro": "102,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Mahmudia - Delta",
+            "ro": "Mahmudia - Delta"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "mangalia",
+            "name": {
+              "en": "Mangalia",
+              "ro": "Mangalia"
+            }
+          },
+          "value": "92.7",
+          "display": {
+            "en": "92.7",
+            "ro": "92,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Mangalia",
+            "ro": "Mangalia"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "mogosa-baia-mare",
+            "name": {
+              "en": "Mogoșa - Baia Mare",
+              "ro": "Mogoșa - Baia Mare"
+            }
+          },
+          "value": "100.1",
+          "display": {
+            "en": "100.1",
+            "ro": "100,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Mogoșa - Baia Mare",
+            "ro": "Mogoșa - Baia Mare"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "moldova-noua",
+            "name": {
+              "en": "Moldova Nouă",
+              "ro": "Moldova Nouă"
+            }
+          },
+          "value": "93.8",
+          "display": {
+            "en": "93.8",
+            "ro": "93,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Moldova Nouă",
+            "ro": "Moldova Nouă"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "oradea",
+            "name": {
+              "en": "Oradea",
+              "ro": "Oradea"
+            }
+          },
+          "value": "96.1",
+          "display": {
+            "en": "96.1",
+            "ro": "96,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Oradea",
+            "ro": "Oradea"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "parang-petrosani",
+            "name": {
+              "en": "Parâng - Petroșani",
+              "ro": "Parâng - Petroșani"
+            }
+          },
+          "value": "90.6",
+          "display": {
+            "en": "90.6",
+            "ro": "90,6"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Parâng - Petroșani",
+            "ro": "Parâng - Petroșani"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "piatra-neamt",
+            "name": {
+              "en": "Piatra Neamț",
+              "ro": "Piatra Neamț"
+            }
+          },
+          "value": "100.3",
+          "display": {
+            "en": "100.3",
+            "ro": "100,3"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Piatra Neamț",
+            "ro": "Piatra Neamț"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "rarau",
+            "name": {
+              "en": "Rarău",
+              "ro": "Rarău"
+            }
+          },
+          "value": "98.7",
+          "display": {
+            "en": "98.7",
+            "ro": "98,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Rarău",
+            "ro": "Rarău"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "saveni-botosani",
+            "name": {
+              "en": "Săveni - Botoșani",
+              "ro": "Săveni - Botoșani"
+            }
+          },
+          "value": "106.0",
+          "display": {
+            "en": "106.0",
+            "ro": "106,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Săveni - Botoșani",
+            "ro": "Săveni - Botoșani"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "sibiu-oncesti",
+            "name": {
+              "en": "Sibiu - Oncești",
+              "ro": "Sibiu - Oncești"
+            }
+          },
+          "value": "103.7",
+          "display": {
+            "en": "103.7",
+            "ro": "103,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Sibiu - Oncești",
+            "ro": "Sibiu - Oncești"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "slobozia",
+            "name": {
+              "en": "Slobozia",
+              "ro": "Slobozia"
+            }
+          },
+          "value": "104.5",
+          "display": {
+            "en": "104.5",
+            "ro": "104,5"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Slobozia",
+            "ro": "Slobozia"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "suceava",
+            "name": {
+              "en": "Suceava",
+              "ro": "Suceava"
+            }
+          },
+          "value": "101.6",
+          "display": {
+            "en": "101.6",
+            "ro": "101,6"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Suceava",
+            "ro": "Suceava"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "104.9",
+          "display": {
+            "en": "104.9",
+            "ro": "104,9"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Târgu Mureș",
+            "ro": "Târgu Mureș"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "toplita-borsec",
+            "name": {
+              "en": "Toplița - Borsec",
+              "ro": "Toplița - Borsec"
+            }
+          },
+          "value": "98.4",
+          "display": {
+            "en": "98.4",
+            "ro": "98,4"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Toplița - Borsec",
+            "ro": "Toplița - Borsec"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "topolog",
+            "name": {
+              "en": "Topolog",
+              "ro": "Topolog"
+            }
+          },
+          "value": "103.0",
+          "display": {
+            "en": "103.0",
+            "ro": "103,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Topolog",
+            "ro": "Topolog"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "tulcea",
+            "name": {
+              "en": "Tulcea",
+              "ro": "Tulcea"
+            }
+          },
+          "value": "105.4",
+          "display": {
+            "en": "105.4",
+            "ro": "105,4"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Tulcea",
+            "ro": "Tulcea"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "turnu-magurele",
+            "name": {
+              "en": "Turnu Măgurele",
+              "ro": "Turnu Măgurele"
+            }
+          },
+          "value": "101.1",
+          "display": {
+            "en": "101.1",
+            "ro": "101,1"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Turnu Măgurele",
+            "ro": "Turnu Măgurele"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "urseni-timisoara",
+            "name": {
+              "en": "Urseni - Timișoara",
+              "ro": "Urseni - Timișoara"
+            }
+          },
+          "value": "100.7",
+          "display": {
+            "en": "100.7",
+            "ro": "100,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Urseni - Timișoara",
+            "ro": "Urseni - Timișoara"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "vacareni",
+            "name": {
+              "en": "Văcăreni",
+              "ro": "Văcăreni"
+            }
+          },
+          "value": "101.6",
+          "display": {
+            "en": "101.6",
+            "ro": "101,6"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Văcăreni",
+            "ro": "Văcăreni"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "varatec",
+            "name": {
+              "en": "Văratec",
+              "ro": "Văratec"
+            }
+          },
+          "value": "100.8",
+          "display": {
+            "en": "100.8",
+            "ro": "100,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Văratec",
+            "ro": "Văratec"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "vaslui",
+            "name": {
+              "en": "Vaslui",
+              "ro": "Vaslui"
+            }
+          },
+          "value": "102.4",
+          "display": {
+            "en": "102.4",
+            "ro": "102,4"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Vaslui",
+            "ro": "Vaslui"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "vatra-dornei",
+            "name": {
+              "en": "Vatra Dornei",
+              "ro": "Vatra Dornei"
+            }
+          },
+          "value": "107.7",
+          "display": {
+            "en": "107.7",
+            "ro": "107,7"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Vatra Dornei",
+            "ro": "Vatra Dornei"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "zalau",
+            "name": {
+              "en": "Zalău",
+              "ro": "Zalău"
+            }
+          },
+          "value": "105.0",
+          "display": {
+            "en": "105.0",
+            "ro": "105,0"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Zalău",
+            "ro": "Zalău"
+          },
+          "location_type": "transmitter"
+        }
+      ],
       "listening": {
         "stream": "https://stream4.srr.ro:8443/romania-cultural",
         "page": "https://www.radioromaniacultural.ro/live/",
@@ -239,8 +1153,8 @@
         }
       },
       "programming": {
-        "ro": "Literatură, arte, știință, interviuri, teatru radiofonic și concerte. Grila actualizată este disponibilă pe site-ul oficial. Frecvența afișată este pentru București; frecvențele diferă în țară.",
-        "en": "Literature, arts, science, interviews, radio drama and concerts. The current schedule is available on the official website. The displayed frequency is for Bucharest; frequencies vary across the country."
+        "ro": "Literatură, arte, știință, interviuri, teatru radiofonic și concerte. Grila actualizată este disponibilă pe site-ul oficial.",
+        "en": "Literature, arts, science, interviews, radio drama and concerts. The current schedule is available on the official website."
       },
       "history": {
         "first_broadcast": null,
@@ -290,6 +1204,18 @@
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        ],
+        "note": {
+          "en": "Licensed transmitter sites from the CNA list dated 26 February 2025; this is not a live transmission or reception check.",
+          "ro": "Amplasamente autorizate din lista CNA din 26 februarie 2025; nu reprezintă verificarea emisiei sau a recepției în direct."
+        },
+        "source_updated": "2025-02-26"
+      }
     },
     {
       "id": "metronom",
@@ -458,14 +1384,62 @@
         "ro": "Postul public dedicat muzicii clasice și jazzului. Emite pe 104,8 FM în București, 97,6 FM regional și 95,4 FM în Iași.",
         "en": "The public station dedicated to classical music and jazz. Broadcasts on 104.8 FM in Bucharest, 97.6 FM regionally and 95.4 FM in Iași."
       },
-      "frequency": {
-        "value": "104.8",
-        "display": {
-          "ro": "104,8",
-          "en": "104.8"
+      "frequencies": [
+        {
+          "city": {
+            "slug": "bucuresti",
+            "name": {
+              "en": "București",
+              "ro": "București"
+            }
+          },
+          "value": "104.8",
+          "display": {
+            "en": "104.8",
+            "ro": "104,8"
+          },
+          "band": "MHz FM"
         },
-        "band": "MHz FM"
-      },
+        {
+          "city": {
+            "slug": "bucegi-costila",
+            "name": {
+              "en": "Bucegi - Coștila",
+              "ro": "Bucegi - Coștila"
+            }
+          },
+          "value": "97.6",
+          "display": {
+            "en": "97.6",
+            "ro": "97,6"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Bucegi - Coștila",
+            "ro": "Bucegi - Coștila"
+          },
+          "note": {
+            "en": "Regional frequency; reception is partial in some areas. See the official coverage list.",
+            "ro": "Frecvență regională; recepție parțială în unele zone. Consultă lista oficială de acoperire."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "95.4",
+          "display": {
+            "en": "95.4",
+            "ro": "95,4"
+          },
+          "band": "MHz FM"
+        }
+      ],
       "listening": {
         "stream": "https://stream4.srr.ro:8443/romania-muzical",
         "page": "https://myradioonline.ro/radio-romania-muzical",
@@ -538,8 +1512,27 @@
             "en": "MyRadioOnline — listening and schedule"
           },
           "url": "https://myradioonline.ro/radio-romania-muzical"
+        },
+        {
+          "label": {
+            "en": "Official frequency source",
+            "ro": "Sursă oficială pentru frecvențe"
+          },
+          "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.romania-muzical.ro/info/frecvente/1921",
+          "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        ],
+        "note": {
+          "en": "Broadcaster frequency list; transmitter sites cross-checked against the CNA list dated 26 February 2025. Reception and live transmission were not tested.",
+          "ro": "Lista radiodifuzorului; amplasamente confruntate cu lista CNA din 26 februarie 2025. Recepția și emisia în direct nu au fost testate."
+        }
+      }
     },
     {
       "id": "kolozsvari",
@@ -584,14 +1577,169 @@
         "ro": "Serviciul în limba maghiară al Radio Cluj, cu știri, cultură, muzică și informații pentru comunitate. Emite în Cluj-Napoca pe 98,8 FM și online.",
         "en": "Radio Cluj's Hungarian-language service, with news, culture, music and community information. Broadcasts in Cluj-Napoca on 98.8 FM and online."
       },
-      "frequency": {
-        "value": "98.8",
-        "display": {
-          "ro": "98,8",
-          "en": "98.8"
+      "frequencies": [
+        {
+          "city": {
+            "slug": "cluj-napoca",
+            "name": {
+              "en": "Cluj-Napoca",
+              "ro": "Cluj-Napoca"
+            }
+          },
+          "value": "98.8",
+          "display": {
+            "en": "98.8",
+            "ro": "98,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Cluj - Feleac",
+            "ro": "Cluj - Feleac"
+          },
+          "note": {
+            "en": "Hungarian except Ukrainian on Sundays 07:00–07:20 (Romanian local time).",
+            "ro": "În maghiară, cu excepția programului în ucraineană de duminică, 07:00–07:20 (ora României)."
+          }
         },
-        "band": "MHz FM"
-      },
+        {
+          "city": {
+            "slug": "sighet",
+            "name": {
+              "en": "Sighet",
+              "ro": "Sighet"
+            }
+          },
+          "value": "101.7",
+          "display": {
+            "en": "101.7",
+            "ro": "101,7"
+          },
+          "band": "MHz FM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 02:00–04:00, 08:00–10:00 and 15:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 02:00–04:00, 08:00–10:00 și 15:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        },
+        {
+          "city": {
+            "slug": "negresti-oas",
+            "name": {
+              "en": "Negrești-Oaș",
+              "ro": "Negrești-Oaș"
+            }
+          },
+          "value": "93.3",
+          "display": {
+            "en": "93.3",
+            "ro": "93,3"
+          },
+          "band": "MHz FM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 02:00–04:00, 08:00–10:00 and 15:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 02:00–04:00, 08:00–10:00 și 15:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        },
+        {
+          "city": {
+            "slug": "satu-mare",
+            "name": {
+              "en": "Satu Mare",
+              "ro": "Satu Mare"
+            }
+          },
+          "value": "87.9",
+          "display": {
+            "en": "87.9",
+            "ro": "87,9"
+          },
+          "band": "MHz FM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 02:00–04:00, 08:00–10:00 and 15:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 02:00–04:00, 08:00–10:00 și 15:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        },
+        {
+          "city": {
+            "slug": "jucu",
+            "name": {
+              "en": "Jucu",
+              "ro": "Jucu"
+            }
+          },
+          "value": "909",
+          "display": {
+            "en": "909",
+            "ro": "909"
+          },
+          "band": "kHz AM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 08:00–10:00 and 16:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 08:00–10:00 și 16:00–18:00; duminică 14:00–18:00 (ora României)."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "oradea",
+            "name": {
+              "en": "Oradea",
+              "ro": "Oradea"
+            }
+          },
+          "value": "1593",
+          "display": {
+            "en": "1593",
+            "ro": "1593"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Oradea - Rontău",
+            "ro": "Oradea - Rontău"
+          },
+          "note": {
+            "en": "Hungarian: Mon–Sat 08:00–10:00 and 16:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 08:00–10:00 și 16:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        },
+        {
+          "city": {
+            "slug": "sibiu",
+            "name": {
+              "en": "Sibiu",
+              "ro": "Sibiu"
+            }
+          },
+          "value": "1593",
+          "display": {
+            "en": "1593",
+            "ro": "1593"
+          },
+          "band": "kHz AM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 08:00–10:00 and 16:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 08:00–10:00 și 16:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        },
+        {
+          "city": {
+            "slug": "sighet",
+            "name": {
+              "en": "Sighet",
+              "ro": "Sighet"
+            }
+          },
+          "value": "1404",
+          "display": {
+            "en": "1404",
+            "ro": "1404"
+          },
+          "band": "kHz AM",
+          "note": {
+            "en": "Hungarian: Mon–Sat 08:00–10:00 and 16:00–18:00; Sun 14:00–18:00 (Romanian local time).",
+            "ro": "În maghiară: luni–sâmbătă 08:00–10:00 și 16:00–18:00; duminică 14:00–18:00 (ora României)."
+          }
+        }
+      ],
       "listening": {
         "stream": "https://stream4.srr.ro:8443/kolozsvari-radio",
         "page": "https://www.kolozsvariradio.ro/elo-kolozsvari-radio/",
@@ -602,8 +1750,8 @@
         }
       },
       "programming": {
-        "ro": "Știri locale, naționale și internaționale, emisiuni culturale, interviuri și muzică, în principal în maghiară. Pe 98,8 FM, duminica între 07:00 și 07:20 este difuzată o emisiune în ucraineană. Pagina oficială de frecvențe indică și transmisii pe 909, 1593 și 1404 AM, în intervale orare limitate.",
-        "en": "Local, national and international news, cultural programs, interviews and music, mainly in Hungarian. A Ukrainian-language program airs on 98.8 FM on Sundays from 07:00 to 07:20. The official frequency page also lists broadcasts on 909, 1593 and 1404 AM during limited time slots."
+        "ro": "Știri locale, naționale și internaționale, emisiuni culturale, interviuri și muzică, în principal în maghiară. Pe 98,8 FM, duminica între 07:00 și 07:20 este difuzată o emisiune în ucraineană.",
+        "en": "Local, national and international news, cultural programs, interviews and music, mainly in Hungarian. A Ukrainian-language program airs on 98.8 FM on Sundays from 07:00 to 07:20."
       },
       "history": {
         "first_broadcast": {
@@ -664,8 +1812,27 @@
             "en": "Kolozsvári Rádió — first broadcast, 15 March 1954"
           },
           "url": "https://www.kolozsvariradio.ro/2026/03/15/72-eves-a-kolozsvari-radio/"
+        },
+        {
+          "label": {
+            "en": "Official frequency source",
+            "ro": "Sursă oficială pentru frecvențe"
+          },
+          "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.kolozsvariradio.ro/frekvenciak/",
+          "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        ],
+        "note": {
+          "en": "Broadcaster frequency list; transmitter sites cross-checked against the CNA list dated 26 February 2025. Reception and live transmission were not tested.",
+          "ro": "Lista radiodifuzorului; amplasamente confruntate cu lista CNA din 26 februarie 2025. Recepția și emisia în direct nu au fost testate."
+        }
+      }
     },
     {
       "country": {
@@ -721,14 +1888,96 @@
         "ro": "Știri, cultură și muzică pentru Mureș, Harghita, Covasna și Brașov.",
         "en": "News, culture and music for Mureș, Harghita, Covasna and Brașov."
       },
-      "frequency": {
-        "value": "102.9",
-        "display": {
-          "ro": "102,9",
-          "en": "102.9"
+      "frequencies": [
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "102.9",
+          "display": {
+            "en": "102.9",
+            "ro": "102,9"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Târgu Mureș - Cornești",
+            "ro": "Târgu Mureș - Cornești"
+          }
         },
-        "band": "MHz FM"
-      },
+        {
+          "city": {
+            "slug": "harghita",
+            "name": {
+              "en": "Harghita",
+              "ro": "Harghita"
+            }
+          },
+          "value": "98.9",
+          "display": {
+            "en": "98.9",
+            "ro": "98,9"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Harghita - Gheorgheni",
+            "ro": "Harghita - Gheorgheni"
+          },
+          "location_type": "region"
+        },
+        {
+          "city": {
+            "slug": "borsec",
+            "name": {
+              "en": "Borsec",
+              "ro": "Borsec"
+            }
+          },
+          "value": "94.9",
+          "display": {
+            "en": "94.9",
+            "ro": "94,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "1197",
+          "display": {
+            "en": "1197",
+            "ro": "1197"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Bod",
+            "ro": "Bod"
+          }
+        },
+        {
+          "city": {
+            "slug": "miercurea-ciuc",
+            "name": {
+              "en": "Miercurea Ciuc",
+              "ro": "Miercurea Ciuc"
+            }
+          },
+          "value": "1593",
+          "display": {
+            "en": "1593",
+            "ro": "1593"
+          },
+          "band": "kHz AM"
+        }
+      ],
       "listening": {
         "stream": "https://stream4.srr.ro:8443/radio-tgmures-fm",
         "page": "https://www.radiomures.ro/player/live-radio-mures.html",
@@ -739,8 +1988,8 @@
         }
       },
       "programming": {
-        "ro": "Actualitate, interviuri, cultură, muzică și divertisment. FM: 102,9 Târgu Mureș, 98,9 Harghita, 94,9 Borsec. AM: 1197 Brașov, 1593 Miercurea Ciuc.",
-        "en": "News, interviews, culture, music and entertainment. FM: 102.9 Târgu Mureș, 98.9 Harghita, 94.9 Borsec. AM: 1197 Brașov, 1593 Miercurea Ciuc."
+        "ro": "Actualitate, interviuri, cultură, muzică și divertisment.",
+        "en": "News, interviews, culture, music and entertainment."
       },
       "contact": {
         "address": {
@@ -794,8 +2043,27 @@
             "en": "Mureș — first broadcast"
           },
           "url": "https://www.radiomures.ro/stiri/radio-tirgu-mures-implineste-61-de-ani.html"
+        },
+        {
+          "label": {
+            "en": "Official frequency source",
+            "ro": "Sursă oficială pentru frecvențe"
+          },
+          "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.radiomures.ro/frecvente",
+          "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        ],
+        "note": {
+          "en": "Broadcaster frequency list; transmitter sites cross-checked against the CNA list dated 26 February 2025. Reception and live transmission were not tested.",
+          "ro": "Lista radiodifuzorului; amplasamente confruntate cu lista CNA din 26 februarie 2025. Recepția și emisia în direct nu au fost testate."
+        }
+      }
     },
     {
       "country": {
@@ -851,14 +2119,115 @@
         "ro": "Serviciul public regional în principal în maghiară: știri, cultură și muzică.",
         "en": "Regional public service, mainly in Hungarian: news, culture and music."
       },
-      "frequency": {
-        "value": "96.0",
-        "display": {
-          "ro": "96,0",
-          "en": "96.0"
+      "frequencies": [
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "96.0",
+          "display": {
+            "en": "96.0",
+            "ro": "96,0"
+          },
+          "band": "MHz FM"
         },
-        "band": "MHz FM"
-      },
+        {
+          "city": {
+            "slug": "gheorgheni",
+            "name": {
+              "en": "Gheorgheni",
+              "ro": "Gheorgheni"
+            }
+          },
+          "value": "92.3",
+          "display": {
+            "en": "92.3",
+            "ro": "92,3"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Gheorgheni",
+            "ro": "Gheorgheni"
+          }
+        },
+        {
+          "city": {
+            "slug": "harghita-gheorgheni",
+            "name": {
+              "en": "Harghita - Gheorgheni",
+              "ro": "Harghita - Gheorgheni"
+            }
+          },
+          "value": "106.8",
+          "display": {
+            "en": "106.8",
+            "ro": "106,8"
+          },
+          "band": "MHz FM",
+          "licensed_site": {
+            "en": "Harghita - Gheorgheni",
+            "ro": "Harghita - Gheorgheni"
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "1323",
+          "display": {
+            "en": "1323",
+            "ro": "1323"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Târgu Mureș - Ernei",
+            "ro": "Târgu Mureș - Ernei"
+          }
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "1197",
+          "display": {
+            "en": "1197",
+            "ro": "1197"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Bod",
+            "ro": "Bod"
+          }
+        },
+        {
+          "city": {
+            "slug": "miercurea-ciuc",
+            "name": {
+              "en": "Miercurea Ciuc",
+              "ro": "Miercurea Ciuc"
+            }
+          },
+          "value": "1593",
+          "display": {
+            "en": "1593",
+            "ro": "1593"
+          },
+          "band": "kHz AM"
+        }
+      ],
       "listening": {
         "stream": "https://stream4.srr.ro:8443/radio-tgmures-mag",
         "page": "https://www.radiomures.ro/player/live-marosvasarhelyiradio.html",
@@ -869,8 +2238,8 @@
         }
       },
       "programming": {
-        "ro": "Știri, interviuri, cultură și muzică; emisiuni și în germană și romani. FM: 96 Târgu Mureș, 92,3 Depresiunea Giurgeului, 106,8 regional. AM: 1197, 1323, 1593.",
-        "en": "News, interviews, culture and music; German and Romani slots too. FM: 96 Târgu Mureș, 92.3 Giurgeu Basin, 106.8 regionally. AM: 1197, 1323, 1593."
+        "ro": "Știri, interviuri, cultură și muzică; emisiuni și în germană și romani.",
+        "en": "News, interviews, culture and music; German and Romani slots too."
       },
       "contact": {
         "address": {
@@ -931,8 +2300,27 @@
             "en": "Marosvásárhelyi — history and languages"
           },
           "url": "https://www.marosvasarhelyiradio.ro/hirek/hatvanhat-eves-a-marosvasarhelyi-radio2/"
+        },
+        {
+          "label": {
+            "en": "Official frequency source",
+            "ro": "Sursă oficială pentru frecvențe"
+          },
+          "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.marosvasarhelyiradio.ro/frekvenciak/",
+          "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
+        ],
+        "note": {
+          "en": "Broadcaster frequency list; transmitter sites cross-checked against the CNA list dated 26 February 2025. Reception and live transmission were not tested.",
+          "ro": "Lista radiodifuzorului; amplasamente confruntate cu lista CNA din 26 februarie 2025. Recepția și emisia în direct nu au fost testate."
+        }
+      }
     },
     {
       "id": "europa",
@@ -985,7 +2373,7 @@
           "city": {
             "slug": "bucuresti",
             "name": {
-              "en": "Bucharest",
+              "en": "București",
               "ro": "București"
             }
           },
@@ -993,6 +2381,201 @@
           "display": {
             "en": "106.7",
             "ro": "106,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "alba-iulia",
+            "name": {
+              "en": "Alba Iulia",
+              "ro": "Alba Iulia"
+            }
+          },
+          "value": "97.1",
+          "display": {
+            "en": "97.1",
+            "ro": "97,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "alexandria",
+            "name": {
+              "en": "Alexandria",
+              "ro": "Alexandria"
+            }
+          },
+          "value": "93.4",
+          "display": {
+            "en": "93.4",
+            "ro": "93,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "arad",
+            "name": {
+              "en": "Arad",
+              "ro": "Arad"
+            }
+          },
+          "value": "89.3",
+          "display": {
+            "en": "89.3",
+            "ro": "89,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "bacau",
+            "name": {
+              "en": "Bacău",
+              "ro": "Bacău"
+            }
+          },
+          "value": "104.2",
+          "display": {
+            "en": "104.2",
+            "ro": "104,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "baia-mare",
+            "name": {
+              "en": "Baia Mare",
+              "ro": "Baia Mare"
+            }
+          },
+          "value": "90.5",
+          "display": {
+            "en": "90.5",
+            "ro": "90,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "barlad",
+            "name": {
+              "en": "Bârlad",
+              "ro": "Bârlad"
+            }
+          },
+          "value": "100",
+          "display": {
+            "en": "100",
+            "ro": "100"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "bistrita",
+            "name": {
+              "en": "Bistrița",
+              "ro": "Bistrița"
+            }
+          },
+          "value": "90",
+          "display": {
+            "en": "90",
+            "ro": "90"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "botosani",
+            "name": {
+              "en": "Botoșani",
+              "ro": "Botoșani"
+            }
+          },
+          "value": "88.2",
+          "display": {
+            "en": "88.2",
+            "ro": "88,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "brasov",
+            "name": {
+              "en": "Brașov",
+              "ro": "Brașov"
+            }
+          },
+          "value": "89.2",
+          "display": {
+            "en": "89.2",
+            "ro": "89,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "buzau",
+            "name": {
+              "en": "Buzău",
+              "ro": "Buzău"
+            }
+          },
+          "value": "100.3",
+          "display": {
+            "en": "100.3",
+            "ro": "100,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "calarasi",
+            "name": {
+              "en": "Călărași",
+              "ro": "Călărași"
+            }
+          },
+          "value": "99.5",
+          "display": {
+            "en": "99.5",
+            "ro": "99,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "campulung",
+            "name": {
+              "en": "Câmpulung",
+              "ro": "Câmpulung"
+            }
+          },
+          "value": "89.8",
+          "display": {
+            "en": "89.8",
+            "ro": "89,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "campulung-moldovenesc",
+            "name": {
+              "en": "Câmpulung Moldovenesc",
+              "ro": "Câmpulung Moldovenesc"
+            }
+          },
+          "value": "102.7",
+          "display": {
+            "en": "102.7",
+            "ro": "102,7"
           },
           "band": "MHz FM"
         },
@@ -1013,6 +2596,141 @@
         },
         {
           "city": {
+            "slug": "comanesti",
+            "name": {
+              "en": "Comănești",
+              "ro": "Comănești"
+            }
+          },
+          "value": "106.3",
+          "display": {
+            "en": "106.3",
+            "ro": "106,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "constanta",
+            "name": {
+              "en": "Constanța",
+              "ro": "Constanța"
+            }
+          },
+          "value": "106.1",
+          "display": {
+            "en": "106.1",
+            "ro": "106,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "craiova",
+            "name": {
+              "en": "Craiova",
+              "ro": "Craiova"
+            }
+          },
+          "value": "104.5",
+          "display": {
+            "en": "104.5",
+            "ro": "104,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "deva",
+            "name": {
+              "en": "Deva",
+              "ro": "Deva"
+            }
+          },
+          "value": "107.7",
+          "display": {
+            "en": "107.7",
+            "ro": "107,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "drobeta-turnu-severin",
+            "name": {
+              "en": "Drobeta-Turnu Severin",
+              "ro": "Drobeta-Turnu Severin"
+            }
+          },
+          "value": "100",
+          "display": {
+            "en": "100",
+            "ro": "100"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "focsani",
+            "name": {
+              "en": "Focșani",
+              "ro": "Focșani"
+            }
+          },
+          "value": "105.8",
+          "display": {
+            "en": "105.8",
+            "ro": "105,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "galati",
+            "name": {
+              "en": "Galați",
+              "ro": "Galați"
+            }
+          },
+          "value": "103.4",
+          "display": {
+            "en": "103.4",
+            "ro": "103,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "gheorgheni",
+            "name": {
+              "en": "Gheorgheni",
+              "ro": "Gheorgheni"
+            }
+          },
+          "value": "100.2",
+          "display": {
+            "en": "100.2",
+            "ro": "100,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "giurgiu",
+            "name": {
+              "en": "Giurgiu",
+              "ro": "Giurgiu"
+            }
+          },
+          "value": "89.4",
+          "display": {
+            "en": "89.4",
+            "ro": "89,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
             "slug": "iasi",
             "name": {
               "en": "Iași",
@@ -1023,6 +2741,261 @@
           "display": {
             "en": "106.5",
             "ro": "106,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "negresti-oas",
+            "name": {
+              "en": "Negrești-Oaș",
+              "ro": "Negrești-Oaș"
+            }
+          },
+          "value": "104.8",
+          "display": {
+            "en": "104.8",
+            "ro": "104,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "oradea",
+            "name": {
+              "en": "Oradea",
+              "ro": "Oradea"
+            }
+          },
+          "value": "93.2",
+          "display": {
+            "en": "93.2",
+            "ro": "93,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "petrosani",
+            "name": {
+              "en": "Petroșani",
+              "ro": "Petroșani"
+            }
+          },
+          "value": "92.1",
+          "display": {
+            "en": "92.1",
+            "ro": "92,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "piatra-neamt",
+            "name": {
+              "en": "Piatra Neamț",
+              "ro": "Piatra Neamț"
+            }
+          },
+          "value": "105.1",
+          "display": {
+            "en": "105.1",
+            "ro": "105,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "pitesti",
+            "name": {
+              "en": "Pitești",
+              "ro": "Pitești"
+            }
+          },
+          "value": "95.0",
+          "display": {
+            "en": "95.0",
+            "ro": "95,0"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "ploiesti",
+            "name": {
+              "en": "Ploiești",
+              "ro": "Ploiești"
+            }
+          },
+          "value": "107.5",
+          "display": {
+            "en": "107.5",
+            "ro": "107,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "ramnicu-valcea",
+            "name": {
+              "en": "Râmnicu Vâlcea",
+              "ro": "Râmnicu Vâlcea"
+            }
+          },
+          "value": "90.4",
+          "display": {
+            "en": "90.4",
+            "ro": "90,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "resita",
+            "name": {
+              "en": "Reșița",
+              "ro": "Reșița"
+            }
+          },
+          "value": "107.5",
+          "display": {
+            "en": "107.5",
+            "ro": "107,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "satu-mare",
+            "name": {
+              "en": "Satu Mare",
+              "ro": "Satu Mare"
+            }
+          },
+          "value": "90.9",
+          "display": {
+            "en": "90.9",
+            "ro": "90,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "sibiu",
+            "name": {
+              "en": "Sibiu",
+              "ro": "Sibiu"
+            }
+          },
+          "value": "106.2",
+          "display": {
+            "en": "106.2",
+            "ro": "106,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "slatina",
+            "name": {
+              "en": "Slatina",
+              "ro": "Slatina"
+            }
+          },
+          "value": "98.8",
+          "display": {
+            "en": "98.8",
+            "ro": "98,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "slobozia",
+            "name": {
+              "en": "Slobozia",
+              "ro": "Slobozia"
+            }
+          },
+          "value": "100.9",
+          "display": {
+            "en": "100.9",
+            "ro": "100,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "stei",
+            "name": {
+              "en": "Ștei",
+              "ro": "Ștei"
+            }
+          },
+          "value": "102",
+          "display": {
+            "en": "102",
+            "ro": "102"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "suceava",
+            "name": {
+              "en": "Suceava",
+              "ro": "Suceava"
+            }
+          },
+          "value": "105.5",
+          "display": {
+            "en": "105.5",
+            "ro": "105,5"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "targu-jiu",
+            "name": {
+              "en": "Târgu Jiu",
+              "ro": "Târgu Jiu"
+            }
+          },
+          "value": "107.1",
+          "display": {
+            "en": "107.1",
+            "ro": "107,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "targu-mures",
+            "name": {
+              "en": "Târgu Mureș",
+              "ro": "Târgu Mureș"
+            }
+          },
+          "value": "90.7",
+          "display": {
+            "en": "90.7",
+            "ro": "90,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "targu-ocna",
+            "name": {
+              "en": "Târgu Ocna",
+              "ro": "Târgu Ocna"
+            }
+          },
+          "value": "89.4",
+          "display": {
+            "en": "89.4",
+            "ro": "89,4"
           },
           "band": "MHz FM"
         },
@@ -1040,6 +3013,66 @@
             "ro": "104,4"
           },
           "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "tulcea",
+            "name": {
+              "en": "Tulcea",
+              "ro": "Tulcea"
+            }
+          },
+          "value": "107.4",
+          "display": {
+            "en": "107.4",
+            "ro": "107,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "vaslui",
+            "name": {
+              "en": "Vaslui",
+              "ro": "Vaslui"
+            }
+          },
+          "value": "100.3",
+          "display": {
+            "en": "100.3",
+            "ro": "100,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "viseu-de-sus",
+            "name": {
+              "en": "Vișeu de Sus",
+              "ro": "Vișeu de Sus"
+            }
+          },
+          "value": "107.1",
+          "display": {
+            "en": "107.1",
+            "ro": "107,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "zalau",
+            "name": {
+              "en": "Zalău",
+              "ro": "Zalău"
+            }
+          },
+          "value": "102.7",
+          "display": {
+            "en": "102.7",
+            "ro": "102,7"
+          },
+          "band": "MHz FM"
         }
       ],
       "listening": {
@@ -1052,8 +3085,8 @@
         }
       },
       "programming": {
-        "en": "Music, news bulletins, Deșteptarea and România în Direct. Selected FM locations are listed here; see the official frequency source for full coverage.",
-        "ro": "Muzică, jurnale de știri, Deșteptarea și România în Direct. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+        "en": "Music, news bulletins, Deșteptarea and România în Direct.",
+        "ro": "Muzică, jurnale de știri, Deșteptarea și România în Direct."
       },
       "history": {
         "first_broadcast": null,
@@ -1103,6 +3136,17 @@
           }
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.europafm.ro/club-vip/faq/cum-asculti-europa-fm/"
+        ],
+        "note": {
+          "en": "Published broadcaster frequency list; reception not tested.",
+          "ro": "Lista de frecvențe publicată de radiodifuzor; recepția nu a fost testată."
+        }
+      }
     },
     {
       "id": "guerrilla",
@@ -1152,7 +3196,7 @@
           "city": {
             "slug": "bucuresti",
             "name": {
-              "en": "Bucharest",
+              "en": "București",
               "ro": "București"
             }
           },
@@ -1165,16 +3209,46 @@
         },
         {
           "city": {
-            "slug": "iasi",
+            "slug": "alba-iulia",
             "name": {
-              "en": "Iași",
-              "ro": "Iași"
+              "en": "Alba Iulia",
+              "ro": "Alba Iulia"
             }
           },
-          "value": "94.3",
+          "value": "91.2",
           "display": {
-            "en": "94.3",
-            "ro": "94,3"
+            "en": "91.2",
+            "ro": "91,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "bistrita",
+            "name": {
+              "en": "Bistrița",
+              "ro": "Bistrița"
+            }
+          },
+          "value": "95.1",
+          "display": {
+            "en": "95.1",
+            "ro": "95,1"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "braila",
+            "name": {
+              "en": "Brăila",
+              "ro": "Brăila"
+            }
+          },
+          "value": "105.5",
+          "display": {
+            "en": "105.5",
+            "ro": "105,5"
           },
           "band": "MHz FM"
         },
@@ -1195,6 +3269,171 @@
         },
         {
           "city": {
+            "slug": "campina",
+            "name": {
+              "en": "Câmpina",
+              "ro": "Câmpina"
+            }
+          },
+          "value": "103.2",
+          "display": {
+            "en": "103.2",
+            "ro": "103,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "craiova",
+            "name": {
+              "en": "Craiova",
+              "ro": "Craiova"
+            }
+          },
+          "value": "92.7",
+          "display": {
+            "en": "92.7",
+            "ro": "92,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "cugir",
+            "name": {
+              "en": "Cugir",
+              "ro": "Cugir"
+            }
+          },
+          "value": "87.9",
+          "display": {
+            "en": "87.9",
+            "ro": "87,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "curtea-de-arges",
+            "name": {
+              "en": "Curtea de Argeș",
+              "ro": "Curtea de Argeș"
+            }
+          },
+          "value": "90.9",
+          "display": {
+            "en": "90.9",
+            "ro": "90,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "darabani",
+            "name": {
+              "en": "Darabani",
+              "ro": "Darabani"
+            }
+          },
+          "value": "97.6",
+          "display": {
+            "en": "97.6",
+            "ro": "97,6"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "iasi",
+            "name": {
+              "en": "Iași",
+              "ro": "Iași"
+            }
+          },
+          "value": "94.3",
+          "display": {
+            "en": "94.3",
+            "ro": "94,3"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "mila-23",
+            "name": {
+              "en": "Mila 23",
+              "ro": "Mila 23"
+            }
+          },
+          "value": "87.8",
+          "display": {
+            "en": "87.8",
+            "ro": "87,8"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "ocna-mures",
+            "name": {
+              "en": "Ocna Mureș",
+              "ro": "Ocna Mureș"
+            }
+          },
+          "value": "97.4",
+          "display": {
+            "en": "97.4",
+            "ro": "97,4"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "resita",
+            "name": {
+              "en": "Reșița",
+              "ro": "Reșița"
+            }
+          },
+          "value": "89.9",
+          "display": {
+            "en": "89.9",
+            "ro": "89,9"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "roman",
+            "name": {
+              "en": "Roman",
+              "ro": "Roman"
+            }
+          },
+          "value": "91",
+          "display": {
+            "en": "91",
+            "ro": "91"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "targoviste",
+            "name": {
+              "en": "Târgoviște",
+              "ro": "Târgoviște"
+            }
+          },
+          "value": "88.7",
+          "display": {
+            "en": "88.7",
+            "ro": "88,7"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
             "slug": "timisoara",
             "name": {
               "en": "Timișoara",
@@ -1205,6 +3444,36 @@
           "display": {
             "en": "100",
             "ro": "100"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "vaslui",
+            "name": {
+              "en": "Vaslui",
+              "ro": "Vaslui"
+            }
+          },
+          "value": "95.2",
+          "display": {
+            "en": "95.2",
+            "ro": "95,2"
+          },
+          "band": "MHz FM"
+        },
+        {
+          "city": {
+            "slug": "vatra-dornei",
+            "name": {
+              "en": "Vatra Dornei",
+              "ro": "Vatra Dornei"
+            }
+          },
+          "value": "93.9",
+          "display": {
+            "en": "93.9",
+            "ro": "93,9"
           },
           "band": "MHz FM"
         }
@@ -1219,8 +3488,8 @@
         }
       },
       "programming": {
-        "en": "Guerrilla de Dimineață, Electrocord, interviews and live music sessions. Selected FM locations are listed here; see the official frequency source for full coverage.",
-        "ro": "Guerrilla de Dimineață, Electrocord, interviuri și sesiuni de muzică live. Sunt afișate câteva localități FM; acoperirea completă este în sursa oficială de frecvențe."
+        "en": "Guerrilla de Dimineață, Electrocord, interviews and live music sessions.",
+        "ro": "Guerrilla de Dimineață, Electrocord, interviuri și sesiuni de muzică live."
       },
       "history": {
         "first_broadcast": null,
@@ -1270,6 +3539,17 @@
           }
         }
       ]
+    ,
+      "frequency_verification": {
+        "checked": "2026-11-15",
+        "sources": [
+          "https://www.guerrillaradio.ro/reteaua-radio-guerrilla/"
+        ],
+        "note": {
+          "en": "Published broadcaster frequency list; reception not tested.",
+          "ro": "Lista de frecvențe publicată de radiodifuzor; recepția nu a fost testată."
+        }
+      }
     },
     {
       "id": "rock",
@@ -3015,6 +5295,558 @@
             "en": "Zimnicea",
             "ro": "Zimnicea"
           }
+        },
+        {
+          "city": {
+            "slug": "baia-mare",
+            "name": {
+              "en": "Baia Mare",
+              "ro": "Baia Mare"
+            }
+          },
+          "value": "720",
+          "display": {
+            "en": "720",
+            "ro": "720"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Baia Mare",
+            "ro": "Baia Mare"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "bod",
+            "name": {
+              "en": "Bod",
+              "ro": "Bod"
+            }
+          },
+          "value": "567",
+          "display": {
+            "en": "567",
+            "ro": "567"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Bod",
+            "ro": "Bod"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "boldur",
+            "name": {
+              "en": "Boldur",
+              "ro": "Boldur"
+            }
+          },
+          "value": "756",
+          "display": {
+            "en": "756",
+            "ro": "756"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Boldur",
+            "ro": "Boldur"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "botosani",
+            "name": {
+              "en": "Botoșani",
+              "ro": "Botoșani"
+            }
+          },
+          "value": "603",
+          "display": {
+            "en": "603",
+            "ro": "603"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Botoșani",
+            "ro": "Botoșani"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "galati-barbosi",
+            "name": {
+              "en": "Galați - Barboși",
+              "ro": "Galați - Barboși"
+            }
+          },
+          "value": "1332",
+          "display": {
+            "en": "1332",
+            "ro": "1332"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Galați - Barboși",
+            "ro": "Galați - Barboși"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "galbeni",
+            "name": {
+              "en": "Galbeni",
+              "ro": "Galbeni"
+            }
+          },
+          "value": "1179",
+          "display": {
+            "en": "1179",
+            "ro": "1179"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Galbeni",
+            "ro": "Galbeni"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "ion-corvin",
+            "name": {
+              "en": "Ion Corvin",
+              "ro": "Ion Corvin"
+            }
+          },
+          "value": "1593",
+          "display": {
+            "en": "1593",
+            "ro": "1593"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Ion Corvin",
+            "ro": "Ion Corvin"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "jucu",
+            "name": {
+              "en": "Jucu",
+              "ro": "Jucu"
+            }
+          },
+          "value": "1152",
+          "display": {
+            "en": "1152",
+            "ro": "1152"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Jucu",
+            "ro": "Jucu"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "miercurea-ciuc",
+            "name": {
+              "en": "Miercurea Ciuc",
+              "ro": "Miercurea Ciuc"
+            }
+          },
+          "value": "945",
+          "display": {
+            "en": "945",
+            "ro": "945"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Miercurea Ciuc",
+            "ro": "Miercurea Ciuc"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "nufaru",
+            "name": {
+              "en": "Nufăru",
+              "ro": "Nufăru"
+            }
+          },
+          "value": "720",
+          "display": {
+            "en": "720",
+            "ro": "720"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Nufăru",
+            "ro": "Nufăru"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "olanesti",
+            "name": {
+              "en": "Olănești",
+              "ro": "Olănești"
+            }
+          },
+          "value": "1422",
+          "display": {
+            "en": "1422",
+            "ro": "1422"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Olănești",
+            "ro": "Olănești"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "oradea-rontau",
+            "name": {
+              "en": "Oradea - Rontău",
+              "ro": "Oradea - Rontău"
+            }
+          },
+          "value": "603",
+          "display": {
+            "en": "603",
+            "ro": "603"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Oradea - Rontău",
+            "ro": "Oradea - Rontău"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "petrosani",
+            "name": {
+              "en": "Petroșani",
+              "ro": "Petroșani"
+            }
+          },
+          "value": "531",
+          "display": {
+            "en": "531",
+            "ro": "531"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Petroșani",
+            "ro": "Petroșani"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "resita-vascau",
+            "name": {
+              "en": "Reșița - Vașcău",
+              "ro": "Reșița - Vașcău"
+            }
+          },
+          "value": "1179",
+          "display": {
+            "en": "1179",
+            "ro": "1179"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Reșița - Vașcău",
+            "ro": "Reșița - Vașcău"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "radauti",
+            "name": {
+              "en": "Rădăuți",
+              "ro": "Rădăuți"
+            }
+          },
+          "value": "1530",
+          "display": {
+            "en": "1530",
+            "ro": "1530"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Rădăuți",
+            "ro": "Rădăuți"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "satu-mare",
+            "name": {
+              "en": "Satu Mare",
+              "ro": "Satu Mare"
+            }
+          },
+          "value": "567",
+          "display": {
+            "en": "567",
+            "ro": "567"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Satu Mare",
+            "ro": "Satu Mare"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "sibiu",
+            "name": {
+              "en": "Sibiu",
+              "ro": "Sibiu"
+            }
+          },
+          "value": "1404",
+          "display": {
+            "en": "1404",
+            "ro": "1404"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Sibiu",
+            "ro": "Sibiu"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "sighet",
+            "name": {
+              "en": "Sighet",
+              "ro": "Sighet"
+            }
+          },
+          "value": "711",
+          "display": {
+            "en": "711",
+            "ro": "711"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Sighet",
+            "ro": "Sighet"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "sinaia",
+            "name": {
+              "en": "Sinaia",
+              "ro": "Sinaia"
+            }
+          },
+          "value": "720",
+          "display": {
+            "en": "720",
+            "ro": "720"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Sinaia",
+            "ro": "Sinaia"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "timisoara",
+            "name": {
+              "en": "Timișoara",
+              "ro": "Timișoara"
+            }
+          },
+          "value": "909",
+          "display": {
+            "en": "909",
+            "ro": "909"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Timișoara",
+            "ro": "Timișoara"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "tancabesti",
+            "name": {
+              "en": "Tâncăbești",
+              "ro": "Tâncăbești"
+            }
+          },
+          "value": "855",
+          "display": {
+            "en": "855",
+            "ro": "855"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Tâncăbești",
+            "ro": "Tâncăbești"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "targu-jiu",
+            "name": {
+              "en": "Târgu Jiu",
+              "ro": "Târgu Jiu"
+            }
+          },
+          "value": "558",
+          "display": {
+            "en": "558",
+            "ro": "558"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Târgu Jiu",
+            "ro": "Târgu Jiu"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
+        },
+        {
+          "city": {
+            "slug": "valu-lui-traian",
+            "name": {
+              "en": "Valu Lui Traian",
+              "ro": "Valu Lui Traian"
+            }
+          },
+          "value": "1458",
+          "display": {
+            "en": "1458",
+            "ro": "1458"
+          },
+          "band": "kHz AM",
+          "licensed_site": {
+            "en": "Valu Lui Traian",
+            "ro": "Valu Lui Traian"
+          },
+          "note": {
+            "en": "AM license listed by CNA on 26 February 2025; current transmission not confirmed.",
+            "ro": "Licență AM în lista CNA din 26 februarie 2025; emisia actuală nu este confirmată."
+          },
+          "location_type": "transmitter"
         }
       ],
       "listening": {
@@ -3095,8 +5927,8 @@
           "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         ],
         "note": {
-          "en": "Broadcaster locations matched to the CNA register of 26 February 2025. Labels may describe areas or transmitter sites. Listed frequencies do not guarantee reception at your location.",
-          "ro": "Locațiile radiodifuzorului au fost corelate cu registrul CNA din 26 februarie 2025. Denumirile pot indica zone sau amplasamente de emisie. Frecvențele publicate nu garantează recepția în locul în care te afli."
+          "en": "Broadcaster locations matched to the CNA register of 26 February 2025. Labels may describe areas or transmitter sites. Listed frequencies do not guarantee reception at your location. AM rows are licensed sites from the CNA list dated 26 February 2025; current AM transmission is not confirmed.",
+          "ro": "Locațiile radiodifuzorului au fost corelate cu registrul CNA din 26 februarie 2025. Denumirile pot indica zone sau amplasamente de emisie. Frecvențele publicate nu garantează recepția în locul în care te afli. Rândurile AM sunt amplasamente autorizate din lista CNA din 26 februarie 2025; emisia AM actuală nu este confirmată."
         }
       },
       "source_note": {

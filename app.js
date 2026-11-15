@@ -116,7 +116,7 @@ try {
       const active = button.dataset.stationId === station?.id;
       const key = active && state === "playing"
         ? "player.pause"
-        : active && state === "loading" ? "player.cancel" : "player.play";
+        : active && state === "loading" ? "player.cancel" : "player.playOnline";
       button.textContent = t(key);
       button.ariaLabel = `${t(key)} · ${stationsById.get(button.dataset.stationId).name}`;
       button.lang = messagesLanguage(key);
@@ -248,8 +248,11 @@ try {
 
   function filterFrequencies(article) {
     const query = normalize(article.querySelector('[data-action="filter-frequencies"]').value).replaceAll(",", ".");
-    const rows = [...field(article, "frequencies").children];
+    const rows = [...field(article, "frequencies").querySelectorAll("li[data-search]")];
     for (const row of rows) row.hidden = !row.dataset.search.includes(query);
+    for (const group of field(article, "frequencies").children) {
+      group.hidden = ![...group.querySelectorAll("li[data-search]")].some((row) => !row.hidden);
+    }
     const visible = rows.filter((row) => !row.hidden).length;
     field(article, "frequency-results").textContent = t("frequency.results", { visible: new Intl.NumberFormat(currentLocale()).format(visible), total: new Intl.NumberFormat(currentLocale()).format(rows.length) });
     field(article, "frequency-empty").hidden = visible !== 0;
@@ -261,19 +264,25 @@ try {
     setFrequency(field(article, "primary-frequency"), frequencies[0]);
     const options = article.querySelector(".frequency-options");
     options.hidden = !frequencies.some((frequency) => frequency.value);
+    field(article, "primary-frequency").hidden = frequencies.length <= 8 || options.hidden;
+    const bands = new Map();
+    for (const frequency of frequencies) {
+      if (!frequency.value) continue;
+      const band = frequency.band.split(" ").at(-1);
+      bands.set(band, (bands.get(band) ?? 0) + 1);
+    }
+    field(article, "frequency-counts").textContent = [...bands].map(([band, count]) => `${new Intl.NumberFormat(currentLocale()).format(count)} ${band}`).join(" · ");
     const summary = field(article, "frequency-summary");
-    summary.textContent = t(
-      frequencies.length > 1 ? "frequency.other" : "frequency.options",
-    );
-    summary.lang = messagesLanguage(
-      frequencies.length > 1 ? "frequency.other" : "frequency.options",
-    );
+    summary.textContent = t("frequency.other");
+    summary.lang = messagesLanguage("frequency.other");
     const verification = rawStation.frequency_verification;
     if (verification) {
       const date = (value) => new Intl.DateTimeFormat(currentLocale(), { dateStyle: "medium", timeZone: "UTC" }).format(new Date(value));
       const context = field(article, "frequency-verification");
       context.hidden = false;
-      context.textContent = t("frequency.checked", { updated: date(verification.source_updated), checked: date(verification.checked) });
+      context.textContent = verification.source_updated
+        ? t("frequency.checked", { updated: date(verification.source_updated), checked: date(verification.checked) })
+        : t("frequency.checkedOnly", { checked: date(verification.checked) });
       const note = field(article, "frequency-context");
       note.hidden = false;
       note.textContent = localize(verification.note);
@@ -283,7 +292,21 @@ try {
     search.ariaLabel = `${t("frequency.search")} · ${localize(rawStation.name)}`;
     field(article, "frequency-search-label").htmlFor = search.id;
     field(article, "frequency-search-tools").hidden = frequencies.length <= 8;
+    const groups = new Map();
     for (const rawFrequency of frequencies) {
+      if (!rawFrequency.value) continue;
+      const band = rawFrequency.band.split(" ").at(-1);
+      if (!groups.has(band)) {
+        const group = document.createElement("section");
+        const heading = document.createElement("h5");
+        heading.textContent = band;
+        const list = document.createElement("ul");
+        list.className = "frequencies";
+        list.setAttribute("role", "list");
+        group.append(heading, list);
+        field(article, "frequencies").append(group);
+        groups.set(band, list);
+      }
       const fragment = document
         .querySelector("#frequency-template")
         .content.cloneNode(true);
@@ -291,20 +314,26 @@ try {
       const row = fragment.querySelector(".frequency");
       setFrequency(row, rawFrequency);
       const site = field(row, "frequency-site");
-      site.hidden = !rawFrequency.licensed_site;
+      site.hidden = !rawFrequency.licensed_site ||
+        localize(rawFrequency.licensed_site) === localize(rawFrequency.city.name);
       if (!site.hidden) site.textContent = t("frequency.site", { site: localize(rawFrequency.licensed_site) });
       const note = field(row, "frequency-note");
       note.hidden = !rawFrequency.note;
       if (!note.hidden) note.textContent = localize(rawFrequency.note);
       fragment.querySelector("li").dataset.search = normalize([localize(rawFrequency.city.name), localize(rawFrequency.licensed_site ?? ""), rawFrequency.value, localize(rawFrequency.display), rawFrequency.band].join(" ")).replaceAll(",", ".");
       const copy = row.querySelector('[data-action="copy-frequency"]');
-      copy.dataset.copy = rawFrequency.value ?? "";
+      copy.dataset.copy = `${localize(rawFrequency.display)} ${rawFrequency.band} — ${localize(rawFrequency.city.name)}`;
       copy.hidden = !rawFrequency.value;
       copy.ariaLabel = t("copy.frequencyLocation", {
-        city: localize(rawFrequency.city.name),
+        city: `${localize(rawFrequency.city.name)} · ${localize(rawFrequency.display)} ${rawFrequency.band}`,
       });
       copy.lang = messagesLanguage("copy.frequencyLocation");
-      field(article, "frequencies").append(fragment);
+      groups.get(band).append(fragment);
+    }
+    if (frequencies.length <= 8) {
+      const disclosure = article.querySelector(".frequency-disclosure");
+      disclosure.querySelector("summary").remove();
+      disclosure.replaceWith(...disclosure.childNodes);
     }
     filterFrequencies(article);
   }
@@ -449,7 +478,7 @@ try {
     }
     const play = article.querySelector('[data-action="play"]');
     play.dataset.stationId = station.id;
-    play.ariaLabel = `${t("player.play")} · ${station.name}`;
+    play.ariaLabel = `${t("player.playOnline")} · ${station.name}`;
     const support = player.support(station.listening.stream);
     if (support !== "native") {
       play.hidden = true;
@@ -548,7 +577,9 @@ try {
       const cities = groups.get(country.code).cities;
       for (const city of [station.city, ...frequenciesFor(station).map(
         (frequency) => ({ ...frequency.city, location_type: frequency.location_type }),
-      )]) cities.set(city.slug, city);
+      )]) {
+        if (!cities.has(city.slug) || !city.location_type) cities.set(city.slug, city);
+      }
     }
     select.replaceChildren(select.firstElementChild);
     const countries = sortedEntries([...groups].map(([code, group]) => [code, group.country.name]));

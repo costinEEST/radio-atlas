@@ -685,8 +685,55 @@
     font-size: var(--text-small);
   }
   .frequencies {
-    padding: 0 clamp(1.25rem, 4cqi, 2rem) 1rem;
+    padding: 0;
     list-style: none;
+  }
+  .frequency-options {
+    padding: 1.25rem clamp(1.25rem, 4cqi, 2rem);
+    border-block-start: 1px solid var(--line);
+  }
+  .frequency-options h4, .frequency-options h5 {
+    margin-block: 0 0.5rem;
+    font-size: var(--text-body);
+  }
+  .frequency-counts, .frequency-hint {
+    color: var(--muted);
+    font-size: var(--text-small);
+    margin-block: 0.5rem;
+  }
+  .frequency-groups {
+    display: grid;
+    gap: 1rem;
+    margin-block-start: 1rem;
+  }
+  .frequency-groups > section {
+    min-inline-size: 0;
+  }
+  @container (min-width: 38rem) {
+    .frequency-groups:has(> section:nth-child(2)) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .frequency-options:has(.frequency-disclosure[open]) .frequency-preview {
+    display: none;
+  }
+  .frequency-options .frequency-tools {
+    padding: 0;
+  }
+  .frequency-options .frequency-preview {
+    background: transparent;
+    padding: 0;
+  }
+  .frequency-options .frequency strong {
+    font-size: var(--text-body);
+  }
+  .frequency-options .frequency-disclosure {
+    border: 0;
+    padding: 0;
+  }
+  .frequency-disclosure > summary {
+    padding-inline: 0;
+    min-block-size: 2.75rem;
   }
   .frequency-options summary {
     color: var(--muted);

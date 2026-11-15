@@ -76,7 +76,7 @@
   "copy.frequencyLocation": "Copy frequency for {city}",
   "related.title": "More ways to explore radio",
   "frequency.options": "Frequency options",
-  "frequency.other": "Other frequencies and copy",
+  "frequency.other": "Show all frequencies",
   "footer.source": "View source",
   "footer.sourceLabel": "View source — opens in a new tab",
   "favorites.only": "Favorites only",
@@ -136,5 +136,9 @@
   "related.freeform": "{freeform} — explore independent and freeform stations by city and country.",
   "related.freeformLabel": "Freeform Radio Directory — opens in a new tab",
   "related.locator": "{locator} — find AM and FM stations, especially in the United States, by city, ZIP code or format.",
-  "related.locatorLabel": "Radio-Locator — opens in a new tab"
+  "related.locatorLabel": "Radio-Locator — opens in a new tab",
+  "player.playOnline": "Play online",
+  "frequency.radio": "Listen on a radio",
+  "frequency.hint": "Tune an FM or AM/MW receiver. Reception depends on location and broadcast schedule. Play online uses the internet stream.",
+  "frequency.checkedOnly": "Officially listed · checked {checked}"
 }
