@@ -8281,6 +8281,274 @@
         "ro": "Toate cele 26 de locații și frecvențe FM corespund listei radiodifuzorului, consultată la 7 noiembrie 2026. Pagina nu indică data actualizării listei; recepția nu este verificată.",
         "en": "All 26 FM locations and frequencies match the broadcaster’s list checked on 7 November 2026. The page gives no frequency-list update date; reception is not verified."
       }
+    },
+    {
+      "id": "rri",
+      "broadcast_languages": [
+        "ro"
+      ],
+      "name": "Radio România Internațional",
+      "mark": "RRI",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Romanian (online channel 2)",
+        "ro": "română (canalul online 2)"
+      },
+      "modes": [
+        "online"
+      ],
+      "categories": [
+        "news",
+        "culture",
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "Romanian diaspora",
+          "ro": "Diaspora românească"
+        },
+        {
+          "en": "24/7 Romanian stream",
+          "ro": "Flux în română 24/7"
+        }
+      ],
+      "description": {
+        "en": "News, culture and music from Romania for Romanians abroad. The catalog player carries the Romanian service on online channel 2.",
+        "ro": "Știri, cultură și muzică din România pentru românii de pretutindeni. Playerul catalogului redă serviciul în română de pe canalul online 2."
+      },
+      "frequency": {
+        "value": null,
+        "display": {
+          "en": "Seasonal shortwave schedule: see Sources",
+          "ro": "Grila sezonieră de unde scurte: vezi Surse"
+        },
+        "band": ""
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/romania-rri2",
+        "page": "https://www.rri.ro/live-radio-rri2-ro",
+        "official": "https://www.rri.ro/",
+        "stream_note": {
+          "en": "Romanian channel 2, available 24/7. Audio progress confirmed in Chrome on 20 November 2026. Other language services are available through the official website.",
+          "ro": "Canalul 2 în română, disponibil 24/7. Progres audio confirmat în Chrome la 20 noiembrie 2026. Serviciile în alte limbi sunt disponibile pe site-ul oficial."
+        }
+      },
+      "programming": {
+        "en": "Romanian news, current affairs, diaspora reports, culture, tourism and music. Curierul românesc replay: Sundays 15:00–16:00, Europe/Bucharest.",
+        "ro": "Știri, actualitate, reportaje despre diaspora, cultură, turism și muzică în română. Reluarea Curierului românesc: duminica 15:00–16:00, ora României."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": "Societatea Română de Radiodifuziune (SRR)"
+      },
+      "contact": {
+        "address": {
+          "en": "Strada General Berthelot 60–64, Sector 1, 010165 Bucharest, Romania",
+          "ro": "Strada General Berthelot 60–64, sector 1, 010165 București, România"
+        },
+        "phones": [
+          {
+            "display": "+40 21 319 05 16",
+            "value": "+40213190516"
+          }
+        ],
+        "email": "secretariat@rri.ro"
+      },
+      "verified": "2026-11-20",
+      "sources": [
+        {
+          "url": "https://www.rri.ro/",
+          "label": {
+            "en": "RRI — programming",
+            "ro": "RRI — programe"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/live-radio-rri2-ro",
+          "label": {
+            "en": "RRI — Romanian live channel 2",
+            "ro": "RRI — canalul 2 în direct, în română"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/frecvente-unde-scurte-internet-receptie-emisiuni-social-media-curierul-romanesc-marinari-audionow-tunein",
+          "label": {
+            "en": "RRI — reception and seasonal shortwave schedule",
+            "ro": "RRI — recepție și grila sezonieră de unde scurte"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/contact",
+          "label": {
+            "en": "RRI — contact",
+            "ro": "RRI — contact"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/despre-radio-romania-international-2",
+          "label": {
+            "en": "RRI — public broadcaster and language services",
+            "ro": "RRI — serviciu public și servicii lingvistice"
+          }
+        }
+      ],
+      "source_note": {
+        "en": "Reception page checked with Chrome MCP on 20 November 2026: the Romanian service is called RRI 1 but streams 24/7 on online channel 2. Its published shortwave schedule covers 25 October 2026–27 March 2027; see Sources for times, frequencies, alternatives and target areas. RF reception was not tested.",
+        "ro": "Pagina de recepție verificată cu Chrome MCP la 20 noiembrie 2026: serviciul în română este numit RRI 1, dar este transmis online 24/7 pe canalul 2. Grila publicată de unde scurte este valabilă între 25 octombrie 2026 și 27 martie 2027; vezi Surse pentru ore, frecvențe, alternative și zonele vizate. Recepția radio nu a fost testată."
+      }
+    },
+    {
+      "id": "rri-1",
+      "broadcast_languages": [
+        "en",
+        "fr",
+        "es",
+        "ro"
+      ],
+      "name": "Radio România Internațional 1",
+      "mark": "RRI1",
+      "country": {
+        "code": "ro",
+        "name": {
+          "en": "Romania",
+          "ro": "România"
+        }
+      },
+      "city": {
+        "slug": "bucuresti",
+        "name": {
+          "en": "Bucharest",
+          "ro": "București"
+        }
+      },
+      "county": "",
+      "language": {
+        "en": "Multilingual; language changes by schedule",
+        "ro": "multilingv; limba se schimbă conform grilei"
+      },
+      "modes": [
+        "online"
+      ],
+      "categories": [
+        "news",
+        "culture",
+        "music"
+      ],
+      "tags": [
+        {
+          "en": "International service",
+          "ro": "Serviciu internațional"
+        },
+        {
+          "en": "Languages vary by schedule",
+          "ro": "Limbi conform grilei"
+        }
+      ],
+      "description": {
+        "en": "News, culture, tourism and music from Romania on online channel 1. Programs alternate languages, including English, French and Spanish.",
+        "ro": "Știri, cultură, turism și muzică din România pe canalul online 1. Emisiunile alternează între limbi, inclusiv engleză, franceză și spaniolă."
+      },
+      "frequency": {
+        "value": null,
+        "display": {
+          "en": "Seasonal shortwave schedule: see Sources",
+          "ro": "Grila sezonieră de unde scurte: vezi Surse"
+        },
+        "band": ""
+      },
+      "listening": {
+        "stream": "https://stream4.srr.ro:8443/romania-rri1",
+        "page": "https://www.rri.ro/live-rri-1",
+        "official": "https://www.rri.ro/",
+        "stream_note": {
+          "en": "Language changes with the schedule; selecting a language filter does not change the live program. Audio progress confirmed with Chrome MCP on 20 November 2026.",
+          "ro": "Limba se schimbă conform grilei; filtrul de limbă nu schimbă programul în direct. Progres audio confirmat cu Chrome MCP la 20 noiembrie 2026."
+        }
+      },
+      "programming": {
+        "en": "News and current affairs, Romanian culture, tourism and music in scheduled language blocks. Curierul românesc in Romanian: Sundays 10:00–13:00, Europe/Bucharest (08:00–11:00 UTC in winter; 07:00–10:00 UTC in summer).",
+        "ro": "Știri și actualitate, cultură românească, turism și muzică în intervale lingvistice programate. Curierul românesc în română: duminica 10:00–13:00, ora României (08:00–11:00 UTC iarna; 07:00–10:00 UTC vara)."
+      },
+      "history": {
+        "first_broadcast": null,
+        "operator": "Societatea Română de Radiodifuziune (SRR)"
+      },
+      "contact": {
+        "address": {
+          "en": "Strada General Berthelot 60–64, Sector 1, 010165 Bucharest, Romania",
+          "ro": "Strada General Berthelot 60–64, sector 1, 010165 București, România"
+        },
+        "phones": [
+          {
+            "display": "+40 21 319 05 16",
+            "value": "+40213190516"
+          }
+        ],
+        "email": "secretariat@rri.ro"
+      },
+      "verified": "2026-11-20",
+      "sources": [
+        {
+          "url": "https://www.rri.ro/live-rri-1",
+          "label": {
+            "en": "RRI — live online channel 1 and official stream",
+            "ro": "RRI — canalul online 1 în direct și fluxul oficial"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/en/frequencies",
+          "label": {
+            "en": "RRI — English broadcast times and online channel 1",
+            "ro": "RRI — orele emisiunilor în engleză și canalul online 1"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/",
+          "label": {
+            "en": "RRI — programming",
+            "ro": "RRI — programe"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/frecvente-unde-scurte-internet-receptie-emisiuni-social-media-curierul-romanesc-marinari-audionow-tunein",
+          "label": {
+            "en": "RRI — reception and seasonal shortwave schedule",
+            "ro": "RRI — recepție și grila sezonieră de unde scurte"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/contact",
+          "label": {
+            "en": "RRI — contact",
+            "ro": "RRI — contact"
+          }
+        },
+        {
+          "url": "https://www.rri.ro/despre-radio-romania-international-2",
+          "label": {
+            "en": "RRI — public broadcaster and language services",
+            "ro": "RRI — serviciu public și servicii lingvistice"
+          }
+        }
+      ],
+      "source_note": {
+        "en": "Online channel numbers differ from the Romanian/foreign-language service names. English is assigned to online channel 1 by RRI; French and Spanish were reported by the user. The Romanian reception page also assigns Sunday Curierul românesc to channel 1. Listed languages are not an exhaustive channel schedule.",
+        "ro": "Numerele canalelor online diferă de denumirile serviciilor în română și în limbi străine. RRI indică engleza pe canalul online 1; franceza și spaniola au fost raportate de utilizator. Pagina de recepție în română indică și Curierul românesc duminica pe canalul 1. Limbile enumerate nu reprezintă grila completă a canalului."
+      }
     }
   ]
 }
