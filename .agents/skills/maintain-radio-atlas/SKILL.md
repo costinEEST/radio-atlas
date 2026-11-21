@@ -17,14 +17,15 @@ Work from the repository root. Station research needs online sources; prefer Chr
 
 Read only the references needed for the requested work:
 
-| Task | Reference |
-| --- | --- |
-| Add/update station facts, frequencies, categories or catalog translations | [Catalog schema and data rules](references/catalog.md) |
-| Change HTML, CSS or client-side JavaScript | [Frontend implementation and presentation](references/frontend.md), then [browser acceptance checks](references/validation.md) |
-| Change shared audio or compact player behavior | [Playback invariants and checks](references/playback.md) |
-| Change locale behavior or publish a language | [Localization and publishing](references/localization.md), plus catalog rules for translated station fields |
-| Recover a missing source or inspect a PDF | [PDF research](references/pdf-research.md) |
-| Chrome MCP reports a profile-in-use error | [Browser recovery](references/browser-recovery.md) |
+| Task                                                                      | Reference                                                                                                                      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Verify station streams or listening pages, including batch checks         | [Station verification scripts and MCP procedure](references/station-verification.md)                                           |
+| Add/update station facts, frequencies, categories or catalog translations | [Catalog schema and data rules](references/catalog.md)                                                                         |
+| Change HTML, CSS or client-side JavaScript                                | [Frontend implementation and presentation](references/frontend.md), then [browser acceptance checks](references/validation.md) |
+| Change shared audio or compact player behavior                            | [Playback invariants and checks](references/playback.md)                                                                       |
+| Change locale behavior or publish a language                              | [Localization and publishing](references/localization.md), plus catalog rules for translated station fields                    |
+| Recover a missing source or inspect a PDF                                 | [PDF research](references/pdf-research.md)                                                                                     |
+| Chrome MCP reports a profile-in-use error                                 | [Browser recovery](references/browser-recovery.md)                                                                             |
 
 Consult `modern-web-guidance` before writing HTML/CSS/client-side JavaScript, as described in the frontend reference. Skip it for data-only catalog edits, research, documentation, skills, Git, tooling and non-browser scripts. Browser validation alone does not trigger a lookup.
 
@@ -33,7 +34,7 @@ Consult `modern-web-guidance` before writing HTML/CSS/client-side JavaScript, as
 1. **Inspect before adding.** Search `radios.json` by station name, official domain and stream URL. Update an existing entry rather than duplicating it; preserve its ID. Check the working tree and keep unrelated changes intact.
 2. **Research before editing.** Open supporting pages and verify the facts being added or changed: identity, location, frequencies, format, operator, contacts, listening URLs, recommendations and dates. Prefer the broadcaster and relevant regulator (Romania's CNA for Romanian stations); use reputable directories for gaps. Do not rely solely on search snippets.
 3. **Resolve evidence.** Retain URLs for material claims and distinguish official facts, third-party claims and curator information. Prefer authoritative, recent evidence. If an unresolved conflict materially affects the proposed change, report it and ask for direction; continue independent work. An unverifiable required fact may be retained only when explicitly supplied by the user and labeled accordingly. Do not advance unrelated verification dates.
-4. **Preflight links and playback.** Check official, listening, recommendation and stream URLs with Chrome MCP when available. Record redirects, failures and mixed-content limits. A loaded page, HTTP success or accepted play request is not proof of playback: confirm advancing audio before stating that it played.
+4. **Preflight links and playback.** For repeatable individual or batch checks, use the [verification scripts](references/station-verification.md). Keep raw reports and generated browser expressions in a temporary directory unless requested as deliverables. Check official, listening, recommendation and stream URLs with Chrome MCP when available. Record redirects, failures and mixed-content limits. A loaded page, HTTP success or accepted play request is not proof of playback: confirm advancing audio before stating that it played.
 5. **Update the catalog.** Follow the catalog reference. Keep schema version 2, bilingual `en`/`ro` text, stable IDs, machine/display distinctions, source URLs and ISO verification dates. Reuse appropriate category keys. New frequency locations must participate in generated search and filters without hard-coded UI options.
 6. **Validate the affected result.** Run the Node suite and serve over HTTP. Confirm fresh catalog hydration, search, relevant country/location/language/category filters, location frequency preview/reset, disclosures, favorites, copy actions and outbound URLs. Inspect console and failed network requests. Check new labels/options in English and Romanian. For new long content or frequency-list shapes, inspect expanded cards at 320px and 200% text size. Apply the full browser acceptance reference when frontend behavior changes or a new rendering case warrants it.
 
@@ -45,9 +46,11 @@ Read the frontend reference before changing implementation. Add the playback or 
 
 ## Available scripts
 
-| Script | Purpose | Arguments |
-| --- | --- | --- |
-| `scripts/extract-radio-pdf.py` (inside this skill) | Extract layout text with page markers and report PDF metadata for manual verification | Input PDF path, output text path |
+| Script                                              | Purpose                                                                                                | Arguments                                                                                                   |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `scripts/check-radio-stations.py` (repository root) | Select catalog IDs, all stations, or commit additions; probe HTTP and generate a Chrome MCP expression | `--station ID...`, `--all` or `--commit REV`; optional `--prepare-only`, `--browser-expression`, `--output` |
+| `scripts/check-radio-browser.js` (repository root)  | Confirm advancing native audio through Chrome MCP                                                      | Use the Python-generated expression; configurable timeout, attempts and concurrency                         |
+| `scripts/extract-radio-pdf.py` (inside this skill)  | Extract layout text with page markers and report PDF metadata for manual verification                  | Input PDF path, output text path                                                                            |
 
 For PDF research, after following the download and completeness checks in the PDF reference:
 
