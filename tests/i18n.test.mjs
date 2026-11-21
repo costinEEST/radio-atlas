@@ -419,7 +419,7 @@ test("a rendering failure rolls back language and URL without document navigatio
   } finally { console.error = log; }
 });
 
-test("broadcast languages use explicit codes and preserve multilingual and unknown entries", async () => {
+test("broadcast languages use explicit codes and preserve multilingual entries", async () => {
   const catalog = await read("radios.json");
   const stations = new Map(catalog.stations.map(station => [station.id, station]));
   for (const station of catalog.stations) {
@@ -436,6 +436,5 @@ test("broadcast languages use explicit codes and preserve multilingual and unkno
   assert.deepEqual(stations.get("marosvasarhelyi").broadcast_languages, ["hu", "de", "rom"]);
   assert.deepEqual(stations.get("algerian-quran").broadcast_languages, ["ar", "fr"]);
   assert.deepEqual(stations.get("peaceradio-quran").broadcast_languages, ["ar", "ml"]);
-  assert.deepEqual(stations.get("sayang-quran").broadcast_languages, []);
   assert.deepEqual(stations.get("sout-ul-quran").broadcast_languages, ["ar"]);
 });

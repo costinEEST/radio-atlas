@@ -46,10 +46,7 @@
   "stations": [
     {
       "id": "t",
-      "broadcast_languages": [
-        "ro",
-        "tr"
-      ],
+      "broadcast_languages": ["ro", "tr"],
       "name": "Radio T",
       "mark": "T",
       "country": {
@@ -74,15 +71,8 @@
         "ro": "română și turcă",
         "en": "Romanian and Turkish"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "culture",
-        "music",
-        "news"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["culture", "music", "news"],
       "tags": [
         {
           "ro": "Comunitatea turcă",
@@ -1203,8 +1193,7 @@
           },
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -1520,8 +1509,7 @@
           },
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -1820,8 +1808,7 @@
           },
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -2051,8 +2038,7 @@
           },
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -2308,8 +2294,7 @@
           },
           "url": "https://media.cna.ro/Frecventele_serviciilor_de_programe_Radio_ale_SRR_SITE_b0187e0343.pdf"
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -2346,14 +2331,8 @@
         "en": "Romanian",
         "ro": "română"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "news",
-        "music"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["news", "music"],
       "tags": [
         {
           "en": "News and music",
@@ -3135,8 +3114,7 @@
             "ro": "Europa FM — contact"
           }
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
         "sources": [
@@ -3172,10 +3150,7 @@
         "en": "Romanian",
         "ro": "română"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
+      "modes": ["online", "fm"],
       "categories": ["music", "culture"],
       "tags": [
         {
@@ -3538,13 +3513,10 @@
             "ro": "Radio Guerrilla — contact"
           }
         }
-      ]
-    ,
+      ],
       "frequency_verification": {
         "checked": "2026-11-15",
-        "sources": [
-          "https://www.guerrillaradio.ro/reteaua-radio-guerrilla/"
-        ],
+        "sources": ["https://www.guerrillaradio.ro/reteaua-radio-guerrilla/"],
         "note": {
           "en": "Published broadcaster frequency list; reception not tested.",
           "ro": "Lista de frecvențe publicată de radiodifuzor; recepția nu a fost testată."
@@ -3553,9 +3525,7 @@
     },
     {
       "id": "rock",
-      "broadcast_languages": [
-        "ro"
-      ],
+      "broadcast_languages": ["ro"],
       "name": "Rock FM",
       "mark": "RF",
       "country": {
@@ -3577,14 +3547,8 @@
         "en": "Romanian",
         "ro": "română"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "music",
-        "rock"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["music", "rock"],
       "tags": [
         {
           "en": "Rock",
@@ -3915,14 +3879,8 @@
         "en": "Romanian",
         "ro": "română"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
-      "categories": [
-        "news",
-        "music"
-      ],
+      "modes": ["online", "fm"],
+      "categories": ["news", "music"],
       "tags": [
         {
           "en": "News and music",
@@ -6598,105 +6556,6 @@
       }
     },
     {
-      "id": "jordan-quran",
-      "broadcast_languages": ["ar"],
-      "name": "Jordan Quran Radio",
-      "mark": "JQ",
-      "country": {
-        "code": "jo",
-        "name": {
-          "ro": "Iordania",
-          "en": "Jordan"
-        }
-      },
-      "city": {
-        "slug": "amman",
-        "name": {
-          "ro": "Amman",
-          "en": "Amman"
-        }
-      },
-      "county": "",
-      "language": {
-        "ro": "arabă",
-        "en": "Arabic"
-      },
-      "modes": ["online"],
-      "categories": ["quran", "religion"],
-      "tags": [
-        {
-          "ro": "Coran",
-          "en": "Quran"
-        },
-        {
-          "ro": "Limbi: arabă",
-          "en": "Languages: Arabic"
-        }
-      ],
-      "description": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
-        "en": "Quran recitations; the schedule and exact content may vary."
-      },
-      "frequency": {
-        "value": null,
-        "display": {
-          "ro": "Frecvență neconfirmată",
-          "en": "Frequency unconfirmed"
-        },
-        "band": ""
-      },
-      "listening": {
-        "stream": "https://jrtv-live.ercdn.net/jrradio/quranradio.m3u8",
-        "page": "https://surahquran.com/Radio-Quran-Jordan.html",
-        "official": null,
-        "stream_note": {
-          "ro": "Fluxul HLS a răspuns la verificarea HTTP, dar nu a început redarea în browser la două încercări. Disponibilitatea poate varia; încearcă pagina externă.",
-          "en": "The HLS stream responded to the HTTP check, but browser playback did not start in two attempts. Availability may vary; try the external page."
-        }
-      },
-      "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
-        "en": "Quran recitations; the schedule and exact content may vary."
-      },
-      "history": {
-        "first_broadcast": null,
-        "operator": null
-      },
-      "contact": {
-        "address": null,
-        "phones": [],
-        "email": null
-      },
-      "verified": "2026-11-05",
-      "sources": [
-        {
-          "label": {
-            "ro": "Sadaa — liste și localizare",
-            "en": "Sadaa — lists and location"
-          },
-          "url": "https://sadaa.app/"
-        },
-        {
-          "label": {
-            "ro": "Radio Browser — înregistrare și flux comunitar",
-            "en": "Radio Browser — community listing and stream"
-          },
-          "url": "https://de1.api.radio-browser.info/json/stations/byuuid/06e1ce15-a839-4bd6-9d77-6c4c32eb75cc"
-        },
-        {
-          "label": {
-            "ro": "Pagină de ascultare alternativă",
-            "en": "Alternative listening page"
-          },
-          "url": "https://surahquran.com/Radio-Quran-Jordan.html"
-        }
-      ],
-      "source_note": {
-        "en": "Sadaa classification: national.",
-        "ro": "Clasificare Sadaa: național."
-      }
-    },
-    {
       "id": "algerian-quran",
       "broadcast_languages": ["ar", "fr"],
       "name": "Algerian Quran Radio",
@@ -7242,12 +7101,12 @@
         "band": "MHz FM"
       },
       "listening": {
-        "stream": "http://www.quran-radio.org:8002/",
+        "stream": "https://quran-radio.org:8080/;?type=http&nocache=29",
         "page": "https://quran-radio.com/",
         "official": "https://quran-radio.com/",
         "stream_note": {
-          "ro": "Flux HTTP: serverul a răspuns cu audio/mpeg, dar browserul a respins sursa (NotSupportedError). Folosește pagina oficială de ascultare; nu se încorporează într-o pagină HTTPS.",
-          "en": "HTTP stream: the server returned audio/mpeg, but the browser rejected the source (NotSupportedError). Use the official listening page; do not embed it in an HTTPS page."
+          "ro": "Flux HTTPS preluat din pagina oficială de ascultare; progres audio confirmat pe pagina oficială și dintr-o pagină HTTPS cu Chrome MCP la 21 noiembrie 2026. Disponibilitatea variază.",
+          "en": "HTTPS stream taken from the official listening page; advancing audio confirmed on the official page and from an HTTPS page with Chrome MCP on 21 November 2026. Availability varies."
         }
       },
       "programming": {
@@ -7555,11 +7414,11 @@
       },
       "listening": {
         "stream": "http://stream.peaceradio.com:8000/quran/high",
-        "page": "https://www.peaceradio.com/",
+        "page": "http://stream.peaceradio.com:8000/quran/high",
         "official": "https://www.peaceradio.com/",
         "stream_note": {
-          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă. HTTP sau redirecționare HTTP: folosește pagina externă; nu se încorporează în HTTPS.",
-          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies. HTTP or HTTP redirect: use the external page; do not embed in HTTPS."
+          "ro": "Deschide fluxul HTTP într-o filă separată: progres audio confirmat în browser la 21 noiembrie 2026. Nu poate fi redat în acest site HTTPS. Playerul desktop indicat de site-ul oficial nu a funcționat la verificarea în browser; linkul de ascultare deschide direct fluxul funcțional. Disponibilitatea variază.",
+          "en": "Open the HTTP stream in a separate tab: advancing audio confirmed in the browser on 21 November 2026. It cannot play inside this HTTPS site. The official website’s linked desktop player failed browser checks; the listening link opens the working stream directly. Availability varies."
         }
       },
       "programming": {
@@ -7597,105 +7456,6 @@
             "en": "Associated website"
           },
           "url": "https://www.peaceradio.com/"
-        }
-      ],
-      "source_note": {
-        "en": "Sadaa classification: community.",
-        "ro": "Clasificare Sadaa: comunitar."
-      }
-    },
-    {
-      "id": "sayang-quran",
-      "broadcast_languages": [],
-      "name": "Radio Sayang Quran",
-      "mark": "RQ",
-      "country": {
-        "code": "id",
-        "name": {
-          "ro": "Indonezia",
-          "en": "Indonesia"
-        }
-      },
-      "city": {
-        "slug": "nespecificat-id",
-        "name": {
-          "ro": "Localitate nepublicată",
-          "en": "Location not published"
-        }
-      },
-      "county": "",
-      "language": {
-        "ro": "nespecificată în sursa de catalog",
-        "en": "not specified in the catalog source"
-      },
-      "modes": ["online"],
-      "categories": ["quran", "religion"],
-      "tags": [
-        {
-          "ro": "Coran",
-          "en": "Quran"
-        },
-        {
-          "ro": "Limbi: nespecificată în sursa de catalog",
-          "en": "Languages: not specified in the catalog source"
-        }
-      ],
-      "description": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
-        "en": "Quran recitations; the schedule and exact content may vary."
-      },
-      "frequency": {
-        "value": null,
-        "display": {
-          "ro": "Frecvență neconfirmată",
-          "en": "Frequency unconfirmed"
-        },
-        "band": ""
-      },
-      "listening": {
-        "stream": "https://radio.sayangquran.com/listen/radiosq/radio.mp3",
-        "page": "https://radio.sayangquran.com/public/radiosq",
-        "official": "https://radio.sayangquran.com/public/radiosq",
-        "stream_note": {
-          "ro": "Redare și progres audio confirmate cu Chrome MCP la 5 noiembrie 2026; disponibilitate variabilă.",
-          "en": "Playback and progress confirmed with Chrome MCP on 5 November 2026; availability varies."
-        }
-      },
-      "programming": {
-        "ro": "Recitări ale Coranului; grila și conținutul exact pot varia.",
-        "en": "Quran recitations; the schedule and exact content may vary."
-      },
-      "history": {
-        "first_broadcast": null,
-        "operator": null
-      },
-      "contact": {
-        "address": null,
-        "phones": [],
-        "email": null
-      },
-      "verified": "2026-11-05",
-      "sources": [
-        {
-          "label": {
-            "ro": "Sadaa — liste și localizare",
-            "en": "Sadaa — lists and location"
-          },
-          "url": "https://sadaa.app/"
-        },
-        {
-          "label": {
-            "ro": "Radio Browser — înregistrare și flux comunitar",
-            "en": "Radio Browser — community listing and stream"
-          },
-          "url": "https://de1.api.radio-browser.info/json/stations/byuuid/9b9f9ccf-c33a-4dd4-89ac-14b864819e87"
-        },
-        {
-          "label": {
-            "ro": "Site asociat",
-            "en": "Associated website"
-          },
-          "url": "https://radio.sayangquran.com/public/radiosq"
         }
       ],
       "source_note": {
@@ -7826,10 +7586,7 @@
         "ro": "maghiară",
         "en": "Hungarian"
       },
-      "modes": [
-        "online",
-        "fm"
-      ],
+      "modes": ["online", "fm"],
       "categories": ["generalist", "culture", "religion", "catholic", "news"],
       "tags": [
         {
@@ -8284,9 +8041,7 @@
     },
     {
       "id": "rri",
-      "broadcast_languages": [
-        "ro"
-      ],
+      "broadcast_languages": ["ro"],
       "name": "Radio România Internațional",
       "mark": "RRI",
       "country": {
@@ -8308,14 +8063,8 @@
         "en": "Romanian (online channel 2)",
         "ro": "română (canalul online 2)"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "news",
-        "culture",
-        "music"
-      ],
+      "modes": ["online"],
+      "categories": ["news", "culture", "music"],
       "tags": [
         {
           "en": "Romanian diaspora",
@@ -8413,12 +8162,7 @@
     },
     {
       "id": "rri-1",
-      "broadcast_languages": [
-        "en",
-        "fr",
-        "es",
-        "ro"
-      ],
+      "broadcast_languages": ["en", "fr", "es", "ro"],
       "name": "Radio România Internațional 1",
       "mark": "RRI1",
       "country": {
@@ -8440,14 +8184,8 @@
         "en": "Multilingual; language changes by schedule",
         "ro": "multilingv; limba se schimbă conform grilei"
       },
-      "modes": [
-        "online"
-      ],
-      "categories": [
-        "news",
-        "culture",
-        "music"
-      ],
+      "modes": ["online"],
+      "categories": ["news", "culture", "music"],
       "tags": [
         {
           "en": "International service",
