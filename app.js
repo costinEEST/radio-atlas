@@ -113,9 +113,7 @@ try {
         text: `${t("listen")} · ${station.name}`,
       });
     }
-    for (const button of stationsRoot.querySelectorAll(
-      '[data-action="play"]',
-    )) {
+    for (const button of document.querySelectorAll('[data-action="play"]')) {
       const active = button.dataset.stationId === station?.id;
       const key =
         active && state === "playing"
@@ -123,7 +121,9 @@ try {
           : active && state === "loading"
             ? "player.cancel"
             : "player.playOnline";
-      button.textContent = t(key);
+      button.textContent = button.closest("#presets")
+        ? `${t(key)} · ${stationsById.get(button.dataset.stationId).name}`
+        : t(key);
       button.ariaLabel = `${t(key)} · ${stationsById.get(button.dataset.stationId).name}`;
       button.lang = messagesLanguage(key);
     }
@@ -201,7 +201,7 @@ try {
     // Never leave focus inside a hidden bar after Stop or a viewport change.
     if (!show && miniPlayer.contains(document.activeElement)) {
       const visibleAction = [
-        ...stationsRoot.querySelectorAll('[data-action="play"]'),
+        ...document.querySelectorAll('[data-action="play"]'),
       ].find((button) => {
         const rect = button.getBoundingClientRect();
         return (
@@ -718,6 +718,52 @@ try {
     if (select.selectedIndex === -1) select.value = "";
   }
 
+  function renderPresets() {
+    const root = document.querySelector("#presets");
+    const focusedId = root.contains(document.activeElement)
+      ? document.activeElement.dataset.stationId
+      : null;
+    const items = [];
+    for (const id of favorites) {
+      const station = stationsById.get(id);
+      if (!station) continue;
+      const item = document.createElement("li");
+      const native = player.support(station.listening.stream) === "native";
+      const action = document.createElement(native ? "button" : "a");
+      action.dataset.stationId = id;
+      action.dir = "auto";
+      if (native) {
+        action.type = "button";
+        action.dataset.action = "play";
+        const active = selectedStation?.id === id;
+        const key =
+          active && playbackState === "playing"
+            ? "player.pause"
+            : active && playbackState === "loading"
+              ? "player.cancel"
+              : "player.playOnline";
+        action.textContent = `${t(key)} · ${station.name}`;
+        action.ariaLabel = action.textContent;
+      } else {
+        setLink(
+          action,
+          station.listening.page,
+          `${station.name} · ${t("listen")}`,
+        );
+        if (!action.hasAttribute("href")) continue;
+        action.target = "_blank";
+        action.rel = "noopener noreferrer";
+      }
+      item.append(action);
+      items.push(item);
+    }
+    root.replaceChildren(...items);
+    if (focusedId)
+      [...root.querySelectorAll("[data-station-id]")]
+        .find((node) => node.dataset.stationId === focusedId)
+        ?.focus({ preventScroll: true });
+  }
+
   function render() {
     if (!catalogLoaded) return;
     const data = new FormData(filters);
@@ -757,6 +803,7 @@ try {
       }
       if (visible) count += 1;
     }
+    renderPresets();
     updateQueueControls();
     emptyState.hidden = count !== 0;
     resultCount.textContent = t("results", { count });
@@ -969,6 +1016,15 @@ try {
         render();
       }),
     );
+
+  document.querySelector("#presets").addEventListener(
+    "click",
+    handleAction(async (event) => {
+      const button = event.target.closest('[data-action="play"]');
+      if (button)
+        await player.toggle(stationsById.get(button.dataset.stationId));
+    }),
+  );
 
   stationsRoot.addEventListener(
     "click",

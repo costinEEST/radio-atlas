@@ -143,5 +143,7 @@
   "frequency.checkedOnly": "Officially listed · checked {checked}",
   "player.previous": "Previous station",
   "player.next": "Next station",
-  "player.queueHint": "Previous and next follow playable stations in your filtered results."
+  "player.queueHint": "Previous and next follow playable stations in your filtered results.",
+  "presets.title": "Favorite presets",
+  "presets.hint": "Save stations with the star button for quick access here, across all filters."
 }

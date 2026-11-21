@@ -144,5 +144,7 @@
   "frequency.checkedOnly": "Frecvențe publicate oficial · verificate la {checked}",
   "player.previous": "Postul anterior",
   "player.next": "Postul următor",
-  "player.queueHint": "Anterior și următor parcurg posturile care pot fi redate în browser din rezultatele filtrate."
+  "player.queueHint": "Anterior și următor parcurg posturile care pot fi redate în browser din rezultatele filtrate.",
+  "presets.title": "Posturi favorite",
+  "presets.hint": "Salvează posturi cu butonul stea pentru acces rapid aici, indiferent de filtre."
 }

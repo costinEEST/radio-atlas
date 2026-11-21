@@ -6,7 +6,7 @@ Search by station, location, frequency or content, or browse by country, city an
 
 Play compatible streams directly in Radio Atlas, with one station playing at a time and native audio controls. A listening-page link remains available when a stream cannot play in your browser. Use Previous station and Next station to cycle through browser-playable stations in your filtered results, including favorites. Filtering keeps the current station selected.
 
-Save favorites on your device and combine them with location, content and broadcast filters, or copy a frequency for your radio.
+Save favorites on your device, access them from compact presets above the player, and combine them with location, content and broadcast filters, or copy a frequency for your radio.
 
 A compact player keeps playback controls within reach while you browse, when screen space permits. Expand it to return to the full player, or use Back to filters after the results to change your search.
 
