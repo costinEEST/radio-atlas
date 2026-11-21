@@ -306,6 +306,7 @@
     align-items: center;
     min-block-size: 2.75rem;
   }
+  .station-exchange,
   .fm-dial {
     margin-block-end: 1.25rem;
     padding: 1rem;
@@ -314,9 +315,11 @@
     background: var(--surface);
     overflow-wrap: anywhere;
   }
+  .station-exchange p,
   .fm-dial p {
     margin-block: 0.75rem;
   }
+  .station-exchange summary,
   .fm-dial summary {
     min-block-size: 2.75rem;
     cursor: pointer;
@@ -340,6 +343,14 @@
     border-width: 3px;
     font-weight: 700;
   }
+  .station-exchange input[type="file"] { inline-size: 100%; min-inline-size: 0; margin-block: 0.5rem; }
+  .station-exchange input::file-selector-button { min-block-size: 2.75rem; }
+  .station-exchange h3 { margin-block-start: 1.5rem; }
+  .station-exchange button { max-inline-size: 100%; overflow-wrap: anywhere; }
+  .exchange-matches { padding-inline-start: 1.25rem; }
+  .exchange-matches li { margin-block: 1rem; }
+  .exchange-matches label { display: block; margin-block-end: 0.5rem; }
+  .exchange-matches select { inline-size: 100%; min-inline-size: 0; }
   .favorite-presets {
     margin-block-end: 1.25rem;
     padding: 1rem;

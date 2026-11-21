@@ -173,6 +173,37 @@
           <ul id="dial-stations" class="preset-list" role="list"></ul>
         </div>
       </details>
+      <details class="station-exchange" id="station-exchange">
+        <summary data-i18n="exchange.title">Exchange station lists with UndaSDR</summary>
+        <p data-i18n="exchange.hint">Import an UndaSDR JSON configuration to review its saved stations. Choose a
+          location in the filters to narrow frequency matches. Files stay on this device; importing adds favorites
+          without changing the catalog.</p>
+        <label for="station-list-file" data-i18n="exchange.file">UndaSDR JSON file (up to 1 MB)</label>
+        <input id="station-list-file" type="file" accept=".json,application/json"
+          aria-describedby="exchange-import-hint">
+        <p id="exchange-import-hint" data-i18n="exchange.reviewHint">Exact names and frequencies are selected
+          automatically. Review every match; choose a station for other known frequencies. Unmatched entries are not
+          imported.</p>
+        <div id="exchange-review" hidden>
+          <p id="exchange-summary"></p>
+          <ul id="exchange-matches" class="exchange-matches" role="list"></ul>
+          <button id="exchange-import" class="primary-action" type="button" data-i18n="exchange.add">Add selected
+            stations to favorites</button>
+        </div>
+        <h3 data-i18n="exchange.exportTitle">Export favorite FM stations</h3>
+        <p data-i18n="exchange.exportHint">Choose a location in the filters. The download includes favorite FM
+          frequencies from 87.5 to 108 MHz at that location, across all other filters.</p>
+        <p id="exchange-export-summary"></p>
+        <ul id="exchange-export-preview" role="list"></ul>
+        <button id="exchange-export" class="primary-action" type="button" data-i18n="exchange.download">Download
+          station-list JSON</button>
+        <p data-i18n="exchange.configHint">The download contains only the stations list. UndaSDR currently has no import
+          button: close it, back up ~/.config/rtl_fm_gui.json, then merge the stations list into that file while keeping
+          your other settings.</p>
+        <p><a href="https://github.com/lolopoco32/UndaSDR" target="_blank" rel="noopener noreferrer"
+            data-i18n="exchange.project" data-i18n-aria-label="exchange.projectLabel">UndaSDR project and setup</a></p>
+        <p id="exchange-status" role="status"></p>
+      </details>
       <section class="favorite-presets" aria-labelledby="presets-title">
         <h3 id="presets-title" data-i18n="presets.title">Favorite presets</h3>
         <p id="presets-hint" data-i18n="presets.hint">Save stations with the star button for quick access here, across

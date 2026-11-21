@@ -14,6 +14,10 @@ A compact player keeps playback controls within reach while you browse, when scr
 
 Choose a location and open Browse the FM dial to explore its catalog frequencies from 87.5 to 108 MHz. Select a frequency entry to open its station card and online listening options. This is a catalog view; it does not scan or receive radio signals.
 
+Exchange station lists with [UndaSDR](https://github.com/lolopoco32/UndaSDR) through local JSON files. Import a configuration, review frequency and name matches, then add selected catalog stations to your favorites. Export favorite FM frequencies for the selected location. Unknown entries remain visible for review, and conflicting frequencies block export. Files are processed on your device.
+
+UndaSDR currently reads its saved stations from `~/.config/rtl_fm_gui.json` and has no import button. Our export contains only its `stations` list: close UndaSDR, back up that configuration, and merge the list while preserving other settings.
+
 The compact listening guide explains audio formats, data usage and radio frequencies. The catalog covers stations from several countries and is available in English and Romanian.
 
 Radio Atlas is an independent catalog. Station availability can change; unconfirmed information and playback limitations are noted in the listings.

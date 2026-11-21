@@ -17,6 +17,9 @@ try {
   const { readPreferences, writePreferences } =
     await import("./preferences.js");
 
+  const { parseStationList, matchStationList, exportStationList } =
+    await import("./station-exchange.js");
+
   const filters = document.querySelector("#filters");
   const stationsRoot = document.querySelector("#stations");
   const template = document.querySelector("#station-template");
@@ -40,6 +43,10 @@ try {
   let toastTimer;
   let dialEntries = [];
   let dialLocation = "";
+  let importedEntries = null;
+  let importChoices = new Map();
+  let importLocation = null;
+  let importSequence = 0;
   let preferencesWarning = false;
   let restoringPreferences = false;
 
@@ -762,6 +769,110 @@ try {
     if (select.selectedIndex === -1) select.value = "";
   }
 
+  function exchangeStatus(message) {
+    document.querySelector("#exchange-status").textContent = message;
+  }
+
+  function updateImportButton() {
+    document.querySelector("#exchange-import").disabled = ![
+      ...importChoices.values(),
+    ].some(Boolean);
+  }
+
+  function renderExchange() {
+    const city = filters.elements.city.value;
+    const exported = exportStationList(
+      catalog.stations,
+      favorites,
+      city,
+      currentLocale(),
+    );
+    const format = (value) =>
+      new Intl.NumberFormat(currentLocale(), {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 2,
+      }).format(value);
+    const summary = document.querySelector("#exchange-export-summary");
+    summary.textContent = !city
+      ? t("exchange.chooseLocation")
+      : exported.conflicts.length
+        ? t("exchange.conflict", {
+            frequencies: exported.conflicts.map(format).join(" · "),
+          })
+        : t("exchange.exportCount", { count: exported.stations.length });
+    document.querySelector("#exchange-export").disabled =
+      !city || !exported.stations.length || exported.conflicts.length > 0;
+    document.querySelector("#exchange-export-preview").replaceChildren(
+      ...exported.stations.map((entry) => {
+        const item = document.createElement("li");
+        item.textContent = `${format(entry.f)} MHz · ${entry.n}`;
+        item.dir = "auto";
+        return item;
+      }),
+    );
+    const review = document.querySelector("#exchange-review");
+    review.hidden = importedEntries === null;
+    if (importedEntries === null) return;
+    const matches = matchStationList(importedEntries, catalog.stations, city);
+    if (importLocation !== city) importChoices = new Map();
+    importLocation = city;
+    const focused = document.activeElement;
+    const focusIndex = focused.closest("#exchange-matches")
+      ? focused.dataset.entryIndex
+      : null;
+    const items = matches.map(({ entry, candidates, matchId }, index) => {
+      const item = document.createElement("li");
+      const label = document.createElement("label");
+      label.textContent = `${format(entry.f)} MHz · ${entry.n || t("exchange.unnamed")}`;
+      label.dir = "auto";
+      if (!candidates.length) {
+        const text = document.createElement("p");
+        text.textContent = `${label.textContent} — ${t("exchange.unmatched")}`;
+        text.dir = "auto";
+        item.append(text);
+        importChoices.set(index, "");
+        return item;
+      }
+      const select = document.createElement("select");
+      select.id = `exchange-entry-${index}`;
+      select.dataset.entryIndex = String(index);
+      label.htmlFor = select.id;
+      const skip = document.createElement("option");
+      skip.value = "";
+      skip.textContent = t("exchange.skip");
+      select.append(skip);
+      for (const station of candidates) {
+        const option = document.createElement("option");
+        option.value = station.id;
+        option.textContent = localize(station.name);
+        select.append(option);
+      }
+      const previous = importChoices.get(index);
+      const choice =
+        previous !== undefined &&
+        (!previous || candidates.some((station) => station.id === previous))
+          ? previous
+          : matchId;
+      select.value = choice;
+      importChoices.set(index, choice);
+      item.append(label, select);
+      return item;
+    });
+    document.querySelector("#exchange-summary").textContent = t(
+      "exchange.reviewCount",
+      {
+        total: matches.length,
+        unmatched: matches.filter((match) => !match.candidates.length).length,
+      },
+    );
+    document.querySelector("#exchange-matches").replaceChildren(...items);
+    if (focusIndex !== null)
+      document
+        .getElementById(`exchange-entry-${focusIndex}`)
+        ?.focus({ preventScroll: true });
+    updateImportButton();
+  }
+
   function updateDialValue() {
     const input = document.querySelector("#fm-frequency");
     const value = Number(input.value);
@@ -917,6 +1028,7 @@ try {
     }
     renderPresets();
     renderDial();
+    renderExchange();
     updateQueueControls();
     emptyState.hidden = count !== 0;
     resultCount.textContent = t("results", { count });
@@ -1045,6 +1157,98 @@ try {
       } catch (error) {
         console.warn("Station fragment could not be updated.", error);
         notify(t("action.error"));
+      }
+    }),
+  );
+
+  document.querySelector("#station-list-file").addEventListener(
+    "change",
+    handleAction(async (event) => {
+      const request = ++importSequence;
+      const file = event.target.files[0];
+      if (!file) return;
+      importedEntries = null;
+      importChoices = new Map();
+      renderExchange();
+      try {
+        if (file.size > 1048576) throw new RangeError("File too large.");
+        const entries = parseStationList(await file.text());
+        if (request !== importSequence) return;
+        importedEntries = entries;
+        renderExchange();
+        exchangeStatus(t("exchange.ready"));
+      } catch (error) {
+        if (request !== importSequence) return;
+        console.warn("Station list could not be imported.", error);
+        exchangeStatus(t("exchange.invalid"));
+      } finally {
+        if (request === importSequence) event.target.value = "";
+      }
+    }),
+  );
+  document.querySelector("#exchange-matches").addEventListener(
+    "change",
+    handleAction((event) => {
+      if (!event.target.matches("select[data-entry-index]")) return;
+      importChoices.set(
+        Number(event.target.dataset.entryIndex),
+        event.target.value,
+      );
+      updateImportButton();
+    }),
+  );
+  document.querySelector("#exchange-import").addEventListener(
+    "click",
+    handleAction(() => {
+      let added = 0;
+      for (const id of new Set(importChoices.values())) {
+        if (!id || !stationsById.has(id) || favorites.has(id)) continue;
+        favorites.add(id);
+        added++;
+      }
+      saveFavorites();
+      for (const button of stationsRoot.querySelectorAll(".favorite"))
+        updateFavorite(button, stationsById.get(button.dataset.stationId).name);
+      render();
+      exchangeStatus(t("exchange.added", { count: added }));
+    }),
+  );
+  document.querySelector("#exchange-export").addEventListener(
+    "click",
+    handleAction(() => {
+      const city = filters.elements.city.value;
+      const result = exportStationList(
+        catalog.stations,
+        favorites,
+        city,
+        currentLocale(),
+      );
+      if (!city || !result.stations.length || result.conflicts.length) return;
+      let url;
+      const link = document.createElement("a");
+      try {
+        url = URL.createObjectURL(
+          new Blob(
+            [JSON.stringify({ stations: result.stations }, null, 2) + "\n"],
+            { type: "application/json" },
+          ),
+        );
+        link.href = url;
+        link.download = `radio-atlas-undasdr-${city}.json`;
+        link.hidden = true;
+        document.body.append(link);
+        link.click();
+        exchangeStatus(t("exchange.downloaded"));
+      } catch (error) {
+        console.warn("Station list download unavailable.", error);
+        exchangeStatus(t("exchange.downloadError"));
+      } finally {
+        link.remove();
+        if (url)
+          setTimeout(
+            handleAction(() => URL.revokeObjectURL(url)),
+            1000,
+          );
       }
     }),
   );
