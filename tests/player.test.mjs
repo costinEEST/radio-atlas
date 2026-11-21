@@ -3,22 +3,41 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const source = await readFile(new URL("../player.js", import.meta.url), "utf8");
-const { createPlayer, playbackSupport } = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`);
-const station = (id) => ({ id, name: id, listening: { stream: `https://radio.example/${id}.mp3` } });
+const { createPlayer, playbackSupport } = await import(
+  `data:text/javascript;base64,${Buffer.from(source).toString("base64")}`
+);
+const station = (id) => ({
+  id,
+  name: id,
+  listening: { stream: `https://radio.example/${id}.mp3` },
+});
 
 class Audio extends EventTarget {
   paused = true;
   error = null;
   src = "";
   requests = [];
-  canPlayType() { return ""; }
-  getAttribute() { return this.src || null; }
-  removeAttribute() { this.src = ""; }
-  load() { this.error = null; }
-  pause() { this.paused = true; this.dispatchEvent(new Event("pause")); }
+  canPlayType() {
+    return "";
+  }
+  getAttribute() {
+    return this.src || null;
+  }
+  removeAttribute() {
+    this.src = "";
+  }
+  load() {
+    this.error = null;
+  }
+  pause() {
+    this.paused = true;
+    this.dispatchEvent(new Event("pause"));
+  }
   play() {
     this.paused = false;
-    return new Promise((resolve, reject) => this.requests.push({ resolve, reject }));
+    return new Promise((resolve, reject) =>
+      this.requests.push({ resolve, reject }),
+    );
   }
 }
 
@@ -26,12 +45,24 @@ test("HTTP, invalid URLs and unsupported HLS use an external listening fallback"
   const audio = new Audio();
   assert.equal(playbackSupport("http://radio.example/live", audio), "external");
   assert.equal(playbackSupport("javascript:alert(1)", audio), "external");
-  assert.equal(playbackSupport("https://user:password@radio.example/live", audio), "external");
+  assert.equal(
+    playbackSupport("https://user:password@radio.example/live", audio),
+    "external",
+  );
   assert.equal(playbackSupport("not a URL", audio), "external");
-  assert.equal(playbackSupport("https://radio.example/live.pls", audio), "external");
-  assert.equal(playbackSupport("https://radio.example/live.m3u8?token=abc", audio), "hls");
+  assert.equal(
+    playbackSupport("https://radio.example/live.pls", audio),
+    "external",
+  );
+  assert.equal(
+    playbackSupport("https://radio.example/live.m3u8?token=abc", audio),
+    "hls",
+  );
   audio.canPlayType = () => "maybe";
-  assert.equal(playbackSupport("https://radio.example/live.m3u8", audio), "native");
+  assert.equal(
+    playbackSupport("https://radio.example/live.m3u8", audio),
+    "native",
+  );
 });
 
 test("no source is loaded before a user starts playback; stop releases the stream", async () => {
@@ -56,7 +87,9 @@ test("no source is loaded before a user starts playback; stop releases the strea
 test("rapid station switching ignores a rejected promise from the previous stream", async () => {
   const audio = new Audio();
   let latest;
-  const player = createPlayer(audio, (value) => { latest = value; });
+  const player = createPlayer(audio, (value) => {
+    latest = value;
+  });
   const first = player.toggle(station("first"));
   const second = player.toggle(station("second"));
   audio.requests[0].reject(new Error("old stream failed"));
@@ -74,10 +107,14 @@ test("rapid station switching ignores a rejected promise from the previous strea
 test("cancelling a pending stream and late media errors cannot restart stopped audio", async () => {
   const audio = new Audio();
   let latest;
-  const player = createPlayer(audio, (value) => { latest = value; });
+  const player = createPlayer(audio, (value) => {
+    latest = value;
+  });
   const pending = player.toggle(station("first"));
   await player.toggle(station("first"));
-  audio.requests[0].reject(Object.assign(new Error("cancelled"), { name: "AbortError" }));
+  audio.requests[0].reject(
+    Object.assign(new Error("cancelled"), { name: "AbortError" }),
+  );
   await pending;
   assert.equal(latest.state, "paused");
   assert.equal(audio.src, "");
@@ -90,7 +127,13 @@ test("cancelling a pending stream and late media errors cannot restart stopped a
 test("native pause and resume update state; a stalled connection times out and releases audio", async () => {
   const audio = new Audio();
   let latest;
-  const player = createPlayer(audio, (value) => { latest = value; }, { timeout: 20 });
+  const player = createPlayer(
+    audio,
+    (value) => {
+      latest = value;
+    },
+    { timeout: 20 },
+  );
   const pending = player.toggle(station("first"));
   audio.dispatchEvent(new Event("playing"));
   audio.requests[0].resolve();
@@ -106,4 +149,24 @@ test("native pause and resume update state; a stalled connection times out and r
   assert.equal(latest.state, "error");
   assert.equal(audio.src, "");
   assert.equal(audio.paused, true);
+});
+
+test("restoring a selected station makes no play request and resumes only after toggle", async () => {
+  const audio = new Audio();
+  let latest;
+  const player = createPlayer(audio, (value) => {
+    latest = value;
+  });
+  player.select(station("remembered"));
+  assert.equal(latest.state, "stopped");
+  assert.equal(latest.station.id, "remembered");
+  assert.equal(audio.src, "");
+  assert.equal(audio.requests.length, 0);
+  const pending = player.toggle(station("remembered"));
+  assert.equal(audio.requests.length, 1);
+  audio.dispatchEvent(new Event("playing"));
+  audio.requests[0].resolve();
+  await pending;
+  assert.equal(latest.state, "playing");
+  player.stop();
 });

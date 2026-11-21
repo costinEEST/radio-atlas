@@ -8,6 +8,8 @@ Play compatible streams directly in Radio Atlas, with one station playing at a t
 
 Save favorites on your device, access them from compact presets above the player, and combine them with location, content and broadcast filters, or copy a frequency for your radio.
 
+Radio Atlas remembers your last selected station, volume and mute setting on this device. Reloading restores the selection without loading a stream; press Play to resume.
+
 A compact player keeps playback controls within reach while you browse, when screen space permits. Expand it to return to the full player, or use Back to filters after the results to change your search.
 
 Choose a location and open Browse the FM dial to explore its catalog frequencies from 87.5 to 108 MHz. Select a frequency entry to open its station card and online listening options. This is a catalog view; it does not scan or receive radio signals.

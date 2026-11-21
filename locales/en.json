@@ -150,5 +150,7 @@
   "dial.hint": "Choose a location in the filters to browse its catalog frequencies. This dial does not receive or scan radio signals. Open a station for online listening options.",
   "dial.empty": "No FM frequencies in the filtered results for this location.",
   "dial.frequency": "FM frequency",
-  "dial.noMatch": "No catalog station at this frequency for the selected location."
+  "dial.noMatch": "No catalog station at this frequency for the selected location.",
+  "preferences.hint": "Your last station, volume and mute setting are remembered on this device. Press Play to resume.",
+  "preferences.error": "Listening preferences could not be saved or restored on this device. You can still listen."
 }

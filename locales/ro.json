@@ -151,5 +151,7 @@
   "dial.hint": "Alege o localitate din filtre pentru a explora frecvențele din catalog. Această scală nu recepționează și nu scanează semnale radio. Deschide un post pentru opțiunile de ascultare online.",
   "dial.empty": "Nicio frecvență FM în rezultatele filtrate pentru această localitate.",
   "dial.frequency": "Frecvență FM",
-  "dial.noMatch": "Niciun post din catalog la această frecvență pentru localitatea selectată."
+  "dial.noMatch": "Niciun post din catalog la această frecvență pentru localitatea selectată.",
+  "preferences.hint": "Ultimul post, volumul și setarea silențios sunt memorate pe acest dispozitiv. Apasă Redă pentru a relua ascultarea.",
+  "preferences.error": "Preferințele de ascultare nu au putut fi salvate sau restaurate pe acest dispozitiv. Poți asculta în continuare."
 }

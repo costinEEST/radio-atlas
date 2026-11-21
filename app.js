@@ -14,6 +14,8 @@ try {
   } = await import("./i18n.js");
   translateError = translateDOM;
   const { createPlayer } = await import("./player.js");
+  const { readPreferences, writePreferences } =
+    await import("./preferences.js");
 
   const filters = document.querySelector("#filters");
   const stationsRoot = document.querySelector("#stations");
@@ -38,6 +40,8 @@ try {
   let toastTimer;
   let dialEntries = [];
   let dialLocation = "";
+  let preferencesWarning = false;
+  let restoringPreferences = false;
 
   const normalize = (value) =>
     String(value)
@@ -75,6 +79,43 @@ try {
     }
   }
 
+  function saveListeningPreferences() {
+    if (restoringPreferences) return;
+    try {
+      writePreferences(localStorage, {
+        stationId: selectedStation?.id ?? null,
+        volume: audio.volume,
+        muted: audio.muted,
+      });
+    } catch (error) {
+      console.warn("Listening preferences could not be saved.", error);
+      if (!preferencesWarning) {
+        notify(t("preferences.error"));
+        preferencesWarning = true;
+      }
+    }
+  }
+
+  function restoreListeningPreferences() {
+    restoringPreferences = true;
+    try {
+      const settings = readPreferences(localStorage);
+      audio.volume = settings.volume;
+      audio.muted = settings.muted;
+      const station = stationsById.get(settings.stationId);
+      if (station && player.support(station.listening.stream) === "native")
+        player.select(station);
+    } catch (error) {
+      console.warn(
+        "Listening preferences unavailable; keeping defaults.",
+        error,
+      );
+      notify(t("preferences.error"));
+    } finally {
+      restoringPreferences = false;
+    }
+  }
+
   function setLink(link, href, text) {
     if (!href || !/^https?:\/\//i.test(href)) {
       link.remove();
@@ -90,6 +131,7 @@ try {
     const focused = document.activeElement;
     selectedStation = station;
     playbackState = state;
+    saveListeningPreferences();
     playerPanel.hidden = false;
     document.querySelector("#player-station").textContent = station?.name ?? "";
     const status = document.querySelector("#player-status");
@@ -1232,6 +1274,11 @@ try {
   stationsRoot.ariaBusy = "false";
   catalogLoaded = true;
   restoreUrlFilters();
+  restoreListeningPreferences();
+  audio.addEventListener(
+    "volumechange",
+    handleAction(saveListeningPreferences),
+  );
   try {
     const { initTooltips } = await import("./tooltips.js");
     initTooltips();
