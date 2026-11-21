@@ -101,7 +101,8 @@ try {
     retry.textContent = t(retryKey);
     retry.ariaLabel = `${t(retryKey)} · ${station?.name ?? ""}`;
     retry.lang = messagesLanguage(retryKey);
-    if (retry.hidden && focused === retry) document.querySelector("#player-stop").focus();
+    if (retry.hidden && focused === retry)
+      document.querySelector("#player-stop").focus();
     else if (audio.hidden && focused === audio && !retry.hidden) retry.focus();
     const fallback = document.querySelector("#player-fallback");
     const href = station?.listening.page;
@@ -112,25 +113,70 @@ try {
         text: `${t("listen")} · ${station.name}`,
       });
     }
-    for (const button of stationsRoot.querySelectorAll('[data-action="play"]')) {
+    for (const button of stationsRoot.querySelectorAll(
+      '[data-action="play"]',
+    )) {
       const active = button.dataset.stationId === station?.id;
-      const key = active && state === "playing"
-        ? "player.pause"
-        : active && state === "loading" ? "player.cancel" : "player.playOnline";
+      const key =
+        active && state === "playing"
+          ? "player.pause"
+          : active && state === "loading"
+            ? "player.cancel"
+            : "player.playOnline";
       button.textContent = t(key);
       button.ariaLabel = `${t(key)} · ${stationsById.get(button.dataset.stationId).name}`;
       button.lang = messagesLanguage(key);
     }
     document.querySelector("#mini-station").textContent = station?.name ?? "";
-    const compactKey = state === "playing" ? "player.pause"
-      : state === "loading" ? "player.cancel"
-      : "player.play";
+    const compactKey =
+      state === "playing"
+        ? "player.pause"
+        : state === "loading"
+          ? "player.cancel"
+          : "player.play";
     const compactToggle = document.querySelector("#mini-toggle");
     compactToggle.textContent = t(compactKey);
     compactToggle.ariaLabel = `${t(compactKey)} · ${station?.name ?? ""}`;
     compactToggle.lang = messagesLanguage(compactKey);
-    document.querySelector("#mini-stop").ariaLabel = `${t("player.stop")} · ${station?.name ?? ""}`;
+    document.querySelector("#mini-stop").ariaLabel =
+      `${t("player.stop")} · ${station?.name ?? ""}`;
+    updateQueueControls();
     scheduleCompactPlayer();
+  }
+
+  function playableResults() {
+    return [
+      ...stationsRoot.querySelectorAll(".station-item:not([hidden]) .station"),
+    ]
+      .map((card) => stationsById.get(card.id))
+      .filter(
+        (station) => player.support(station.listening.stream) === "native",
+      );
+  }
+
+  function queueTarget(direction) {
+    const queue = playableResults();
+    const index = queue.findIndex(
+      (station) => station.id === selectedStation?.id,
+    );
+    if (!queue.length || (queue.length === 1 && index === 0)) return null;
+    return queue[
+      index < 0
+        ? direction > 0
+          ? 0
+          : queue.length - 1
+        : (index + direction + queue.length) % queue.length
+    ];
+  }
+
+  function updateQueueControls() {
+    for (const button of document.querySelectorAll("[data-step]")) {
+      const target = queueTarget(Number(button.dataset.step));
+      button.setAttribute("aria-disabled", String(!target));
+      const key =
+        Number(button.dataset.step) > 0 ? "player.next" : "player.previous";
+      button.ariaLabel = target ? `${t(key)} · ${target.name}` : t(key);
+    }
   }
 
   function expandPlayer() {
@@ -139,18 +185,30 @@ try {
   }
 
   function syncCompactPlayer() {
-    const viewportHeight = Math.min(innerHeight, window.visualViewport?.height ?? innerHeight);
+    const viewportHeight = Math.min(
+      innerHeight,
+      window.visualViewport?.height ?? innerHeight,
+    );
     const panel = playerPanel.getBoundingClientRect();
     const bar = miniPlayer.getBoundingClientRect();
-    const active = selectedStation && !["idle", "stopped"].includes(playbackState);
+    const active =
+      selectedStation && !["idle", "stopped"].includes(playbackState);
     const offscreen = panel.bottom <= 0 || panel.top >= viewportHeight;
-    const fits = bar.height <= viewportHeight * 0.12 && miniPlayer.scrollWidth <= miniPlayer.clientWidth;
+    const fits =
+      bar.height <= viewportHeight * 0.12 &&
+      miniPlayer.scrollWidth <= miniPlayer.clientWidth;
     const show = Boolean(active && offscreen && fits);
     // Never leave focus inside a hidden bar after Stop or a viewport change.
     if (!show && miniPlayer.contains(document.activeElement)) {
-      const visibleAction = [...stationsRoot.querySelectorAll('[data-action="play"]')].find((button) => {
+      const visibleAction = [
+        ...stationsRoot.querySelectorAll('[data-action="play"]'),
+      ].find((button) => {
         const rect = button.getBoundingClientRect();
-        return button.getClientRects().length && rect.top >= 0 && rect.bottom <= viewportHeight;
+        return (
+          button.getClientRects().length &&
+          rect.top >= 0 &&
+          rect.bottom <= viewportHeight
+        );
       });
       if (visibleAction) visibleAction.focus({ preventScroll: true });
       else expandPlayer();
@@ -161,7 +219,11 @@ try {
     const focused = document.activeElement;
     if (show && focused !== document.body && !miniPlayer.contains(focused)) {
       const rect = focused.getBoundingClientRect();
-      if (rect.bottom > bar.top && rect.top < viewportHeight && rect.bottom > 0) {
+      if (
+        rect.bottom > bar.top &&
+        rect.top < viewportHeight &&
+        rect.bottom > 0
+      ) {
         focused.scrollIntoView({ block: "nearest", behavior: "instant" });
       }
     }
@@ -169,10 +231,12 @@ try {
 
   function scheduleCompactPlayer() {
     if (compactFrame) return;
-    compactFrame = requestAnimationFrame(handleAction(() => {
-      compactFrame = 0;
-      syncCompactPlayer();
-    }));
+    compactFrame = requestAnimationFrame(
+      handleAction(() => {
+        compactFrame = 0;
+        syncCompactPlayer();
+      }),
+    );
   }
 
   function appendContact(address, station, rawContact) {
@@ -242,19 +306,30 @@ try {
     setLocation(field(row, "frequency-location"), [
       rawFrequency.city.name,
       rawFrequency.county,
-      rawFrequency.location_type ? t(`frequency.${rawFrequency.location_type}`) : null,
+      rawFrequency.location_type
+        ? t(`frequency.${rawFrequency.location_type}`)
+        : null,
     ]);
   }
 
   function filterFrequencies(article) {
-    const query = normalize(article.querySelector('[data-action="filter-frequencies"]').value).replaceAll(",", ".");
-    const rows = [...field(article, "frequencies").querySelectorAll("li[data-search]")];
+    const query = normalize(
+      article.querySelector('[data-action="filter-frequencies"]').value,
+    ).replaceAll(",", ".");
+    const rows = [
+      ...field(article, "frequencies").querySelectorAll("li[data-search]"),
+    ];
     for (const row of rows) row.hidden = !row.dataset.search.includes(query);
     for (const group of field(article, "frequencies").children) {
-      group.hidden = ![...group.querySelectorAll("li[data-search]")].some((row) => !row.hidden);
+      group.hidden = ![...group.querySelectorAll("li[data-search]")].some(
+        (row) => !row.hidden,
+      );
     }
     const visible = rows.filter((row) => !row.hidden).length;
-    field(article, "frequency-results").textContent = t("frequency.results", { visible: new Intl.NumberFormat(currentLocale()).format(visible), total: new Intl.NumberFormat(currentLocale()).format(rows.length) });
+    field(article, "frequency-results").textContent = t("frequency.results", {
+      visible: new Intl.NumberFormat(currentLocale()).format(visible),
+      total: new Intl.NumberFormat(currentLocale()).format(rows.length),
+    });
     field(article, "frequency-empty").hidden = visible !== 0;
   }
 
@@ -264,24 +339,37 @@ try {
     setFrequency(field(article, "primary-frequency"), frequencies[0]);
     const options = article.querySelector(".frequency-options");
     options.hidden = !frequencies.some((frequency) => frequency.value);
-    field(article, "primary-frequency").hidden = frequencies.length <= 8 || options.hidden;
+    field(article, "primary-frequency").hidden =
+      frequencies.length <= 8 || options.hidden;
     const bands = new Map();
     for (const frequency of frequencies) {
       if (!frequency.value) continue;
       const band = frequency.band.split(" ").at(-1);
       bands.set(band, (bands.get(band) ?? 0) + 1);
     }
-    field(article, "frequency-counts").textContent = [...bands].map(([band, count]) => `${new Intl.NumberFormat(currentLocale()).format(count)} ${band}`).join(" · ");
+    field(article, "frequency-counts").textContent = [...bands]
+      .map(
+        ([band, count]) =>
+          `${new Intl.NumberFormat(currentLocale()).format(count)} ${band}`,
+      )
+      .join(" · ");
     const summary = field(article, "frequency-summary");
     summary.textContent = t("frequency.other");
     summary.lang = messagesLanguage("frequency.other");
     const verification = rawStation.frequency_verification;
     if (verification) {
-      const date = (value) => new Intl.DateTimeFormat(currentLocale(), { dateStyle: "medium", timeZone: "UTC" }).format(new Date(value));
+      const date = (value) =>
+        new Intl.DateTimeFormat(currentLocale(), {
+          dateStyle: "medium",
+          timeZone: "UTC",
+        }).format(new Date(value));
       const context = field(article, "frequency-verification");
       context.hidden = false;
       context.textContent = verification.source_updated
-        ? t("frequency.checked", { updated: date(verification.source_updated), checked: date(verification.checked) })
+        ? t("frequency.checked", {
+            updated: date(verification.source_updated),
+            checked: date(verification.checked),
+          })
         : t("frequency.checkedOnly", { checked: date(verification.checked) });
       const note = field(article, "frequency-context");
       note.hidden = false;
@@ -314,13 +402,26 @@ try {
       const row = fragment.querySelector(".frequency");
       setFrequency(row, rawFrequency);
       const site = field(row, "frequency-site");
-      site.hidden = !rawFrequency.licensed_site ||
-        localize(rawFrequency.licensed_site) === localize(rawFrequency.city.name);
-      if (!site.hidden) site.textContent = t("frequency.site", { site: localize(rawFrequency.licensed_site) });
+      site.hidden =
+        !rawFrequency.licensed_site ||
+        localize(rawFrequency.licensed_site) ===
+          localize(rawFrequency.city.name);
+      if (!site.hidden)
+        site.textContent = t("frequency.site", {
+          site: localize(rawFrequency.licensed_site),
+        });
       const note = field(row, "frequency-note");
       note.hidden = !rawFrequency.note;
       if (!note.hidden) note.textContent = localize(rawFrequency.note);
-      fragment.querySelector("li").dataset.search = normalize([localize(rawFrequency.city.name), localize(rawFrequency.licensed_site ?? ""), rawFrequency.value, localize(rawFrequency.display), rawFrequency.band].join(" ")).replaceAll(",", ".");
+      fragment.querySelector("li").dataset.search = normalize(
+        [
+          localize(rawFrequency.city.name),
+          localize(rawFrequency.licensed_site ?? ""),
+          rawFrequency.value,
+          localize(rawFrequency.display),
+          rawFrequency.band,
+        ].join(" "),
+      ).replaceAll(",", ".");
       const copy = row.querySelector('[data-action="copy-frequency"]');
       copy.dataset.copy = `${localize(rawFrequency.display)} ${rawFrequency.band} — ${localize(rawFrequency.city.name)}`;
       copy.hidden = !rawFrequency.value;
@@ -513,7 +614,9 @@ try {
   }
 
   function broadcastLanguagesFor(station) {
-    return station.broadcast_languages?.length ? station.broadcast_languages : ["und"];
+    return station.broadcast_languages?.length
+      ? station.broadcast_languages
+      : ["und"];
   }
 
   function broadcastLanguageLabel(code) {
@@ -525,8 +628,13 @@ try {
   }
 
   function sortedEntries(entries) {
-    const collator = new Intl.Collator(currentLocale(), { sensitivity: "base", numeric: true });
-    return [...entries].sort((a, b) => collator.compare(localize(a[1]), localize(b[1])));
+    const collator = new Intl.Collator(currentLocale(), {
+      sensitivity: "base",
+      numeric: true,
+    });
+    return [...entries].sort((a, b) =>
+      collator.compare(localize(a[1]), localize(b[1])),
+    );
   }
 
   function populateSelect(select, entries) {
@@ -573,26 +681,37 @@ try {
     for (const station of catalog.stations) {
       const { country } = station;
       if (locationCountry && country.code !== locationCountry) continue;
-      if (!groups.has(country.code)) groups.set(country.code, { country, cities: new Map() });
+      if (!groups.has(country.code))
+        groups.set(country.code, { country, cities: new Map() });
       const cities = groups.get(country.code).cities;
-      for (const city of [station.city, ...frequenciesFor(station).map(
-        (frequency) => ({ ...frequency.city, location_type: frequency.location_type }),
-      )]) {
-        if (!cities.has(city.slug) || !city.location_type) cities.set(city.slug, city);
+      for (const city of [
+        station.city,
+        ...frequenciesFor(station).map((frequency) => ({
+          ...frequency.city,
+          location_type: frequency.location_type,
+        })),
+      ]) {
+        if (!cities.has(city.slug) || !city.location_type)
+          cities.set(city.slug, city);
       }
     }
     select.replaceChildren(select.firstElementChild);
-    const countries = sortedEntries([...groups].map(([code, group]) => [code, group.country.name]));
+    const countries = sortedEntries(
+      [...groups].map(([code, group]) => [code, group.country.name]),
+    );
     for (const [code, name] of countries) {
       const group = document.createElement("optgroup");
       group.label = localize(name);
       group.lang = contentLanguage(name) ?? currentLocale();
       group.dir = "auto";
-      populateSelect(group, [...groups.get(code).cities].map(([slug, city]) => [
-        slug,
-        `${localize(city.name)}${city.location_type ? ` (${t(`frequency.${city.location_type}`)})` : ""}`,
-        contentLanguage(city.name),
-      ]));
+      populateSelect(
+        group,
+        [...groups.get(code).cities].map(([slug, city]) => [
+          slug,
+          `${localize(city.name)}${city.location_type ? ` (${t(`frequency.${city.location_type}`)})` : ""}`,
+          contentLanguage(city.name),
+        ]),
+      );
       select.append(group);
     }
     select.value = previous;
@@ -622,7 +741,10 @@ try {
         activeView === "all" ||
         article.dataset.modes.split(" ").includes(activeView);
       const visible =
-        matchesSearch && matchesFields && matchesCategory && matchesView &&
+        matchesSearch &&
+        matchesFields &&
+        matchesCategory &&
+        matchesView &&
         (!favoritesOnly || favorites.has(article.id));
       article.closest(".station-item").hidden = !visible;
       if (visible) {
@@ -635,6 +757,7 @@ try {
       }
       if (visible) count += 1;
     }
+    updateQueueControls();
     emptyState.hidden = count !== 0;
     resultCount.textContent = t("results", { count });
     resultCount.lang = messagesLanguage("results");
@@ -697,7 +820,13 @@ try {
     }
   }
 
-  const filterNames = ["search", "country", "city", "broadcast_language", "category"];
+  const filterNames = [
+    "search",
+    "country",
+    "city",
+    "broadcast_language",
+    "category",
+  ];
 
   function restoreUrlFilters() {
     if (!catalogLoaded) return;
@@ -710,13 +839,15 @@ try {
     }
     populateLocations(catalog);
     filters.elements.city.value = params.get("city") ?? "";
-    if (filters.elements.city.selectedIndex === -1) filters.elements.city.value = "";
+    if (filters.elements.city.selectedIndex === -1)
+      filters.elements.city.value = "";
     render();
   }
 
   function updateFilterUrl() {
     // Rebuild only when the country changes, preserving a compatible location.
-    if (locationCountry !== filters.elements.country.value) populateLocations(catalog);
+    if (locationCountry !== filters.elements.country.value)
+      populateLocations(catalog);
     // Filtering must remain usable when history updates are unavailable.
     render();
     try {
@@ -726,7 +857,8 @@ try {
         if (value) url.searchParams.set(name, value);
         else url.searchParams.delete(name);
       }
-      if (url.href !== location.href) history.replaceState(history.state, "", url);
+      if (url.href !== location.href)
+        history.replaceState(history.state, "", url);
     } catch (error) {
       console.warn("Filter URL could not be updated.", error);
       notify(t("action.error"));
@@ -734,10 +866,13 @@ try {
   }
 
   filters.addEventListener("input", handleAction(updateFilterUrl));
-  filters.addEventListener("submit", handleAction((event) => {
-    event.preventDefault();
-    updateFilterUrl();
-  }));
+  filters.addEventListener(
+    "submit",
+    handleAction((event) => {
+      event.preventDefault();
+      updateFilterUrl();
+    }),
+  );
   window.addEventListener("popstate", handleAction(restoreUrlFilters));
   function revealGuide() {
     if (["#guide-title", "#listening-guide"].includes(location.hash)) {
@@ -745,7 +880,10 @@ try {
     }
   }
   document.querySelector('.page-nav a[href="#guide-title"]').addEventListener(
-    "click", handleAction(() => { document.querySelector("#listening-guide").open = true; }),
+    "click",
+    handleAction(() => {
+      document.querySelector("#listening-guide").open = true;
+    }),
   );
   window.addEventListener("hashchange", handleAction(revealGuide));
   revealGuide();
@@ -756,37 +894,67 @@ try {
       requestAnimationFrame(handleAction(updateFilterUrl));
     }),
   );
-  favoritesFilter.addEventListener("click", handleAction(() => {
-    favoritesOnly = !favoritesOnly;
-    favoritesFilter.ariaPressed = String(favoritesOnly);
-    render();
-  }));
+  favoritesFilter.addEventListener(
+    "click",
+    handleAction(() => {
+      favoritesOnly = !favoritesOnly;
+      favoritesFilter.ariaPressed = String(favoritesOnly);
+      render();
+    }),
+  );
+  for (const button of document.querySelectorAll("[data-step]")) {
+    button.addEventListener(
+      "click",
+      handleAction(async () => {
+        const target = queueTarget(Number(button.dataset.step));
+        if (target) await player.toggle(target);
+      }),
+    );
+  }
   document.querySelector("#player-stop").addEventListener(
-    "click", handleAction(() => player.stop()),
+    "click",
+    handleAction(() => player.stop()),
   );
   document.querySelector("#player-retry").addEventListener(
-    "click", handleAction(async () => {
+    "click",
+    handleAction(async () => {
       if (selectedStation) await player.toggle(selectedStation);
     }),
   );
-  document.querySelector("#mini-toggle").addEventListener("click", handleAction(async () => {
-    if (selectedStation) await player.toggle(selectedStation);
-  }));
-  document.querySelector("#mini-stop").addEventListener("click", handleAction(() => player.stop()));
-  document.querySelector("#mini-expand").addEventListener("click", handleAction((event) => {
-    event.preventDefault();
-    expandPlayer();
-    scheduleCompactPlayer();
-  }));
+  document.querySelector("#mini-toggle").addEventListener(
+    "click",
+    handleAction(async () => {
+      if (selectedStation) await player.toggle(selectedStation);
+    }),
+  );
+  document.querySelector("#mini-stop").addEventListener(
+    "click",
+    handleAction(() => player.stop()),
+  );
+  document.querySelector("#mini-expand").addEventListener(
+    "click",
+    handleAction((event) => {
+      event.preventDefault();
+      expandPlayer();
+      scheduleCompactPlayer();
+    }),
+  );
   for (const event of ["scroll", "resize"]) {
-    window.addEventListener(event, handleAction(scheduleCompactPlayer), { passive: true });
+    window.addEventListener(event, handleAction(scheduleCompactPlayer), {
+      passive: true,
+    });
   }
-  window.visualViewport?.addEventListener("resize", handleAction(scheduleCompactPlayer), { passive: true });
+  window.visualViewport?.addEventListener(
+    "resize",
+    handleAction(scheduleCompactPlayer),
+    { passive: true },
+  );
   document.addEventListener("focusin", handleAction(scheduleCompactPlayer));
   // Observe text-size and content changes too, without measuring on every scroll tick.
   if ("ResizeObserver" in window) {
     const observer = new ResizeObserver(handleAction(scheduleCompactPlayer));
-    for (const node of [miniPlayer, playerPanel, document.documentElement]) observer.observe(node);
+    for (const node of [miniPlayer, playerPanel, document.documentElement])
+      observer.observe(node);
   }
   document
     .querySelector("#show-all")
@@ -828,21 +996,36 @@ try {
     }),
   );
 
-  stationsRoot.addEventListener("input", handleAction((event) => {
-    if (event.target.matches('[data-action="filter-frequencies"]')) filterFrequencies(event.target.closest(".station"));
-  }));
+  stationsRoot.addEventListener(
+    "input",
+    handleAction((event) => {
+      if (event.target.matches('[data-action="filter-frequencies"]'))
+        filterFrequencies(event.target.closest(".station"));
+    }),
+  );
 
   function refreshLocale() {
     if (!catalogLoaded) return;
     const values = new FormData(filters);
-    const frequencyQueries = new Map([...stationsRoot.querySelectorAll(".station")].map((card) => [card.id, card.querySelector('[data-action="filter-frequencies"]').value]));
-    const disclosures = new Map([...stationsRoot.querySelectorAll(".station")].map((article) => [
-      article.id, [...article.querySelectorAll("details")].map((details) => details.open),
-    ]));
+    const frequencyQueries = new Map(
+      [...stationsRoot.querySelectorAll(".station")].map((card) => [
+        card.id,
+        card.querySelector('[data-action="filter-frequencies"]').value,
+      ]),
+    );
+    const disclosures = new Map(
+      [...stationsRoot.querySelectorAll(".station")].map((article) => [
+        article.id,
+        [...article.querySelectorAll("details")].map((details) => details.open),
+      ]),
+    );
     const focused = document.activeElement;
     const focusedCard = focused.closest(".station");
     const focusIndex = focusedCard
-      ? [...focusedCard.querySelectorAll("a,button,summary,input")].indexOf(focused) : -1;
+      ? [...focusedCard.querySelectorAll("a,button,summary,input")].indexOf(
+          focused,
+        )
+      : -1;
     // Only rebuild catalog nodes: the shared audio and player containers stay mounted.
     const cards = catalog.stations.map(createStation);
     stationsRoot.replaceChildren(...cards);
@@ -856,9 +1039,11 @@ try {
     }
     populateLocations(catalog);
     filters.elements.city.value = values.get("city");
-    if (filters.elements.city.selectedIndex === -1) filters.elements.city.value = "";
+    if (filters.elements.city.selectedIndex === -1)
+      filters.elements.city.value = "";
     for (const article of stationsRoot.querySelectorAll(".station")) {
-      article.querySelector('[data-action="filter-frequencies"]').value = frequencyQueries.get(article.id) ?? "";
+      article.querySelector('[data-action="filter-frequencies"]').value =
+        frequencyQueries.get(article.id) ?? "";
       filterFrequencies(article);
       article.querySelectorAll("details").forEach((details, index) => {
         details.open = disclosures.get(article.id)?.[index] ?? false;
@@ -866,13 +1051,19 @@ try {
     }
     document.querySelector("#mini-expand").ariaLabel = t("player.expandLabel");
     if (selectedStation) {
-      updatePlayer({ station: stationsById.get(selectedStation.id), state: playbackState });
+      updatePlayer({
+        station: stationsById.get(selectedStation.id),
+        state: playbackState,
+      });
     }
     render();
     if (focusIndex >= 0) {
       const card = document.getElementById(focusedCard.id);
-      const target = card.querySelectorAll("a,button,summary,input")[focusIndex];
-      if (target?.getClientRects().length) target.focus({ preventScroll: true });
+      const target = card.querySelectorAll("a,button,summary,input")[
+        focusIndex
+      ];
+      if (target?.getClientRects().length)
+        target.focus({ preventScroll: true });
       else filters.elements.search.focus({ preventScroll: true });
     }
     clearTimeout(toastTimer);
@@ -894,7 +1085,10 @@ try {
     const { initTooltips } = await import("./tooltips.js");
     initTooltips();
   } catch (error) {
-    console.warn("Tooltips unavailable; accessible button labels remain available.", error);
+    console.warn(
+      "Tooltips unavailable; accessible button labels remain available.",
+      error,
+    );
   }
 } catch (error) {
   catalogLoaded = false;

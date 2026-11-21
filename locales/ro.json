@@ -141,5 +141,8 @@
   "player.playOnline": "Redă online",
   "frequency.radio": "Ascultă la radio",
   "frequency.hint": "Folosește un aparat FM sau AM/MW. Recepția depinde de loc și de programul de emisie. Redarea pe site folosește fluxul online.",
-  "frequency.checkedOnly": "Frecvențe publicate oficial · verificate la {checked}"
+  "frequency.checkedOnly": "Frecvențe publicate oficial · verificate la {checked}",
+  "player.previous": "Postul anterior",
+  "player.next": "Postul următor",
+  "player.queueHint": "Anterior și următor parcurg posturile care pot fi redate în browser din rezultatele filtrate."
 }

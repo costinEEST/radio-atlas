@@ -140,5 +140,8 @@
   "player.playOnline": "Play online",
   "frequency.radio": "Listen on a radio",
   "frequency.hint": "Tune an FM or AM/MW receiver. Reception depends on location and broadcast schedule. Play online uses the internet stream.",
-  "frequency.checkedOnly": "Officially listed · checked {checked}"
+  "frequency.checkedOnly": "Officially listed · checked {checked}",
+  "player.previous": "Previous station",
+  "player.next": "Next station",
+  "player.queueHint": "Previous and next follow playable stations in your filtered results."
 }
