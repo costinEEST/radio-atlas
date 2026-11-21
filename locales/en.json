@@ -145,5 +145,10 @@
   "player.next": "Next station",
   "player.queueHint": "Previous and next follow playable stations in your filtered results.",
   "presets.title": "Favorite presets",
-  "presets.hint": "Save stations with the star button for quick access here, across all filters."
+  "presets.hint": "Save stations with the star button for quick access here, across all filters.",
+  "dial.title": "Browse the FM dial",
+  "dial.hint": "Choose a location in the filters to browse its catalog frequencies. This dial does not receive or scan radio signals. Open a station for online listening options.",
+  "dial.empty": "No FM frequencies in the filtered results for this location.",
+  "dial.frequency": "FM frequency",
+  "dial.noMatch": "No catalog station at this frequency for the selected location."
 }

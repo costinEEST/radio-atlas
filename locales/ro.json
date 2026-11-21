@@ -146,5 +146,10 @@
   "player.next": "Postul următor",
   "player.queueHint": "Anterior și următor parcurg posturile care pot fi redate în browser din rezultatele filtrate.",
   "presets.title": "Posturi favorite",
-  "presets.hint": "Salvează posturi cu butonul stea pentru acces rapid aici, indiferent de filtre."
+  "presets.hint": "Salvează posturi cu butonul stea pentru acces rapid aici, indiferent de filtre.",
+  "dial.title": "Explorează scala FM",
+  "dial.hint": "Alege o localitate din filtre pentru a explora frecvențele din catalog. Această scală nu recepționează și nu scanează semnale radio. Deschide un post pentru opțiunile de ascultare online.",
+  "dial.empty": "Nicio frecvență FM în rezultatele filtrate pentru această localitate.",
+  "dial.frequency": "Frecvență FM",
+  "dial.noMatch": "Niciun post din catalog la această frecvență pentru localitatea selectată."
 }

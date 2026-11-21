@@ -158,6 +158,21 @@
           data-i18n="favorites.only">Favorites only</button>
         <p id="result-count" class="result-count" aria-live="polite" data-i18n="loading">Loading…</p>
       </header>
+      <details class="fm-dial" id="fm-dial">
+        <summary data-i18n="dial.title">Browse the FM dial</summary>
+        <p id="dial-hint" data-i18n="dial.hint">Choose a location in the filters to browse its catalog frequencies. This
+          dial does not receive or scan radio signals. Open a station for online listening options.</p>
+        <p id="dial-empty" data-i18n="dial.empty">No FM frequencies in the filtered results for this location.</p>
+        <div id="dial-controls" hidden>
+          <label for="fm-frequency" data-i18n="dial.frequency">FM frequency</label>
+          <input id="fm-frequency" type="range" min="87.5" max="108" step="0.1" value="87.5" dir="ltr"
+            aria-describedby="dial-hint">
+          <div class="dial-scale" aria-hidden="true"><span>87.5</span><span>98</span><span>108 MHz</span></div>
+          <p id="dial-value"></p>
+          <p id="dial-match" role="status"></p>
+          <ul id="dial-stations" class="preset-list" role="list"></ul>
+        </div>
+      </details>
       <section class="favorite-presets" aria-labelledby="presets-title">
         <h3 id="presets-title" data-i18n="presets.title">Favorite presets</h3>
         <p id="presets-hint" data-i18n="presets.hint">Save stations with the star button for quick access here, across

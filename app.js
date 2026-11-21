@@ -36,6 +36,8 @@ try {
   let activeView = "all";
   let favoritesOnly = false;
   let toastTimer;
+  let dialEntries = [];
+  let dialLocation = "";
 
   const normalize = (value) =>
     String(value)
@@ -718,6 +720,74 @@ try {
     if (select.selectedIndex === -1) select.value = "";
   }
 
+  function updateDialValue() {
+    const input = document.querySelector("#fm-frequency");
+    const value = Number(input.value);
+    const text = `${new Intl.NumberFormat(currentLocale(), { minimumFractionDigits: 1 }).format(value)} MHz FM`;
+    input.setAttribute("aria-valuetext", text);
+    document.querySelector("#dial-value").textContent = text;
+    const matches = dialEntries.filter(
+      (entry) => Math.abs(entry.value - value) < 0.01,
+    );
+    document.querySelector("#dial-match").textContent = matches.length
+      ? matches.map((entry) => entry.station.name).join(" · ")
+      : t("dial.noMatch");
+    for (const link of document.querySelectorAll("#dial-stations a")) {
+      if (Math.abs(Number(link.dataset.frequency) - value) < 0.01)
+        link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    }
+  }
+
+  function renderDial() {
+    const city = filters.elements.city.value;
+    const entries = [];
+    if (city)
+      for (const card of stationsRoot.querySelectorAll(
+        ".station-item:not([hidden]) .station",
+      )) {
+        const station = stationsById.get(card.id);
+        const seen = new Set();
+        for (const frequency of stationFrequencies.get(card)) {
+          const value = Number(frequency.value);
+          if (
+            frequency.city.slug !== city ||
+            !frequency.band.endsWith("FM") ||
+            value < 87.5 ||
+            value > 108 ||
+            seen.has(value)
+          )
+            continue;
+          seen.add(value);
+          entries.push({ station, value });
+        }
+      }
+    entries.sort(
+      (a, b) =>
+        a.value - b.value ||
+        a.station.name.localeCompare(b.station.name, currentLocale()),
+    );
+    dialEntries = entries;
+    document.querySelector("#dial-empty").hidden = !city || entries.length > 0;
+    document.querySelector("#dial-controls").hidden = entries.length === 0;
+    const input = document.querySelector("#fm-frequency");
+    if (entries.length && city !== dialLocation)
+      input.value = String(entries[0].value);
+    dialLocation = city;
+    const items = entries.map(({ station, value }) => {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `#${station.id}`;
+      link.dataset.frequency = String(value);
+      link.textContent = `${new Intl.NumberFormat(currentLocale(), { minimumFractionDigits: 1 }).format(value)} MHz · ${station.name}`;
+      link.dir = "auto";
+      item.append(link);
+      return item;
+    });
+    document.querySelector("#dial-stations").replaceChildren(...items);
+    updateDialValue();
+  }
+
   function renderPresets() {
     const root = document.querySelector("#presets");
     const focusedId = root.contains(document.activeElement)
@@ -804,6 +874,7 @@ try {
       if (visible) count += 1;
     }
     renderPresets();
+    renderDial();
     updateQueueControls();
     emptyState.hidden = count !== 0;
     resultCount.textContent = t("results", { count });
@@ -911,6 +982,30 @@ try {
       notify(t("action.error"));
     }
   }
+
+  document
+    .querySelector("#fm-frequency")
+    .addEventListener("input", handleAction(updateDialValue));
+  document.querySelector("#dial-stations").addEventListener(
+    "click",
+    handleAction((event) => {
+      const link = event.target.closest("a[data-frequency]");
+      if (!link) return;
+      event.preventDefault();
+      document.querySelector("#fm-frequency").value = link.dataset.frequency;
+      updateDialValue();
+      const card = document.getElementById(link.hash.slice(1));
+      card.tabIndex = -1;
+      card.focus({ preventScroll: true });
+      card.scrollIntoView({ block: "start", behavior: "instant" });
+      try {
+        history.pushState(history.state, "", link.href);
+      } catch (error) {
+        console.warn("Station fragment could not be updated.", error);
+        notify(t("action.error"));
+      }
+    }),
+  );
 
   filters.addEventListener("input", handleAction(updateFilterUrl));
   filters.addEventListener(

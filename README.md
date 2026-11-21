@@ -10,6 +10,8 @@ Save favorites on your device, access them from compact presets above the player
 
 A compact player keeps playback controls within reach while you browse, when screen space permits. Expand it to return to the full player, or use Back to filters after the results to change your search.
 
+Choose a location and open Browse the FM dial to explore its catalog frequencies from 87.5 to 108 MHz. Select a frequency entry to open its station card and online listening options. This is a catalog view; it does not scan or receive radio signals.
+
 The compact listening guide explains audio formats, data usage and radio frequencies. The catalog covers stations from several countries and is available in English and Romanian.
 
 Radio Atlas is an independent catalog. Station availability can change; unconfirmed information and playback limitations are noted in the listings.
